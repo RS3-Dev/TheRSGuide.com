@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState } from "react";
 
 interface InteractiveMapMarkerProps {
   src: string;
@@ -16,9 +16,9 @@ const defaultMarker = (
     style={{
       width: 32,
       height: 32,
-      transform: 'translate(-50%, -100%)',
-      pointerEvents: 'none',
-      userSelect: 'none',
+      transform: "translate(-50%, -100%)",
+      pointerEvents: "none",
+      userSelect: "none",
     }}
     draggable={false}
   />
@@ -35,21 +35,30 @@ export const InteractiveMapMarker: React.FC<InteractiveMapMarkerProps> = ({
 
   const handleDoubleClick = (e: React.MouseEvent<HTMLImageElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top + 16) / rect.height) * 100;
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top + 16; // Add marker height (32px) to account for transform(-100%)
     setMarker({ x, y });
   };
 
   return (
     <div
-      style={{ position: 'relative', display: 'inline-block' }}
-      className={`select-none w-full ${className || ''}`}
+      style={{
+        position: "relative",
+        display: "inline-block",
+        overflow: "visible",
+      }}
+      className={`select-none w-full ${className || ""}`}
     >
       <img
         ref={imgRef}
         src={src}
         alt={alt}
-        style={{ display: 'block', width: '100%', height: 'auto', cursor: 'pointer' }}
+        style={{
+          display: "block",
+          width: "100%",
+          height: "auto",
+          cursor: "pointer",
+        }}
         onDoubleClick={handleDoubleClick}
         draggable={false}
         className="select-none rounded-lg"
@@ -57,11 +66,14 @@ export const InteractiveMapMarker: React.FC<InteractiveMapMarkerProps> = ({
       {marker && (
         <div
           style={{
-            position: 'absolute',
-            left: `${marker.x}%`,
-            top: `${marker.y}%`,
+            position: "absolute",
+            left: `${marker.x}px`,
+            top: `${marker.y}px`,
             zIndex: 2,
-            pointerEvents: 'none',
+            pointerEvents: "none",
+            width: "32px",
+            height: "32px",
+            flexShrink: 0,
           }}
         >
           {markerIcon || defaultMarker}
