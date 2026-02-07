@@ -28,7 +28,7 @@ export default function HomePage() {
           </p>
 
           {/* Combat styles - simple inline links */}
-          <div className="flex flex-wrap justify-center gap-6 mt-12 text-[var(--text-muted)]">
+          <div className="flex flex-wrap justify-center gap-6 mt-20 text-[var(--text-muted)]">
             <Link href="/getting-started/melee" className="hover:text-[var(--gold)] transition-colors">
               Melee
             </Link>
@@ -47,7 +47,7 @@ export default function HomePage() {
           </div>
 
           {/* Main navigation */}
-          <div className="flex flex-wrap justify-center gap-4 mt-16">
+          <div className="flex flex-wrap justify-center gap-4 mt-8">
             <Link
               href="/setup"
               className="px-6 py-3 bg-[var(--gold)] text-[var(--bg-base)] font-medium hover:opacity-90 transition-opacity"
