@@ -1,0 +1,381 @@
+{
+  "magic": {
+    "weapons": [
+      {
+        "name": "Caitlyn's Staff",
+        "tier": 1,
+        "description": [
+          ""
+        ]
+      },
+      {
+        "name": "Batwing Wand + Batwing Book",
+        "tier": 30,
+        "description": [
+          ""
+        ]
+      },
+      {
+        "name": "Mystic Wand + Mystic Orb",
+        "tier": 50,
+        "description": ""
+      },
+      {
+        "name": "Guthix Staff",
+        "tier": 60,
+        "description": ""
+      },
+      {
+        "name": "Vanquish or Abyssal Wand + Abyssal Orb",
+        "tier": 75,
+        "description": ""
+      },
+      {
+        "name": "Chaotic Staff or Virtus Wand + Virtus Book",
+        "tier": 80,
+        "description": ""
+      },
+      {
+        "name": "Wand of the Cywir Elders + Virtus Book",
+        "tier": 85,
+        "description": ""
+      },
+      {
+        "name": "Obliteration Staff",
+        "tier": 87,
+        "description": ""
+      },
+      {
+        "name": "Seismic Wand + Singularity or Noxious Staff",
+        "tier": 90,
+        "description": ""
+      },
+      {
+        "name": "Roar of Awakening + Ode to Deceit or Fractured Staff of Armadyl",
+        "tier": 95,
+        "description": ""
+      }
+    ],
+    "armour": [
+      {
+        "name": "Wizard Robes",
+        "tier": 1,
+        "description": [
+          ""
+        ]
+      },
+      {
+        "name": "Batwing Armour",
+        "tier": 30,
+        "description": [
+          ""
+        ]
+      },
+      {
+        "name": "Mystic Robes",
+        "tier": 50,
+        "description": ""
+      },
+      {
+        "name": "Subjugation Armour",
+        "tier": 70,
+        "description": ""
+      },
+      {
+        "name": "Ganodermic Armour",
+        "tier": 75,
+        "description": ""
+      },
+      {
+        "name": "Tectonic Armour",
+        "tier": 90,
+        "description": ""
+      },
+      {
+        "name": "Tumaken's Resplendence",
+        "tier": 95,
+        "description": ""
+      }
+    ]
+  },
+  "ranged": {
+    "weapons": [
+      {
+        "name": "Kayle's Chargebow",
+        "tier": 1,
+        "description": [
+          ""
+        ]
+      },
+      {
+        "name": "Maple Shortbow",
+        "tier": 30,
+        "description": [
+          ""
+        ]
+      },
+      {
+        "name": "Gray Chinchompa + Offhand Adamant Crossbow",
+        "tier": 45,
+        "description": ""
+      },
+      {
+        "name": "Rune Crossbows",
+        "tier": 50,
+        "description": ""
+      },
+      {
+        "name": "Red Chinchompa + Offhand Rune Crossbow",
+        "tier": 55,
+        "description": ""
+      },
+      {
+        "name": "Black Salamander",
+        "tier": 70,
+        "description": ""
+      },
+      {
+        "name": "Vanquish or Mechanized Chinchompas + Offhand Armadyl Crossbow",
+        "tier": 75,
+        "description": ""
+      },
+      {
+        "name": "Royal Crossbow",
+        "tier": 80,
+        "description": ""
+      },
+      {
+        "name": "Decimation Bow",
+        "tier": 87,
+        "description": ""
+      },
+      {
+        "name": "Ascension Crossbows",
+        "tier": 90,
+        "description": ""
+      },
+      {
+        "name": "Bow of the Last Guardian",
+        "tier": 95,
+        "description": ""
+      }
+    ],
+    "armour": [
+      {
+        "name": "Leather Armour",
+        "tier": 1,
+        "description": [
+          ""
+        ]
+      },
+      {
+        "name": "Carapace Armour",
+        "tier": 30,
+        "description": [
+          ""
+        ]
+      },
+      {
+        "name": "Blue Dragonhide Armour",
+        "tier": 50,
+        "description": ""
+      },
+      {
+        "name": "Black Dragonhide Armour",
+        "tier": 60,
+        "description": ""
+      },
+      {
+        "name": "Armadyl Armour",
+        "tier": 70,
+        "description": ""
+      },
+      {
+        "name": "Undead Dragonhide Armour",
+        "tier": 75,
+        "description": ""
+      },
+      {
+        "name": "Sirenic Armour",
+        "tier": 90,
+        "description": ""
+      },
+      {
+        "name": "Elite Dracolich",
+        "tier": 95,
+        "description": ""
+      }
+    ]
+  },
+  "melee": {
+    "weapons": [
+      {
+        "name": "Reeses' Swords",
+        "tier": 1,
+        "description": [
+          ""
+        ]
+      },
+      {
+        "name": "Mithril Halberd",
+        "tier": 30,
+        "description": [
+          ""
+        ]
+      },
+      {
+        "name": "Adamant Halberd",
+        "tier": 40,
+        "description": ""
+      },
+      {
+        "name": "Rune Halberd",
+        "tier": 50,
+        "description": ""
+      },
+      {
+        "name": "Dragon Halberd",
+        "tier": 60,
+        "description": ""
+      },
+      {
+        "name": "Masuta's Warspear",
+        "tier": 82,
+        "description": ""
+      },
+      {
+        "name": "Dragon Rider Lance",
+        "tier": 85,
+        "description": ""
+      },
+      {
+        "name": "Ek-Zekkil",
+        "tier": 95,
+        "description": ""
+      }
+    ],
+    "armour": [
+      {
+        "name": "Bronze Armour",
+        "tier": 1,
+        "description": [
+          ""
+        ]
+      },
+      {
+        "name": "Mithril Armour",
+        "tier": 30,
+        "description": [
+          ""
+        ]
+      },
+      {
+        "name": "Rune Armour",
+        "tier": 50,
+        "description": ""
+      },
+      {
+        "name": "Bandos Armour",
+        "tier": 70,
+        "description": ""
+      },
+      {
+        "name": "Masterwork Melee Armour or Malevolent Armour",
+        "tier": 90,
+        "description": ""
+      },
+      {
+        "name": "Vestments of Havoc",
+        "tier": 95,
+        "description": ""
+      }
+    ]
+  },
+  "necromancy": {
+    "weapons": [
+      {
+        "name": "Death Guard + Skull Lantern",
+        "tier": 30,
+        "description": [
+          ""
+        ]
+      },
+      {
+        "name": "Death Guard + Skull Lantern",
+        "tier": 50,
+        "description": ""
+      },
+      {
+        "name": "Death Guard + Skull Lantern",
+        "tier": 60,
+        "description": ""
+      },
+      {
+        "name": "Death Guard + Skull Lantern",
+        "tier": 70,
+        "description": ""
+      },
+      {
+        "name": "Death Guard + Skull Lantern",
+        "tier": 80,
+        "description": ""
+      },
+      {
+        "name": "Death Guard + Skull Lantern",
+        "tier": 90,
+        "description": ""
+      },
+      {
+        "name": "Devourer Guard + Soulbound Lantern",
+        "tier": 95,
+        "description": ""
+      }
+    ],
+    "armour": [
+      {
+        "name": "Deathwarden Armour",
+        "tier": 1,
+        "description": [
+          ""
+        ]
+      },
+      {
+        "name": "Deathwarden Armour",
+        "tier": 30,
+        "description": [
+          ""
+        ]
+      },
+      {
+        "name": "Deathwarden Armour",
+        "tier": 50,
+        "description": ""
+      },
+      {
+        "name": "Deathwarden Armour",
+        "tier": 60,
+        "description": ""
+      },
+      {
+        "name": "Deathwarden Armour or Deathdealer Armour",
+        "tier": 70,
+        "description": ""
+      },
+      {
+        "name": "Deathwarden Armour or Deathdealer Armour",
+        "tier": 80,
+        "description": ""
+      },
+      {
+        "name": "Deathwarden Armour or Deathdealer Armour",
+        "tier": 90,
+        "description": ""
+      },
+      {
+        "name": "First Necromancer Set",
+        "tier": 95,
+        "description": ""
+      }
+    ]
+  }
+}

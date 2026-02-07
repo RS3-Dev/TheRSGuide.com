@@ -41,7 +41,7 @@ const SkillButton: React.FC<{
 };
 
 export const SkillTrainingLookup: React.FC = () => {
-  const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
+  const [selectedSkill, setSelectedSkill] = useState<string | null>("attack");
 
   return (
     <div className="space-y-4">

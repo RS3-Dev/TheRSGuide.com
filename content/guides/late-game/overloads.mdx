@@ -9,13 +9,14 @@ description: Essential potions for endgame PvM
 
 ## Requirements
 
-<PlayerSearch />
-
 <QuestRequirements
-  skills={[
-    { skill: "Herblore", level: 96 }
-  ]}
-  quests={["Evil Dave's Big Day Out"]}
+  manualRequirements={{
+    quest: "Overloads",
+    quests: [],
+    totalSkills: [
+      { skill: "Herblore", level: 96 }
+    ],
+  }}
 />
 
 <Card title="Overload on RS Wiki" href="https://runescape.wiki/w/Overload" />

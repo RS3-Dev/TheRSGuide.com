@@ -4,10 +4,18 @@ import React, { useMemo, useState, useEffect, useCallback } from "react";
 import { usePlayerData } from "./player-data-context";
 import { resolveAllRequirements, QuestTreeNode } from "@/utils/quest-requirements";
 import { SkillDrawer } from "./skill-drawer";
+import questsData from "../../../public/quests.json";
 
 interface SkillRequirement {
   skill: string;
   level: number;
+}
+
+interface ManualRequirements {
+  quest?: string;
+  quests?: string[];
+  totalSkills?: SkillRequirement[];
+  other?: string[];
 }
 
 interface QuestRequirementsProps {
@@ -15,6 +23,7 @@ interface QuestRequirementsProps {
   skills?: SkillRequirement[];
   quests?: string[];
   other?: string[];
+  manualRequirements?: ManualRequirements;
 }
 
 interface SkillRequirementItemProps {
@@ -125,11 +134,52 @@ export const QuestRequirements: React.FC<QuestRequirementsProps> = ({
   skills = [],
   quests = [],
   other = [],
+  manualRequirements,
 }) => {
   const { playerData, loading, error, lastSearch, searchPlayer } = usePlayerData();
   const [selectedSkill, setSelectedSkill] = useState<{ skill: string; level: number } | null>(null);
   const [inputValue, setInputValue] = useState(lastSearch);
   const [debounceTimer, setDebounceTimer] = useState<NodeJS.Timeout | null>(null);
+
+  // Look up quest data from JSON if questName is provided
+  const questFromJson = useMemo(() => {
+    if (manualRequirements) return null; // Manual overrides skip JSON lookup
+    if (!questName) return null;
+    return questsData.Quests.find(
+      (q: { name: string }) => q.name.toLowerCase() === questName.toLowerCase()
+    );
+  }, [questName, manualRequirements]);
+
+  // Determine the effective requirements
+  const effectiveRequirements = useMemo(() => {
+    // Manual requirements take priority
+    if (manualRequirements) {
+      return {
+        name: manualRequirements.quest || questName || "",
+        skills: manualRequirements.totalSkills || [],
+        quests: manualRequirements.quests || [],
+        other: other,
+      };
+    }
+
+    // Use quest from JSON if found
+    if (questFromJson) {
+      return {
+        name: questFromJson.name,
+        skills: questFromJson.requirements?.skill || [],
+        quests: questFromJson.requirements?.quest || [],
+        other: other,
+      };
+    }
+
+    // Fall back to props (legacy behavior)
+    return {
+      name: questName || "",
+      skills: skills,
+      quests: quests,
+      other: other,
+    };
+  }, [manualRequirements, questFromJson, questName, skills, quests, other]);
 
   // Sync input with lastSearch
   useEffect(() => {
@@ -176,14 +226,19 @@ export const QuestRequirements: React.FC<QuestRequirementsProps> = ({
 
   // Recursively resolve all requirements
   const resolved = useMemo(() => {
-    return resolveAllRequirements(quests, skills, other);
-  }, [quests, skills, other]);
+    return resolveAllRequirements(
+      effectiveRequirements.quests,
+      effectiveRequirements.skills,
+      effectiveRequirements.other
+    );
+  }, [effectiveRequirements]);
 
   const hasSkills = resolved.skills.length > 0;
   const hasQuests = resolved.questTree.length > 0;
   const hasOther = resolved.other.length > 0;
 
-  if (!hasSkills && !hasQuests && !hasOther) {
+  // Only show the empty state if there's no quest name and no requirements at all
+  if (!effectiveRequirements.name && !hasSkills && !hasQuests && !hasOther) {
     return (
       <div className="my-4 p-4 border border-fd-border rounded-lg bg-fd-muted/20">
         <p className="text-fd-muted-foreground">No requirements for this content.</p>
@@ -195,16 +250,16 @@ export const QuestRequirements: React.FC<QuestRequirementsProps> = ({
     <>
       <div className="my-4 border border-fd-border rounded-lg bg-fd-card overflow-hidden">
         {/* Wiki Link Header */}
-        {questName && (
+        {effectiveRequirements.name && (
           <a
-            href={`https://runescape.wiki/w/${questName.replace(/ /g, "_")}/Quick_guide`}
+            href={`https://runescape.wiki/w/${effectiveRequirements.name.replace(/ /g, "_")}/Quick_guide`}
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center justify-between w-full px-4 bg-fd-primary/10 border-b border-fd-border hover:bg-fd-primary/20 transition-colors"
           >
             <div className="flex items-center gap-3">
               <img src="/images/favicon/wiki-favicon.ico" alt="" className="w-5 h-5" />
-              <span className="font-medium text-fd-foreground">{questName} quest guide</span>
+              <span className="font-medium text-fd-foreground">{effectiveRequirements.name} quest guide</span>
             </div>
             <svg className="w-4 h-4 text-fd-muted-foreground group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -277,14 +332,14 @@ export const QuestRequirements: React.FC<QuestRequirementsProps> = ({
 
           <div className="flex flex-col md:flex-row gap-6">
             {/* Skills Column */}
-            {hasSkills && (
-              <div className="flex-1">
-                <h4 className="text-sm font-semibold text-fd-foreground mb-3 flex items-center gap-2">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                  Skill Requirements
-                </h4>
+            <div className="flex-1">
+              <h4 className="text-sm font-semibold text-fd-foreground mb-3 flex items-center gap-2">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                Skill Requirements
+              </h4>
+              {hasSkills ? (
                 <div className="space-y-1">
                   {resolved.skills.map((req, idx) => (
                     <SkillRequirementItem
@@ -295,25 +350,29 @@ export const QuestRequirements: React.FC<QuestRequirementsProps> = ({
                     />
                   ))}
                 </div>
-              </div>
-            )}
+              ) : (
+                <p className="text-sm text-fd-muted-foreground">No skill requirements</p>
+              )}
+            </div>
 
             {/* Quests Column */}
-            {hasQuests && (
-              <div className="flex-1">
-                <h4 className="text-sm font-semibold text-fd-foreground mb-3 flex items-center gap-2">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  Quest Requirements ({resolved.quests.length})
-                </h4>
+            <div className="flex-1">
+              <h4 className="text-sm font-semibold text-fd-foreground mb-3 flex items-center gap-2">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Quest Requirements {hasQuests && `(${resolved.quests.length})`}
+              </h4>
+              {hasQuests ? (
                 <div className="space-y-1">
                   {resolved.questTree.map((tree, idx) => (
                     <QuestTreeItem key={`${tree.name}-${idx}`} node={tree} />
                   ))}
                 </div>
-              </div>
-            )}
+              ) : (
+                <p className="text-sm text-fd-muted-foreground">No quest requirements</p>
+              )}
+            </div>
           </div>
 
           {/* Other Requirements */}
