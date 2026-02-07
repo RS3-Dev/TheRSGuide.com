@@ -9,6 +9,7 @@ RUN npm ci
 
 COPY src ./src
 COPY content ./content
+COPY public ./public
 COPY next.config.mjs postcss.config.mjs ./
 
 RUN npm run build
@@ -24,9 +25,9 @@ RUN npm ci --omit=dev --ignore-scripts
 
 COPY --from=base /app/.next ./.next
 COPY --from=base /app/content ./content
+COPY --from=base /app/public ./public
 COPY --from=base /app/next.config.mjs ./
 COPY --from=base /app/source.config.ts ./
-RUN mkdir -p ./public
 
 EXPOSE 3000
 ENV PORT=3000
