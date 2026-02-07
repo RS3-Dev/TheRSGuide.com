@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import gearData from '../../../public/gear-by-style.json';
+import gearData from 'public/data/gear-by-style.json';
 
 type CombatStyle = 'magic' | 'ranged' | 'melee' | 'necromancy';
 

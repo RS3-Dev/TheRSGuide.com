@@ -4,7 +4,7 @@ import React, { useMemo, useState, useEffect, useCallback } from "react";
 import { usePlayerData } from "./player-data-context";
 import { resolveAllRequirements, QuestTreeNode } from "@/utils/quest-requirements";
 import { SkillDrawer } from "./skill-drawer";
-import questsData from "../../../public/quests.json";
+import questsData from "public/data/quests.json";
 
 interface SkillRequirement {
   skill: string;
