@@ -5,72 +5,77 @@ description: Configure target selection and target cycling settings
 
 This section changes how you target NPCs and the information you see when targeted.
 
-*Target information*
+---
 
-Displays information about a target when hovering over them, should be toggled on.
+## Display Settings
+
+### Target Information
+
+Displays information about a target when hovering over them. Should be **enabled**.
+
+### Target Reticules
 
 <SplitContent>
-  <SplitItem width={70}>
-*Target reticules*
+  <SplitItem width={50}>
 
 Displays a small ring around targets that are interacting with you. **Red** is for targets you are attacking, **yellow** for targets that are attacking you.
+
   </SplitItem>
-  <SplitItem width={30}>
+  <SplitItem width={50}>
     ![Target Reticules](https://www.thersguide.com/1756997352284-Screenshot_2025-08-30_at_1.15.11_am.jpg)
   </SplitItem>
 </SplitContent>
 
-*Target scenery with targeted movement abilities*
+### Target Scenery with Targeted Movement Abilities
 
-This means that the Dive ability can be targeted on scenery such as trees. This should be toggled off.
+This means that the Dive ability can be targeted on scenery such as trees. Should be **disabled**.
 
 ---
 
 ## Target Cycle
 
-The rest of the settings in this section are related to target cycling, often called tab targeting in other games. Target cycling allows you to press a keybind to target nearby NPCs rather than having to click the NPC with your mouse. RuneScape's implementation has a few quirks, but is very useful and worth configuring.
+Target cycling, often called tab targeting in other games, allows you to press a keybind to target nearby NPCs rather than having to click the NPC with your mouse. RuneScape's implementation has a few quirks, but is very useful and worth configuring.
 
-*There are three keybinds you can set up:*
+### Keybinds
 
-- Cycle target - Forwards
-- Cycle target - Backwards
-- Direct targeting
+There are three keybinds you can set up:
 
 ![Target Cycle Keybinds](https://www.thersguide.com/1756997387459-Screenshot_2025-09-03_at_1.36.04_am.jpg)
 
 <SplitContent>
   <SplitItem width={50}>
-*Cycle target - Forwards*
+
+**Cycle Target - Forwards**
 
 This will target the NPC closest to you. When pressed again, it will attempt to cycle through other available targets, in order from closest to farthest.
 
-*Cycle target - Backwards*
+**Cycle Target - Backwards**
 
 This will do the exact opposite. It will initially target the farthest NPC from you within the target cycle range, and when pressed again, will cycle through targets in order from farthest to closest.
+
   </SplitItem>
   <SplitItem width={50}>
     ![Target Cycle Gif](https://www.thersguide.com/1757008612517-tcfastly.gif)
   </SplitItem>
 </SplitContent>
 
-*Direct targeting*
+**Direct Targeting**
 
 This will allow you to select a specific target within your range after pressing the keybind. It is similar to simply clicking on a target with your mouse, but it will target the NPC without initiating combat. Because of this, it is rarely used and can be disregarded.
 
-Most players will want to set a comfortable keybind to 'Cycle Target - Forwards' and ignore the other two choices.
+> Most players will want to set a comfortable keybind to "Cycle Target - Forwards" and ignore the other two choices.
 
 ---
 
 ## Targeting Modes
 
-*There are two targeting modes to select between:*
-
-- Radial
-- Conal
+There are two targeting modes to select between:
 
 <SplitContent>
   <SplitItem width={60}>
+
 **Radial** target cycling selects targets based on rings around your character. This means that any targets around your character can be selected.
+
   </SplitItem>
   <SplitItem width={40}>
     ![Radial Target Cycle](https://www.thersguide.com/1756997352278-radius.png)
@@ -82,27 +87,35 @@ Most players will want to set a comfortable keybind to 'Cycle Target - Forwards'
     ![Conal Target Cycle](https://www.thersguide.com/1756997352275-cone.png)
   </SplitItem>
   <SplitItem width={60}>
+
 **Conal** target cycling selects targets within a conal area based on your camera positioning, not your character positioning. This means that you can face the area of NPCs you wish to target, and areas outside of this cone will be ignored.
+
   </SplitItem>
 </SplitContent>
 
-It is recommended to use radial, as it will encompass the whole area around the character.
+> It is recommended to use **radial**, as it will encompass the whole area around the character.
 
-*Maximum target distance*
+---
 
-The maximum target distance determines how far the rings or cone will reach and register targets. This should be set to 9.
+## Additional Settings
 
-*Set maximum target distance to weapon distance*
+### Maximum Target Distance
 
-The setting will automatically set the maximum target cycle range to be your weapon attack range. If you have a magic weapon equipped, it will set your maximum target cycle range to 8, as that is the attack range for magic weapons. This should always be turned off, as it can cause issues with weapons that have a lower attack range such as while meleeing.
+The maximum target distance determines how far the rings or cone will reach and register targets. Should be set to **9**.
 
-*PvP area target selection*
+### Set Maximum Target Distance to Weapon Distance
 
-Lastly, there is a toggle to decide whether NPCs, players, or both will be selected whilst target cycling. Change as you see fit.
+This setting will automatically set the maximum target cycle range to be your weapon attack range. If you have a magic weapon equipped, it will set your maximum target cycle range to 8, as that is the attack range for magic weapons. Should be **disabled**, as it can cause issues with weapons that have a lower attack range such as while meleeing.
+
+### PvP Area Target Selection
+
+A toggle to decide whether NPCs, players, or both will be selected whilst target cycling. Change as you see fit.
 
 ---
 
 ## Tips
 
 - If no target is found when initially pressed, there is an internal cooldown of a few ticks, so it is not advised to spam this button while trying to tag a spawning NPC.
-- It is also worth noting that using target cycle will not activate any abilities for you. You will need to manually activate a primary ability, even if using revolution. However, if you click on a target, revolution will automatically start using abilities.
+- Using target cycle will not activate any abilities for you. You will need to manually activate a primary ability, even if using revolution. However, if you click on a target, revolution will automatically start using abilities.
+
+<div className="h-8" />

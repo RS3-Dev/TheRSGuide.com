@@ -27,22 +27,27 @@
 }
 
 .dark {
+  /* Backgrounds */
   --color-fd-background: #0a0908;
-  --color-fd-foreground: #e8dcc4;
   --color-fd-muted: #1a1510;
-  --color-fd-muted-foreground: #6b5c4a;
   --color-fd-popover: #141210;
-  --color-fd-popover-foreground: #e8dcc4;
   --color-fd-card: #141210;
-  --color-fd-card-foreground: #e8dcc4;
-  --color-fd-border: #2d2620;
-  --color-fd-primary: #c9a227;
-  --color-fd-primary-foreground: #0a0908;
   --color-fd-secondary: #1a1510;
-  --color-fd-secondary-foreground: #e8dcc4;
   --color-fd-accent: #1f1a14;
-  --color-fd-accent-foreground: #e8dcc4;
-  --color-fd-ring: #c9a227;
+
+  /* Text - two tones only: cream (#efe4d2) and copper (#CC9A63) */
+  --color-fd-foreground: #efe4d2;
+  --color-fd-muted-foreground: #CC9A63;
+  --color-fd-popover-foreground: #efe4d2;
+  --color-fd-card-foreground: #efe4d2;
+  --color-fd-secondary-foreground: #CC9A63;
+  --color-fd-accent-foreground: #efe4d2;
+
+  /* Accent & borders */
+  --color-fd-primary: #CC9A63;
+  --color-fd-primary-foreground: #0a0908;
+  --color-fd-border: rgba(204, 154, 99, 0.25);
+  --color-fd-ring: #CC9A63;
 }
 
 /* ================================
@@ -69,20 +74,21 @@
 }
 
 :is(.dark) {
-  --gold: #c9a227;
-  --gold-hover: #a6861f;
+  /* Two-tone text system: cream for primary, copper for everything else */
+  --gold: #CC9A63;
+  --gold-hover: #efe4d2;
 
   --bg-base: #0a0908;
   --bg-warm: #1a1510;
-  --bg-card: rgba(201, 162, 39, 0.03);
+  --bg-card: rgba(204, 154, 99, 0.03);
 
-  --text-primary: #e8dcc4;
-  --text-secondary: #a69882;
-  --text-muted: #6b5c4a;
+  --text-primary: #efe4d2;
+  --text-secondary: #CC9A63;
+  --text-muted: #CC9A63;
 
-  --border-subtle: rgba(107, 92, 74, 0.2);
-  --border-hover: rgba(107, 92, 74, 0.4);
-  --ornament: rgba(201, 162, 39, 0.4);
+  --border-subtle: rgba(204, 154, 99, 0.2);
+  --border-hover: rgba(204, 154, 99, 0.4);
+  --ornament: rgba(204, 154, 99, 0.4);
 }
 
 /* Cinzel for all headings */
@@ -103,11 +109,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 :is(.dark) .homepage-gradient {
-  background: radial-gradient(ellipse at top, #1a1510 0%, #0a0908 70%);
+  background: transparent;
 }
 
 :is(.dark) .homepage-vignette {
-  background: radial-gradient(circle at center, transparent 0%, #0a0908 90%);
+  background: transparent;
 }
 
 /* ================================
@@ -121,6 +127,62 @@ h1, h2, h3, h4, h5, h6 {
   to {
     opacity: 1;
   }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.animate-fade-out {
+  animation: fade-out 0.2s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease-out forwards;
+}
+
+.animate-slide-out-right {
+  animation: slide-out-right 0.2s ease-out forwards;
+}
+
+/* Drawer animations */
+.drawer-enter-overlay {
+  animation: fade-in 0.2s ease-out forwards;
+}
+
+.drawer-exit-overlay {
+  animation: fade-out 0.2s ease-out forwards;
+}
+
+.drawer-enter-content {
+  animation: slide-in-right 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.drawer-exit-content {
+  animation: slide-out-right 0.2s ease-out forwards;
 }
 
 @keyframes fade-in-up {

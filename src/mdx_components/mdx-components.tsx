@@ -9,6 +9,7 @@ import { PlayerSearch } from './components/player-search';
 import { QuestRequirements } from './components/quest-requirements';
 import { SkillTrainingLookup } from './components/skill-training-lookup';
 import { InteractiveMapMarker } from './components/interactive-map-marker';
+import { CombatStyleAnalysis } from './components/combat-style-analysis';
 
 // use this function to get MDX components, you will need it for rendering MDX
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
@@ -29,6 +30,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     QuestRequirements,
     SkillTrainingLookup,
     InteractiveMapMarker,
+    CombatStyleAnalysis,
     ...components,
   };
 }

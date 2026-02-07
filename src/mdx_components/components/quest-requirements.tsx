@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React, { useMemo, useState, useEffect, useCallback } from "react";
 import { usePlayerData } from "./player-data-context";
 import { resolveAllRequirements, QuestTreeNode } from "@/utils/quest-requirements";
+import { SkillDrawer } from "./skill-drawer";
 
 interface SkillRequirement {
   skill: string;
@@ -10,12 +11,19 @@ interface SkillRequirement {
 }
 
 interface QuestRequirementsProps {
+  questName?: string;
   skills?: SkillRequirement[];
   quests?: string[];
   other?: string[];
 }
 
-const SkillRequirementItem: React.FC<{ skill: string; level: number }> = ({ skill, level }) => {
+interface SkillRequirementItemProps {
+  skill: string;
+  level: number;
+  onClick: () => void;
+}
+
+const SkillRequirementItem: React.FC<SkillRequirementItemProps> = ({ skill, level, onClick }) => {
   const { playerData, getSkillLevel } = usePlayerData();
 
   const playerLevel = getSkillLevel(skill);
@@ -26,13 +34,14 @@ const SkillRequirementItem: React.FC<{ skill: string; level: number }> = ({ skil
   const skillLower = skill.toLowerCase();
 
   return (
-    <div
-      className={`flex items-center gap-2 px-3 py-2 rounded-md border text-left text-sm w-full ${
+    <button
+      onClick={onClick}
+      className={`flex items-center gap-2 px-3 py-2 rounded-md border text-left text-sm w-full transition-colors cursor-pointer ${
         !showStatus
-          ? "border-fd-border bg-fd-muted/30"
+          ? "border-fd-border bg-fd-muted/30 hover:bg-fd-muted/50"
           : hasRequirement
-          ? "border-green-500/50 bg-green-500/10 text-green-700 dark:text-green-400"
-          : "border-red-500/50 bg-red-500/10 text-red-700 dark:text-red-400"
+          ? "border-[#7d9a78]/50 bg-[#7d9a78]/10 text-[#3d6b35] dark:text-[#a8c4a2] hover:bg-[#7d9a78]/20"
+          : "border-[#a07878]/50 bg-[#a07878]/10 text-[#8b4d4d] dark:text-[#c4a2a2] hover:bg-[#a07878]/20"
       }`}
     >
       <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 16 16" fill="none">
@@ -41,14 +50,18 @@ const SkillRequirementItem: React.FC<{ skill: string; level: number }> = ({ skil
       <span className="flex-1">{level} {capitalizedSkill}</span>
       {showStatus && (
         hasRequirement ? (
-          <svg className="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 text-[#7d9a78] dark:text-[#a8c4a2] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         ) : (
           <span className="text-xs text-fd-muted-foreground flex-shrink-0">({playerLevel ?? 1})</span>
         )
       )}
-    </div>
+      {/* Training guide indicator */}
+      <svg className="w-3 h-3 opacity-40 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
   );
 };
 
@@ -70,8 +83,8 @@ const QuestRequirementItem: React.FC<{ quest: string; depth?: number }> = ({ que
         !showStatus
           ? "border-fd-border bg-fd-muted/30 hover:bg-fd-muted/50"
           : completed
-          ? "border-green-500/50 bg-green-500/10 text-green-700 dark:text-green-400 hover:bg-green-500/20"
-          : "border-red-500/50 bg-red-500/10 text-red-700 dark:text-red-400 hover:bg-red-500/20"
+          ? "border-[#7d9a78]/50 bg-[#7d9a78]/10 text-[#3d6b35] dark:text-[#a8c4a2] hover:bg-[#7d9a78]/20"
+          : "border-[#a07878]/50 bg-[#a07878]/10 text-[#8b4d4d] dark:text-[#c4a2a2] hover:bg-[#a07878]/20"
       }`}
     >
       <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -79,7 +92,7 @@ const QuestRequirementItem: React.FC<{ quest: string; depth?: number }> = ({ que
       </svg>
       <span className="flex-1">{quest}</span>
       {showStatus && completed && (
-        <svg className="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-4 h-4 text-[#7d9a78] dark:text-[#a8c4a2] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
         </svg>
       )}
@@ -108,11 +121,58 @@ const QuestTreeItem: React.FC<{ node: QuestTreeNode; depth?: number }> = ({ node
 };
 
 export const QuestRequirements: React.FC<QuestRequirementsProps> = ({
+  questName,
   skills = [],
   quests = [],
   other = [],
 }) => {
-  const { playerData } = usePlayerData();
+  const { playerData, loading, error, lastSearch, searchPlayer } = usePlayerData();
+  const [selectedSkill, setSelectedSkill] = useState<{ skill: string; level: number } | null>(null);
+  const [inputValue, setInputValue] = useState(lastSearch);
+  const [debounceTimer, setDebounceTimer] = useState<NodeJS.Timeout | null>(null);
+
+  // Sync input with lastSearch
+  useEffect(() => {
+    setInputValue(lastSearch);
+  }, [lastSearch]);
+
+  // Auto-search on mount if we have a saved username
+  useEffect(() => {
+    if (lastSearch && !playerData && !loading) {
+      searchPlayer(lastSearch);
+    }
+  }, [lastSearch, playerData, loading, searchPlayer]);
+
+  const debouncedSearch = useCallback(
+    (username: string) => {
+      if (debounceTimer) clearTimeout(debounceTimer);
+      const timer = setTimeout(() => {
+        if (username.trim()) searchPlayer(username.trim());
+      }, 1000);
+      setDebounceTimer(timer);
+    },
+    [debounceTimer, searchPlayer],
+  );
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setInputValue(value);
+    debouncedSearch(value);
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && inputValue.trim()) {
+      if (debounceTimer) clearTimeout(debounceTimer);
+      searchPlayer(inputValue.trim());
+    }
+  };
+
+  const handleSearch = () => {
+    if (inputValue.trim()) {
+      if (debounceTimer) clearTimeout(debounceTimer);
+      searchPlayer(inputValue.trim());
+    }
+  };
 
   // Recursively resolve all requirements
   const resolved = useMemo(() => {
@@ -132,65 +192,159 @@ export const QuestRequirements: React.FC<QuestRequirementsProps> = ({
   }
 
   return (
-    <div className="my-4 p-4 border border-fd-border rounded-lg bg-fd-card">
-      <div className="flex flex-col md:flex-row gap-6">
-        {/* Skills Column */}
-        {hasSkills && (
-          <div className="flex-1">
-            <h4 className="text-sm font-semibold text-fd-foreground mb-3 flex items-center gap-2">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-              Skill Requirements
-            </h4>
-            <div className="space-y-1">
-              {resolved.skills.map((req, idx) => (
-                <SkillRequirementItem key={idx} skill={req.skill} level={req.level} />
-              ))}
+    <>
+      <div className="my-4 border border-fd-border rounded-lg bg-fd-card overflow-hidden">
+        {/* Wiki Link Header */}
+        {questName && (
+          <a
+            href={`https://runescape.wiki/w/${questName.replace(/ /g, "_")}/Quick_guide`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center justify-between w-full px-4 bg-fd-primary/10 border-b border-fd-border hover:bg-fd-primary/20 transition-colors"
+          >
+            <div className="flex items-center gap-3">
+              <img src="/images/favicon/wiki-favicon.ico" alt="" className="w-5 h-5" />
+              <span className="font-medium text-fd-foreground">{questName} quest guide</span>
             </div>
-          </div>
+            <svg className="w-4 h-4 text-fd-muted-foreground group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
         )}
 
-        {/* Quests Column */}
-        {hasQuests && (
-          <div className="flex-1">
-            <h4 className="text-sm font-semibold text-fd-foreground mb-3 flex items-center gap-2">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              Quest Requirements ({resolved.quests.length})
-            </h4>
-            <div className="space-y-1">
-              {resolved.questTree.map((tree, idx) => (
-                <QuestTreeItem key={`${tree.name}-${idx}`} node={tree} />
-              ))}
+        <div className="p-4">
+          {/* Player Search */}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4 pb-4 border-b border-fd-border">
+            <div className="relative flex-1 max-w-xs">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <svg className="h-4 w-4 text-fd-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+              <input
+                type="text"
+                placeholder="Load your stats..."
+                value={inputValue}
+                onChange={handleInputChange}
+                onKeyPress={handleKeyPress}
+                disabled={loading}
+                maxLength={15}
+                className="w-full pl-9 pr-20 py-2 text-sm border border-fd-border rounded-lg bg-fd-background text-fd-foreground placeholder:text-fd-muted-foreground focus:outline-none focus:ring-2 focus:ring-fd-ring focus:border-transparent disabled:opacity-50"
+              />
+              <button
+                onClick={handleSearch}
+                disabled={!inputValue.trim() || loading}
+                className="absolute inset-y-0 right-0 px-3 flex items-center text-sm font-medium text-fd-primary hover:text-fd-primary/80 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              >
+                {loading ? (
+                  <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                  </svg>
+                ) : (
+                  "Search"
+                )}
+              </button>
             </div>
+
+            {/* Status pill */}
+            {(error || (playerData && !loading)) && (
+              <div
+                className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${
+                  error
+                    ? "bg-[#a07878]/15 text-[#8b4d4d] dark:text-[#c4a2a2]"
+                    : "bg-[#7d9a78]/15 text-[#3d6b35] dark:text-[#a8c4a2]"
+                }`}
+              >
+                {error ? (
+                  <>
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    {error === "Profile is private" ? "Private profile" : "Not found"}
+                  </>
+                ) : (
+                  <>
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    {playerData?.username}
+                  </>
+                )}
+              </div>
+            )}
           </div>
-        )}
+
+          <div className="flex flex-col md:flex-row gap-6">
+            {/* Skills Column */}
+            {hasSkills && (
+              <div className="flex-1">
+                <h4 className="text-sm font-semibold text-fd-foreground mb-3 flex items-center gap-2">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                  Skill Requirements
+                </h4>
+                <div className="space-y-1">
+                  {resolved.skills.map((req, idx) => (
+                    <SkillRequirementItem
+                      key={idx}
+                      skill={req.skill}
+                      level={req.level}
+                      onClick={() => setSelectedSkill({ skill: req.skill, level: req.level })}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Quests Column */}
+            {hasQuests && (
+              <div className="flex-1">
+                <h4 className="text-sm font-semibold text-fd-foreground mb-3 flex items-center gap-2">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Quest Requirements ({resolved.quests.length})
+                </h4>
+                <div className="space-y-1">
+                  {resolved.questTree.map((tree, idx) => (
+                    <QuestTreeItem key={`${tree.name}-${idx}`} node={tree} />
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Other Requirements */}
+          {hasOther && (
+            <div className="mt-4 pt-4 border-t border-fd-border">
+              <h4 className="text-sm font-semibold text-fd-foreground mb-3 flex items-center gap-2">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Other Requirements
+              </h4>
+              <ul className="list-disc list-inside text-sm text-fd-muted-foreground space-y-1">
+                {resolved.other.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+        </div>
       </div>
 
-      {/* Other Requirements */}
-      {hasOther && (
-        <div className="mt-4 pt-4 border-t border-fd-border">
-          <h4 className="text-sm font-semibold text-fd-foreground mb-3 flex items-center gap-2">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            Other Requirements
-          </h4>
-          <ul className="list-disc list-inside text-sm text-fd-muted-foreground space-y-1">
-            {resolved.other.map((item, idx) => (
-              <li key={idx}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {!playerData && (
-        <p className="mt-4 text-xs text-fd-muted-foreground">
-          Search for your username above to see which requirements you&apos;ve completed.
-        </p>
-      )}
-    </div>
+      {/* Skill Training Drawer */}
+      <SkillDrawer
+        skill={selectedSkill?.skill ?? null}
+        requiredLevel={selectedSkill?.level}
+        open={selectedSkill !== null}
+        onOpenChange={(open) => {
+          if (!open) setSelectedSkill(null);
+        }}
+      />
+    </>
   );
 };
