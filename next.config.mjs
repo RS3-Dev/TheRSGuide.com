@@ -1,4 +1,4 @@
-import { createMDX } from 'fumadocs-mdx/next';
+import { createMDX } from "fumadocs-mdx/next";
 
 const withMDX = createMDX();
 
@@ -8,22 +8,28 @@ const config = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'www.thersguide.com',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "www.thersguide.com",
+        port: "",
+        pathname: "/**",
       },
       {
-        protocol: 'https',
-        hostname: 'thersguide.com',
-        port: '',
-        pathname: '/images/**',
+        protocol: "https",
+        hostname: "media.thersguide.com",
+        port: "",
+        pathname: "/**",
       },
       {
-        protocol: 'https',
-        hostname: 'runescape.wiki',
-        port: '',
-        pathname: '/images/**',
+        protocol: "https",
+        hostname: "thersguide.com",
+        port: "",
+        pathname: "/images/**",
+      },
+      {
+        protocol: "https",
+        hostname: "runescape.wiki",
+        port: "",
+        pathname: "/images/**",
       },
     ],
   },

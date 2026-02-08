@@ -24,7 +24,7 @@ export default function HomePage() {
 
           {/* Tagline */}
           <p className="text-center text-lg md:text-xl text-[var(--text-secondary)] max-w-lg leading-relaxed mt-6">
-            A no-fluff guide to RuneScape.
+            A guide to RuneScape
           </p>
 
           {/* Combat styles - simple inline links */}
@@ -73,7 +73,7 @@ export default function HomePage() {
         <footer className="border-t border-[var(--border-subtle)] px-6 py-6">
           <div className="max-w-4xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <p className="text-sm text-[var(--text-muted)]">
-              Built by Griffin, Josh, Pup &amp; Ryan
+             Built by Griffin, Josh, Pup & Ryan (The RS Guy)
             </p>
             <p className="text-xs text-[var(--text-muted)] opacity-70">
               © 2025
