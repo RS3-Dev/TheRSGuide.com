@@ -3,38 +3,38 @@
     {
       "start": 1,
       "end": 30,
-      "desc": "Jumping the bridge outside the Nature Grotto",
-      "link": "https://runescape.wiki/w/Agility_training"
+      "desc": "Complete the Burthorpe agility course or the Gnome Stronghold agility course",
+      "link": ""
     },
     {
       "start": 30,
-      "end": 50,
-      "desc": "Northern Anachronia Agility Course",
-      "link": "https://runescape.wiki/w/Agility_training"
+      "end": 35,
+      "desc": "Complete the Anachronia Beginner agility Course",
+      "link": ""
     },
     {
-      "start": 50,
+      "start": 35,
       "end": 52,
-      "desc": "Southern Anachronia Agility Course",
-      "link": "https://runescape.wiki/w/Agility_training"
+      "desc": "Complete the Barbarian Outpost Agility Course",
+      "link": ""
     },
     {
       "start": 52,
-      "end": 65,
-      "desc": "Wilderness Agility Course with Demonic Skull",
-      "link": "https://runescape.wiki/w/Agility_training"
+      "end": 80,
+      "desc": "Complete the Wilderness Agility Course with the Demonic Skull - warning, the Demonic Skull will grant increase experience rates, however this will enable PvP. You can do the Wilderness agility course without the skull if you would like.",
+      "link": ""
     },
     {
       "start": 65,
       "end": 80,
-      "desc": "Continue Wilderness Agility Course OR AFK Manual Auto-cycles in the Empty Throne Room",
-      "link": "https://runescape.wiki/w/Agility_training"
+      "desc": "Het's Oasis Agility Course OR Manual Auto-cycles in the Empty Throne Room. Manual Auto-Cycles are extremely slow, but fully AFK.",
+      "link": ""
     },
     {
       "start": 80,
       "end": 99,
-      "desc": "Island-wide Anachronia Agility Course",
-      "link": "https://runescape.wiki/w/Agility_training"
+      "desc": "Island-wide Anachronia Agility Course - Completion of this course requires level 85 Agility for one section, there are several ways to temporarily boost your Agility level including Stamina Potion (+6), Summer Pie (+5), God banner Boost (+5), Abyssal Lurker (+4).",
+      "link": ""
     }
   ],
   "archaeology": [
@@ -300,6 +300,12 @@
   "attack": [
     {
       "start": 1,
+      "end": 30,
+      "desc": "Complete the Waterfall Quest",
+      "link": ""
+    },
+    {
+      "start": 1,
       "end": 20,
       "desc": "Troll Chucker in Burthorpe north caves",
       "link": "https://runescape.wiki/w/Troll_chucker"
@@ -307,7 +313,7 @@
     {
       "start": 20,
       "end": 40,
-      "desc": "Ghost Troll Brutes in Um",
+      "desc": "Ghost Troll Brutes in Um after the Necromancy! Quest",
       "link": "https://runescape.wiki/w/Ghost_troll_brute"
     },
     {
@@ -319,31 +325,37 @@
     {
       "start": 40,
       "end": 80,
-      "desc": "Desert Bandits in Bandit Camp w/ 1 piece of Saradomin or Zamorak equipment ",
+      "desc": "Desert Bandits in Bandit Camp w/ 1 piece of Saradomin or Zamorak equipment. A Halberd type weapon is recommended for best experience rates.",
       "link": "https://runescape.wiki/w/Bandit_Camp_(Kharidian_Desert)#Training"
     },
     {
       "start": 50,
       "end": 70,
-      "desc": "Hellhound in Taverly Dungeon or the Wilderness, or Abyssal leech/walker/guardian in the Abyss",
+      "desc": "Hellhound in Taverly Dungeon or the Wilderness, or Abyssal leech/walker/guardian in the Abyss. A Halberd type weapon is recommended for best experience rates.",
       "link": "https://runescape.wiki/w/Abyss/Combat_training"
+    },
+    {
+      "start": 60,
+      "end": 90,
+      "desc": "Kill Flesh-Hatcher Mhekarnahz. This entry-level boss provides 50% more experience for your damage dealt compared to other options, which makes it a strong active training method. If your hit chance is below 100%, consider using a slash weapon and the Dragon Scimitar special attack for improved damage.",
+      "link": ""
     },
     {
       "start": 70,
       "end": 80,
-      "desc": "Abyssal leech/walker/guardian in the Abyss or Bound Skeletons outside Fort Forinthry w/ Salve Amulet",
+      "desc": "Abyssal leech/walker/guardian in the Abyss or Bound Skeletons outside Fort Forinthry w/ Salve Amulet. A Halberd type weapon is recommended for best experience rates.",
       "link": "https://runescape.wiki/w/Abyss/Combat_training"
     },
     {
       "start": 80,
       "end": 90,
-      "desc": "Ravenous ghoul w/ Vampyric Blood Essence for Aggression, Abyssal leech/walker/guardian in the Abyss or Bound Skeletons outside Fort Forinthry w/ Salve Amulet ",
+      "desc": "Ravenous ghoul w/ Vampyric Blood Essence for Aggression, Abyssal leech/walker/guardian in the Abyss or Bound Skeletons outside Fort Forinthry w/ Salve Amulet. A Halberd type weapon is recommended for best experience rates.",
       "link": "https://runescape.wiki/w/Ravenous_ghoul"
     },
     {
       "start": 90,
-      "end": 99,
-      "desc": "Abyssal Demon in the Canifis Slayer Tower or the Wilderness, Ravenous ghoul w/ Vampyric Blood Essence for Aggression, Abyssal leech/walker/guardian in the Abyss, or Bound Skeletons outside Fort Forinthry w/ Salve Amulet",
+      "end": 120,
+      "desc": "Abyssal Demons, Savages, or Beasts, Ravenous ghoul w/ Vampyric Blood Essence for Aggression, Abyssal leech/walker/guardian in the Abyss, or Bound Skeletons outside Fort Forinthry w/ Salve Amulet. Alternatively, train passively by doing PvM or Slayer.",
       "link": "https://runescape.wiki/w/Abyssal_demon"
     }
   ],
@@ -354,7 +366,7 @@
       "desc": "Witch's House Quest",
       "link": "https://runescape.wiki/w/Witch%27s_House/Quick_guide"
     },
-        {
+    {
       "start": 24,
       "end": 99,
       "desc": "Train through your preferred combat training method"
@@ -498,26 +510,32 @@
     {
       "start": 1,
       "end": 20,
-      "desc": "Cook Raw Crayfish, fished from Burthorpe",
-      "link": "https://runescape.wiki/w/Raw_crayfish"
+      "desc": "Cook Raw Crayfish or Shrimp",
+      "link": ""
     },
     {
       "start": 20,
       "end": 52,
-      "desc": "Trout and Salmon, fly fished from Lumbridge or Shilo Village",
-      "link": "https://runescape.wiki/w/Raw_trout"
+      "desc": "Cook Trout or Salmon",
+      "link": ""
     },
     {
       "start": 32,
       "end": 80,
-      "desc": "Cheesecakes in the cooking guild after Chef's Assistant quest with the T2 Milky Milky Player Owned Farm Perk",
+      "desc": "Make Cheesecakes in the cooking guild after the Chef's Assistant quest with the Tier 2 Milky Milky Player Owned Farm Perk",
       "link": "https://runescape.wiki/w/Cream_cheese"
+    },
+    {
+      "start": 35,
+      "end": 99,
+      "desc": "Make Wine by adding grapes to jugs of water. This is not a good option for Ironman players but provides very high experience rates.",
+      "link": ""
     },
     {
       "start": 52,
       "end": 80,
-      "desc": "Menaphos fish - Desert Sole, Catfish, and Beltfish",
-      "link": "https://runescape.wiki/w/Pay-to-play_Fishing_training#Levels_72-93"
+      "desc": "Cook Desert Sole, Catfish, and Beltfish",
+      "link": ""
     },
     {
       "start": 80,
@@ -530,7 +548,7 @@
     {
       "start": 1,
       "end": 20,
-      "desc": "Cut gems from Common Gem Rocks in Burthorpe, or Spin Flax from Burthorpe, Or make Leather Armour from Cows in Burthorpe",
+      "desc": "Cut gems from Common Gem Rocks in Burthorpe, or Spin Flax from Burthorpe, Or make Leather Armour from Cows in Burthorpe or Lumbridge.",
       "link": "https://runescape.wiki/w/Common_gem_rock"
     },
     {
@@ -542,7 +560,7 @@
     {
       "start": 75,
       "end": 110,
-      "desc": "Gate of Elidinis Crafting, Harps in Prifddinas, Uncommon Gem Rocks, or Dragon Leather products from PvM Drops",
+      "desc": "Gate of Elidinis Crafting, Harps in Prifddinas, Cutting Gems, or Making Dragon Leather products.",
       "link": "https://runescape.wiki/w/Pay-to-play_Crafting_training#Gate_of_Elidinis_(skilling_boss)"
     },
     {
@@ -577,6 +595,24 @@
       "end": 99,
       "desc": "Hall of Memories",
       "link": "https://runescape.wiki/w/Hall_of_Memories"
+    },
+    {
+      "start": 85,
+      "end": 90,
+      "desc": "Radiant Wisps on world 79 (for group divination bonuses). Better with a Memory Dowser, or Divine Conversion Archaeology Relic.",
+      "link": ""
+    },
+    {
+      "start": 90,
+      "end": 95,
+      "desc": "Luminescent Wisps on world 79 (for group divination bonuses). Better with a Memory Dowser, or Divine Conversion Archaeology Relic.",
+      "link": ""
+    },
+    {
+      "start": 95,
+      "end": 99,
+      "desc": "Incandescent Wisps on world 79 (for group divination bonuses). Better with a Memory Dowser, or Divine Conversion Archaeology Relic.",
+      "link": ""
     }
   ],
   "dungeoneering": [
@@ -605,6 +641,12 @@
       "link": "https://runescape.wiki/w/Pay-to-play_Dungeoneering_training#Optimising_floors"
     },
     {
+      "start": 80,
+      "end": 120,
+      "desc": "Complete the Dragonkin V archaeology collection log (Archaeology level 77+) for Dungeoneering Token Boxes that can be exchanged for experience. This method is extremely slow but is a way to passively train Dungeoneering while training Archaeology.",
+      "link": ""
+    },
+    {
       "start": 95,
       "end": 120,
       "desc": "Small Complexity 1 floors 1-35, Large Complexity 6 Floors 36-60",
@@ -614,33 +656,45 @@
   "farming": [
     {
       "start": 1,
-      "end": 17,
+      "end": 15,
       "desc": "Shovelling manure or Violet is Blue Quest",
       "link": "https://runescape.wiki/w/Manure_mound"
     },
     {
-      "start": 17,
-      "end": 54,
-      "desc": "Daily Beehives",
-      "link": "https://runescape.wiki/w/Beehive_(player-owned_farm)"
+      "start": 15,
+      "end": 35,
+      "desc": "Low level herb and tree runs. Oak at Level 15, Apple at Level 27, Willow at level 30. Low level seeds can be obtained by pickpocketing farmers and master farmers.",
+      "link": ""
+    },
+    {
+      "start": 30,
+      "end": 35,
+      "desc": "Cultivate Roses at Het's Oasis (active method)",
+      "link": ""
     },
     {
       "start": 35,
       "end": 54,
-      "desc": "In addition to Beehives, Player-owned farm beginning with Sheep at level 35, and Cows at level 49 ",
-      "link": "https://runescape.wiki/w/Player-owned_farm"
+      "desc": "Woad Leaf Beehives",
+      "link": ""
     },
     {
-      "start": 54,
-      "end": 120,
-      "desc": "Player-owned farm, beginning with Chinchompas at level 54 from the Trapper, Spiders at level 64 from the Lumbridge Catacombs, and Dragons from the Trapper or Wilderness Flash Events at level 92.  ",
+      "start": 35,
+      "end": 54,
+      "desc": "Player-owned farm beginning with Sheep at level 35, Frogs at 42, and Cows at level 49",
       "link": "https://runescape.wiki/w/Player-owned_farm"
     },
     {
       "start": 45,
       "end": 120,
-      "desc": "Optionally you can gain Exp at an increased Rate by doing Tree Runs as well.  ",
+      "desc": "Optionally you train farming by doing Tree Runs and Fruit Tree runs if those are preferred to Player Owned Farms.",
       "link": "https://runescape.wiki/w/Farming_training#Trees"
+    },
+    {
+      "start": 54,
+      "end": 120,
+      "desc": "Player-owned farm, beginning with Chinchompas at level 54, Spiders at level 64, and Dragons at Level 92, and Dinosaurs at the Ranch Out of Time at level 98.",
+      "link": "https://runescape.wiki/w/Player-owned_farm"
     }
   ],
   "firemaking": [
@@ -683,28 +737,28 @@
     {
       "start": 76,
       "end": 95,
-      "desc": "Vyres after River of Blood quest. This is a combat activity that provides experience in Prayer, Combat, and Firemaking",
+      "desc": "Kill Vyres after the River of Blood quest. These are monsters that provide experience in Prayer, Combat, and Firemaking and are very efficient on an Ironman.",
       "link": "https://runescape.wiki/w/Vyrewatch/Strategies"
     },
     {
       "start": 87,
       "end": 95,
-      "desc": "Seggregation Firemaking Activity",
-      "link": "https://runescape.wiki/w/'Accidental'_Fletching_and_Firemaking#Seggregation"
+      "desc": "Collecting and burning Sharp Shell Shards. Collecting these requires the Extinction Quest, burning them does not.",
+      "link": ""
     },
     {
       "start": 95,
       "end": 110,
-      "desc": "Eggsperimentation Seggregation Firemaking Activity",
-      "link": "https://runescape.wiki/w/'Accidental'_Fletching_and_Firemaking#Eggsperimentation"
+      "desc": "Eggsperimentation Activity on Anachronia after the Extinction Quest.",
+      "link": ""
     }
   ],
   "fishing": [
     {
       "start": 1,
       "end": 20,
-      "desc": "Catch crayfish in Burthorpe",
-      "link": "https://runescape.wiki/w/Raw_crayfish"
+      "desc": "Catch Shrimp in Lumbridge or Catch crayfish in Burthorpe",
+      "link": ""
     },
     {
       "start": 20,
@@ -741,52 +795,46 @@
       "end": 99,
       "desc": "Blue Blubber Jellyfish in the Deep Sea Fishing Hub",
       "link": "https://runescape.wiki/w/Raw_blue_blubber_jellyfish"
+    },
+    {
+      "start": 93,
+      "end": 99,
+      "desc": "Prifddinas waterfall fishing (optional, to unlock the Crystal Fishing Rod)",
+      "link": ""
+    },
+    {
+      "start": 94,
+      "end": 99,
+      "desc": "Fishing Frenzy at DSF (very active)",
+      "link": ""
+    },
+    {
+      "start": 96,
+      "end": 99,
+      "desc": "Wobbegongs on the Arc",
+      "link": ""
     }
   ],
   "fletching": [
     {
       "start": 1,
       "end": 52,
-      "desc": "Make arrow shafts - Optional to stop at 25, but arrow shafts will be needed in abundance later. Higher tier logs yield more arrow shafts per log.",
+      "desc": "Make arrow shafts - Optional to stop at 25, but arrow shafts will be needed in abundance later if you are an Ironman. Higher tier logs yield more arrow shafts per log.",
       "link": "https://runescape.wiki/w/Pay-to-play_Fletching_training"
     },
     {
-      "start": 25,
-      "end": 35,
-      "desc": "Make Oak shieldbows",
-      "link": "https://runescape.wiki/w/Pay-to-play_Fletching_training"
-    },
-    {
-      "start": 35,
-      "end": 40,
-      "desc": "Make Willow shortbows",
-      "link": "https://runescape.wiki/w/Pay-to-play_Fletching_training"
-    },
-    {
-      "start": 40,
-      "end": 45,
-      "desc": "Make Willow shieldbows",
-      "link": "https://runescape.wiki/w/Pay-to-play_Fletching_training"
-    },
-        {
       "start": 45,
       "end": 52,
-      "desc": "Make Mithril Arrows with Arrowheads from Smithing",
+      "desc": "Make Mithril Arrows. Ironman players may choose to smith Mithril arrowheads for this method.",
       "link": "https://runescape.wiki/w/Mithril_arrowheads"
-    },
-    {
-      "start": 50,
-      "end": 52,
-      "desc": "Maple shortbow",
-      "link": "https://runescape.wiki/w/Pay-to-play_Fletching_training"
     },
     {
       "start": 52,
       "end": 99,
-      "desc": "Broad arrows, arrowheads are purchased from Slayer Masters at a rate of 9000 per day",
+      "desc": "Make Broad arrows, arrowheads can be purchased from Slayer Masters.",
       "link": "https://runescape.wiki/w/Broad_arrowheads#Shop_locations"
     },
-        {
+    {
       "start": 82,
       "end": 99,
       "desc": "Zygomyte Carestyling on Anachronia - These are part of the process of creating Elder God Arrows",
@@ -819,15 +867,21 @@
       "link": "https://runescape.wiki/w/Saradomin_brew#Creation"
     },
     {
+      "start": 84,
+      "end": 88,
+      "desc": "Make Adrenaline potions for future use, these are one of the first untradeable potion unlocks that is very beneficial for PvM.",
+      "link": ""
+    },
+    {
       "start": 88,
       "end": 91,
-      "desc": "Make Equal amounts of Extreme Potions, for future use in Overloads.",
+      "desc": "Make Equal amounts of Extreme Potions, for future use in Overloads. You can boost your herblore level with a god banner (30 minutes per day) or with a Brown Spicy Stew after the Evil Dave's Big Day Out Quest.",
       "link": "https://runescape.wiki/w/Herblore_training"
     },
     {
-      "start": 91,
+      "start": 90,
       "end": 96,
-      "desc": "Make Overloads with a brown spicy stew boost after Evil Dave's Big Day Out Quest - To do this at Level 91 you need to hop worlds every 59 seconds. This is intensive but extremely worthwhile.",
+      "desc": "Boost to make Overloads with a brown spicy stew after the Evil Dave's Big Day Out Quest - To do this at Level 90 you need to hop worlds every 59 seconds to retain your 6 level boost permanently. This is intensive but very good for exp and unlocking overloads early.",
       "link": "https://runescape.wiki/w/Herblore_training"
     },
     {
@@ -840,39 +894,105 @@
   "hunter": [
     {
       "start": 1,
-      "end": 30,
-      "desc": "Catch plain whirligigs at Het's Oasis",
-      "link": "https://runescape.wiki/w/Plain_whirligig"
+      "end": 9,
+      "desc": "Catch Crimson Swifts in Burthorpe or complete the Natural history quiz in the Varrock museum.",
+      "link": ""
     },
     {
-      "start": 30,
-      "end": 50,
-      "desc": "Catch gliding whirligigs - You can do this without losing any flowers by first clicking a plain whirligig, and then doing subsequent clicks on the gliding whirligigs",
-      "link": "https://runescape.wiki/w/Gliding_whirligig"
+      "start": 9,
+      "end": 11,
+      "desc": "Catch Copper Longtails at Eagle's Peak - You can teleport there with Memory Strands",
+      "link": ""
     },
     {
-      "start": 50,
-      "end": 70,
-      "desc": "Catch swift whirligigs - You can do this without losing any flowers by first clicking a plain whirligig, and then doing subsequent clicks on the swift whirligigs",
-      "link": "https://runescape.wiki/w/Swift_whirligig"
+      "start": 11,
+      "end": 19,
+      "desc": "Catch Cerulean Twitches in the Fremennik Hunter Area",
+      "link": ""
     },
     {
-      "start": 70,
-      "end": 90,
-      "desc": "Catch hasty whirligigs - You can do this without losing any flowers by first clicking a plain whirligig, and then doing subsequent clicks on the Hasty whirligigs",
-      "link": "https://runescape.wiki/w/Hasty_whirligig"
+      "start": 19,
+      "end": 27,
+      "desc": "Catch Tropical Wagtails in the Feldip Hills",
+      "link": ""
+    },
+    {
+      "start": 27,
+      "end": 46,
+      "desc": "Box trap Cobalt Skillchompas north of the Grand Tree.",
+      "link": ""
+    },
+    {
+      "start": 29,
+      "end": 46,
+      "desc": "Catch Green Salamanders in Canifis.",
+      "link": ""
+    },
+    {
+      "start": 46,
+      "end": 53,
+      "desc": "Box trap Viridian Skillchompas in South of Port Phasmatys.",
+      "link": ""
+    },
+    {
+      "start": 47,
+      "end": 53,
+      "desc": "Catch Orange Salamanders in the Desert.",
+      "link": ""
+    },
+    {
+      "start": 53,
+      "end": 59,
+      "desc": "Box trap Grey Chinchompas at Piscatoris. You can teleport there with Memory Strands.",
+      "link": ""
+    },
+    {
+      "start": 59,
+      "end": 63,
+      "desc": "Catch Red Salamanders by the ZMI Altar",
+      "link": ""
+    },
+    {
+      "start": 63,
+      "end": 67,
+      "desc": "Box Trap Red Chinchompas in the Feldip Hills.",
+      "link": ""
+    },
+    {
+      "start": 67,
+      "end": 75,
+      "desc": "Catch Black Salamanders in the Wilderness.",
+      "link": ""
+    },
+    {
+      "start": 68,
+      "end": 75,
+      "desc": "Box trap Azure Skillchompas in the Fremennik Hunter Area.",
+      "link": ""
+    },
+    {
+      "start": 72,
+      "end": 75,
+      "desc": "Capture Charm Sprites for the Enhanced Yaktwee Stick.",
+      "link": ""
     },
     {
       "start": 75,
       "end": 99,
-      "desc": "Optional - Big Game Hunter for Dragon Mattock, Slayer Experience, and Anachronia Totem Pieces",
+      "desc": "Big Game Hunter. This requires level 55 slayer to start and offers higher experience rates at higher levels, ranging from 76-96 Hunter.",
       "link": "https://runescape.wiki/w/Big_Game_Hunter/Strategies"
     },
     {
-      "start": 90,
+      "start": 88,
       "end": 99,
-      "desc": "Catch speedy whirligigs You can do this without losing any flowers by first clicking a plain whirligig, and then doing subsequent clicks on the Speedy whirligigs",
-      "link": "https://runescape.wiki/w/Speedy_whirligig"
+      "desc": "Catch Fungal Spores from Decaying Guards on the Croesus front (Semi-Afk), Trap Carrion Jadinkos on Anachronia.",
+      "link": ""
+    },
+    {
+      "start": 96,
+      "end": 99,
+      "desc": "Trap Ornate Tortles on the Arc - Uncharted Isles.",
+      "link": ""
     }
   ],
   "invention": [
@@ -896,52 +1016,34 @@
     }
   ],
   "magic": [
-        {
-      "start": 1,
-      "end": 20,
-      "desc": "Troll Brutes in Burthorpe north caves",
-      "link": "https://runescape.wiki/w/Troll_brute"
-    },
     {
       "start": 20,
       "end": 40,
-      "desc": "Ghost Troll Brutes in Um",
+      "desc": "Ghost Troll Brutes in Um after the Necromancy! Quest.",
       "link": "https://runescape.wiki/w/Ghost_troll_brute"
-    },
-    {
-      "start": 40,
-      "end": 70,
-      "desc": "Ghoul in Canifis or Fetid Zombie outside Fort Forinthry w/ Salve Amulet",
-      "link": "https://runescape.wiki/w/Ghoul"
-    },
-    {
-      "start": 40,
-      "end": 80,
-      "desc": "Desert Bandits in Bandit Camp w/ 1 piece of Saradomin or Zamorak equipment - This is slower but very AFK ",
-      "link": "https://runescape.wiki/w/Bandit_Camp_(Kharidian_Desert)#Training"
     },
     {
       "start": 60,
       "end": 70,
-      "desc": "Abyssal leech/walker/guardian in the Abyss - Up to a 50% experience rate boost if you have Corruption Blast unlocked",
+      "desc": "Abyssal leech/walker/guardian in the Abyss - This is especially good if you have unlocked the Corruption Blast ability.",
       "link": "https://runescape.wiki/w/Abyss/Combat_training"
+    },
+    {
+      "start": 60,
+      "end": 90,
+      "desc": "Kill Flesh-Hatcher Mhekarnahz. This entry-level boss provides 50% more experience for your damage dealt compared to other options, which makes it a strong active training method.",
+      "link": ""
     },
     {
       "start": 70,
       "end": 99,
-      "desc": "K'ril in God Wars Dungeon w/ Fire Spells - Recommendation is to Kite him to extend trips",
+      "desc": "K'ril Tsutsaroth in God Wars Dungeon - Recommendation is to kite (fire abilities manually while running away from him) to extend trips.",
       "link": "https://runescape.wiki/w/K%27ril_Tsutsaroth/Strategies"
     },
     {
-      "start": 80,
-      "end": 90,
-      "desc": "Ravenous ghoul w/ Any Blood Essence for Aggression, Abyssal leech/walker/guardian in the Abyss or Bound Skeletons outside Fort Forinthry w/ Salve Amulet ",
-      "link": "https://runescape.wiki/w/Ravenous_ghoul"
-    },
-    {
       "start": 90,
-      "end": 99,
-      "desc": "Abyssal Demons in the Canifis Slayer Tower or the Wilderness, Ravenous ghoul w/ Vampyric Blood Essence for Aggression, Abyssal leech/walker/guardian in the Abyss, or Bound Skeletons outside Fort Forinthry w/ Salve Amulet",
+      "end": 120,
+      "desc": "Abyssal Demons, Savages, and Beasts, Ravenous ghoul w/ Vampyric Blood Essence for Aggression, Abyssal leech/walker/guardian in the Abyss, or Bound Skeletons outside Fort Forinthry w/ Salve Amulet. Alternatively, train passively by doing PvM or Slayer.",
       "link": "https://runescape.wiki/w/Abyssal_demon"
     }
   ],
@@ -951,6 +1053,12 @@
       "end": 10,
       "desc": "Mine copper or tin ore",
       "link": "https://runescape.wiki/w/Copper_ore#Mine_locations"
+    },
+    {
+      "start": 10,
+      "end": 110,
+      "desc": "Shooting Stars - These are very afk, and great experience per hour at every level. The \"Star Find\" Friendschat can be used to find stars to train on. Limited to 3 per day.",
+      "link": ""
     },
     {
       "start": 10,
@@ -997,25 +1105,25 @@
     {
       "start": 80,
       "end": 110,
-      "desc": "Mine banite ore",
+      "desc": "Mine banite ore - This can be made more efficient and AFK by combining a perfect juju mining potion (or perfect plus), with the oblivious perk and the use of Stone Spirits to constantly reset the stamina bar to full.",
       "link": "https://runescape.wiki/w/Banite_ore#Mine_locations"
     },
     {
       "start": 89,
       "end": 110,
-      "desc": "Mine corrupted ore in Prifddinas - Very afk but less efficient",
+      "desc": "Mine corrupted ore in Prifddinas - This is a very strong fully afk method as corrupted ore does not have a traditional stamina bar",
       "link": "https://runescape.wiki/w/Corrupted_ore#Mining"
     },
     {
       "start": 90,
       "end": 110,
-      "desc": "Mine light animica or dark animica",
+      "desc": "Mine light animica or dark animica - This can be made more efficient and AFK by combining a perfect juju mining potion (or perfect plus), with the oblivious perk and the use of Stone Spirits to constantly reset the stamina bar to full.",
       "link": "https://runescape.wiki/w/Light_animica#Mine_locations"
     },
     {
       "start": 100,
       "end": 110,
-      "desc": "Mine primal ores",
+      "desc": "Mine primal ores on Daemonheim - This can be made more efficient and AFK by combining a perfect juju mining potion (or perfect plus), with the oblivious perk and the use of Stone Spirits to constantly reset the stamina bar to full.",
       "link": "https://runescape.wiki/w/Ores#Primal_ores"
     }
   ],
@@ -1035,37 +1143,43 @@
     {
       "start": 40,
       "end": 50,
-      "desc": "Kill ankous or ghouls, complete Kili's Knowledge II",
+      "desc": "Kill ankous w/ Salve Amulet or ghouls, complete Kili's Knowledge II",
       "link": "https://runescape.wiki/w/Necromancy_training#Levels_40–50"
     },
     {
       "start": 50,
       "end": 60,
-      "desc": "Kill ghouls, shadow warriors, bandits, or fetid zombies",
+      "desc": "Kill ghouls, shadow warriors, bandits, or fetid zombies W/ Salve amulet",
       "link": "https://runescape.wiki/w/Necromancy_training#Levels_50–60"
     },
     {
       "start": 60,
+      "end": 90,
+      "desc": "Kill Flesh-Hatcher Mhekarnahz. This entry-level boss provides 50% more experience for your damage dealt compared to other options, which makes it a strong active training method.",
+      "link": ""
+    },
+    {
+      "start": 60,
       "end": 70,
-      "desc": "Kill armoured zombies, bound skeletons, bloodvelds, or exiled kalphite marauders",
+      "desc": "Kill armoured zombies or bound skeletons w/ Salve amulet or exiled kalphite marauders.",
       "link": "https://runescape.wiki/w/Necromancy_training#Levels_60–70"
     },
     {
       "start": 70,
       "end": 80,
-      "desc": "Kill armoured zombies, bound skeletons, abyssal demons, or exiled kalphite marauders",
+      "desc": "Kill armoured zombies or bound skeletons w/ Salve amulet or kill abyssal demons or exiled kalphite marauders.",
       "link": "https://runescape.wiki/w/Necromancy_training#Levels_70–80"
     },
     {
       "start": 80,
       "end": 90,
-      "desc": "Kill armoured zombies, bound skeletons, abyssal demons, or abyssal savages",
+      "desc": "Kill armoured zombies or bound skeletons w/ Salve amulet or kill abyssal demons or abyssal savages.",
       "link": "https://runescape.wiki/w/Necromancy_training#Levels_80–90"
     },
     {
       "start": 90,
       "end": 120,
-      "desc": "Kill ravenous ghouls, abyssal savages, abyssal beasts, or armoured phantoms. Alternatively begin PvMing and train passively",
+      "desc": "Kill ravenous ghouls w/ a Blood Essence for permanent aggro, abyssal savages, abyssal beasts, or armoured phantoms. Alternatively, train passively by doing PvM or Slayer.",
       "link": "https://runescape.wiki/w/Necromancy_training#Levels_90–120"
     },
     {
@@ -1090,71 +1204,53 @@
     },
     {
       "start": 1,
-      "end": 75,
-      "desc": "Offer bones at the Chaos Temple or Fort Forinthry tier 3 chapel",
+      "end": 99,
+      "desc": "Use burial powders with bones at bank - For Ironman players, this requires both 90 Hunter and 90 Farming to do, but will yield the fastest EXP rates and is the most efficient.",
+      "link": "https://runescape.wiki/w/Powder_of_burials"
+    },
+    {
+      "start": 1,
+      "end": 99,
+      "desc": "If Burial Powders are not a viable option for you, offer bones at the Wilderness chaos altar, Fort Forinthry chapel altar, or POH altar - These grant different amounts of experience depending on achievement diary completion, altar type, and chapel tier, ranging from +50% to +250%.",
       "link": "https://runescape.wiki/w/Chaos_Temple_(Wilderness)#Chaos_altar"
     },
     {
       "start": 75,
       "end": 99,
-      "desc": "Use burial powders with bones at bank - This requires both 90 Hunter and 90 Farming to do, but will yield the fastest EXP rates assuming you have the Bones",
-      "link": "https://runescape.wiki/w/Powder_of_burials"
+      "desc": "Cleansing crystals in Prifddinas - This is a great Ironman Prayer training method so long as you have sufficient GP, as Cleansing Crystals can be purchased for gp in unlimited supplies.",
+      "link": "https://runescape.wiki/w/Cleansing_crystal"
     },
     {
       "start": 75,
       "end": 99,
-      "desc": "Cleansing crystals in Prifddinas - This is the best Prayer training method so long as you have sufficient GP, as Cleansing Crystals can be purchased for gp in unlimited supplies.",
-      "link": "https://runescape.wiki/w/Cleansing_crystal"
-    },
-        {
-      "start": 75,
-      "end": 95,
-      "desc": "Vyres after River of Blood quest. This is a combat activity that provides experience in Prayer, Combat, and Firemaking. Very high requirements but is an efficient method of training multiple skills at once.",
+      "desc": "Vyres after the River of Blood quest. This is a combat activity that provides experience in Prayer, Combat, and Firemaking. Very high requirements but is an efficient method of training multiple skills at once.",
       "link": "https://runescape.wiki/w/Vyrewatch/Strategies"
     }
   ],
   "ranged": [
-       {
-      "start": 1,
-      "end": 20,
-      "desc": "Troll Shamans in Burthorpe north caves",
-      "link": "https://runescape.wiki/w/Troll_shaman"
-    },
     {
       "start": 20,
       "end": 45,
-      "desc": "Ghost Troll Brutes in Um",
+      "desc": "Ghost Troll Brutes in Um after the Necromancy! Quest",
       "link": "https://runescape.wiki/w/Ghost_troll_brute"
     },
-        {
-      "start": 40,
-      "end": 80,
-      "desc": "Desert Bandits in Bandit Camp w/ 1 piece of Saradomin or Zamorak equipment - Add chinchompas (optional) at level 45 for greater experience rates. ",
-      "link": "https://runescape.wiki/w/Bandit_Camp_(Kharidian_Desert)#Training"
-    },
     {
-      "start": 45,
-      "end": 60,
-      "desc": "Ghoul in Canifis or Fetid Zombie outside Fort Forinthry w/ Salve Amulet and (optional) chinchompas for greater experience rates",
-      "link": "https://runescape.wiki/w/Ghoul"
+      "start": 55,
+      "end": 90,
+      "desc": "Kill Flesh-Hatcher Mhekarnahz. This entry-level boss provides 50% more experience for your damage dealt compared to other options, which makes it a strong active training method.",
+      "link": ""
     },
     {
       "start": 60,
       "end": 70,
-      "desc": "Abyssal leech/walker/guardian in the Abyss - Up to a 50% experience rate boost if you have Corruption Shot unlocked",
+      "desc": "Abyssal leech/walker/guardian in the Abyss - This is especially good if you have unlocked the Corruption Shot ability. Chinchompas can be used for greater experience rates.",
       "link": "https://runescape.wiki/w/Abyss/Combat_training"
     },
     {
-      "start": 70,
-      "end": 80,
-      "desc": "Abyssal leech/walker/guardian in the Abyss or Bound Skeletons outside Fort Forinthry w/ Salve Amulet",
-      "link": "https://runescape.wiki/w/Abyss/Combat_training"
-    },
-    {
-      "start": 80,
-      "end": 99,
-      "desc": "Ravenous ghoul w/ Any Blood Essence for Aggression, Abyssal leech/walker/guardian in the Abyss or Bound Skeletons outside Fort Forinthry w/ Salve Amulet ",
-      "link": "https://runescape.wiki/w/Ravenous_ghoul"
+      "start": 90,
+      "end": 120,
+      "desc": "Abyssal Demons, Savages, Ravenous ghoul w/ Vampyric Blood Essence for Aggression, Abyssal leech/walker/guardian in the Abyss, or Bound Skeletons outside Fort Forinthry w/ Salve Amulet. Alternatively, train passively by doing PvM or Slayer.",
+      "link": "https://runescape.wiki/w/Abyssal_demon"
     }
   ],
   "runecrafting": [
@@ -1171,10 +1267,22 @@
       "link": "https://runescape.wiki/w/Pay-to-play_Runecrafting_training#Crafting_necrotic_runes"
     },
     {
+      "start": 65,
+      "end": 110,
+      "desc": "Runecrafting at your highest level altar via the Abyss.",
+      "link": ""
+    },
+    {
       "start": 77,
       "end": 110,
       "desc": "Runecrafting in the Abyss with a Demonic Skull",
       "link": "https://runescape.wiki/w/Pay-to-play_Runecrafting_training#Runecrafting_through_the_Abyss"
+    },
+    {
+      "start": 80,
+      "end": 110,
+      "desc": "Runecrafting in the Abyss with the Runic Attuner - This will yield the highest experience rates overall.",
+      "link": ""
     },
     {
       "start": 90,
@@ -1183,17 +1291,23 @@
       "link": "https://runescape.wiki/w/Pay-to-play_Runecrafting_training#Runecrafting_at_the_soul_altar"
     },
     {
-      "start": 100,
+      "start": 104,
       "end": 110,
-      "desc": "Craft time runes in Abyss",
-      "link": "https://runescape.wiki/w/Pay-to-play_Runecrafting_training#Runecrafting_through_the_Abyss"
+      "desc": "Upgrading Eternal Magic Weapons - This is more afk than traditional Runecrafting and more experience per essence, which makes it good on ironman accounts. You can expect upwards of 250,000 experience per hour doing this method, at a cost of ~2000 pure essence",
+      "link": ""
     }
   ],
   "slayer": [
     {
       "start": 1,
+      "end": 9,
+      "desc": "Complete the \"Natural History Museum\" Quiz in Varrock.",
+      "link": ""
+    },
+    {
+      "start": 1,
       "end": 99,
-      "desc": "Do a daily Reaper assignments from Death",
+      "desc": "Complete Reaper assignments from Death.",
       "link": "https://runescape.wiki/w/Soul_Reaper#Assignments"
     },
     {
@@ -1284,52 +1398,64 @@
     }
   ],
   "strength": [
-     {
+    {
+      "start": 1,
+      "end": 30,
+      "desc": "Complete the Waterfall Quest",
+      "link": ""
+    },
+    {
       "start": 1,
       "end": 20,
-      "desc": "Troll Brutes in Burthorpe north caves",
-      "link": "https://runescape.wiki/w/Troll_brute"
+      "desc": "Troll Chucker in Burthorpe north caves",
+      "link": "https://runescape.wiki/w/Troll_chucker"
     },
     {
       "start": 20,
       "end": 40,
-      "desc": "Ghost Troll Brutes in Um",
+      "desc": "Ghost Troll Brutes in Um after the Necromancy! Quest",
       "link": "https://runescape.wiki/w/Ghost_troll_brute"
     },
     {
       "start": 40,
-      "end": 60,
+      "end": 50,
       "desc": "Ghoul in Canifis or Fetid Zombie outside Fort Forinthry w/ Salve Amulet",
       "link": "https://runescape.wiki/w/Ghoul"
     },
     {
       "start": 40,
       "end": 80,
-      "desc": "Desert Bandits in Bandit Camp w/ 1 piece of Saradomin or Zamorak equipment ",
+      "desc": "Desert Bandits in Bandit Camp w/ 1 piece of Saradomin or Zamorak equipment. A Halberd type weapon is recommended for best experience rates.",
       "link": "https://runescape.wiki/w/Bandit_Camp_(Kharidian_Desert)#Training"
     },
     {
-      "start": 60,
+      "start": 50,
       "end": 70,
-      "desc": "Hellhound in Taverly Dungeon or the Wilderness, or Abyssal leech/walker/guardian in the Abyss",
+      "desc": "Hellhound in Taverly Dungeon or the Wilderness, or Abyssal leech/walker/guardian in the Abyss. A Halberd type weapon is recommended for best experience rates.",
       "link": "https://runescape.wiki/w/Abyss/Combat_training"
+    },
+    {
+      "start": 60,
+      "end": 90,
+      "desc": "Kill Flesh-Hatcher Mhekarnahz. This entry-level boss provides 50% more experience for your damage dealt compared to other options, which makes it a strong active training method. If your hit chance is below 100%, consider using a slash weapon and the Dragon Scimitar special attack for improved damage.",
+      "link": ""
     },
     {
       "start": 70,
       "end": 80,
-      "desc": "Abyssal leech/walker/guardian in the Abyss or Bound Skeletons outside Fort Forinthry w/ Salve Amulet",
+      "desc": "Abyssal leech/walker/guardian in the Abyss or Bound Skeletons outside Fort Forinthry w/ Salve Amulet. A Halberd type weapon is recommended for best experience rates.",
       "link": "https://runescape.wiki/w/Abyss/Combat_training"
     },
     {
       "start": 80,
       "end": 90,
-      "desc": "Ravenous ghoul w/ Any Blood Essence for Aggression, Abyssal leech/walker/guardian in the Abyss or Bound Skeletons outside Fort Forinthry w/ Salve Amulet ",
+      "desc": "Ravenous ghoul w/ Vampyric Blood Essence for Aggression, Abyssal leech/walker/guardian in the Abyss or Bound Skeletons outside Fort Forinthry w/ Salve Amulet. A Halberd type weapon is recommended for best experience rates.",
       "link": "https://runescape.wiki/w/Ravenous_ghoul"
     },
     {
       "start": 90,
-      "end": 99,
-      "desc": "Abyssal Demon in the Canifis Slayer Tower or the Wilderness, Ravenous ghoul w/ Vampyric Blood Essence for Aggression, Abyssal leech/walker/guardian in the Abyss, or Bound Skeletons outside Fort Forinthry w/ Salve Amulet",
+      "end": 120,
+      "desc": "Abyssal Demons, Savages, or Beasts, Ravenous ghoul w/ Vampyric Blood Essence for Aggression, Abyssal leech/walker/guardian in the Abyss, or Bound Skeletons outside Fort Forinthry w/ Salve Amulet. Alternatively, train passively by doing PvM or Slayer.",
       "link": "https://runescape.wiki/w/Abyssal_demon"
     }
   ],
@@ -1349,7 +1475,7 @@
     {
       "start": 16,
       "end": 46,
-      "desc": "Make granite crab pouches. Granite can be mined in the Desert.",
+      "desc": "Make granite crab pouches. Iron ore can be mined at level 15.",
       "link": "https://runescape.wiki/w/Summoning_training#Maximising_xp/charm,_reasonable_cost_per_pouch"
     },
     {
@@ -1360,12 +1486,12 @@
     },
     {
       "start": 49,
-      "end": 56,
+      "end": 55,
       "desc": "Make bloated leech pouches - Raw meat can be bought from the shop in Canifis.",
       "link": "https://runescape.wiki/w/Summoning_training#Maximising_xp/charm,_reasonable_cost_per_pouch"
     },
     {
-      "start": 56,
+      "start": 55,
       "end": 89,
       "desc": "Make spirit jelly pouches - Jugs of water can be purchased from Shantay in Al Kharid",
       "link": "https://runescape.wiki/w/Summoning_training#Maximising_xp/charm,_reasonable_cost_per_pouch"
@@ -1385,7 +1511,7 @@
     {
       "start": 89,
       "end": 99,
-      "desc": "Make geyser titan pouches - Water talismans can be obtained from the Arch-Glacor and the Sanctum of Rebirth.",
+      "desc": "Make geyser titan pouches - Water talismans can be obtained from the Arch-Glacor, the Sanctum of Rebirth, and pickpocketing Wizard's Tower Mages.",
       "link": "https://runescape.wiki/w/Summoning_training#Maximising_xp/charm,_reasonable_cost_per_pouch"
     },
     {
@@ -1408,35 +1534,47 @@
       "desc": "Steal from bakery stalls - This is a good source of early game food.",
       "link": "https://runescape.wiki/w/Thieving_training"
     },
-     {
+    {
       "start": 15,
-      "end": 62,
+      "end": 38,
       "desc": "Pickpocket Gullible Tourists in Menaphos or Pick locks on Thieves' Guild jail doors in the Lumbridge cellar.",
       "link": "https://runescape.wiki/w/Gullible_tourist"
     },
     {
-      "start": 62,
-      "end": 69,
-      "desc": "Safecracking in Misthalin",
-      "link": "https://runescape.wiki/w/Safecracking#Misthalin"
-    },
-     {
-      "start": 69,
-      "end": 76,
-      "desc": "Safecracking in the Kharidian Desert.",
-      "link": "https://runescape.wiki/w/Safecracking#Kharidian_Desert"
+      "start": 38,
+      "end": 46,
+      "desc": "Pickpocket Master farmers",
+      "link": ""
     },
     {
-      "start": 76,
+      "start": 46,
+      "end": 55,
+      "desc": "Pickpocket Menaphos marketeers",
+      "link": ""
+    },
+    {
+      "start": 55,
+      "end": 64,
+      "desc": "Pickpocket Ardougne knights",
+      "link": ""
+    },
+    {
+      "start": 64,
+      "end": 78,
+      "desc": "Pickpocket Wizard's tower mages",
+      "link": ""
+    },
+    {
+      "start": 78,
       "end": 83,
-      "desc": "Safecracking in Asgarnia",
-      "link": "https://runescape.wiki/w/Safecracking#Asgarnia"
+      "desc": "Pickpocket Archaeologists",
+      "link": ""
     },
     {
       "start": 83,
-      "end": 99,
-      "desc": "Safecracking in Kandarin",
-      "link": "https://runescape.wiki/w/Safecracking#Kandarin"
+      "end": 95,
+      "desc": "Pickpocket Crux knights",
+      "link": ""
     },
     {
       "start": 90,
@@ -1449,6 +1587,42 @@
       "end": 99,
       "desc": "Safecracking Hidden Safes",
       "link": "https://runescape.wiki/w/Safecracking#Hidden"
+    },
+    {
+      "start": 95,
+      "end": 108,
+      "desc": "Vault of Hereditas Heist - You may want to wait until level 98 to boost to level 102 with an Abyssal Lurker Scroll, so you can loot the safes. 72 Agility is also recommended for this but is not needed.",
+      "link": ""
+    },
+    {
+      "start": 104,
+      "end": 108,
+      "desc": "Pickpocket Menaphos market guard",
+      "link": ""
+    },
+    {
+      "start": 108,
+      "end": 120,
+      "desc": "The Arsuran Arsenal Heist - You may want to wait until level 110 to boost to level 114 with an Abyssal Lurker Scroll, so you can loot the safes. This is a dangerous activity, and is not a safe death.",
+      "link": ""
+    },
+    {
+      "start": 111,
+      "end": 113,
+      "desc": "Pickpocket TzHaar-Hur traders",
+      "link": ""
+    },
+    {
+      "start": 113,
+      "end": 118,
+      "desc": "Pickpocket Fairy traders",
+      "link": ""
+    },
+    {
+      "start": 118,
+      "end": 120,
+      "desc": "Pickpocket Vyre consumers",
+      "link": ""
     }
   ],
   "woodcutting": [
@@ -1484,15 +1658,15 @@
     },
     {
       "start": 68,
-      "end": 90,
-      "desc": "Cut ivy (AFK) or continue cutting Acadia Trees",
+      "end": 94,
+      "desc": "Cut Ivy. You may choose to chop other trees if you need logs or wood box upgrades.",
       "link": "https://runescape.wiki/w/Pay-to-play_Woodcutting_training"
     },
     {
-      "start": 90,
+      "start": 94,
       "end": 96,
-      "desc": "Cut Elder Trees using the Superior Locator to teleport between locations",
-      "link": "https://runescape.wiki/w/Elder_tree#Locations"
+      "desc": "Cut Crystal Trees",
+      "link": ""
     },
     {
       "start": 96,
