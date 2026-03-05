@@ -24,30 +24,11 @@ export default function HomePage() {
 
           {/* Tagline */}
           <p className="text-center text-lg md:text-xl text-[var(--text-secondary)] max-w-lg leading-relaxed mt-6">
-            A guide to RuneScape
+            A comprehensive guide to RuneScape progression
           </p>
 
-          {/* Combat styles - simple inline links */}
-          <div className="flex flex-wrap justify-center gap-6 mt-20 text-[var(--text-muted)]">
-            <Link href="/getting-started/melee" className="hover:text-[var(--gold)] transition-colors">
-              Melee
-            </Link>
-            <span className="text-[var(--border-subtle)]">/</span>
-            <Link href="/getting-started/ranged" className="hover:text-[var(--gold)] transition-colors">
-              Ranged
-            </Link>
-            <span className="text-[var(--border-subtle)]">/</span>
-            <Link href="/getting-started/magic" className="hover:text-[var(--gold)] transition-colors">
-              Magic
-            </Link>
-            <span className="text-[var(--border-subtle)]">/</span>
-            <Link href="/getting-started/necromancy" className="hover:text-[var(--gold)] transition-colors">
-              Necromancy
-            </Link>
-          </div>
-
           {/* Main navigation */}
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
+          <div className="flex flex-wrap justify-center gap-4 mt-20">
             <Link
               href="/setup"
               className="px-6 py-3 bg-[var(--gold)] text-[var(--bg-base)] font-medium hover:opacity-90 transition-opacity"
@@ -65,6 +46,25 @@ export default function HomePage() {
               className="px-6 py-3 border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--gold)] hover:text-[var(--gold)] transition-colors"
             >
               Guides
+            </Link>
+          </div>
+
+          {/* Combat styles - simple inline links */}
+          <div className="flex flex-wrap justify-center gap-6 mt-8 text-[var(--text-muted)]">
+            <Link href="/guides/melee" className="hover:text-[var(--gold)] transition-colors">
+              Melee
+            </Link>
+            <span className="text-[var(--border-subtle)]">/</span>
+            <Link href="/guides/range" className="hover:text-[var(--gold)] transition-colors">
+              Ranged
+            </Link>
+            <span className="text-[var(--border-subtle)]">/</span>
+            <Link href="/guides/magic" className="hover:text-[var(--gold)] transition-colors">
+              Magic
+            </Link>
+            <span className="text-[var(--border-subtle)]">/</span>
+            <Link href="/guides/necromancy" className="hover:text-[var(--gold)] transition-colors">
+              Necromancy
             </Link>
           </div>
         </section>
