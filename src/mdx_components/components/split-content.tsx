@@ -8,15 +8,16 @@ export const SplitItem = ({
   children: ReactNode;
   width?: number;
 }) => {
+  // On mobile, items are full width. On desktop (md+), apply width constraints
   const style = width
-    ? {
-        flex: `0 0 calc(${width}% - 0.5rem)`,
-        minWidth: 0,
-        maxWidth: `calc(${width}% - 0.5rem)`,
-      }
+    ? ({
+        '--split-width': `calc(${width}% - 0.5rem)`,
+      } as React.CSSProperties)
     : {};
 
-  const className = width ? "not-prose min-w-0" : "not-prose flex-1 min-w-0";
+  const className = width
+    ? "not-prose min-w-0 w-full md:w-auto md:flex-none md:[flex-basis:var(--split-width)] md:max-w-[var(--split-width)]"
+    : "not-prose flex-1 min-w-0 w-full md:w-auto";
 
   return (
     <div className={className} style={style}>
@@ -32,7 +33,7 @@ export const SplitContent = ({
   children: ReactNode;
 }) => {
   return (
-    <div className="flex gap-4 items-start flex-nowrap overflow-x-auto">
+    <div className="flex flex-col md:flex-row gap-4 items-start">
       {children}
     </div>
   );

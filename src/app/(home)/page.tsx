@@ -28,29 +28,29 @@ export default function HomePage() {
           </p>
 
           {/* Main navigation */}
-          <div className="flex flex-wrap justify-center gap-4 mt-20">
+          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-12 sm:mt-20 w-full sm:w-auto px-4 sm:px-0">
             <Link
               href="/setup"
-              className="px-6 py-3 bg-[var(--gold)] text-[var(--bg-base)] font-medium hover:opacity-90 transition-opacity"
+              className="px-6 py-3 bg-[var(--gold)] text-[var(--bg-base)] font-medium hover:opacity-90 transition-opacity text-center"
             >
               Setup Guide
             </Link>
             <Link
               href="/getting-started"
-              className="px-6 py-3 border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--gold)] hover:text-[var(--gold)] transition-colors"
+              className="px-6 py-3 border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--gold)] hover:text-[var(--gold)] transition-colors text-center"
             >
               Getting Started
             </Link>
             <Link
               href="/guides"
-              className="px-6 py-3 border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--gold)] hover:text-[var(--gold)] transition-colors"
+              className="px-6 py-3 border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--gold)] hover:text-[var(--gold)] transition-colors text-center"
             >
               Guides
             </Link>
           </div>
 
           {/* Combat styles - simple inline links */}
-          <div className="flex flex-wrap justify-center gap-6 mt-8 text-[var(--text-muted)]">
+          <div className="flex flex-wrap justify-center gap-x-2 gap-y-1 sm:gap-x-6 mt-6 sm:mt-8 text-[var(--text-muted)] text-sm sm:text-base">
             <Link href="/guides/melee" className="hover:text-[var(--gold)] transition-colors">
               Melee
             </Link>

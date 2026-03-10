@@ -3,6 +3,7 @@ import { RootProvider } from 'fumadocs-ui/provider/next';
 import { Cinzel, Nunito } from 'next/font/google';
 import { PlayerDataProvider } from '@/mdx_components/components/player-data-context';
 import type { Metadata } from 'next';
+import Script from 'next/script';
 
 // Display font for headings - fantasy/medieval feel
 const cinzel = Cinzel({
@@ -36,6 +37,10 @@ export default function Layout({ children }: LayoutProps<'/'>) {
   return (
     <html lang="en" className={`${cinzel.variable} ${nunito.variable}`} suppressHydrationWarning>
       <body className="flex flex-col font-[family-name:var(--font-body)]" suppressHydrationWarning>
+        <Script
+          defer
+          src="https://traffic.imjoshj.com/api/v1/track/script.js?site=thersguide"
+        />
         <RootProvider>
           <PlayerDataProvider>
             {children}

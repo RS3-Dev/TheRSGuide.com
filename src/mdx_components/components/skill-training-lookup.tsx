@@ -25,7 +25,7 @@ const SkillButton: React.FC<{
     <button
       onClick={onClick}
       title={`${capitalizedSkill}${playerLevel ? ` (${playerLevel})` : ""}`}
-      className={`w-7 h-7 flex items-center justify-center rounded border transition-all ${
+      className={`w-9 h-9 flex items-center justify-center rounded border transition-all ${
         isSelected
           ? "border-fd-primary bg-fd-primary/20"
           : "border-transparent hover:border-fd-border hover:bg-fd-muted/50"
@@ -34,7 +34,7 @@ const SkillButton: React.FC<{
       <img
         src={`/skills/${skill.toLowerCase()}.png`}
         alt={capitalizedSkill}
-        className="w-5 h-5 block"
+        className="w-7 h-7 block"
       />
     </button>
   );

@@ -9,6 +9,8 @@ import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/mdx_components/mdx-components';
 import type { Metadata } from 'next';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
+import { findNeighbour } from 'fumadocs-core/page-tree';
+import { FooterNav } from '@/components/footer-nav';
 
 export default async function Page(props: PageProps<'/setup/[[...slug]]'>) {
   const params = await props.params;
@@ -16,9 +18,10 @@ export default async function Page(props: PageProps<'/setup/[[...slug]]'>) {
   if (!page) notFound();
 
   const MDX = page.data.body;
+  const neighbours = findNeighbour(setup.pageTree, page.url);
 
   return (
-    <DocsPage toc={page.data.toc} full={page.data.full} footer={{ enabled: true }}>
+    <DocsPage toc={page.data.toc} full={page.data.full} footer={{ enabled: false }}>
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
@@ -27,6 +30,10 @@ export default async function Page(props: PageProps<'/setup/[[...slug]]'>) {
             // this allows you to link to other pages with relative file paths
             a: createRelativeLink(setup, page),
           })}
+        />
+        <FooterNav
+          previous={neighbours.previous ? { name: neighbours.previous.name, url: neighbours.previous.url } : undefined}
+          next={neighbours.next ? { name: neighbours.next.name, url: neighbours.next.url } : undefined}
         />
       </DocsBody>
     </DocsPage>

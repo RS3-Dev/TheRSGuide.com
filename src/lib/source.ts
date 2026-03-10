@@ -18,7 +18,6 @@ export const gettingStarted = loader({
 export const guides = loader({
   baseUrl: '/guides',
   source: GuidesPage.toFumadocsSource(),
-  plugins: [lucideIconsPlugin()],
 });
 
 export function getPageImage(page: InferPageType<typeof setup>) {

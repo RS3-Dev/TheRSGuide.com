@@ -46,36 +46,17 @@ export const InteractiveLegend: React.FC<InteractiveLegendProps> = ({
     : baseImage;
 
   return (
-    <div
-      className="my-4 select-none"
-      style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 2fr',
-        gap: '1rem',
-        alignItems: 'start',
-      }}
-    >
+    <div className="md:my-4 select-none grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-4 items-start">
       {/* Image */}
       <div>
         <img
           src={currentImage}
           alt="Interactive view"
-          style={{
-            display: 'block',
-            width: '100%',
-            borderRadius: '0.5rem',
-            border: '1px solid var(--color-fd-border)',
-          }}
+          className="block w-full rounded-lg border border-[var(--color-fd-border)]"
         />
-        <p
-          style={{
-            marginTop: '0.5rem',
-            fontSize: '0.75rem',
-            color: 'var(--color-fd-muted-foreground)',
-            textAlign: 'center',
-          }}
-        >
-          Hover to preview, click to lock
+        <p className="mt-2 text-xs text-[var(--color-fd-muted-foreground)] text-center">
+          <span className="md:hidden">Tap to view on map</span>
+          <span className="hidden md:inline">Hover to preview, click to lock</span>
         </p>
       </div>
 

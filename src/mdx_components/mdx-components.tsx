@@ -17,7 +17,10 @@ import { GearRecommendations } from './components/gear-recommendations';
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
     ...defaultMdxComponents,
-    img: (props) => <ImageZoom {...(props as any)} />,
+    img: (props) => {
+      if (!props.src) return null;
+      return <ImageZoom {...(props as any)} />;
+    },
     strong: (props) => (
       <strong className="font-extrabold" {...props} />
     ),
