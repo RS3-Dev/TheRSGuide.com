@@ -453,3 +453,19 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+
+/* Fix inline images in blockquotes */
+.ability-page blockquote {
+  line-height: 1.5;
+}
+
+.ability-page blockquote p {
+  display: inline;
+  margin: 0;
+}
+
+.ability-page blockquote img.inline {
+  display: inline;
+  vertical-align: middle;
+  margin: 0;
+}

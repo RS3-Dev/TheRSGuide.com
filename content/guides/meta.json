@@ -2,10 +2,10 @@
   "pages": [
     "index",
     "skill-training",
-    "gear-recommendations",
     "early-game",
     "mid-game",
     "late-game",
+    "gear-recommendations",
     "necromancy",
     "melee",
     "magic",
