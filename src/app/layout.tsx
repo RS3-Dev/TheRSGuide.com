@@ -20,8 +20,16 @@ const nunito = Nunito({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://thersguide.com'),
-  title: 'The RS Guide - Your RuneScape Adventure Starts Here',
-  description: 'A comprehensive guide to help new players master RuneScape combat, unlock powerful content, and become the adventurer you were meant to be.',
+  title: 'The RS Guide - A comprehensive guide to RuneScape',
+  description: 'Beginner RuneScape guide with detailed tutorials, setup instructions, and training guides for every skill. Perfect for new and experienced players',
+  icons: {
+    icon: [
+      { url: '/favicons/favicon.ico' },
+      { url: '/favicons/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicons/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: '/favicons/apple-touch-icon.png',
+  },
 };
 
 export default function Layout({ children }: LayoutProps<'/'>) {
