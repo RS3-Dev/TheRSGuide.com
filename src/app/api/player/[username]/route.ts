@@ -6,13 +6,16 @@ export async function GET(
 ) {
   const { username } = await params;
 
+  // Replace spaces with underscores for the RS3 API
+  const formattedUsername = username.replace(/ /g, '_');
+
   try {
     // Fetch levels and quests in parallel
     const [levelsRes, questsRes] = await Promise.all([
-      fetch(`https://api.rs3.dev/api/v1/players/${encodeURIComponent(username)}/levels`, {
+      fetch(`https://api.rs3.dev/api/v1/players/${encodeURIComponent(formattedUsername)}/levels`, {
         headers: { 'Accept': 'application/json' },
       }),
-      fetch(`https://api.rs3.dev/api/v1/players/${encodeURIComponent(username)}/quests`, {
+      fetch(`https://api.rs3.dev/api/v1/players/${encodeURIComponent(formattedUsername)}/quests`, {
         headers: { 'Accept': 'application/json' },
       }),
     ]);
