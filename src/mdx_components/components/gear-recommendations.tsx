@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import gearData from 'public/data/gear-by-style.json';
+import gearData from '@/data/gear-by-style.json';
 
 type CombatStyle = 'magic' | 'ranged' | 'melee' | 'necromancy';
 type GearMode = 'training' | 'pvm';

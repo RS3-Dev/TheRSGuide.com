@@ -1,4 +1,4 @@
-import questsData from './quests.json';
+import questsData from '@/data/quests.json';
 
 interface QuestSkillReq {
   skill: string;

@@ -12,7 +12,6 @@ export default function HomePage() {
 
       {/* Main content */}
       <div className="relative z-10 flex flex-col h-full">
-
         {/* Hero Section */}
         <section className="flex-1 flex flex-col items-center justify-center px-6 py-20">
           {/* Main title */}
@@ -30,10 +29,10 @@ export default function HomePage() {
           {/* Main navigation */}
           <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-12 sm:mt-20 w-full sm:w-auto px-4 sm:px-0">
             <Link
-              href="/setup"
+              href="/guides"
               className="px-6 py-3 bg-[var(--gold)] text-[var(--bg-base)] font-medium hover:opacity-90 transition-opacity text-center"
             >
-              Setup Guide
+              Guides
             </Link>
             <Link
               href="/getting-started"
@@ -42,33 +41,44 @@ export default function HomePage() {
               Getting Started
             </Link>
             <Link
-              href="/guides"
+              href="/setup"
               className="px-6 py-3 border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--gold)] hover:text-[var(--gold)] transition-colors text-center"
             >
-              Guides
+              Setup Guide
             </Link>
           </div>
 
           {/* Combat styles - simple inline links */}
           <div className="flex flex-wrap justify-center gap-x-2 gap-y-1 sm:gap-x-6 mt-6 sm:mt-8 text-[var(--text-muted)] text-sm sm:text-base">
-            <Link href="/guides/melee" className="hover:text-[var(--gold)] transition-colors">
+            <Link
+              href="/guides/melee"
+              className="hover:text-[var(--gold)] transition-colors"
+            >
               Melee
             </Link>
             <span className="text-[var(--border-subtle)]">/</span>
-            <Link href="/guides/range" className="hover:text-[var(--gold)] transition-colors">
+            <Link
+              href="/guides/range"
+              className="hover:text-[var(--gold)] transition-colors"
+            >
               Ranged
             </Link>
             <span className="text-[var(--border-subtle)]">/</span>
-            <Link href="/guides/magic" className="hover:text-[var(--gold)] transition-colors">
+            <Link
+              href="/guides/magic"
+              className="hover:text-[var(--gold)] transition-colors"
+            >
               Magic
             </Link>
             <span className="text-[var(--border-subtle)]">/</span>
-            <Link href="/guides/necromancy" className="hover:text-[var(--gold)] transition-colors">
+            <Link
+              href="/guides/necromancy"
+              className="hover:text-[var(--gold)] transition-colors"
+            >
               Necromancy
             </Link>
           </div>
         </section>
-
       </div>
     </main>
   );

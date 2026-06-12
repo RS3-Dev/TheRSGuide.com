@@ -15,7 +15,7 @@
           "note": "T85 damage"
         },
         { "name": "Dragon Rider Lance", "tier": 85, "ironman": true },
-        { "name": "Noxious Scythe", "tier": 90, "ironman": true },
+        { "name": "Noxious Scythe", "tier": 90, "ironman": false },
         { "name": "Tumeken's Light", "tier": 95, "ironman": false }
       ],
       "armour": [
@@ -66,6 +66,11 @@
           "tier": 88,
           "ironman": false,
           "note": "Level 85 req"
+        },
+        {
+          "name": "Ruinous Rapier + Off-hand Ruinous Rapier",
+          "tier": 90,
+          "ironman": true
         },
         { "name": "Drygore Longswords", "tier": 90, "ironman": true },
         {
@@ -126,9 +131,9 @@
           "ironman": true
         },
         {
-          "name": "Mechanized Chinchompas + Offhand Ascension Crossbow",
+          "name": "Mechanized Chinchompas + Offhand Ruinous Crossbow",
           "tier": 90,
-          "ironman": false
+          "ironman": true
         },
         {
           "name": "Mechanized Chinchompas + Offhand Blightbound Crossbow",
@@ -169,7 +174,12 @@
         { "name": "Attuned Crystal Bow", "tier": 80, "ironman": true },
         { "name": "Wyvern Crossbow", "tier": 85, "ironman": false },
         { "name": "Decimation Bow", "tier": 87, "ironman": false },
-        { "name": "Noxious Longbow", "tier": 90, "ironman": true },
+        { "name": "Noxious Longbow", "tier": 90, "ironman": false },
+        {
+          "name": "Ruinous Crossbow + Off-hand Ruinous Crossbow",
+          "tier": 90,
+          "ironman": true
+        },
         { "name": "Gloomfire Bow", "tier": 90, "ironman": true },
         { "name": "Seren Godbow", "tier": 92, "ironman": false },
         { "name": "Bow of the Last Guardian", "tier": 95, "ironman": false }
@@ -218,6 +228,7 @@
           "ironman": false
         },
         { "name": "Noxious Staff", "tier": 90, "ironman": false },
+        { "name": "Ruinous Staff", "tier": 90, "ironman": true },
         { "name": "Legatus Emberstaff", "tier": 90, "ironman": true },
         {
           "name": "Roar of Awakening + Ode to Deceit",
@@ -274,6 +285,7 @@
           "ironman": false
         },
         { "name": "Noxious Staff", "tier": 90, "ironman": false },
+        { "name": "Ruinous Staff", "tier": 90, "ironman": true },
         { "name": "Legatus Emberstaff", "tier": 90, "ironman": true },
         {
           "name": "Roar of Awakening + Ode to Deceit",
@@ -313,6 +325,11 @@
         { "name": "Death Guard + Skull Lantern", "tier": 70, "ironman": true },
         { "name": "Death Guard + Skull Lantern", "tier": 80, "ironman": true },
         { "name": "Death Guard + Skull Lantern", "tier": 90, "ironman": true },
+        {
+          "name": "Ruinous Guard + Ruinous Lantern",
+          "tier": 90,
+          "ironman": true
+        },
         {
           "name": "Omni Guard + Soulbound Lantern",
           "tier": 95,
