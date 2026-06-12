@@ -2,6 +2,10 @@
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
 
+@utility -inset-s-4 {
+  inset-inline-start: calc(var(--spacing) * -4);
+}
+
 /* ================================
    FUMADOCS THEME OVERRIDES
    ================================ */
@@ -469,4 +473,3 @@ h1, h2, h3, h4, h5, h6 {
   vertical-align: middle;
   margin: 0;
 }
-
