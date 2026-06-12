@@ -95,7 +95,7 @@ export const PlayerSearch: React.FC = () => {
             placeholder="Load your stats..."
             value={inputValue}
             onChange={handleInputChange}
-            onKeyPress={handleKeyPress}
+            onKeyDown={handleKeyPress}
             disabled={loading}
             maxLength={15}
             className="w-full pl-9 pr-20 py-2 text-sm border border-fd-border rounded-lg bg-fd-background text-fd-foreground placeholder:text-fd-muted-foreground focus:outline-none focus:ring-2 focus:ring-fd-ring focus:border-transparent disabled:opacity-50"
