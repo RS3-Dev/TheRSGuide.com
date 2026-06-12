@@ -1,0 +1,17 @@
+name: Release to Railway
+
+on:
+  release:
+    types: [created]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    container: ghcr.io/railwayapp/cli:latest
+    env:
+      SVC_ID: my-service-id
+      RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+    steps:
+      - uses: actions/checkout@v3
+      - run: railway up --service=${{ secrets.RAILWAY_PRODUCTION_SERVICE_ID }}
