@@ -1,45 +1,59 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+const RUNEMETRICS_BASE_URL = 'https://apps.runescape.com/runemetrics';
+
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ username: string }> }
 ) {
   const { username } = await params;
 
-  // Replace spaces with underscores for the RS3 API
-  const formattedUsername = username.replace(/ /g, '_');
+  const formattedUsername = username.trim();
 
   try {
-    // Fetch levels and quests in parallel
-    const [levelsRes, questsRes] = await Promise.all([
-      fetch(`https://api.rs3.dev/api/v1/players/${encodeURIComponent(formattedUsername)}/levels`, {
+    const encodedUsername = encodeURIComponent(formattedUsername);
+
+    const [profileRes, questsRes] = await Promise.all([
+      fetch(`${RUNEMETRICS_BASE_URL}/profile/profile?user=${encodedUsername}&activities=0`, {
         headers: { 'Accept': 'application/json' },
+        cache: 'no-store',
       }),
-      fetch(`https://api.rs3.dev/api/v1/players/${encodeURIComponent(formattedUsername)}/quests`, {
+      fetch(`${RUNEMETRICS_BASE_URL}/quests?user=${encodedUsername}`, {
         headers: { 'Accept': 'application/json' },
+        cache: 'no-store',
       }),
     ]);
 
-    if (levelsRes.status === 404) {
-      return NextResponse.json(
-        { error: 'Player not found' },
-        { status: 404 }
-      );
-    }
-
-    if (!levelsRes.ok || !questsRes.ok) {
+    if (!profileRes.ok || !questsRes.ok) {
       return NextResponse.json(
         { error: 'Failed to fetch player data' },
         { status: 500 }
       );
     }
 
-    const [levels, quests] = await Promise.all([
-      levelsRes.json(),
+    const [profile, quests] = await Promise.all([
+      profileRes.json(),
       questsRes.json(),
     ]);
 
-    return NextResponse.json({ levels, quests });
+    if (profile.error === 'NO_PROFILE') {
+      return NextResponse.json(
+        { error: 'NO_PROFILE', loggedIn: profile.loggedIn },
+        { status: 404 }
+      );
+    }
+
+    if (profile.error === 'PROFILE_PRIVATE') {
+      return NextResponse.json(
+        { error: 'PROFILE_PRIVATE', loggedIn: profile.loggedIn },
+        { status: 403 }
+      );
+    }
+
+    return NextResponse.json({
+      ...profile,
+      quests: Array.isArray(quests) ? quests : quests.quests,
+    });
   } catch (error) {
     console.error('Error fetching player data:', error);
     return NextResponse.json(

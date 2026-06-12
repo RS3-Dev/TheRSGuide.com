@@ -126,6 +126,13 @@ function mapDirectApiSkills(skillValues: ApiSkillValue[] = []): SkillLevel[] {
     .filter((skill): skill is SkillLevel => skill !== null);
 }
 
+function normalizeQuestStatus(status: string) {
+  return status
+    .replaceAll("_", " ")
+    .toLowerCase()
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
 // Skill name normalization map
 const SKILL_NAME_MAP: { [key: string]: string } = {
   attack: "Attack",
@@ -198,7 +205,7 @@ export function PlayerDataProvider({ children }: { children: ReactNode }) {
     setError(null);
 
     try {
-      const questsUrl = `https://api.thersguide.com/api/v1/player-data?username=${encodeURIComponent(normalizedUsername)}&quests=true`;
+      const questsUrl = `/api/player/${encodeURIComponent(normalizedUsername)}`;
       const questsRes = await fetch(questsUrl, {
         signal: abortController.signal,
       });
@@ -242,7 +249,7 @@ export function PlayerDataProvider({ children }: { children: ReactNode }) {
               username: resolvedUsername,
               quests: data.quests.map((quest) => ({
                 ...quest,
-                status: quest.status.replaceAll("_", " ").replace(/\b\w/g, (char) => char.toUpperCase()),
+                status: normalizeQuestStatus(quest.status),
               })),
             }
           : null,
