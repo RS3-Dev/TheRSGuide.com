@@ -3,14 +3,14 @@ FROM node:20-alpine AS base
 WORKDIR /app
 
 COPY package*.json ./
-COPY source.config.ts tsconfig.json vite-env.d.ts ./
+COPY next.config.mjs source.config.ts tsconfig.json vite-env.d.ts ./
 
 RUN npm ci
 
 COPY src ./src
 COPY content ./content
 COPY public ./public
-COPY next.config.mjs postcss.config.mjs ./
+COPY postcss.config.mjs ./
 
 RUN npm run build
 
