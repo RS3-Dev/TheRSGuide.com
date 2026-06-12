@@ -762,13 +762,37 @@
     },
     {
       "start": 20,
-      "end": 54,
+      "end": 45,
       "desc": "Catch Trout and Salmon in Shilo Village or Lumbridge",
       "link": "https://runescape.wiki/w/Raw_trout"
     },
     {
+      "start": 45,
+      "end": 55,
+      "desc": "Catch Lobsters at the Havenhythe Fish Farm",
+      "link": ""
+    },
+    {
+      "start": 55,
+      "end": 79,
+      "desc": "Catch Swordfish at the Havenhythe Fish Farm",
+      "link": ""
+    },
+    {
+      "start": 79,
+      "end": 84,
+      "desc": "Catch Sharks at the Havenhythe Fish Farm",
+      "link": ""
+    },
+    {
+      "start": 84,
+      "end": 99,
+      "desc": "Catch Giant Crayfish at the Havenhythe Fish Farm",
+      "link": ""
+    },
+    {
       "start": 54,
-      "end": 90,
+      "end": 68,
       "desc": "Catch Desert Soles, Catfish and Beltfish in Menaphos",
       "link": "https://runescape.wiki/w/Raw_desert_sole"
     },
@@ -780,21 +804,9 @@
     },
     {
       "start": 68,
-      "end": 91,
-      "desc": "Green Blubber Jellyfish in the Deep Sea Fishing Hub",
-      "link": "https://runescape.wiki/w/Raw_green_blubber_jellyfish"
-    },
-    {
-      "start": 68,
       "end": 99,
       "desc": "Swarm fishing in the Deep Sea Fishing Hub - This is slower but yields useful food for PvM",
       "link": "https://runescape.wiki/w/Swarm"
-    },
-    {
-      "start": 91,
-      "end": 99,
-      "desc": "Blue Blubber Jellyfish in the Deep Sea Fishing Hub",
-      "link": "https://runescape.wiki/w/Raw_blue_blubber_jellyfish"
     },
     {
       "start": 93,
@@ -899,33 +911,9 @@
       "link": ""
     },
     {
-      "start": 46,
-      "end": 53,
-      "desc": "Box trap Viridian Skillchompas in South of Port Phasmatys.",
-      "link": ""
-    },
-    {
-      "start": 47,
-      "end": 53,
-      "desc": "Catch Orange Salamanders in the Desert.",
-      "link": ""
-    },
-    {
-      "start": 53,
-      "end": 59,
-      "desc": "Box trap Grey Chinchompas at Piscatoris. You can teleport there with Memory Strands.",
-      "link": ""
-    },
-    {
-      "start": 59,
+      "start": 32,
       "end": 63,
-      "desc": "Catch Red Salamanders by the ZMI Altar",
-      "link": ""
-    },
-    {
-      "start": 63,
-      "end": 67,
-      "desc": "Box Trap Red Chinchompas in the Feldip Hills.",
+      "desc": "Rabbit snare Jackalopes on Havenhythe. Optional: Jackalopes can be infused into Jackalope pouches to assist with early game Archaeology training.",
       "link": ""
     },
     {
@@ -1192,8 +1180,14 @@
   "prayer": [
     {
       "start": 1,
+      "end": 43,
+      "desc": "Defeat Ivar, King of Bones. He drops a colossal bone every kill that can be buried for 400 Prayer experience.",
+      "link": "https://runescape.wiki/w/Ivar,_King_of_Bones"
+    },
+    {
+      "start": 1,
       "end": 75,
-      "desc": "Offer Bones or Ashes at the Ectofunctus to unlock the First-Age outfit. Once unlocked, proceed to other methods",
+      "desc": "Offer Bones or Ashes at the Ectofuntus to unlock the First-Age outfit. Once unlocked, proceed to other methods",
       "link": "https://runescape.wiki/w/Ectofuntus#How_to_worship"
     },
     {
@@ -1485,6 +1479,12 @@
       "link": "https://runescape.wiki/w/Summoning_training#Maximising_xp/charm,_reasonable_cost_per_pouch"
     },
     {
+      "start": 29,
+      "end": 99,
+      "desc": "Infuse pouches at the Shrine of the Spirit Wolf until you have the full Shaman's outfit. Optional: Grey chinchompas can be used as a stackable secondary to make this faster and more relaxed.",
+      "link": "https://runescape.wiki/w/Shrine_of_the_Spirit_Wolf"
+    },
+    {
       "start": 46,
       "end": 49,
       "desc": "Make pyrelord pouches. Tinderboxes can be purchased from the Firemaking Expert in Seers' Village",
@@ -1655,6 +1655,12 @@
       "end": 50,
       "desc": "Cut Maple Trees in Seers' Village",
       "link": "https://runescape.wiki/w/Maple_Tree#Locations"
+    },
+    {
+      "start": 35,
+      "end": 68,
+      "desc": "Chop creeping ivy on Havenhythe. Slightly lower experience rates than other methods, but very AFK.",
+      "link": ""
     },
     {
       "start": 50,
