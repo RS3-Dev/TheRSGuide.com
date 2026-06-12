@@ -1,0 +1,1606 @@
+{
+  "sourceTitle": "The RS Guy's Updated 2026 Ironman Progression Guide",
+  "sourceUrl": "https://runescape.wiki/w/Guide:The_RS_Guy%27s_Updated_Ironman_Progression_Guide",
+  "sections": [
+    {
+      "id": "part1",
+      "title": "Early Game: Part 1",
+      "rows": [
+        {
+          "id": "part1-001-skip-basic-challenges-by-speaking-to-challenge-mistress-fara",
+          "type": "task",
+          "title": "Skip basic challenges by speaking to Challenge Mistress Fara",
+          "notes": "This will allow you to receive standard Daily Challenges. Optional: Disable combat challenges"
+        },
+        {
+          "id": "part1-002-the-blood-pact",
+          "type": "quest",
+          "title": "The Blood Pact",
+          "questName": "The Blood Pact",
+          "notes": "Keep Caitlyn's staff and Kayle's chargebow"
+        },
+        {
+          "id": "part1-003-the-restless-ghost",
+          "type": "quest",
+          "title": "The Restless Ghost",
+          "questName": "The Restless Ghost"
+        },
+        {
+          "id": "part1-004-cook-s-assistant",
+          "type": "quest",
+          "title": "Cook's Assistant",
+          "questName": "Cook's Assistant"
+        },
+        {
+          "id": "part1-005-monk-s-friend",
+          "type": "quest",
+          "title": "Monk's Friend",
+          "questName": "Monk's Friend",
+          "notes": "For 2000 Woodcutting Experience and Ardy tasks."
+        },
+        {
+          "id": "part1-006-complete-the-archaeology-tutorial-at-the-varrock-dig-site-and-activate-the-font-of-life-relic",
+          "type": "task",
+          "title": "Complete the Archaeology tutorial at the Varrock Dig Site and activate the Font of Life relic."
+        },
+        {
+          "id": "part1-007-necromancy",
+          "type": "quest",
+          "title": "Necromancy!",
+          "questName": "Necromancy!",
+          "notes": "Talk to Sostratus after the quest for a set of Necromancer robes. Use Necromancy for most early game quest combat."
+        },
+        {
+          "id": "part1-008-violet-is-blue",
+          "type": "quest",
+          "title": "Violet is Blue",
+          "questName": "Violet is Blue",
+          "notes": "Use Exp lamps on farming to skip early game allotment farming"
+        },
+        {
+          "id": "part1-009-violet-is-blue-too",
+          "type": "quest",
+          "title": "Violet is Blue Too",
+          "questName": "Violet is Blue Too",
+          "notes": "1 XP lamp on Mining Mining; 1 XP lamp on Smithing Smithing; 1 XP lamp on Summoning Summoning"
+        },
+        {
+          "id": "part1-010-druidic-ritual",
+          "type": "quest",
+          "title": "Druidic Ritual",
+          "questName": "Druidic Ritual",
+          "notes": "For easy quest points and early Herblore experience."
+        },
+        {
+          "id": "part1-011-wolf-whistle",
+          "type": "quest",
+          "title": "Wolf Whistle",
+          "questName": "Wolf Whistle",
+          "notes": "To Unlock the Summoning skill."
+        },
+        {
+          "id": "part1-012-complete-the-first-3-floors-of-the-stronghold-of-security",
+          "type": "task",
+          "title": "Complete the first 3 floors of the Stronghold of Security",
+          "notes": "For Early game GP. Complete the Stronghold of Safety for an additional 5000 GP and small exp lamps. Use a lamp on Construction"
+        },
+        {
+          "id": "part1-013-gunnar-s-ground",
+          "type": "quest",
+          "title": "Gunnar's Ground",
+          "questName": "Gunnar's Ground",
+          "notes": "1 XP lamp on Construction Construction"
+        },
+        {
+          "id": "part1-014-ernest-the-chicken",
+          "type": "quest",
+          "title": "Ernest the Chicken",
+          "questName": "Ernest the Chicken",
+          "notes": "For easy quest points."
+        },
+        {
+          "id": "part1-015-swept-away",
+          "type": "quest",
+          "title": "Swept Away",
+          "questName": "Swept Away",
+          "notes": "Use exp reward on anything you like. Scales at 10x whatever your current skill level."
+        },
+        {
+          "id": "part1-016-goblin-diplomacy",
+          "type": "quest",
+          "title": "Goblin Diplomacy",
+          "questName": "Goblin Diplomacy",
+          "notes": "For easy quest points."
+        },
+        {
+          "id": "part1-017-what-s-mine-is-yours",
+          "type": "quest",
+          "title": "What's Mine is Yours",
+          "questName": "What's Mine is Yours",
+          "notes": "Gofannon amulet XP reward on Smithing Smithing"
+        },
+        {
+          "id": "part1-018-new-foundations",
+          "type": "quest",
+          "title": "New Foundations",
+          "questName": "New Foundations",
+          "notes": "This quest requires some preparation as you need to purchase supplies from Construction Supplies (Fort Forinthry); 352 limestone bricks. You can also purchase 500 limestone bricks in Keldagrim."
+        },
+        {
+          "id": "part1-019-missing-presumed-death",
+          "type": "quest",
+          "title": "Missing, Presumed Death",
+          "questName": "Missing, Presumed Death",
+          "notes": "Required for many later quests. Invitation box is a great teleport."
+        },
+        {
+          "id": "part1-020-gertrude-s-cat",
+          "type": "quest",
+          "title": "Gertrude's Cat",
+          "questName": "Gertrude's Cat",
+          "notes": "A Cat is required for later quests."
+        },
+        {
+          "id": "part1-021-start-growing-your-cat",
+          "type": "task",
+          "title": "Start growing your cat",
+          "notes": "Feed your cat using the following food from your bank:; Sardines; Raw Sardines"
+        },
+        {
+          "id": "part1-022-priest-in-peril",
+          "type": "quest",
+          "title": "Priest in Peril",
+          "questName": "Priest in Peril",
+          "notes": "Required for Vampyre questline."
+        },
+        {
+          "id": "part1-023-sheep-herder",
+          "type": "quest",
+          "title": "Sheep Herder",
+          "questName": "Sheep Herder",
+          "notes": "Required for Plague's End quest Series."
+        },
+        {
+          "id": "part1-024-hazeel-cult",
+          "type": "quest",
+          "title": "Hazeel Cult",
+          "questName": "Hazeel Cult",
+          "notes": "Required for a number of important quests."
+        },
+        {
+          "id": "part1-025-waterfall-quest",
+          "type": "quest",
+          "title": "Waterfall Quest",
+          "questName": "Waterfall Quest",
+          "notes": "Optional: Start the Tree Gnome Village quest to unlock Elkoy's guidance to skip the maze in the future. Very good early Melee Exp."
+        },
+        {
+          "id": "part1-026-merlin-s-crystal",
+          "type": "quest",
+          "title": "Merlin's Crystal",
+          "questName": "Merlin's Crystal",
+          "notes": "Good early Quest Points, required for Holy Grail."
+        },
+        {
+          "id": "part1-027-holy-grail",
+          "type": "quest",
+          "title": "Holy Grail",
+          "questName": "Holy Grail",
+          "notes": "Very good early Prayer and Defence experience."
+        },
+        {
+          "id": "part1-028-stolen-hearts",
+          "type": "quest",
+          "title": "Stolen Hearts",
+          "questName": "Stolen Hearts",
+          "notes": "Required for unlocking Menaphos"
+        },
+        {
+          "id": "part1-029-diamond-in-the-rough",
+          "type": "quest",
+          "title": "Diamond in the Rough",
+          "questName": "Diamond in the Rough",
+          "notes": "Required for unlocking Menaphos"
+        },
+        {
+          "id": "part1-030-the-jack-of-spades",
+          "type": "quest",
+          "title": "The Jack of Spades",
+          "questName": "The Jack of Spades",
+          "notes": "Grants access to Menaphos."
+        },
+        {
+          "id": "part1-031-icthlarin-s-little-helper",
+          "type": "quest",
+          "title": "Icthlarin's Little Helper",
+          "questName": "Icthlarin's Little Helper",
+          "notes": "Good early Agility and Thieving experience, and required for Smoking kills"
+        },
+        {
+          "id": "part1-032-once-upon-a-slime",
+          "type": "quest",
+          "title": "Once Upon a Slime",
+          "questName": "Once Upon a Slime",
+          "notes": "Optional for 2500 Cooking experience."
+        },
+        {
+          "id": "part1-033-tribal-totem",
+          "type": "quest",
+          "title": "Tribal Totem",
+          "questName": "Tribal Totem",
+          "notes": "Optional for 1775 Thieving experience. Very short quest."
+        },
+        {
+          "id": "part1-034-jungle-potion",
+          "type": "quest",
+          "title": "Jungle Potion",
+          "questName": "Jungle Potion",
+          "notes": "Required for Shilo Village and Legend's Quest"
+        },
+        {
+          "id": "part1-035-recruitment-drive",
+          "type": "quest",
+          "title": "Recruitment Drive",
+          "questName": "Recruitment Drive",
+          "notes": "Required for a number of important quests."
+        },
+        {
+          "id": "part1-036-the-dig-site",
+          "type": "quest",
+          "title": "The Dig Site",
+          "questName": "The Dig Site",
+          "notes": "Good early game Mining and Herblore Experience, and required for important quests. Unlocks Shadow Tendrils and Smoke Tendrils"
+        },
+        {
+          "id": "part1-037-witch-s-house",
+          "type": "quest",
+          "title": "Witch's House",
+          "questName": "Witch's House",
+          "notes": "Good early game Constitution Experience. Combat section can be slightly difficult at very low levels. Bring food."
+        },
+        {
+          "id": "part1-038-death-plateau",
+          "type": "quest",
+          "title": "Death Plateau",
+          "questName": "Death Plateau"
+        },
+        {
+          "id": "part1-039-the-lost-tribe",
+          "type": "quest",
+          "title": "The Lost Tribe",
+          "questName": "The Lost Tribe",
+          "notes": "Required for a number of important quests including Extinction"
+        },
+        {
+          "id": "part1-040-the-knight-s-sword",
+          "type": "quest",
+          "title": "The Knight's Sword",
+          "questName": "The Knight's Sword",
+          "notes": "Very good early game Smithing experience. Bring food and ensure you have an Iron Pickaxe or above to mine the Blurite Ore"
+        },
+        {
+          "id": "part1-041-the-tourist-trap",
+          "type": "quest",
+          "title": "The Tourist Trap",
+          "questName": "The Tourist Trap",
+          "notes": "2 XP lamp on Agility Agility"
+        },
+        {
+          "id": "part1-042-murder-mystery",
+          "type": "quest",
+          "title": "Murder Mystery",
+          "questName": "Murder Mystery",
+          "notes": "Required for Recipe for Disaster and King's Ransom"
+        },
+        {
+          "id": "part1-043-plague-city",
+          "type": "quest",
+          "title": "Plague City",
+          "questName": "Plague City",
+          "notes": "Required for Plague's End and good early Mining Exp."
+        },
+        {
+          "id": "part1-044-biohazard",
+          "type": "quest",
+          "title": "Biohazard",
+          "questName": "Biohazard",
+          "notes": "Required for Plague's End"
+        },
+        {
+          "id": "part1-045-fight-arena",
+          "type": "quest",
+          "title": "Fight Arena",
+          "questName": "Fight Arena",
+          "notes": "Required for Ritual of the Mahjarrat and very good early Attack Exp."
+        },
+        {
+          "id": "part1-046-tree-gnome-village",
+          "type": "quest",
+          "title": "Tree Gnome Village",
+          "questName": "Tree Gnome Village",
+          "notes": "Very good early Combat Exp. Required for Monkey Madness"
+        },
+        {
+          "id": "part1-047-the-grand-tree",
+          "type": "quest",
+          "title": "The Grand Tree",
+          "questName": "The Grand Tree",
+          "notes": "Use the combat lamp on whatever combat skill you plan to use most."
+        },
+        {
+          "id": "part1-048-dragon-slayer",
+          "type": "quest",
+          "title": "Dragon Slayer",
+          "questName": "Dragon Slayer",
+          "notes": "Recommended to use Melee or Necromancy for this fight. 37 Prayer for Protect from Magic is recommended but not required."
+        }
+      ]
+    },
+    {
+      "id": "part2",
+      "title": "Early Game: Part 2",
+      "rows": [
+        {
+          "id": "part2-001-one-piercing-note",
+          "type": "quest",
+          "title": "One Piercing Note",
+          "questName": "One Piercing Note",
+          "notes": "Unlocks the Devotion ability, which is very powerful"
+        },
+        {
+          "id": "part2-002-observatory-quest",
+          "type": "quest",
+          "title": "Observatory Quest",
+          "questName": "Observatory Quest",
+          "notes": "Optional: 5 Varrock museum Kudos and 2,250 Crafting Exp."
+        },
+        {
+          "id": "part2-003-recipe-for-disaster-another-cook-s-quest",
+          "type": "quest",
+          "title": "Recipe for Disaster: Another Cook's Quest",
+          "questName": "Recipe for Disaster: Another Cook's Quest",
+          "notes": "Required for Evil Dave's Big Day Out which offers a boost to Spicy Stew"
+        },
+        {
+          "id": "part2-004-nature-spirit",
+          "type": "quest",
+          "title": "Nature Spirit",
+          "questName": "Nature Spirit",
+          "notes": "Required for a number of important quests."
+        },
+        {
+          "id": "part2-005-elemental-workshop-i",
+          "type": "quest",
+          "title": "Elemental Workshop I",
+          "questName": "Elemental Workshop I",
+          "notes": "Optional very short quest for 5,000 Crafting and Smithing Exp."
+        },
+        {
+          "id": "part2-006-sea-slug",
+          "type": "quest",
+          "title": "Sea Slug",
+          "questName": "Sea Slug",
+          "notes": "Required for a number of important quests."
+        },
+        {
+          "id": "part2-007-fishing-contest",
+          "type": "quest",
+          "title": "Fishing Contest",
+          "questName": "Fishing Contest",
+          "notes": "Required for a number of important quests. Good early Fishing Exp."
+        },
+        {
+          "id": "part2-008-shilo-village",
+          "type": "quest",
+          "title": "Shilo Village",
+          "questName": "Shilo Village",
+          "notes": "Required for the Legend's Quest."
+        },
+        {
+          "id": "part2-009-shades-of-mort-ton",
+          "type": "quest",
+          "title": "Shades of Mort'ton",
+          "questName": "Shades of Mort'ton",
+          "notes": "World 88 is not always active, so you may possibly need to either use alts to help with the minigame or find others to help you. Make 20 Flamtaer bracelets to speed up building the walls. Make an extra Sacred oil for Legacy of Seergaze. Required for Vampyre questline."
+        },
+        {
+          "id": "part2-010-big-chompy-bird-hunting",
+          "type": "quest",
+          "title": "Big Chompy Bird Hunting",
+          "questName": "Big Chompy Bird Hunting",
+          "notes": "Required for Plague's End."
+        },
+        {
+          "id": "part2-011-zogre-flesh-eaters",
+          "type": "quest",
+          "title": "Zogre Flesh Eaters",
+          "questName": "Zogre Flesh Eaters",
+          "notes": "Optional for 2,000 Herblore and Fletching Exp."
+        },
+        {
+          "id": "part2-012-demon-slayer",
+          "type": "quest",
+          "title": "Demon Slayer",
+          "questName": "Demon Slayer",
+          "notes": "Required for the desert questline and Evil Dave's Big Day Out"
+        },
+        {
+          "id": "part2-013-complete-the-varrock-museum-quiz",
+          "type": "task",
+          "title": "Complete the Varrock Museum Quiz.",
+          "notes": "Very fast Slayer and Hunter Exp."
+        },
+        {
+          "id": "part2-014-the-golem",
+          "type": "quest",
+          "title": "The Golem",
+          "questName": "The Golem",
+          "notes": "Required for a number of important quests."
+        },
+        {
+          "id": "part2-015-shadow-of-the-storm",
+          "type": "quest",
+          "title": "Shadow of the Storm",
+          "questName": "Shadow of the Storm",
+          "notes": "Use the combat lamp on whatever you like."
+        },
+        {
+          "id": "part2-016-recipe-for-disaster-freeing-evil-dave",
+          "type": "quest",
+          "title": "Recipe for Disaster: Freeing Evil Dave",
+          "questName": "Recipe for Disaster: Freeing Evil Dave",
+          "notes": "Required for Evil Dave's Big Day Out"
+        },
+        {
+          "id": "part2-017-evil-dave-s-big-day-out",
+          "type": "quest",
+          "title": "Evil Dave's Big Day Out",
+          "questName": "Evil Dave's Big Day Out",
+          "notes": "Very good Herblore and Magic Exp, and unlocks +6 Spicy Stew boost."
+        },
+        {
+          "id": "part2-018-beneath-cursed-tides",
+          "type": "quest",
+          "title": "Beneath Cursed Tides",
+          "questName": "Beneath Cursed Tides",
+          "notes": "You can now start completing Giant Oyster monthly"
+        },
+        {
+          "id": "part2-019-a-shadow-over-ashdale",
+          "type": "quest",
+          "title": "A Shadow over Ashdale",
+          "questName": "A Shadow over Ashdale"
+        },
+        {
+          "id": "part2-020-you-can-now-start-completing-agoroth-weekly",
+          "type": "task",
+          "title": "You can now start completing Agoroth weekly"
+        },
+        {
+          "id": "part2-021-in-search-of-the-myreque",
+          "type": "quest",
+          "title": "In Search of the Myreque",
+          "questName": "In Search of the Myreque",
+          "notes": "Part of the Vampyre Questline."
+        },
+        {
+          "id": "part2-022-in-aid-of-the-myreque",
+          "type": "quest",
+          "title": "In Aid of the Myreque",
+          "questName": "In Aid of the Myreque",
+          "notes": "Part of the Vampyre Questline."
+        },
+        {
+          "id": "part2-023-buyers-and-cellars",
+          "type": "quest",
+          "title": "Buyers and Cellars",
+          "questName": "Buyers and Cellars",
+          "notes": "Unlocks the Thieve's Guild, for Safecracking later."
+        },
+        {
+          "id": "part2-024-from-tiny-acorns-miniquest",
+          "type": "quest",
+          "title": "From Tiny Acorns (miniquest)",
+          "questName": "From Tiny Acorns (miniquest)",
+          "notes": "Unlocks the Thieve's Guild, for Safecracking later."
+        },
+        {
+          "id": "part2-025-the-feud",
+          "type": "quest",
+          "title": "The Feud",
+          "questName": "The Feud",
+          "notes": "Unlocks the Thieve's Guild, for Safecracking later and Ali's Discount Wares"
+        },
+        {
+          "id": "part2-026-lost-her-marbles-miniquest",
+          "type": "quest",
+          "title": "Lost Her Marbles (miniquest)",
+          "questName": "Lost Her Marbles (miniquest)",
+          "notes": "Unlocks the Thieve's Guild, for Safecracking later."
+        },
+        {
+          "id": "part2-027-carnillean-rising",
+          "type": "quest",
+          "title": "Carnillean Rising",
+          "questName": "Carnillean Rising",
+          "notes": "Use the exp lamps for whatever you like. Bank the 10 Mahogany planks for future quests."
+        },
+        {
+          "id": "part2-028-dimension-of-disaster-coin-of-the-realm",
+          "type": "quest",
+          "title": "Dimension of Disaster: Coin of the Realm",
+          "questName": "Dimension of Disaster: Coin of the Realm",
+          "notes": "This quest takes less than a minute."
+        },
+        {
+          "id": "part2-029-cold-war",
+          "type": "quest",
+          "title": "Cold War",
+          "questName": "Cold War",
+          "notes": "Mahogany planks can be found in your bank"
+        },
+        {
+          "id": "part2-030-hunt-for-red-raktuber",
+          "type": "quest",
+          "title": "Hunt for Red Raktuber",
+          "questName": "Hunt for Red Raktuber",
+          "notes": "Penguin questline offers boosts to the Penguin Hide and Seek Weekly."
+        },
+        {
+          "id": "part2-031-the-fremennik-trials",
+          "type": "quest",
+          "title": "The Fremennik Trials",
+          "questName": "The Fremennik Trials",
+          "notes": "You can get the raw shark from Temple Trekking or Mogres."
+        },
+        {
+          "id": "part2-032-monkey-madness",
+          "type": "quest",
+          "title": "Monkey Madness",
+          "questName": "Monkey Madness",
+          "notes": "Very good Combat Exp, and required for Phite Club."
+        },
+        {
+          "id": "part2-033-talk-to-king-narnode-and-then-daero-about-being-enrolled-into-the-royal-guard",
+          "type": "task",
+          "title": "Talk to King Narnode and then Daero about being enrolled into the royal guard",
+          "notes": "Choose experience in Attack & Defence"
+        }
+      ]
+    },
+    {
+      "id": "part3",
+      "title": "Early Game: Part 3",
+      "rows": [
+        {
+          "id": "part3-001-haunted-mine",
+          "type": "quest",
+          "title": "Haunted Mine",
+          "questName": "Haunted Mine",
+          "notes": "Unlocks the Salve Amulet, which is very good for Training."
+        },
+        {
+          "id": "part3-002-kili-row",
+          "type": "quest",
+          "title": "Kili Row",
+          "questName": "Kili Row",
+          "notes": "Optional if you wish to play through necromancy or unlock the Gate of Elidinis."
+        },
+        {
+          "id": "part3-003-rune-mythos",
+          "type": "quest",
+          "title": "Rune Mythos",
+          "questName": "Rune Mythos",
+          "notes": "Optional: if you wish to play through necromancy unlock the Gate of Elidinis Allows crafting of Necromancy runes."
+        },
+        {
+          "id": "part3-004-soul-searching",
+          "type": "quest",
+          "title": "Soul Searching",
+          "questName": "Soul Searching",
+          "notes": "Optional: if you wish to play through necromancy unlock the Gate of Elidinis Unlocks the Sanctum of Rebirth"
+        },
+        {
+          "id": "part3-005-ghosts-ahoy",
+          "type": "quest",
+          "title": "Ghosts Ahoy",
+          "questName": "Ghosts Ahoy",
+          "notes": "Required for Necromancy Questline."
+        },
+        {
+          "id": "part3-006-vessel-of-the-harbinger",
+          "type": "quest",
+          "title": "Vessel of the Harbinger",
+          "questName": "Vessel of the Harbinger",
+          "notes": "Optional: if you wish to play through necromancy or unlock the Gate of Elidinis"
+        },
+        {
+          "id": "part3-007-the-spirit-of-war",
+          "type": "quest",
+          "title": "The Spirit of War",
+          "questName": "The Spirit of War",
+          "notes": "Optional: if you wish to play through necromancy or unlock the Gate of Elidinis"
+        },
+        {
+          "id": "part3-008-murder-on-the-border",
+          "type": "quest",
+          "title": "Murder on the Border",
+          "questName": "Murder on the Border",
+          "notes": "Required for the Gate of Elidinis"
+        },
+        {
+          "id": "part3-009-unwelcome-guests",
+          "type": "quest",
+          "title": "Unwelcome Guests",
+          "questName": "Unwelcome Guests",
+          "notes": "Required for the Gate of Elidinis Also unlocks a new Slayer Master."
+        },
+        {
+          "id": "part3-010-dead-and-buried",
+          "type": "quest",
+          "title": "Dead and Buried",
+          "questName": "Dead and Buried",
+          "notes": "Required for the Gate of Elidinis"
+        },
+        {
+          "id": "part3-011-ancient-awakening",
+          "type": "quest",
+          "title": "Ancient Awakening",
+          "questName": "Ancient Awakening",
+          "notes": "Required for the Gate of Elidinis and unlocks Vorkath"
+        },
+        {
+          "id": "part3-012-the-darkness-of-hallowvale",
+          "type": "quest",
+          "title": "The Darkness of Hallowvale",
+          "questName": "The Darkness of Hallowvale",
+          "notes": "Part of the Vampyre Questline."
+        },
+        {
+          "id": "part3-013-troll-stronghold",
+          "type": "quest",
+          "title": "Troll Stronghold",
+          "questName": "Troll Stronghold",
+          "notes": "2x 10,000 Exp lamps, and required for Desert Treasure"
+        },
+        {
+          "id": "part3-014-troll-romance",
+          "type": "quest",
+          "title": "Troll Romance",
+          "questName": "Troll Romance",
+          "notes": "Optional: grants 8,000 Agility Exp."
+        },
+        {
+          "id": "part3-015-shield-of-arrav",
+          "type": "quest",
+          "title": "Shield of Arrav",
+          "questName": "Shield of Arrav",
+          "notes": "Required for a number of important quests."
+        },
+        {
+          "id": "part3-016-lost-city",
+          "type": "quest",
+          "title": "Lost City",
+          "questName": "Lost City",
+          "notes": "Required for a number of important quests and unlocks."
+        },
+        {
+          "id": "part3-017-heroes-quest",
+          "type": "quest",
+          "title": "Heroes' Quest",
+          "questName": "Heroes' Quest",
+          "notes": "Required for a number of important quests."
+        },
+        {
+          "id": "part3-018-throne-of-miscellania",
+          "type": "quest",
+          "title": "Throne of Miscellania",
+          "questName": "Throne of Miscellania",
+          "notes": "Required for a number of important quests."
+        },
+        {
+          "id": "part3-019-royal-trouble",
+          "type": "quest",
+          "title": "Royal Trouble",
+          "questName": "Royal Trouble"
+        },
+        {
+          "id": "part3-020-you-can-now-start-completing-the-managing-miscellania-weekly-distribute-your-workers-like-so-mahogany-full-bar-of-workers-maple-your-leftover-workers",
+          "type": "task",
+          "title": "You can now start completing the Managing Miscellania weekly Distribute your workers like so: # Mahogany (Full bar of workers) # Maple (Your leftover workers)"
+        },
+        {
+          "id": "part3-021-tears-of-guthix-quest",
+          "type": "quest",
+          "title": "Tears of Guthix (quest)",
+          "questName": "Tears of Guthix (quest)"
+        },
+        {
+          "id": "part3-022-you-can-now-start-completing-the-tears-of-guthix-weekly",
+          "type": "task",
+          "title": "You can now start completing the Tears of Guthix weekly"
+        },
+        {
+          "id": "part3-023-pirate-s-treasure",
+          "type": "quest",
+          "title": "Pirate's Treasure",
+          "questName": "Pirate's Treasure",
+          "notes": "Required for a number of important quests."
+        },
+        {
+          "id": "part3-024-rum-deal",
+          "type": "quest",
+          "title": "Rum Deal",
+          "questName": "Rum Deal",
+          "notes": "Required for a number of important quests."
+        },
+        {
+          "id": "part3-025-cabin-fever",
+          "type": "quest",
+          "title": "Cabin Fever",
+          "questName": "Cabin Fever",
+          "notes": "Required for a number of important quests."
+        },
+        {
+          "id": "part3-026-legacy-of-seergaze",
+          "type": "quest",
+          "title": "Legacy of Seergaze",
+          "questName": "Legacy of Seergaze",
+          "notes": "Required for a number of important quests. Unlocks access to the Blood Altar"
+        },
+        {
+          "id": "part3-027-underground-pass",
+          "type": "quest",
+          "title": "Underground Pass",
+          "questName": "Underground Pass",
+          "notes": "Required for a number of important quests including Plague's End"
+        },
+        {
+          "id": "part3-028-death-to-the-dorgeshuun",
+          "type": "quest",
+          "title": "Death to the Dorgeshuun",
+          "questName": "Death to the Dorgeshuun",
+          "notes": "1 XP lamp on Ranged Ranged"
+        },
+        {
+          "id": "part3-029-the-giant-dwarf",
+          "type": "quest",
+          "title": "The Giant Dwarf",
+          "questName": "The Giant Dwarf",
+          "notes": "Required for a number of important quests."
+        },
+        {
+          "id": "part3-030-another-slice-of-h-a-m",
+          "type": "quest",
+          "title": "Another Slice of H.A.M.",
+          "questName": "Another Slice of H.A.M.",
+          "notes": "Required for a number of important quests."
+        },
+        {
+          "id": "part3-031-land-of-the-goblins",
+          "type": "quest",
+          "title": "Land of the Goblins",
+          "questName": "Land of the Goblins",
+          "notes": "How to obtain clean toadflax:; Purchase from Brimhaven Agility Arena Ticket Exchange for 1 ticket; Create Divine herb patch I with 5 Flickering energy and 10 Clean guam"
+        },
+        {
+          "id": "part3-032-the-chosen-commander",
+          "type": "quest",
+          "title": "The Chosen Commander",
+          "questName": "The Chosen Commander",
+          "notes": "Required for Nomad's Elegy, which is required for Sliske's Endgame."
+        },
+        {
+          "id": "part3-033-family-crest",
+          "type": "quest",
+          "title": "Family Crest",
+          "questName": "Family Crest",
+          "notes": "Access to Smelting and Cooking Gauntlets."
+        },
+        {
+          "id": "part3-034-temple-of-ikov",
+          "type": "quest",
+          "title": "Temple of Ikov",
+          "questName": "Temple of Ikov",
+          "notes": "Required for While Guthix Sleeps, and Ancient Curses. Good early Fletching Exp."
+        },
+        {
+          "id": "part3-035-a-guild-of-our-own-miniquest",
+          "type": "quest",
+          "title": "A Guild of Our Own (miniquest)",
+          "questName": "A Guild of Our Own (miniquest)",
+          "notes": "Optional: Unlocks Safecracking for Thieving Training to 90/99."
+        },
+        {
+          "id": "part3-036-extremely-optional-train-your-thieving-to-level-90-for-player-owned-ports",
+          "type": "task",
+          "title": "Extremely optional* Train your Thieving to level 90 for Player-owned-ports"
+        },
+        {
+          "id": "part3-037-optional-get-6000-menaphos-reputation-in-the-port-district",
+          "type": "task",
+          "title": "Optional* Get 6000 Menaphos reputation in the Port district",
+          "notes": "Make sure to right click port faction (overlay in Menaphos) and set active! The quickest way to gain reputation is to join \"Soulobby\" friends chat and interact with soul obelisks"
+        },
+        {
+          "id": "part3-038-train-your-fishing-to-level-65",
+          "type": "task",
+          "title": "Train your Fishing to level 65"
+        },
+        {
+          "id": "part3-039-do-this-in-the-menaphos-port-district-deposit-fish-in-the-deposit-box",
+          "type": "task",
+          "title": "Do this in the Menaphos Port district. Deposit fish in the deposit box."
+        },
+        {
+          "id": "part3-040-some-like-it-cold",
+          "type": "quest",
+          "title": "Some Like It Cold",
+          "questName": "Some Like It Cold",
+          "notes": "Penguin questline is extremely strong and offers boosts to the Penguin Hide and Seek Weekly."
+        },
+        {
+          "id": "part3-041-back-to-the-freezer",
+          "type": "quest",
+          "title": "Back to the Freezer",
+          "questName": "Back to the Freezer",
+          "notes": "Penguin questline is extremely strong and offers boosts to the Penguin Hide and Seek Weekly."
+        },
+        {
+          "id": "part3-042-rune-mysteries",
+          "type": "quest",
+          "title": "Rune Mysteries",
+          "questName": "Rune Mysteries",
+          "notes": "Required for a number of important future quests."
+        },
+        {
+          "id": "part3-043-rune-memories",
+          "type": "quest",
+          "title": "Rune Memories",
+          "questName": "Rune Memories",
+          "notes": "Required for a number of important future quests."
+        },
+        {
+          "id": "part3-044-enter-the-abyss-miniquest",
+          "type": "quest",
+          "title": "Enter the Abyss (miniquest)",
+          "questName": "Enter the Abyss (miniquest)",
+          "notes": "Required for a number of important future quests."
+        },
+        {
+          "id": "part3-045-regicide",
+          "type": "quest",
+          "title": "Regicide",
+          "questName": "Regicide",
+          "notes": "Required for Plague's End."
+        },
+        {
+          "id": "part3-046-desert-treasure",
+          "type": "quest",
+          "title": "Desert Treasure",
+          "questName": "Desert Treasure",
+          "notes": "Unlocks the Ancient Magicks Spellbook. Consider claiming a Guthix staff to use as a weapon for this quest."
+        },
+        {
+          "id": "part3-047-lunar-diplomacy",
+          "type": "quest",
+          "title": "Lunar Diplomacy",
+          "questName": "Lunar Diplomacy",
+          "notes": "Unlocks the Lunar Spellbook."
+        },
+        {
+          "id": "part3-048-optional-train-divination-to-level-20-complete-the-memorial-to-guthix-tutorial-collect-450-bright-energy-collect-and-charge-the-sword-of-edicts-engram-and-activate-the-echo",
+          "type": "task",
+          "title": "Optional: Train Divination to level 20. Complete the Memorial to Guthix tutorial, collect 450 Bright energy, collect and charge the Sword of Edicts engram and activate the echo.",
+          "notes": "Activating the echo will allow you to collect Memory shards while training Hunter. These can be used to create various products, but Sign of the porter IV are recommended (the shards can be banked and used later). 400-800 shards can be obtained per hour, equivalent to 25-50 Sign of the porter IV when weaved (500-1000 porter charges)."
+        }
+      ]
+    },
+    {
+      "id": "part4",
+      "title": "Mid-game Questing",
+      "rows": [
+        {
+          "id": "part4-001-roving-elves",
+          "type": "quest",
+          "title": "Roving Elves",
+          "questName": "Roving Elves",
+          "notes": "Required for Plague's End and Priffddinas."
+        },
+        {
+          "id": "part4-002-mourning-s-end-part-i",
+          "type": "quest",
+          "title": "Mourning's End Part I",
+          "questName": "Mourning's End Part I",
+          "notes": "Required for Plague's End and Priffddinas."
+        },
+        {
+          "id": "part4-003-mourning-s-end-part-ii",
+          "type": "quest",
+          "title": "Mourning's End Part II",
+          "questName": "Mourning's End Part II",
+          "notes": "Required for Plague's End and Priffddinas."
+        },
+        {
+          "id": "part4-004-impressing-the-locals",
+          "type": "quest",
+          "title": "Impressing the Locals",
+          "questName": "Impressing the Locals",
+          "notes": "Required for the Arc, and elite dungeon chest teleport."
+        },
+        {
+          "id": "part4-005-bringing-home-the-bacon",
+          "type": "quest",
+          "title": "Bringing Home the Bacon",
+          "questName": "Bringing Home the Bacon",
+          "notes": "Required for making Binding Contracts."
+        },
+        {
+          "id": "part4-006-one-small-favour",
+          "type": "quest",
+          "title": "One Small Favour",
+          "questName": "One Small Favour",
+          "notes": "2 XP lamp on Herblore Herblore"
+        },
+        {
+          "id": "part4-007-legends-quest",
+          "type": "quest",
+          "title": "Legends' Quest",
+          "questName": "Legends' Quest",
+          "notes": "4 XP lamp on Herblore Herblore"
+        },
+        {
+          "id": "part4-008-recipe-for-disaster-freeing-the-goblin-generals",
+          "type": "quest",
+          "title": "Recipe for Disaster: Freeing the Goblin Generals",
+          "questName": "Recipe for Disaster: Freeing the Goblin Generals",
+          "notes": "Optional: Small amount of EXP and 1 QP."
+        },
+        {
+          "id": "part4-009-recipe-for-disaster-freeing-the-lumbridge-sage",
+          "type": "quest",
+          "title": "Recipe for Disaster: Freeing the Lumbridge Sage",
+          "questName": "Recipe for Disaster: Freeing the Lumbridge Sage",
+          "notes": "Optional: Small amount of EXP and 1 QP."
+        },
+        {
+          "id": "part4-010-recipe-for-disaster-freeing-the-mountain-dwarf",
+          "type": "quest",
+          "title": "Recipe for Disaster: Freeing the Mountain Dwarf",
+          "questName": "Recipe for Disaster: Freeing the Mountain Dwarf",
+          "notes": "Optional: Small amount of EXP and 1 QP."
+        },
+        {
+          "id": "part4-011-recipe-for-disaster-freeing-pirate-pete",
+          "type": "quest",
+          "title": "Recipe for Disaster: Freeing Pirate Pete",
+          "questName": "Recipe for Disaster: Freeing Pirate Pete",
+          "notes": "Required for the Pirate Questline."
+        },
+        {
+          "id": "part4-012-recipe-for-disaster-freeing-skrach-uglogwee",
+          "type": "quest",
+          "title": "Recipe for Disaster: Freeing Skrach Uglogwee",
+          "questName": "Recipe for Disaster: Freeing Skrach Uglogwee",
+          "notes": "Optional: Small amount of EXP and 1 QP."
+        },
+        {
+          "id": "part4-013-recipe-for-disaster-freeing-king-awowogei",
+          "type": "quest",
+          "title": "Recipe for Disaster: Freeing King Awowogei",
+          "questName": "Recipe for Disaster: Freeing King Awowogei",
+          "notes": "Optional: required for the Do No Evil quest."
+        },
+        {
+          "id": "part4-014-recipe-for-disaster-freeing-sir-amik-varze",
+          "type": "quest",
+          "title": "Recipe for Disaster: Freeing Sir Amik Varze",
+          "questName": "Recipe for Disaster: Freeing Sir Amik Varze",
+          "notes": "Optional: small amount of EXP and 1 QP."
+        },
+        {
+          "id": "part4-015-bar-crawl-miniquest",
+          "type": "quest",
+          "title": "Bar Crawl (miniquest)",
+          "questName": "Bar Crawl (miniquest)",
+          "notes": "Optional: required for Horror from the Deep."
+        },
+        {
+          "id": "part4-016-horror-from-the-deep",
+          "type": "quest",
+          "title": "Horror from the Deep",
+          "questName": "Horror from the Deep",
+          "notes": "Optional: unlocks God Books and Optional Quest Blood Runs Deep"
+        },
+        {
+          "id": "part4-017-recipe-for-disaster-defeating-the-culinaromancer",
+          "type": "quest",
+          "title": "Recipe for Disaster: Defeating the Culinaromancer",
+          "questName": "Recipe for Disaster: Defeating the Culinaromancer",
+          "notes": "1 XP lamp on Herblore Herblore"
+        },
+        {
+          "id": "part4-018-eadgar-s-ruse",
+          "type": "quest",
+          "title": "Eadgar's Ruse",
+          "questName": "Eadgar's Ruse",
+          "notes": "Optional: required for My Arm's Big Adventure."
+        },
+        {
+          "id": "part4-019-my-arm-s-big-adventure",
+          "type": "quest",
+          "title": "My Arm's Big Adventure",
+          "questName": "My Arm's Big Adventure",
+          "notes": "Optional: required for completing King of the Dwarves."
+        },
+        {
+          "id": "part4-020-dream-mentor",
+          "type": "quest",
+          "title": "Dream Mentor",
+          "questName": "Dream Mentor",
+          "notes": "Unlocks additional spells in the Lunar Spellbook."
+        },
+        {
+          "id": "part4-021-smoking-kills",
+          "type": "quest",
+          "title": "Smoking Kills",
+          "questName": "Smoking Kills",
+          "notes": "Unlocks important boosts for the Slayer skill."
+        },
+        {
+          "id": "part4-022-the-eyes-of-glouphrie",
+          "type": "quest",
+          "title": "The Eyes of Glouphrie",
+          "questName": "The Eyes of Glouphrie",
+          "notes": "Optional: required for While Guthix Sleeps."
+        },
+        {
+          "id": "part4-023-the-path-of-glouphrie",
+          "type": "quest",
+          "title": "The Path of Glouphrie",
+          "questName": "The Path of Glouphrie",
+          "notes": "Optional: required for While Guthix Sleeps."
+        },
+        {
+          "id": "part4-024-king-s-ransom",
+          "type": "quest",
+          "title": "King's Ransom",
+          "questName": "King's Ransom",
+          "notes": "Unlocks Chivalry and Piety variants."
+        },
+        {
+          "id": "part4-025-knight-waves-training-ground",
+          "type": "quest",
+          "title": "Knight Waves training ground",
+          "questName": "Knight Waves training ground",
+          "notes": "Unlocks Chivalry and Piety variants."
+        },
+        {
+          "id": "part4-026-what-lies-below",
+          "type": "quest",
+          "title": "What Lies Below",
+          "questName": "What Lies Below",
+          "notes": "Optional: required for Defender of Varrock which leads to While Guthix Sleeps."
+        },
+        {
+          "id": "part4-027-the-hunt-for-surok-miniquest",
+          "type": "quest",
+          "title": "The Hunt for Surok (miniquest)",
+          "questName": "The Hunt for Surok (miniquest)",
+          "notes": "Optional: required for While Guthix Sleeps which grants 400,000 Exp."
+        },
+        {
+          "id": "part4-028-the-hand-in-the-sand",
+          "type": "quest",
+          "title": "The Hand in the Sand",
+          "questName": "The Hand in the Sand",
+          "notes": "Optional: required for Hard Ardougne Achievements."
+        },
+        {
+          "id": "part4-029-creature-of-fenkenstrain",
+          "type": "quest",
+          "title": "Creature of Fenkenstrain",
+          "questName": "Creature of Fenkenstrain",
+          "notes": "Required for Garden of Tranquility which is a requirement for Ancient Curses."
+        },
+        {
+          "id": "part4-030-garden-of-tranquillity",
+          "type": "quest",
+          "title": "Garden of Tranquillity",
+          "questName": "Garden of Tranquillity",
+          "notes": "Required for Ancient Curses."
+        },
+        {
+          "id": "part4-031-the-tale-of-the-muspah",
+          "type": "quest",
+          "title": "The Tale of the Muspah",
+          "questName": "The Tale of the Muspah",
+          "notes": "Required for Ancient Curses."
+        },
+        {
+          "id": "part4-032-missing-my-mummy",
+          "type": "quest",
+          "title": "Missing My Mummy",
+          "questName": "Missing My Mummy",
+          "notes": "Required for Ancient Curses."
+        },
+        {
+          "id": "part4-033-a-tail-of-two-cats",
+          "type": "quest",
+          "title": "A Tail of Two Cats",
+          "questName": "A Tail of Two Cats",
+          "notes": "Required for Sliske's Endgame. Rewards Amulet of Catspeak."
+        },
+        {
+          "id": "part4-034-the-great-brain-robbery",
+          "type": "quest",
+          "title": "The Great Brain Robbery",
+          "questName": "The Great Brain Robbery",
+          "notes": "Optional: required for Pieces of Hate, and completion of the Pirate quest line."
+        },
+        {
+          "id": "part4-035-a-fairy-tale-i-growing-pains",
+          "type": "quest",
+          "title": "A Fairy Tale I - Growing Pains",
+          "questName": "A Fairy Tale I - Growing Pains",
+          "notes": "Unlocks Fairy Rings."
+        },
+        {
+          "id": "part4-036-a-fairy-tale-ii-cure-a-queen",
+          "type": "quest",
+          "title": "A Fairy Tale II - Cure a Queen",
+          "questName": "A Fairy Tale II - Cure a Queen",
+          "notes": "Improves Fairy Rings."
+        },
+        {
+          "id": "part4-037-a-fairy-tale-iii-battle-at-ork-s-rift",
+          "type": "quest",
+          "title": "A Fairy Tale III - Battle at Ork's Rift",
+          "questName": "A Fairy Tale III - Battle at Ork's Rift",
+          "notes": "Further improves Fairy Rings."
+        },
+        {
+          "id": "part4-038-enakhra-s-lament",
+          "type": "quest",
+          "title": "Enakhra's Lament",
+          "questName": "Enakhra's Lament",
+          "notes": "Optional: Required for Ritual of the Mahjarrat."
+        },
+        {
+          "id": "part4-039-all-fired-up",
+          "type": "quest",
+          "title": "All Fired Up",
+          "questName": "All Fired Up",
+          "notes": "Unlocks the Beacon Network minigame, access to the Ring of Fire and Flame Gloves."
+        },
+        {
+          "id": "part4-040-the-world-wakes",
+          "type": "quest",
+          "title": "The World Wakes",
+          "questName": "The World Wakes",
+          "notes": "If you destroy the reward lamps they can be reclaimed later. Protip: Watch out for fire balls."
+        },
+        {
+          "id": "part4-041-making-history",
+          "type": "quest",
+          "title": "Making History",
+          "questName": "Making History",
+          "notes": "Required for Plague's End."
+        },
+        {
+          "id": "part4-042-meeting-history",
+          "type": "quest",
+          "title": "Meeting History",
+          "questName": "Meeting History",
+          "notes": "Required for Plague's End."
+        },
+        {
+          "id": "part4-043-dishonour-among-thieves",
+          "type": "quest",
+          "title": "Dishonour among Thieves",
+          "questName": "Dishonour among Thieves",
+          "notes": "Required for a number of important quests."
+        },
+        {
+          "id": "part4-044-you-are-it",
+          "type": "quest",
+          "title": "You Are It",
+          "questName": "You Are It",
+          "notes": "Required for a number of important quests."
+        },
+        {
+          "id": "part4-045-the-needle-skips",
+          "type": "quest",
+          "title": "The Needle Skips",
+          "questName": "The Needle Skips",
+          "notes": "Required for a number of important quests."
+        },
+        {
+          "id": "part4-046-desperate-times",
+          "type": "quest",
+          "title": "Desperate Times",
+          "questName": "Desperate Times",
+          "notes": "Required for a number of important quests."
+        },
+        {
+          "id": "part4-047-imp-catcher",
+          "type": "quest",
+          "title": "Imp Catcher",
+          "questName": "Imp Catcher",
+          "notes": "Required for a number of important quests."
+        },
+        {
+          "id": "part4-048-wanted",
+          "type": "quest",
+          "title": "Wanted!",
+          "questName": "Wanted!",
+          "notes": "Required for a number of important quests."
+        },
+        {
+          "id": "part4-049-quiet-before-the-swarm",
+          "type": "quest",
+          "title": "Quiet Before the Swarm",
+          "questName": "Quiet Before the Swarm",
+          "notes": "Required for a number of important quests."
+        },
+        {
+          "id": "part4-050-heart-of-stone",
+          "type": "quest",
+          "title": "Heart of Stone",
+          "questName": "Heart of Stone",
+          "notes": "Required for a number of important quests."
+        },
+        {
+          "id": "part4-051-tai-bwo-wannai-trio",
+          "type": "quest",
+          "title": "Tai Bwo Wannai Trio",
+          "questName": "Tai Bwo Wannai Trio",
+          "notes": "Required to complete the Barbarian Smithing section of the Barbarian Training activity."
+        },
+        {
+          "id": "part4-052-dwarf-cannon",
+          "type": "quest",
+          "title": "Dwarf Cannon",
+          "questName": "Dwarf Cannon",
+          "notes": "Unlocks the Dwarf multicannon."
+        },
+        {
+          "id": "part4-053-the-death-of-chivalry",
+          "type": "quest",
+          "title": "The Death of Chivalry",
+          "questName": "The Death of Chivalry",
+          "notes": "Required for Sliske's Endgame."
+        }
+      ]
+    },
+    {
+      "id": "part5",
+      "title": "End-game Quests",
+      "rows": [
+        {
+          "id": "part5-001-battle-of-forinthry",
+          "type": "quest",
+          "title": "Battle of Forinthry",
+          "questName": "Battle of Forinthry",
+          "notes": "Optional: required for unlocking the Gate of Elidinis"
+        },
+        {
+          "id": "part5-002-requiem-for-a-dragon",
+          "type": "quest",
+          "title": "Requiem for a Dragon",
+          "questName": "Requiem for a Dragon",
+          "notes": "Optional: required for unlocking the Gate of Elidinis. Unlocks Ungael Ritual Site"
+        },
+        {
+          "id": "part5-003-tomes-of-the-warlock",
+          "type": "quest",
+          "title": "Tomes of the Warlock",
+          "questName": "Tomes of the Warlock",
+          "notes": "Optional: required for unlocking the Gate of Elidinis and Necromancy Storyline."
+        },
+        {
+          "id": "part5-004-ode-of-the-devourer",
+          "type": "quest",
+          "title": "Ode of the Devourer",
+          "questName": "Ode of the Devourer",
+          "notes": "Optional: unlocks the Gate of Elidinis."
+        },
+        {
+          "id": "part5-005-remains-of-the-necrolord",
+          "type": "quest",
+          "title": "Remains of the Necrolord",
+          "questName": "Remains of the Necrolord",
+          "notes": "Optional: part of the Necromancy questline."
+        },
+        {
+          "id": "part5-006-alpha-vs-omega",
+          "type": "quest",
+          "title": "Alpha vs Omega",
+          "questName": "Alpha vs Omega",
+          "notes": "Optional: unlocks the Rasial boss fight."
+        },
+        {
+          "id": "part5-007-as-a-first-resort",
+          "type": "quest",
+          "title": "As a First Resort",
+          "questName": "As a First Resort",
+          "notes": "Unlocks Red Sandstone and Potion Flasks daily."
+        },
+        {
+          "id": "part5-008-catapult-construction",
+          "type": "quest",
+          "title": "Catapult Construction",
+          "questName": "Catapult Construction",
+          "notes": "Required for Priffddinas"
+        },
+        {
+          "id": "part5-009-a-void-dance",
+          "type": "quest",
+          "title": "A Void Dance",
+          "questName": "A Void Dance",
+          "notes": "Required for Sliske's Endgame"
+        },
+        {
+          "id": "part5-010-defender-of-varrock",
+          "type": "quest",
+          "title": "Defender of Varrock",
+          "questName": "Defender of Varrock",
+          "notes": "Required for River of Blood"
+        },
+        {
+          "id": "part5-011-devious-minds",
+          "type": "quest",
+          "title": "Devious Minds",
+          "questName": "Devious Minds",
+          "notes": "Required for Ancient Curses."
+        },
+        {
+          "id": "part5-012-the-branches-of-darkmeyer",
+          "type": "quest",
+          "title": "The Branches of Darkmeyer",
+          "questName": "The Branches of Darkmeyer",
+          "notes": "3 XP Tome on Herblore Herblore"
+        },
+        {
+          "id": "part5-013-kindred-spirits",
+          "type": "quest",
+          "title": "Kindred Spirits",
+          "questName": "Kindred Spirits",
+          "notes": "Required for Sliske's Endgame"
+        },
+        {
+          "id": "part5-014-while-guthix-sleeps",
+          "type": "quest",
+          "title": "While Guthix Sleeps",
+          "questName": "While Guthix Sleeps",
+          "notes": "Optional: if you completed the previous optional required quests."
+        },
+        {
+          "id": "part5-015-spirit-of-summer",
+          "type": "quest",
+          "title": "Spirit of Summer",
+          "questName": "Spirit of Summer",
+          "notes": "Optional: complete if you wish to do the Hard Wilderness achievements for the Exp lamps."
+        },
+        {
+          "id": "part5-016-summer-s-end",
+          "type": "quest",
+          "title": "Summer's End",
+          "questName": "Summer's End",
+          "notes": "Optional: complete if you wish to do the Hard Wilderness achievements for the Exp lamps."
+        },
+        {
+          "id": "part5-017-optional-complete-the-hard-wilderness-achievements",
+          "type": "task",
+          "title": "Optional: complete the Hard Wilderness achievements"
+        },
+        {
+          "id": "part5-018-the-curse-of-arrav",
+          "type": "quest",
+          "title": "The Curse of Arrav",
+          "questName": "The Curse of Arrav",
+          "notes": "Required for Ancient Curses"
+        },
+        {
+          "id": "part5-019-the-temple-at-senntisten",
+          "type": "quest",
+          "title": "The Temple at Senntisten",
+          "questName": "The Temple at Senntisten",
+          "notes": "Unlocks Ancient Curses"
+        },
+        {
+          "id": "part5-020-rocking-out",
+          "type": "quest",
+          "title": "Rocking Out",
+          "questName": "Rocking Out",
+          "notes": "Optional: required for Pieces of Hate."
+        },
+        {
+          "id": "part5-021-the-slug-menace",
+          "type": "quest",
+          "title": "The Slug Menace",
+          "questName": "The Slug Menace",
+          "notes": "Optional: required for Ritual of the Mahjarrat"
+        },
+        {
+          "id": "part5-022-ritual-of-the-mahjarrat",
+          "type": "quest",
+          "title": "Ritual of the Mahjarrat",
+          "questName": "Ritual of the Mahjarrat",
+          "notes": "Optional: if you completed the previous Optional required quests."
+        },
+        {
+          "id": "part5-023-reclaim-the-3-ancient-lamp-from-guthix-s-cave-if-you-have-reached-level-75-in-herblore-summoning-or-agility",
+          "type": "task",
+          "title": "Reclaim the 3 Ancient lamp from Guthix's Cave if you have reached level 75 in Herblore, Summoning, or Agility."
+        },
+        {
+          "id": "part5-024-within-the-light",
+          "type": "quest",
+          "title": "Within the Light",
+          "questName": "Within the Light",
+          "notes": "Required for Plague's End"
+        },
+        {
+          "id": "part5-025-plague-s-end",
+          "type": "quest",
+          "title": "Plague's End",
+          "questName": "Plague's End",
+          "notes": "Priffddinas unlocked!"
+        },
+        {
+          "id": "part5-026-one-of-a-kind",
+          "type": "quest",
+          "title": "One of a Kind",
+          "questName": "One of a Kind",
+          "notes": "Post-Quest: Speak to the Submerged Statue on Entrana for 25,000 bonus XP.; 1 XP Lamp on Herblore Herblore. Required for Sliske's Endgame"
+        },
+        {
+          "id": "part5-027-the-lord-of-vampyrium",
+          "type": "quest",
+          "title": "The Lord of Vampyrium",
+          "questName": "The Lord of Vampyrium"
+        },
+        {
+          "id": "part5-028-river-of-blood",
+          "type": "quest",
+          "title": "River of Blood",
+          "questName": "River of Blood",
+          "notes": "You can now train on Vyres for Prayer, Firemaking and Combat Exp. Great source of Herbs and Congealed Blood."
+        },
+        {
+          "id": "part5-029-the-vault-of-shadows",
+          "type": "quest",
+          "title": "The Vault of Shadows",
+          "questName": "The Vault of Shadows",
+          "notes": "Required for EGWD storyline"
+        },
+        {
+          "id": "part5-030-azzanadra-s-quest",
+          "type": "quest",
+          "title": "Azzanadra's Quest",
+          "questName": "Azzanadra's Quest",
+          "notes": "Required for EGWD storyline"
+        },
+        {
+          "id": "part5-031-battle-of-the-monolith",
+          "type": "quest",
+          "title": "Battle of the Monolith",
+          "questName": "Battle of the Monolith",
+          "notes": "You can skill during this miniquest using the bank inside of the Digsite Exam Centre"
+        },
+        {
+          "id": "part5-032-city-of-senntisten",
+          "type": "quest",
+          "title": "City of Senntisten",
+          "questName": "City of Senntisten",
+          "notes": "Unlocks additional Ancient Magic Spells."
+        },
+        {
+          "id": "part5-033-desperate-measures",
+          "type": "quest",
+          "title": "Desperate Measures",
+          "questName": "Desperate Measures",
+          "notes": "Required for Sins of the Father, which grants access to Effigy Incubator."
+        },
+        {
+          "id": "part5-034-eye-of-het-i",
+          "type": "quest",
+          "title": "Eye of Het I",
+          "questName": "Eye of Het I",
+          "notes": "Required for Extinction."
+        },
+        {
+          "id": "part5-035-eye-of-het-ii",
+          "type": "quest",
+          "title": "Eye of Het II",
+          "questName": "Eye of Het II",
+          "notes": "Required for Extinction."
+        },
+        {
+          "id": "part5-036-sins-of-the-father",
+          "type": "quest",
+          "title": "Sins of the Father",
+          "questName": "Sins of the Father",
+          "notes": "Unlocks Effigy Incubator."
+        },
+        {
+          "id": "part5-037-extinction",
+          "type": "quest",
+          "title": "Extinction",
+          "questName": "Extinction",
+          "notes": "Access to the Dream of Iaia, Ring of Vigour Passive, etc."
+        },
+        {
+          "id": "part5-038-the-void-stares-back",
+          "type": "quest",
+          "title": "The Void Stares Back",
+          "questName": "The Void Stares Back",
+          "notes": "Required for Sliske's Endgame"
+        },
+        {
+          "id": "part5-039-the-mighty-fall",
+          "type": "quest",
+          "title": "The Mighty Fall",
+          "questName": "The Mighty Fall",
+          "notes": "Required for Sliske's Endgame"
+        },
+        {
+          "id": "part5-040-nomad-s-requiem",
+          "type": "quest",
+          "title": "Nomad's Requiem",
+          "questName": "Nomad's Requiem",
+          "notes": "Required for Sliske's Endgame"
+        },
+        {
+          "id": "part5-041-nomad-s-elegy",
+          "type": "quest",
+          "title": "Nomad's Elegy",
+          "questName": "Nomad's Elegy",
+          "notes": "Required for Sliske's Endgame"
+        },
+        {
+          "id": "part5-042-complete-barbarian-training",
+          "type": "task",
+          "title": "Complete Barbarian Training",
+          "notes": "Required for Hero's Welcome"
+        },
+        {
+          "id": "part5-043-hero-s-welcome",
+          "type": "quest",
+          "title": "Hero's Welcome",
+          "questName": "Hero's Welcome",
+          "notes": "Required for Sliske's Endgame"
+        },
+        {
+          "id": "part5-044-fate-of-the-gods",
+          "type": "quest",
+          "title": "Fate of the Gods",
+          "questName": "Fate of the Gods",
+          "notes": "Required for The Light Within, and Sliske's Endgame"
+        },
+        {
+          "id": "part5-045-the-light-within",
+          "type": "quest",
+          "title": "The Light Within",
+          "questName": "The Light Within",
+          "notes": "Required for Sliske's Endgame"
+        },
+        {
+          "id": "part5-046-children-of-mah",
+          "type": "quest",
+          "title": "Children of Mah",
+          "questName": "Children of Mah",
+          "notes": "Required forSliske's Endgame"
+        },
+        {
+          "id": "part5-047-sliske-s-endgame",
+          "type": "quest",
+          "title": "Sliske's Endgame",
+          "questName": "Sliske's Endgame",
+          "notes": "you did it If you do not have 85 Herblore to use the lamps, you can destroy them and reclaim them later from Relomia, Emissary of Sliske"
+        }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import { setup as SetupPage, gettingStarted as GettingStartedPage, guides as GuidesPage } from '@/.source';
+import { setup as SetupPage, gettingStarted as GettingStartedPage, guides as GuidesPage, tools as ToolsPage } from '@/.source';
 import { type InferPageType, loader } from 'fumadocs-core/source';
 import { lucideIconsPlugin } from 'fumadocs-core/source/lucide-icons';
 
@@ -18,6 +18,11 @@ export const gettingStarted = loader({
 export const guides = loader({
   baseUrl: '/guides',
   source: GuidesPage.toFumadocsSource(),
+});
+
+export const tools = loader({
+  baseUrl: '/tools',
+  source: ToolsPage.toFumadocsSource(),
 });
 
 export function getPageImage(page: InferPageType<typeof setup>) {

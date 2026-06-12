@@ -46,6 +46,12 @@ export default function HomePage() {
             >
               Setup Guide
             </Link>
+            <Link
+              href="/tools"
+              className="px-6 py-3 border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--gold)] hover:text-[var(--gold)] transition-colors text-center"
+            >
+              Tools
+            </Link>
           </div>
 
           {/* Combat styles - simple inline links */}

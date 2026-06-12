@@ -58,6 +58,19 @@ export const guides = defineDocs({
   },
 });
 
+export const tools = defineDocs({
+  docs: {
+    schema: frontmatterSchema,
+    postprocess: {
+      includeProcessedMarkdown: true,
+    },
+  },
+  dir: "content/tools",
+  meta: {
+    schema: metaSchema,
+  },
+});
+
 export default defineConfig({
   mdxOptions: {
     // MDX options

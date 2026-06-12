@@ -1,0 +1,178 @@
+[
+  {
+    "id": "daily-challenges",
+    "frequency": "daily",
+    "activity": "Daily Challenges",
+    "priority": 10,
+    "stoppingPoint": "Never",
+    "notes": "Do these regardless of skill and level.",
+    "href": "https://runescape.wiki/w/Daily_Challenges"
+  },
+  {
+    "id": "runesphere",
+    "frequency": "daily",
+    "activity": "Runesphere",
+    "priority": 7,
+    "stoppingPoint": "70 or 77 Runecrafting",
+    "notes": "AFK RuneSpan event with a flat 25,000 XP reward per day. Strong before 70 Runecrafting.",
+    "details": "The Ahelp Discord is useful for calls.",
+    "href": "https://runescape.wiki/w/Runesphere"
+  },
+  {
+    "id": "nemi-forest",
+    "frequency": "daily",
+    "activity": "Nemi Forest",
+    "priority": 7,
+    "stoppingPoint": "60 Prayer, 60 Farming, 60 Dungeoneering",
+    "notes": "Great before level 60 Prayer, Farming, and Dungeoneering.",
+    "details": "Alt1 has a Utility > Nemi Forest addon.",
+    "href": "https://runescape.wiki/w/Nemi_Forest"
+  },
+  {
+    "id": "penguin-hide-and-seek",
+    "frequency": "weekly",
+    "activity": "Penguin Hide and Seek",
+    "priority": 10,
+    "stoppingPoint": "Never",
+    "notes": "The penguin questline provides additional points. Use XP lamps on Agility until 56, then Herblore.",
+    "href": "https://runescape.wiki/w/Penguin_Hide_and_Seek"
+  },
+  {
+    "id": "herby-werby",
+    "frequency": "weekly",
+    "activity": "Herby Werby",
+    "priority": 10,
+    "stoppingPoint": "91 Herblore or never",
+    "notes": "Bonus experience from Agoroth can be used on Herblore and combined with this.",
+    "href": "https://runescape.wiki/w/Herby_Werby"
+  },
+  {
+    "id": "tears-of-guthix",
+    "frequency": "weekly",
+    "activity": "Tears of Guthix",
+    "priority": 7,
+    "stoppingPoint": "Never or 2000 total level",
+    "notes": "Provides XP in your lowest skill.",
+    "details": "Requires Tears of Guthix.",
+    "href": "https://runescape.wiki/w/Tears_of_Guthix"
+  },
+  {
+    "id": "circus",
+    "frequency": "weekly",
+    "activity": "Circus",
+    "priority": 4,
+    "stoppingPoint": "1000 total level",
+    "notes": "Provides early Ranged, Magic, and Agility experience.",
+    "details": "You can skip Magic/Ranged and just do Agility.",
+    "href": "https://runescape.wiki/w/Circus"
+  },
+  {
+    "id": "agoroth",
+    "frequency": "weekly",
+    "activity": "Agoroth",
+    "priority": 4,
+    "stoppingPoint": "1000 total level",
+    "notes": "Provides a small amount of bonus XP that scales with level and can be used on Herblore.",
+    "details": "Requires A Shadow over Ashdale.",
+    "href": "https://runescape.wiki/w/Agoroth"
+  },
+  {
+    "id": "help-meg",
+    "frequency": "weekly",
+    "activity": "Help Meg",
+    "priority": 5,
+    "stoppingPoint": "2000 total level",
+    "notes": "Travel to Player-owned Port and help Meg for GP and an XP lamp.",
+    "href": "https://runescape.wiki/w/Meg"
+  },
+  {
+    "id": "reaper-assignment",
+    "frequency": "weekly",
+    "activity": "Reaper Assignment",
+    "priority": 8,
+    "stoppingPoint": "Never or 3600 total points",
+    "notes": "Start as soon as you can. These lead to future best-in-slot jewelry and early Slayer XP/points.",
+    "details": "There is a weekly cap of 300 points. Buy Reaper's Choice and Reaper scroll first.",
+    "href": "https://runescape.wiki/w/Soul_Reaper"
+  },
+  {
+    "id": "rune-shop-run",
+    "frequency": "weekly",
+    "activity": "Rune Shop Run",
+    "priority": 10,
+    "stoppingPoint": "Never",
+    "notes": "Prioritize air, water, earth, fire, blood, soul, and astral runes.",
+    "details": "Useful shops include Mage Bank, Wizard's Guild, Lunar Isle, Mage of Zamorak, Pest Control, and Ali's Discount Wares after The Feud.",
+    "href": "https://runescape.wiki/w/Money_making_guide/Buying_runes"
+  },
+  {
+    "id": "broad-arrowheads",
+    "frequency": "weekly",
+    "activity": "Broad Arrowheads Shop Run",
+    "priority": 10,
+    "stoppingPoint": "75 Fletching for River of Blood or 82 Fletching for Zygomyte carestyling",
+    "notes": "Burthorpe and Canifis have separate stocks; Wilderness Bandit Camp is optional.",
+    "details": "Buy as many as you can afford for easy Fletching training later.",
+    "href": "https://runescape.wiki/w/Broad_arrowheads"
+  },
+  {
+    "id": "thalmunds-wares",
+    "frequency": "weekly",
+    "activity": "Thalmund's Wares",
+    "priority": 6,
+    "stoppingPoint": "4 uncut moonstone",
+    "notes": "Requires Kili Row.",
+    "details": "Thalmund appears each Wednesday with a different stock of Necromancy items.",
+    "href": "https://runescape.wiki/w/Thalmund%27s_Wares"
+  },
+  {
+    "id": "advance-time",
+    "frequency": "weekly",
+    "activity": "Advance Time",
+    "priority": 10,
+    "stoppingPoint": "Never",
+    "notes": "Can be cast 3 times weekly and allows you to reset timegated content.",
+    "details": "Requires time runes from Runecrafting, Wizards' Tower master mages, or Heists.",
+    "href": "https://runescape.wiki/w/Advance_Time"
+  },
+  {
+    "id": "troll-invasion",
+    "frequency": "monthly",
+    "activity": "Troll Invasion",
+    "priority": 10,
+    "stoppingPoint": "Never",
+    "notes": "Use on Agility, Herblore, or any skill you dislike training.",
+    "details": "The XP reward book can be banked and used later in the month.",
+    "href": "https://runescape.wiki/w/Troll_Invasion"
+  },
+  {
+    "id": "god-statues",
+    "frequency": "monthly",
+    "activity": "God Statues",
+    "priority": 7,
+    "stoppingPoint": "Never or 2500 total level",
+    "notes": "Provides Construction and Prayer or Slayer experience.",
+    "details": "Recommended for Prayer before 75 and Plague's End.",
+    "href": "https://runescape.wiki/w/God_Statues"
+  },
+  {
+    "id": "giant-oyster",
+    "frequency": "monthly",
+    "activity": "Giant Oyster",
+    "priority": 7,
+    "stoppingPoint": "Never",
+    "notes": "Provides Fishing and Farming XP that scales later, plus clue scroll rewards that scale with total level.",
+    "details": "Requires Beneath Cursed Tides.",
+    "href": "https://runescape.wiki/w/Giant_Oyster"
+  },
+  {
+    "id": "effigy-incubator",
+    "frequency": "monthly",
+    "activity": "Effigy Incubator",
+    "priority": 8,
+    "stoppingPoint": "Never",
+    "notes": "Make Runecrafting effigies and gain large Runecrafting experience by training Farming with them in your inventory.",
+    "details": "Requires Sins of the Father to access.",
+    "href": "https://runescape.wiki/w/Effigy_Incubator"
+  }
+]

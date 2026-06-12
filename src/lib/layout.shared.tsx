@@ -1,5 +1,5 @@
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
-import { BookMarkedIcon, LaptopMinimal, Settings } from "lucide-react";
+import { BookMarkedIcon, LaptopMinimal, Settings, Wrench } from "lucide-react";
 
 /**
  * Shared layout configurations
@@ -33,6 +33,13 @@ export function baseOptions(): BaseLayoutProps {
         icon: <BookMarkedIcon />,
         text: "Guides",
         url: "/guides",
+        active: "none",
+        secondary: false,
+      },
+      {
+        icon: <Wrench />,
+        text: "Tools",
+        url: "/tools",
         active: "none",
         secondary: false,
       },

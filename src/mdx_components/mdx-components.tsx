@@ -12,6 +12,8 @@ import { InteractiveMapMarker } from './components/interactive-map-marker';
 import { CombatStyleAnalysis } from './components/combat-style-analysis';
 import { GearProgression } from './components/gear-progression';
 import { GearRecommendations } from './components/gear-recommendations';
+import { RecurringActivitiesTool } from './components/recurring-activities-tool';
+import { EfficiencyGuideTool } from './components/efficiency-guide-tool';
 
 // use this function to get MDX components, you will need it for rendering MDX
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
@@ -39,6 +41,8 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     CombatStyleAnalysis,
     GearProgression,
     GearRecommendations,
+    RecurringActivitiesTool,
+    EfficiencyGuideTool,
     ...components,
   };
 }
