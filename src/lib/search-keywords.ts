@@ -448,6 +448,11 @@ export const searchKeywords: Record<string, PriorityResult[]> = {
  */
 export function searchPriorityKeywords(query: string): PriorityResult[] {
   const normalizedQuery = query.toLowerCase().trim();
+  
+  // Don't flood results with 0-1 character queries
+  if (normalizedQuery.length < 1) {
+    return [];
+  }
 
   // Exact match first
   if (searchKeywords[normalizedQuery]) {
