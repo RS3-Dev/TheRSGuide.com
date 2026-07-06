@@ -912,8 +912,20 @@
     },
     {
       "start": 32,
-      "end": 63,
+      "end": 67,
       "desc": "Rabbit snare Jackalopes on Havenhythe. Optional: Jackalopes can be infused into Jackalope pouches to assist with early game Archaeology training.",
+      "link": ""
+    },
+    {
+      "start": 46,
+      "end": 63,
+      "desc": "Box trap Viridian Skillchompas north of the Port Phasmatys Hunter Area.",
+      "link": ""
+    },
+    {
+      "start": 63,
+      "end": 75,
+      "desc": "Box trap Carnivorous Chinchompas in the Feldip Hunter Area.",
       "link": ""
     },
     {
