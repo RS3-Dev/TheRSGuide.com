@@ -1,7 +1,6 @@
 import '@/app/global.css';
-import { RootProvider } from 'fumadocs-ui/provider/next';
 import { Cinzel, Nunito } from 'next/font/google';
-import { PlayerDataProvider } from '@/mdx_components/components/player-data-context';
+import { RootProviders } from '@/components/root-providers';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 
@@ -41,11 +40,7 @@ export default function Layout({ children }: LayoutProps<'/'>) {
           defer
           src="https://traffic.imjoshj.com/api/v1/track/script.js?site=thersguide"
         />
-        <RootProvider>
-          <PlayerDataProvider>
-            {children}
-          </PlayerDataProvider>
-        </RootProvider>
+        <RootProviders>{children}</RootProviders>
       </body>
     </html>
   );
