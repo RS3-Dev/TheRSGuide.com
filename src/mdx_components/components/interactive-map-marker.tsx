@@ -11,7 +11,7 @@ interface InteractiveMapMarkerProps {
 
 const defaultMarker = (
   <img
-    src="https://www.thersguide.com/images/gui/mapmarker.png"
+    src="https://media.thersguide.com/images/gui/mapmarker.png"
     alt="Map Marker"
     style={{
       width: 32,
