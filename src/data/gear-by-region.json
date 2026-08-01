@@ -1,0 +1,24 @@
+{
+  "Misthalin": {
+    "PVM Upgrades": {
+      "Ivar": [
+        {
+          "name": "Bonecrusher maul",
+          "link": "https://runescape.wiki/w/Bonecrusher_maul",
+          "tier": 50,
+          "skill": "melee"
+        }
+      ],
+      "Sanctum of Rebirth": [
+        {
+          "name": "Shard of Genesis Essence",
+          "link": "https://runescape.wiki/w/Shard_of_Genesis_Essence",
+          "tier": 100,
+          "skill": "any",
+          "note": "This is an upgrade item for T95 [Legendary](https://runescape.wiki/w/Legendary_weapons) Weapons.",
+          "otherRegions": ["Desert", "Anachronia"]
+        }
+      ]
+    }
+  }
+}

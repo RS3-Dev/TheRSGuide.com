@@ -19,6 +19,7 @@ const EfficiencyGuideTool = lazy(() => import('@/components/mdx/efficiency-guide
 const LeaguesRegionMap = lazy(() => import('@/components/mdx/leagues-region-map'))
 const RelicDisplay = lazy(() => import('@/components/mdx/relic-display').then((module) => ({ default: module.RelicDisplay })))
 const BlessingDisplay = lazy(() => import('@/components/mdx/blessing-display').then((module) => ({ default: module.BlessingDisplay })))
+const RegionLockedGear = lazy(() => import('@/components/mdx/region-locked-gear').then((module) => ({ default: module.RegionLockedGear })))
 
 export const mdxComponents = {
   ...proseComponents,
@@ -45,4 +46,5 @@ export const mdxComponents = {
   LeaguesRegionMap,
   RelicDisplay,
   BlessingDisplay,
+  RegionLockedGear,
 }
