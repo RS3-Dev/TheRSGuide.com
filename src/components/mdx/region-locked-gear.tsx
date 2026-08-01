@@ -2,7 +2,8 @@
 
 import React from 'react';
 import gearData from '@/data/gear-by-region.json';
-import { TableScroll, ProseTableCell } from './prose';
+import { mdxComponents as MDX } from "@/mdx_components/mdx-components"
+import { MdxContent } from './mdx-content';
 
 interface GearItem {
   name: string;
@@ -51,14 +52,13 @@ const groupItemsByTier = (items: GearItem[]): TierGroup[] => {
 const GearItem: React.FC<{item: GearItem}> = ({item}) => {
 
   const otherRegions = item.otherRegions?.map((region, index) => [
-    index > 0 ? ", " : <><br />Also available in: </>, <a href={region}>{region}</a>
+    index > 0 ? ", " : <><br />Also available in: </>, <MDX.a href={`/leagues/map/${region}`}>{region}</MDX.a>
   ])
 
   return (
     <li>
-      <a href={item.link} target="_blank" rel="noreferrer">{item.name}</a>
-      {item.note && <br />}
-      {item.note}
+      <MDX.a href={item.link}>{item.name}</MDX.a>
+      {item.note && <MdxContent content={item.note} />}
       {otherRegions}
     </li>
   )
@@ -72,8 +72,8 @@ const GearList: React.FC<{ title: string; items: GearItem[] }> = ({ title, items
 
       <h4>{title}</h4>
 
-      <TableScroll>
-        <table>
+      <MDX.TableScroll>
+        <MDX.table>
           <thead>
             <tr><th style={{width: '20%'}}>Tier</th><th>Item</th></tr>
           </thead>
@@ -81,18 +81,18 @@ const GearList: React.FC<{ title: string; items: GearItem[] }> = ({ title, items
             {tierGroups.map((group, groupIndex) => (
               <tr key={groupIndex}>
                   <td><strong>{group?.tier}</strong><br />{group?.skill}</td>
-                  <ProseTableCell>
+                  <td>
                     <ul style={{paddingLeft: '0px'}}>
                       {group?.items?.map(item => (
                         <GearItem key={item.name} item={item} />
                       ))}
                     </ul>
-                  </ProseTableCell>
+                  </td>
                 </tr>
             ))}
           </tbody>
-        </table>
-      </TableScroll>
+        </MDX.table>
+      </MDX.TableScroll>
     </div>
   );
 };
