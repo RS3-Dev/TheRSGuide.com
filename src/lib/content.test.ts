@@ -69,6 +69,7 @@ describe('site guide catalog', () => {
     ])
     expect(regions?.children.map((node) => node.doc.title)).toEqual([
       'Starting Regions',
+      'Karamja',
       'Anachronia',
       'Asgarnia',
       'Fremennik',
@@ -110,6 +111,7 @@ describe('site guide catalog', () => {
       'Getting Started',
       'Guides',
       'Extras',
+      'Leagues',
     ])
     expect(
       primaryNavigationForPath('/guides/melee', 'leagues').map((link) => link.label),
