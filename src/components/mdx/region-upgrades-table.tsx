@@ -4,6 +4,8 @@ import {
   type RegionLink,
 } from '@/data/leagues/regions/region-data'
 import { cn } from '@/lib/utils'
+import { MdxContent } from './mdx-content'
+import { Fragment } from 'react/jsx-runtime'
 
 type UpgradeCell = string | RegionLink[]
 
@@ -14,6 +16,9 @@ type UpgradeColumn = {
 
 type UpgradeRow = {
   cells: Record<string, UpgradeCell>
+}
+
+type UpgradeNote = {
   note: string
   alsoAvailableIn: string[]
 }
@@ -40,27 +45,32 @@ function UpgradeCellContent({ value }: { value: UpgradeCell | undefined }) {
   return (
     <div className="flex flex-col items-start gap-1.5">
       {value.map((item) => (
-        <SmartLink key={`${item.name}-${item.url}`} href={item.url}>
-          {item.name}
-        </SmartLink>
+        <Fragment key={item.name}>
+          <SmartLink key={`${item.name}-${item.url}`} href={item.url}>
+            {item.name}
+          </SmartLink>
+          <UpgradeNote note={item} />
+        </Fragment>
       ))}
     </div>
   )
 }
 
-function UpgradeNote({ row }: { row: UpgradeRow }) {
-  if (!row.note && row.alsoAvailableIn.length === 0) return null
+function UpgradeNote({ note }: { note: RegionLink }) {
+  if (!note.note && note.alsoAvailableIn?.length === 0) return null
+
+  const alsoAvailableInLength = note.alsoAvailableIn?.length || 0;
 
   return (
-    <p className="mt-1.5 mb-0 text-xs leading-5 text-muted-foreground">
-      {row.note}
-      {row.alsoAvailableIn.length > 0 ? (
+    <div className="ms-2 text-xs leading-5 text-muted-foreground">
+      {note.note && <MdxContent content={note.note} />}
+      {alsoAvailableInLength > 0 ? (
         <>
-          {row.note && ' '}
+          {note.note && ' '}
           Also available in{' '}
-          {row.alsoAvailableIn.map((region, index) => (
+          {note.alsoAvailableIn?.map((region, index) => (
             <span key={region}>
-              {index > 0 && (index === row.alsoAvailableIn.length - 1 ? ' and ' : ', ')}
+              {index > 0 && (index === alsoAvailableInLength - 1 ? ' and ' : ', ')}
               <SmartLink href={`/leagues/map/${region}`}>
                 {region.replaceAll('-', ' ').replace(/\b\w/g, (letter) => letter.toUpperCase())}
               </SmartLink>
@@ -69,7 +79,7 @@ function UpgradeNote({ row }: { row: UpgradeRow }) {
           .
         </>
       ) : null}
-    </p>
+    </div>
   )
 }
 
@@ -175,9 +185,6 @@ function RegionUpgradesTable({ region, section }: RegionUpgradesTableProps) {
                         key={column.key}
                       >
                         <UpgradeCellContent value={row.cells[column.key]} />
-                        {columnIndex === tableSection.columns.length - 1 && (
-                          <UpgradeNote row={row} />
-                        )}
                       </td>
                     ))}
                   </tr>

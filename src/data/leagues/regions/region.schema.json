@@ -72,7 +72,22 @@
     "items": {
       "type": "array",
       "minItems": 1,
-      "items": { "$ref": "#/$defs/link" }
+      "items": {
+        "anyOf": [
+          { "$ref": "#/$defs/link" },
+          {
+            "type": "object",
+            "properties": {
+              "note": { "type": "string" },
+              "alsoAvailableIn": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": { "$ref": "#/$defs/regionSlug" }
+              }
+            }
+          }
+        ]
+      }
     },
     "regionSlug": {
       "type": "string",
@@ -104,17 +119,11 @@
     "pvmRow": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["tier", "style", "items", "note", "alsoAvailableIn"],
+      "required": ["tier", "style", "items"],
       "properties": {
         "tier": { "type": "string" },
         "style": { "type": "string" },
-        "items": { "$ref": "#/$defs/items" },
-        "note": { "type": "string" },
-        "alsoAvailableIn": {
-          "type": "array",
-          "uniqueItems": true,
-          "items": { "$ref": "#/$defs/regionSlug" }
-        }
+        "items": { "$ref": "#/$defs/items" }
       }
     },
     "utilityGroup": {
@@ -132,11 +141,10 @@
     "utilityRow": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["type", "items", "note"],
+      "required": ["type", "items"],
       "properties": {
         "type": { "type": "string" },
-        "items": { "$ref": "#/$defs/items" },
-        "note": { "type": "string" }
+        "items": { "$ref": "#/$defs/items" }
       }
     },
     "abilityGroup": {
@@ -154,12 +162,11 @@
     "abilityRow": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["level", "style", "items", "note"],
+      "required": ["level", "style", "items"],
       "properties": {
         "level": { "type": "string" },
         "style": { "type": "string" },
-        "items": { "$ref": "#/$defs/items" },
-        "note": { "type": "string" }
+        "items": { "$ref": "#/$defs/items" }
       }
     }
   }

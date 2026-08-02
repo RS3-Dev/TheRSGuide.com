@@ -3,6 +3,8 @@ import wildernessJson from './wilderness.json'
 type RegionLink = {
   name: string
   url: string
+  note?: string
+  alsoAvailableIn?: string[]
 }
 
 type RegionBoss = RegionLink & {
@@ -68,16 +70,22 @@ function assertArray(value: unknown, path: string): asserts value is unknown[] {
   if (!Array.isArray(value)) throw new Error(`${path} must be an array.`)
 }
 
-function validateLink(value: unknown, path: string) {
+function validateLink(value: unknown, path: string, includeNotes = false) {
+  const expectedKeys = includeNotes ? ['name', 'url', 'note', 'alsoAvailableIn'] : ['name', 'url']
   assertObject(value, path)
-  assertExactKeys(value, ['name', 'url'], path)
+  assertExactKeys(value, expectedKeys, path)
   assertString(value.name, `${path}.name`)
   assertString(value.url, `${path}.url`)
+  if (includeNotes) {
+    assertString(value.note, `${path}.note`)
+    assertArray(value.alsoAvailableIn, `${path}.alsoAvailableIn`)
+    value.alsoAvailableIn.forEach((region, index) => assertString(region, `${path}.alsoAvailableIn[${index}]`))
+  }
 }
 
-function validateLinks(value: unknown, path: string) {
+function validateLinks(value: unknown, path: string, includeNotes = false) {
   assertArray(value, path)
-  value.forEach((entry, index) => validateLink(entry, `${path}[${index}]`))
+  value.forEach((entry, index) => validateLink(entry, `${path}[${index}]`, includeNotes))
 }
 
 function validateGroups(
@@ -125,30 +133,25 @@ function validateRegionGuideData(value: unknown): RegionGuideData {
 
   validateGroups(value.pvmUpgrades, 'region.pvmUpgrades', (row, path) => {
     assertObject(row, path)
-    assertExactKeys(row, ['tier', 'style', 'items', 'note', 'alsoAvailableIn'], path)
+    assertExactKeys(row, ['tier', 'style', 'items'], path)
     assertString(row.tier, `${path}.tier`)
     assertString(row.style, `${path}.style`)
-    validateLinks(row.items, `${path}.items`)
-    assertString(row.note, `${path}.note`)
-    assertArray(row.alsoAvailableIn, `${path}.alsoAvailableIn`)
-    row.alsoAvailableIn.forEach((region, index) => assertString(region, `${path}.alsoAvailableIn[${index}]`))
+    validateLinks(row.items, `${path}.items`, true)
   })
 
   validateGroups(value.utilityUpgrades, 'region.utilityUpgrades', (row, path) => {
     assertObject(row, path)
-    assertExactKeys(row, ['type', 'items', 'note'], path)
+    assertExactKeys(row, ['type', 'items'], path)
     assertString(row.type, `${path}.type`)
-    validateLinks(row.items, `${path}.items`)
-    assertString(row.note, `${path}.note`)
+    validateLinks(row.items, `${path}.items`, true)
   })
 
   validateGroups(value.abilities, 'region.abilities', (row, path) => {
     assertObject(row, path)
-    assertExactKeys(row, ['level', 'style', 'items', 'note'], path)
+    assertExactKeys(row, ['level', 'style', 'items'], path)
     assertString(row.level, `${path}.level`)
     assertString(row.style, `${path}.style`)
-    validateLinks(row.items, `${path}.items`)
-    assertString(row.note, `${path}.note`)
+    validateLinks(row.items, `${path}.items`, true)
   })
 
   return value as unknown as RegionGuideData
