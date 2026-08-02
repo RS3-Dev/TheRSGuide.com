@@ -133,8 +133,10 @@ The following environment variables are used by production deployments:
 - `SITE_URL` sets the base URL used for absolute page and social metadata URLs.
   If it is not present, the site uses `COOLIFY_URL` and then the incoming request
   origin.
-- `VITE_HOMEPAGE_MODE=leagues` adds and highlights the Leagues button on the
-  homepage. Leave it unset or use `normal` to highlight Guides instead.
+- `VITE_HOMEPAGE_MODE=leagues` enables the Leagues content, adds it to the
+  homepage, navbar, sidebar, routes, and search, and shows the countdown on the
+  homepage. Leave it unset or use `normal` to keep all Leagues content hidden
+  without deleting its source files.
 - `VITE_LEAGUES_START_DATE` and `VITE_LEAGUES_END_DATE` control the Leagues
   countdown. Use ISO-8601 values with an explicit timezone, preferably UTC
   (`Z`). Changing either value requires rebuilding the application.

@@ -2,12 +2,14 @@ import { describe, expect, it } from 'vitest'
 import {
   buildGuideContent,
   documentPageMetadata,
+  guideContentForMode,
   metadataHtml,
 } from './guide-content-plugin.mjs'
 
 describe('guide content build manifest', () => {
   it('builds a unique, fully described guide manifest', async () => {
-    const { documents } = await buildGuideContent(process.cwd())
+    const content = await buildGuideContent(process.cwd())
+    const { documents } = guideContentForMode(content, false)
     const routes = documents.map((document) => document.path)
 
     expect(documents.length).toBeGreaterThan(0)
@@ -81,16 +83,27 @@ describe('guide content build manifest', () => {
     expect(html).toContain('name="twitter:card" content="summary_large_image"')
   })
 
-  it('treats the Leagues root as a website landing page', async () => {
-    const { documents } = await buildGuideContent(process.cwd())
+  it('treats the Leagues root as a regular guide page', async () => {
+    const content = await buildGuideContent(process.cwd())
+    const { documents } = guideContentForMode(content, true)
     const leagues = documents.find((document) => document.path === '/leagues')
 
     expect(documentPageMetadata(leagues)).toMatchObject({
       path: '/leagues',
-      title: 'RuneScape Leagues Guide | The RS Guide',
-      cardTitle: 'The Leagues Guide',
-      type: 'website',
-      section: 'The Leagues Guide',
+      title: 'Leagues | The RS Guide',
+      cardTitle: 'Leagues',
+      type: 'article',
+      section: 'Leagues',
     })
+  })
+
+  it('excludes Leagues documents and metadata outside Leagues mode', async () => {
+    const content = await buildGuideContent(process.cwd())
+    const normalContent = guideContentForMode(content, false)
+    const leaguesContent = guideContentForMode(content, true)
+
+    expect(normalContent.documents.some((document) => document.section === 'leagues')).toBe(false)
+    expect(normalContent.metadata.some((entry) => entry.sourcePath.includes('/leagues/'))).toBe(false)
+    expect(leaguesContent.documents.some((document) => document.section === 'leagues')).toBe(true)
   })
 })

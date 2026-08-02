@@ -9,10 +9,16 @@ export type HomepagePrimaryLink = {
 export const resolveHomepageMode = (value?: string): HomepageMode =>
   value?.trim().toLowerCase() === 'leagues' ? 'leagues' : 'normal'
 
+export const isLeaguesMode = (value?: string) =>
+  resolveHomepageMode(value) === 'leagues'
+
+export const isGuideSectionEnabled = (section: string, value?: string) =>
+  section !== 'leagues' || isLeaguesMode(value)
+
 export const homepagePrimaryLinks = (
   value?: string,
 ): readonly HomepagePrimaryLink[] => {
-  if (resolveHomepageMode(value) === 'leagues') {
+  if (isLeaguesMode(value)) {
     return [
       { label: 'Guides', to: '/guides' },
       { label: 'Getting Started', to: '/getting-started' },

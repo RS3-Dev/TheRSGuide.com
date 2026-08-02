@@ -24,7 +24,7 @@ function renderTable(lines) {
   const headers = rows[0]
   const body = rows.slice(2)
   const output = [
-    `${indent}<div className="table-scroll">`,
+    `${indent}<TableScroll>`,
     `${indent}  <table>`,
     `${indent}    <thead>`,
     `${indent}      <tr>`,
@@ -43,7 +43,7 @@ function renderTable(lines) {
   output.push(
     `${indent}    </tbody>`,
     `${indent}  </table>`,
-    `${indent}</div>`,
+    `${indent}</TableScroll>`,
   )
   return output
 }

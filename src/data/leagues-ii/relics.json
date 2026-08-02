@@ -109,7 +109,7 @@
                 },
                 {
                     "skill": "herblore",
-                    "grade": "C"
+                    "grade": "B"
                 }
             ]
         },
@@ -339,16 +339,12 @@
             "tier": 0,
             "image": "/data/leagues/relics/tier-0/voidwalker.png",
             "effects": [
-                "Grants the Voidwalker, which allows you to teleport to any Slayer dungeon, Slayer master, or Slayer monster.",
-                "Slayer monsters are 5x more likely to spawn.",
-                "Slayer monsters give 5x slayer xp when defeated (before League XP multipliers).",
-                "Monsters are captured into ushabti's 100% of the time."
-            ],
-            "notes": [
                 "Grants an Abyssal Conduit, a powerful item that provides unlimited teleports from the following jewelry pieces:",
                 "The Amulet of glory, Combat bracelet, Delver's anklet, Dig site pendant, Enlightened amulet, Ferocious ring, Games necklace, Ring of dueling, Ring of respawn, Ring of slaying, Ring of wealth, Skills necklace, and Traveller's necklace.",
                 "Occasionally gain Void shards. Void shards can be opened to gain one clue scroll and a piece of the following loot:",
                 "Summoning pouches, Ancient summoning pouches, Divine energy, Divine charge, Invention materials, Dragon equipment, Goldenhawk feathers, Divine geodes, Blessed fire spirits, or crystal essence."
+            ],
+            "notes": [
             ],
             "skillSolves": [
                 {
@@ -377,6 +373,164 @@
                 {
                     "title": "5x XP",
                     "description": "Experience is gained at five times the normal rate."
+                },
+                {
+                    "title": "5x Crop speed",
+                    "description": "All farming crops grow 5x faster."
+                },
+                {
+                    "title": "Near-infinite run energy",
+                    "description": "Run energy rapidly replenishes to 100%"
+                },
+                {
+                    "title": "Fully available Archaeology guild shop",
+                    "description": "The archaeology guild shop is fully available."
+                },
+                {
+                    "title": "5x Chronotes",
+                    "description": "Receive 5x as many Chronotes when handing in Artefacts and Collections."
+                },
+                {
+                    "title": "+400% Souls from Rituals",
+                    "description": "Souls earned from necromancy rituals are increased by 400%."
+                },
+                {
+                    "title": "Faster boss spawns",
+                    "description": "Bosses respawn faster on all speed presets."
+                },
+                {
+                    "title": "Invention tutorial auto-completed",
+                    "description": "The Invention tutorial is auto-completed."
+                }
+            ]
+        },
+        {
+            "tier": 2,
+            "effects": [
+                {
+                    "title": "8x XP",
+                    "description": "Experience is gained at eight times the normal rate."
+                },
+                {
+                    "title": "Rare items are 2x more common",
+                    "description": "Rare items are twice as common from all sources."
+                },
+                {
+                    "title": "5x Slayer and Reaper points",
+                    "description": "Slayer points and Reaper points are multiplied 5x when completing tasks."
+                },
+                {
+                    "title": "4x Reputation for Heart of Gielinor, Menaphos and Farming",
+                    "description": "Heart of Gielinor, Menaphos and Farming reputation gain is multiplied by 4x."
+                },
+                {
+                    "title": "+30% Chance for Archaeology pages",
+                    "description": "Archaeology lore pages are 30% more common"
+                }
+            ]
+        },
+        {
+            "tier": 3,
+            "effects": [
+                {
+                    "title": "Skillcape perks are passive",
+                    "description": "Where applicable, skillcape perks, except Defence, are passive as long as you have level 99 or 120 in the skill."
+                },
+                {
+                    "title": "Bonus invention materials from enemies",
+                    "description": "When defeating enemies, there's a 10% chance to obtain 8x common or uncommon invention materials."
+                }
+            ]
+        },
+        {
+            "tier": 4,
+            "effects": [
+                {
+                    "title": "12x XP",
+                    "description": "Experience is gained at twelve times the normal rate."
+                },
+                {
+                    "title": "4x Rares drop chance",
+                    "description": "Rare items are 4x more common."
+                },
+                {
+                    "title": "Unlock all toolbelt items",
+                    "description": "Unlock all items on the toolbelt."
+                },
+                {
+                    "title": "More bonus invention materials from enemies",
+                    "description": "When defeating enemies there's a 20% chance to obtain 12x common or uncommon invention materials."
+                },
+                {
+                    "title": "No KC for God Wars Dungeon",
+                    "description": "Killcount is no longer required to enter God Wars Dungeon encounters."
+                },
+                {
+                    "title": "No KC for Heart of Gielinor",
+                    "description": "Killcount is no longer required to enter Heart of Gielinor encounters."
+                },
+                {
+                    "title": "No Keystones for Legiones",
+                    "description": "Ascension keystones are no longer required to fight the Legiones."
+                },
+                {
+                    "title": "No Keys for the Magister",
+                    "description": "Keys to the Crossing are no longer required to fight the Magister."
+                }
+            ]
+        },
+        {
+            "tier": 5,
+            "effects": [
+                {
+                    "title": "6x Rares drop chance",
+                    "description": "Rare items are 6x more common."
+                },
+                {
+                    "title": "Swap spellbooks and prayers",
+                    "description": "You can swap spellbooks and prayers at the League Sage."
+                },
+                {
+                    "title": "Unlock Reaper's Choice",
+                    "description": "When getting assigned a Soul Reaper task from Death, you will be able to choose which task you want."
+                },
+                {
+                    "title": "Even more bonus invention materials from enemies",
+                    "description": "When defeating enemies, there's a 20% chance to obtain 20x common or uncommon invention materials."
+                },
+                {
+                    "title": "4x Item XP rate",
+                    "description": "Augmented items gain experience 4x faster."
+                }
+            ]
+        },
+        {
+            "tier": 6,
+            "effects": [
+                {
+                    "title": "16x XP",
+                    "description": "Experience is gained at sixteen times the normal rate."
+                },
+                {
+                    "title": "8x Rares drop chance",
+                    "description": "Rare items are 8x more common."
+                },
+                {
+                    "title": "Seren spells and prayers unlocked",
+                    "description": "All Seren spells and prayers are unlocked."
+                }
+            ]
+        },
+        {
+            "tier": 7,
+            "effects": [
+                {
+                    "title": "10x Rares drop chance",
+                    "description": "Rare items are 10x more common."
+                },
+                {
+                    "title": "Unlimited Advanced Time",
+                    "description": "The 'Advanced Time' spell can be cast without limit."
                 }
             ]
         }

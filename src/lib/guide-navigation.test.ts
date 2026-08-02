@@ -1,11 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import type { GuideNavNode, GuideSection } from './guide-catalog'
-import {
-  activeNavigationKeys,
-  isNavigationBranchActive,
-  setNavigationKeyExpanded,
-  syncActiveNavigationKeys,
-} from './guide-navigation'
+import { createGuideNavigationModel } from './guide-navigation'
 
 const EmptyDocument = () => null
 const document = (path: string) => ({
@@ -46,25 +41,54 @@ const sections: GuideSection[] = [{
 }]
 
 describe('guide navigation model', () => {
-  it('identifies exact and descendant branches without prefix collisions', () => {
-    expect(isNavigationBranchActive('/guides/melee/basic-abilities', '/guides/melee')).toBe(true)
-    expect(isNavigationBranchActive('/guides/melee', '/guides/melee')).toBe(true)
-    expect(isNavigationBranchActive('/guides/melee-other', '/guides/melee')).toBe(false)
-  })
+  it('projects active links and opens every collapsible ancestor', () => {
+    const model = createGuideNavigationModel({
+      sections,
+      pathname: '/guides/melee/advanced/rotation',
+      expanded: new Set(),
+      flattened: false,
+      syncActive: true,
+    })
 
-  it('opens every collapsible ancestor for the current route', () => {
-    expect([...activeNavigationKeys(sections, '/guides/melee/advanced/rotation')]).toEqual([
+    expect([...model.expanded]).toEqual([
       '/guides',
       '/guides/melee',
       '/guides/melee/advanced',
     ])
+    expect(model.sections[0]).toMatchObject({
+      key: '/guides',
+      open: true,
+      flattened: false,
+    })
+    expect(model.sections[0].nodes[0]).toMatchObject({
+      path: '/guides/melee',
+      open: true,
+    })
+    expect(model.sections[0].nodes[0].children[0]).toMatchObject({
+      path: '/guides/melee/basic-abilities',
+      active: false,
+    })
+    expect(model.sections[0].nodes[0].children[1]).toMatchObject({
+      path: '/guides/melee/advanced',
+      open: true,
+    })
+    expect(model.sections[0].nodes[0].children[1].children[0]).toMatchObject({
+      path: '/guides/melee/advanced/rotation',
+      active: true,
+    })
   })
 
   it('preserves user expansion while opening a newly active branch', () => {
     const current = new Set(['/guides', '/guides/magic'])
-    const next = syncActiveNavigationKeys(current, sections, '/guides/melee/advanced/rotation')
+    const model = createGuideNavigationModel({
+      sections,
+      pathname: '/guides/melee/advanced/rotation',
+      expanded: current,
+      flattened: false,
+      syncActive: true,
+    })
 
-    expect([...next]).toEqual([
+    expect([...model.expanded]).toEqual([
       '/guides',
       '/guides/magic',
       '/guides/melee',
@@ -73,13 +97,18 @@ describe('guide navigation model', () => {
     expect([...current]).toEqual(['/guides', '/guides/magic'])
   })
 
-  it('changes one expansion key without mutating the prior state', () => {
-    const current = new Set(['/guides'])
-    const opened = setNavigationKeyExpanded(current, '/guides/melee', true)
-    const closed = setNavigationKeyExpanded(opened, '/guides', false)
+  it('does not activate prefix collisions and projects flattened mode', () => {
+    const model = createGuideNavigationModel({
+      sections,
+      pathname: '/guides/melee-other',
+      expanded: new Set(),
+      flattened: true,
+      syncActive: true,
+    })
 
-    expect([...current]).toEqual(['/guides'])
-    expect([...opened]).toEqual(['/guides', '/guides/melee'])
-    expect([...closed]).toEqual(['/guides/melee'])
+    expect([...model.expanded]).toEqual(['/guides'])
+    expect(model.sections[0].flattened).toBe(true)
+    expect(model.sections[0].nodes[0].open).toBe(false)
+    expect(model.sections[0].nodes[0].active).toBe(false)
   })
 })

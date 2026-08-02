@@ -5,7 +5,7 @@ import {
   type GuideDocumentSource,
 } from '@/lib/guide-catalog'
 import { createGuideSearchIndex } from '@/lib/guide-search'
-import { resolveHomepageMode } from '@/lib/homepage-mode'
+import { isGuideSectionEnabled } from '@/lib/homepage-mode'
 
 type MdxModule = {
   default: ComponentType
@@ -14,7 +14,25 @@ type MdxModule = {
 
 const modules = import.meta.glob<MdxModule>('../../content/**/*.mdx')
 
-const documentSources: GuideDocumentSource[] = guideManifest.map((document) => {
+const allGuideSectionDefinitions = [
+  { id: 'setup', label: 'Setup' },
+  { id: 'getting-started', label: 'Getting Started' },
+  { id: 'guides', label: 'Guides' },
+  { id: 'extras', label: 'Extras' },
+  { id: 'leagues', label: 'Leagues' },
+]
+
+export const guideSectionDefinitionsForMode = (value?: string) =>
+  allGuideSectionDefinitions.filter((section) =>
+    isGuideSectionEnabled(section.id, value)
+  )
+
+const homepageMode = import.meta.env.VITE_HOMEPAGE_MODE
+const visibleGuideManifest = guideManifest.filter((document) =>
+  isGuideSectionEnabled(document.section, homepageMode)
+)
+
+const documentSources: GuideDocumentSource[] = visibleGuideManifest.map((document) => {
   const loader = modules[document.sourcePath]
   if (!loader) throw new Error(`Missing MDX module for ${document.sourcePath}`)
   return {
@@ -26,13 +44,7 @@ const documentSources: GuideDocumentSource[] = guideManifest.map((document) => {
 export const guideCatalog = createGuideCatalog({
   documents: documentSources,
   metadata: guideMetadata,
-  sections: [
-    { id: 'setup', label: 'Setup' },
-    { id: 'getting-started', label: 'Getting Started' },
-    { id: 'guides', label: 'Guides' },
-    { id: 'extras', label: 'Extras' },
-    { id: 'leagues', label: 'Leagues' },
-  ],
+  sections: guideSectionDefinitionsForMode(homepageMode),
 })
 
 export type PrimaryNavigationLink = {
@@ -41,45 +53,14 @@ export type PrimaryNavigationLink = {
   path: string
 }
 
-const evergreenGuideSections = guideCatalog.sections.filter((section) => section.id !== 'leagues')
-const leaguesGuideSections = guideCatalog.sections.filter((section) => section.id === 'leagues')
-const evergreenPrimaryNavigation: readonly PrimaryNavigationLink[] = guideCatalog.sections
-  .filter((section) => section.id !== 'leagues')
+export const guideSections = guideCatalog.sections
+
+export const primaryNavigation: readonly PrimaryNavigationLink[] = guideCatalog.sections
   .map((section) => ({
     id: section.id,
     label: section.label,
     path: section.path,
   }))
-const leaguesModeEvergreenPrimaryNavigation: readonly PrimaryNavigationLink[] =
-  guideCatalog.sections.map((section) => ({
-    id: section.id,
-    label: section.label,
-    path: section.path,
-  }))
-const leaguesPrimaryNavigation: readonly PrimaryNavigationLink[] =
-  guideCatalog.section('leagues')?.navigation.map((node) => ({
-    id: node.doc.path,
-    label: node.label,
-    path: node.doc.path,
-  })) ?? []
-
-export const isLeaguesRoute = (pathname: string) => {
-  const normalizedPathname = pathname === '/' ? pathname : pathname.replace(/\/+$/, '')
-  return normalizedPathname === '/leagues' || normalizedPathname.startsWith('/leagues/')
-}
-
-export const guideSectionsForPath = (pathname: string) =>
-  isLeaguesRoute(pathname) ? leaguesGuideSections : evergreenGuideSections
-
-export const primaryNavigationForPath = (
-  pathname: string,
-  homepageMode = import.meta.env.VITE_HOMEPAGE_MODE,
-) => {
-  if (isLeaguesRoute(pathname)) return leaguesPrimaryNavigation
-  return resolveHomepageMode(homepageMode) === 'leagues'
-    ? leaguesModeEvergreenPrimaryNavigation
-    : evergreenPrimaryNavigation
-}
 
 export const guideSearch = createGuideSearchIndex(guideCatalog)
 

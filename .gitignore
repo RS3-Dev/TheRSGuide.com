@@ -6,6 +6,7 @@ vite.config.d.ts
 .env
 .env.local
 .codex-*.log
+.vite-preview*.log
 
 # Local AI agent instructions and generated design artifacts
 .agents/

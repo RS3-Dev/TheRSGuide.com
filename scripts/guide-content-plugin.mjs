@@ -201,6 +201,17 @@ const browserGuideContent = ({ documents, metadata }) => ({
   guideMetadata: metadata,
 })
 
+export const guideContentForMode = ({ documents, metadata }, leaguesEnabled) => {
+  if (leaguesEnabled) return { documents, metadata }
+
+  return {
+    documents: documents.filter((document) => document.section !== 'leagues'),
+    metadata: metadata.filter((entry) =>
+      !normalizeSlashes(entry.sourcePath).includes('/content/leagues/')
+    ),
+  }
+}
+
 const isGuideContentFile = (root, file) => {
   const relativeFile = path.relative(path.join(root, 'content'), file)
   const outsideContent = relativeFile === '..'
@@ -274,22 +285,6 @@ const replaceMetadata = (html, metadata, siteUrl) => {
 }
 
 export const documentPageMetadata = (document) => {
-  if (document.path === '/leagues') {
-    return {
-      path: '/leagues',
-      title: 'RuneScape Leagues Guide | The RS Guide',
-      cardTitle: 'The Leagues Guide',
-      description: 'RuneScape Leagues guides for relics, blessings, regions, routes, skilling, and players coming from Old School RuneScape.',
-      ogImage: document.ogImage,
-      ogImageAlt: 'The RuneScape Leagues Guide homepage preview',
-      generatedOgImage: document.generatedOgImage,
-      section: 'The Leagues Guide',
-      detail: 'Relics · Blessings · Regions · Routes · Skilling',
-      type: 'website',
-      tags: ['RuneScape', 'RuneScape Leagues', 'Guides'],
-    }
-  }
-
   return {
     path: document.path,
     title: `${document.title} | The RS Guide`,
@@ -305,7 +300,10 @@ export const documentPageMetadata = (document) => {
   }
 }
 
-export function guideContentPlugin({ siteUrl = DEFAULT_SITE_URL } = {}) {
+export function guideContentPlugin({
+  siteUrl = DEFAULT_SITE_URL,
+  leaguesEnabled = false,
+} = {}) {
   let root = process.cwd()
   let outputDirectory = path.join(root, 'dist')
   let manifestSnapshot = ''
@@ -324,7 +322,10 @@ export function guideContentPlugin({ siteUrl = DEFAULT_SITE_URL } = {}) {
     },
     async load(id) {
       if (id !== RESOLVED_MANIFEST_ID && id !== RESOLVED_SEARCH_ID) return null
-      const guideContent = await buildGuideContent(root)
+      const guideContent = guideContentForMode(
+        await buildGuideContent(root),
+        leaguesEnabled,
+      )
       if (id === RESOLVED_SEARCH_ID) {
         const corpus = Object.fromEntries(guideContent.documents.map((document) => [
           document.path,
@@ -340,7 +341,10 @@ export const guideMetadata = ${JSON.stringify(browserContent.guideMetadata)}`
     async handleHotUpdate({ file, server }) {
       if (!isGuideContentFile(root, file)) return
 
-      const browserContent = browserGuideContent(await buildGuideContent(root))
+      const browserContent = browserGuideContent(guideContentForMode(
+        await buildGuideContent(root),
+        leaguesEnabled,
+      ))
       const nextSnapshot = JSON.stringify(browserContent)
       if (!manifestSnapshot || nextSnapshot === manifestSnapshot) return
 
@@ -354,7 +358,10 @@ export const guideMetadata = ${JSON.stringify(browserContent.guideMetadata)}`
       const indexPath = path.join(outputDirectory, 'index.html')
       try {
         const baseHtml = await fs.readFile(indexPath, 'utf8')
-        const { documents } = await buildGuideContent(root)
+        const { documents } = guideContentForMode(
+          await buildGuideContent(root),
+          leaguesEnabled,
+        )
         const pages = [
           {
             path: '/',

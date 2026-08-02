@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import mdx from '@mdx-js/rollup'
@@ -8,12 +8,6 @@ import path from 'node:path'
 import { handlePlayerApi } from './server/player-api.mjs'
 import { handleFeedbackApi } from './server/feedback-api.mjs'
 import { guideContentPlugin } from './scripts/guide-content-plugin.mjs'
-
-const deploymentUrl = (
-  process.env.SITE_URL
-  || process.env.COOLIFY_URL
-  || 'https://thersguide.com'
-).split(',')[0].trim()
 
 const mdxPlugin = mdx({
   providerImportSource: '@mdx-js/react',
@@ -47,13 +41,23 @@ const localApiPlugin = () => ({
   },
 })
 
-export default defineConfig({
-  plugins: [
-    guideContentPlugin({ siteUrl: deploymentUrl }),
-    localApiPlugin(),
-    mdxWithoutRaw,
-    react({ include: /\.(mdx|js|jsx|ts|tsx)$/ }),
-    tailwindcss(),
-  ],
-  resolve: { alias: { '@': path.resolve(__dirname, './src') } },
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '')
+  const deploymentUrl = (
+    env.SITE_URL
+    || env.COOLIFY_URL
+    || 'https://thersguide.com'
+  ).split(',')[0].trim()
+  const leaguesEnabled = env.VITE_HOMEPAGE_MODE?.trim().toLowerCase() === 'leagues'
+
+  return {
+    plugins: [
+      guideContentPlugin({ siteUrl: deploymentUrl, leaguesEnabled }),
+      localApiPlugin(),
+      mdxWithoutRaw,
+      react({ include: /\.(mdx|js|jsx|ts|tsx)$/ }),
+      tailwindcss(),
+    ],
+    resolve: { alias: { '@': path.resolve(__dirname, './src') } },
+  }
 })

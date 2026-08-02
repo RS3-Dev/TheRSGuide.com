@@ -166,11 +166,122 @@
     ],
     "Passives": [
         {
-            "tier": -1,
+            "tier": 1,
             "effects": [
                 {
-                    "title": "Example Passive",
-                    "description": "This is an example passive effect."
+                    "title": "There is a 50% chance to save runes in combat.",
+                    "description": "There is a 50% chance to save runes in combat."
+                },
+                {
+                    "title": "There is a 50% chance to save ammunition in combat.",
+                    "description": "There is a 50% chance to save ammunition in combat."
+                },
+                {
+                    "title": "There is a 50% chance to save ectoplasm and runes when casting abilities and incantations.",
+                    "description": "There is a 50% chance to save ectoplasm and runes when casting abilities and incantations."
+                },
+                {
+                    "title": "Gain 1 Blessing progression reset.",
+                    "description": "Gain 1 Blessing progression reset."
+                }
+            ]
+        },
+        {
+            "tier": 2,
+            "effects": [
+                {
+                    "title": "The Dive ability is automatically unlocked.",
+                    "description": "The Dive ability is automatically unlocked."
+                },
+                {
+                    "title": "Your attack range for all combat styles is increased by 1 tile, up to a maximum range of 10 tiles.",
+                    "description": "Your attack range for all combat styles is increased by 1 tile, up to a maximum range of 10 tiles."
+                }
+            ]
+        },
+        {
+            "tier": 3,
+            "effects": [
+                {
+                    "title": "There is a 75% chance to save runes in combat.",
+                    "description": "There is a 75% chance to save runes in combat."
+                },
+                {
+                    "title": "There is a 75% chance to save ammunition in combat.",
+                    "description": "There is a 75% chance to save ammunition in combat."
+                },
+                {
+                    "title": "There is a 75% chance to save ectoplasm and runes when casting abilities and incantations.",
+                    "description": "There is a 75% chance to save ectoplasm and runes when casting abilities and incantations."
+                },
+                {
+                    "title": "All movement ability cooldowns are reduced to 4.2 seconds.",
+                    "description": "All movement ability cooldowns are reduced to 4.2 seconds."
+                },
+                {
+                    "title": "You are granted Nature's rune pouch.",
+                    "description": "You are granted Nature's rune pouch."
+                }
+            ]
+        },
+        {
+            "tier": 4,
+            "effects": [
+                {
+                    "title": "Gain 1 Blessing progression reset.",
+                    "description": "Gain 1 Blessing progression reset."
+                }
+            ]
+        },
+        {
+            "tier": 5,
+            "effects": [
+                {
+                    "title": "All War's Wares rewards are unlocked.",
+                    "description": "All War's Wares rewards are unlocked."
+                },
+                {
+                    "title": "Your maximum adrenaline is increased by 25%.",
+                    "description": "Your maximum adrenaline is increased by 25%."
+                }
+            ]
+        },
+        {
+            "tier": 6,
+            "effects": [
+                {
+                    "title": "God books, scriptures, grimoires, and scrimshaws no longer use charge.",
+                    "description": "God books, scriptures, grimoires, and scrimshaws no longer use charge."
+                },
+                {
+                    "title": "Equipment no longer degrades.",
+                    "description": "Equipment no longer degrades."
+                }
+            ]
+        },
+        {
+            "tier": 7,
+            "effects": [
+                {
+                    "title": "There is a 95% chance to save runes in combat.",
+                    "description": "There is a 95% chance to save runes in combat."
+                },
+                {
+                    "title": "There is a 95% chance to save ammunition in combat.",
+                    "description": "There is a 95% chance to save ammunition in combat."
+                },
+                {
+                    "title": "There is a 95% chance to save ectoplasm and runes when casting abilities and incantations.",
+                    "description": "There is a 95% chance to save ectoplasm and runes when casting abilities and incantations."
+                }
+            ]
+        },
+        {
+            "tier": 8,
+            "effects": [
+                {
+                    "title": "Gain 1 Blessing progression reset.",
+                    "description": "Gain 1 Blessing progression reset."
                 }
             ]
         }
