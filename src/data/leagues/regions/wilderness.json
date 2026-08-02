@@ -1,0 +1,782 @@
+{
+  "$schema": "./region.schema.json",
+  "region": "wilderness",
+  "locations": [
+    {
+      "name": "Wilderness Crater",
+      "url": "https://runescape.wiki/w/Wilderness_Crater"
+    },
+    {
+      "name": "Daemonheim",
+      "url": "https://runescape.wiki/w/Daemonheim"
+    },
+    {
+      "name": "Mage Training Arena",
+      "url": "https://runescape.wiki/w/Mage_Training_Arena"
+    }
+  ],
+  "bosses": [
+    {
+      "name": "King Black Dragon",
+      "url": "https://runescape.wiki/w/King_Black_Dragon",
+      "children": []
+    },
+    {
+      "name": "Flesh-hatcher Mhekarnahz",
+      "url": "https://runescape.wiki/w/Flesh-hatcher_Mhekarnahz",
+      "children": []
+    },
+    {
+      "name": "Chaos Elemental",
+      "url": "https://runescape.wiki/w/Chaos_Elemental",
+      "children": []
+    },
+    {
+      "name": "Corporeal Beast",
+      "url": "https://runescape.wiki/w/Corporeal_Beast",
+      "children": []
+    },
+    {
+      "name": "Elite Dungeon 2 — Dragonkin Laboratory",
+      "url": "https://runescape.wiki/w/Dragonkin_Laboratory",
+      "children": [
+        {
+          "name": "Astellarn",
+          "url": "https://runescape.wiki/w/Astellarn"
+        },
+        {
+          "name": "Verak Lith",
+          "url": "https://runescape.wiki/w/Verak_Lith"
+        },
+        {
+          "name": "Black Stone Dragon",
+          "url": "https://runescape.wiki/w/Black_Stone_Dragon"
+        }
+      ]
+    },
+    {
+      "name": "Elite Dungeon 3 — The Shadow Reef",
+      "url": "https://runescape.wiki/w/The_Shadow_Reef",
+      "children": [
+        {
+          "name": "Crassian Leviathan",
+          "url": "https://runescape.wiki/w/Crassian_Leviathan"
+        },
+        {
+          "name": "Taraket the Necromancer",
+          "url": "https://runescape.wiki/w/Taraket_the_Necromancer"
+        },
+        {
+          "name": "The Ambassador",
+          "url": "https://runescape.wiki/w/The_Ambassador"
+        }
+      ]
+    }
+  ],
+  "features": [
+    {
+      "name": "Wilderness Slayer",
+      "url": "https://runescape.wiki/w/Mandrith"
+    },
+    {
+      "name": "Dungeoneering",
+      "url": "https://runescape.wiki/w/Dungeoneering"
+    },
+    {
+      "name": "Primal Mining",
+      "url": "https://runescape.wiki/w/Ores#Primal_ores"
+    },
+    {
+      "name": "Wilderness Agility Course",
+      "url": "https://runescape.wiki/w/Wilderness_Agility_Course"
+    },
+    {
+      "name": "Daemonheim Dig Site",
+      "url": "https://runescape.wiki/w/Daemonheim_Dig_Site"
+    },
+    {
+      "name": "Revenants",
+      "url": "https://runescape.wiki/w/Revenants"
+    }
+  ],
+  "pvmUpgrades": [
+    {
+      "source": "Corporeal Beast",
+      "rows": [
+        {
+          "tier": "75",
+          "style": "Necromancy",
+          "items": [
+            {
+              "name": "Spectral Spirit Shield",
+              "url": "https://runescape.wiki/w/Spectral_spirit_shield"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "75",
+          "style": "Magic",
+          "items": [
+            {
+              "name": "Arcane Spirit Shield",
+              "url": "https://runescape.wiki/w/Arcane_spirit_shield"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "75",
+          "style": "Ranged",
+          "items": [
+            {
+              "name": "Elysian Spirit Shield",
+              "url": "https://runescape.wiki/w/Elysian_spirit_shield"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "75",
+          "style": "Melee",
+          "items": [
+            {
+              "name": "Divine Spirit Shield",
+              "url": "https://runescape.wiki/w/Divine_spirit_shield"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        }
+      ]
+    },
+    {
+      "source": "Daemonheim",
+      "rows": [
+        {
+          "tier": "85–90",
+          "style": "Melee",
+          "items": [
+            {
+              "name": "Primal Equipment",
+              "url": "https://runescape.wiki/w/Primal_equipment"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "God Book",
+          "style": "Hybrid",
+          "items": [
+            {
+              "name": "Chaotic Grimoire",
+              "url": "https://runescape.wiki/w/Chaotic_Grimoire"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "Ring",
+          "style": "Hybrid",
+          "items": [
+            {
+              "name": "Ring of Vigour",
+              "url": "https://runescape.wiki/w/Ring_of_Vigour"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "55",
+          "style": "Melee",
+          "items": [
+            {
+              "name": "Gravite Longsword",
+              "url": "https://runescape.wiki/w/Gravite_longsword"
+            },
+            {
+              "name": "Off-hand Gravite Longsword",
+              "url": "https://runescape.wiki/w/Off-hand_gravite_longsword"
+            },
+            {
+              "name": "Gravite 2h Sword",
+              "url": "https://runescape.wiki/w/Gravite_2h_Sword"
+            },
+            {
+              "name": "Gravite Rapier",
+              "url": "https://runescape.wiki/w/Gravite_rapier"
+            },
+            {
+              "name": "Off-hand Gravite Rapier",
+              "url": "https://runescape.wiki/w/Off-hand_gravite_rapier"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "80",
+          "style": "Melee",
+          "items": [
+            {
+              "name": "Chaotic Longsword",
+              "url": "https://runescape.wiki/w/Chaotic_longsword"
+            },
+            {
+              "name": "Off-hand Chaotic Longsword",
+              "url": "https://runescape.wiki/w/Off-hand_chaotic_longsword"
+            },
+            {
+              "name": "Chaotic Maul",
+              "url": "https://runescape.wiki/w/Chaotic_maul"
+            },
+            {
+              "name": "Chaotic Spear",
+              "url": "https://runescape.wiki/w/Chaotic_spear"
+            },
+            {
+              "name": "Chaotic Rapier",
+              "url": "https://runescape.wiki/w/Chaotic_rapier"
+            },
+            {
+              "name": "Off-hand Chaotic Rapier",
+              "url": "https://runescape.wiki/w/Off-hand_chaotic_rapier"
+            },
+            {
+              "name": "Chaotic Claw",
+              "url": "https://runescape.wiki/w/Chaotic_claw"
+            },
+            {
+              "name": "Off-hand Chaotic Claw",
+              "url": "https://runescape.wiki/w/Off-hand_chaotic_claw"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "90",
+          "style": "Melee",
+          "items": [
+            {
+              "name": "Ruinous Maul",
+              "url": "https://runescape.wiki/w/Ruinous_maul"
+            },
+            {
+              "name": "Ruinous Rapier",
+              "url": "https://runescape.wiki/w/Ruinous_rapier"
+            },
+            {
+              "name": "Off-hand Ruinous Rapier",
+              "url": "https://runescape.wiki/w/Off-hand_ruinous_rapier"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "55",
+          "style": "Magic",
+          "items": [
+            {
+              "name": "Gravite Wand",
+              "url": "https://runescape.wiki/w/Gravite_wand"
+            },
+            {
+              "name": "Gravite Orb",
+              "url": "https://runescape.wiki/w/Gravite_orb"
+            },
+            {
+              "name": "Gravite Staff",
+              "url": "https://runescape.wiki/w/Gravite_staff"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "80",
+          "style": "Magic",
+          "items": [
+            {
+              "name": "Chaotic Staff",
+              "url": "https://runescape.wiki/w/Chaotic_staff"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "90",
+          "style": "Magic",
+          "items": [
+            {
+              "name": "Ruinous Staff",
+              "url": "https://runescape.wiki/w/Ruinous_staff"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "55",
+          "style": "Ranged",
+          "items": [
+            {
+              "name": "Gravite Chargebow",
+              "url": "https://runescape.wiki/w/Gravite_chargebow"
+            },
+            {
+              "name": "Gravite Knife",
+              "url": "https://runescape.wiki/w/Gravite_knife"
+            },
+            {
+              "name": "Off-hand Gravite Knife",
+              "url": "https://runescape.wiki/w/Off-hand_gravite_knife"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "80",
+          "style": "Ranged",
+          "items": [
+            {
+              "name": "Chaotic Crossbow",
+              "url": "https://runescape.wiki/w/Chaotic_crossbow"
+            },
+            {
+              "name": "Off-hand Chaotic Crossbow",
+              "url": "https://runescape.wiki/w/Off-hand_chaotic_crossbow"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "90",
+          "style": "Ranged",
+          "items": [
+            {
+              "name": "Ruinous Crossbow",
+              "url": "https://runescape.wiki/w/Ruinous_crossbow"
+            },
+            {
+              "name": "Off-hand Ruinous Crossbow",
+              "url": "https://runescape.wiki/w/Off-hand_ruinous_crossbow"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "55",
+          "style": "Necromancy",
+          "items": [
+            {
+              "name": "Gravite Guard",
+              "url": "https://runescape.wiki/w/Gravite_guard"
+            },
+            {
+              "name": "Gravite Lantern",
+              "url": "https://runescape.wiki/w/Gravite_lantern"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "80",
+          "style": "Necromancy",
+          "items": [
+            {
+              "name": "Chaotic Guard",
+              "url": "https://runescape.wiki/w/Chaotic_guard"
+            },
+            {
+              "name": "Chaotic Lantern",
+              "url": "https://runescape.wiki/w/Chaotic_lantern"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "90",
+          "style": "Necromancy",
+          "items": [
+            {
+              "name": "Ruinous Guard",
+              "url": "https://runescape.wiki/w/Ruinous_guard"
+            },
+            {
+              "name": "Ruinous Lantern",
+              "url": "https://runescape.wiki/w/Ruinous_lantern"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "80",
+          "style": "Melee",
+          "items": [
+            {
+              "name": "Chaotic Kiteshield",
+              "url": "https://runescape.wiki/w/Chaotic_kiteshield"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "80",
+          "style": "Ranged",
+          "items": [
+            {
+              "name": "Eagle-eye Kiteshield",
+              "url": "https://runescape.wiki/w/Eagle-eye_kiteshield"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "80",
+          "style": "Magic",
+          "items": [
+            {
+              "name": "Farseer Kiteshield",
+              "url": "https://runescape.wiki/w/Farseer_kiteshield"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        }
+      ]
+    },
+    {
+      "source": "Revenants",
+      "rows": [
+        {
+          "tier": "78",
+          "style": "Melee",
+          "items": [
+            {
+              "name": "Statius's Equipment",
+              "url": "https://runescape.wiki/w/Statius's_Equipment"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "78",
+          "style": "Melee",
+          "items": [
+            {
+              "name": "Vesta's Equipment",
+              "url": "https://runescape.wiki/w/Vesta's_Equipment"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "78",
+          "style": "Ranged",
+          "items": [
+            {
+              "name": "Morrigan's Equipment",
+              "url": "https://runescape.wiki/w/Morrigan's_Equipment"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "78",
+          "style": "Magic",
+          "items": [
+            {
+              "name": "Zuriel's Equipment",
+              "url": "https://runescape.wiki/w/Zuriel's_Equipment"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "88",
+          "style": "Upgrade item",
+          "items": [
+            {
+              "name": "Ancient Warrior's Equipment Patch",
+              "url": "https://runescape.wiki/w/Ancient_warrior's_equipment_patch"
+            }
+          ],
+          "note": "Upgrades tier 78 Ancient Warriors' equipment.",
+          "alsoAvailableIn": []
+        }
+      ]
+    },
+    {
+      "source": "Slayer",
+      "rows": [
+        {
+          "tier": "87",
+          "style": "Magic",
+          "items": [
+            {
+              "name": "Obliteration",
+              "url": "https://runescape.wiki/w/Obliteration"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "87",
+          "style": "Ranged",
+          "items": [
+            {
+              "name": "Decimation",
+              "url": "https://runescape.wiki/w/Decimation"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "87",
+          "style": "Melee",
+          "items": [
+            {
+              "name": "Annihilation",
+              "url": "https://runescape.wiki/w/Annihilation"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "80",
+          "style": "Ranged",
+          "items": [
+            {
+              "name": "Hexhunter Bow",
+              "url": "https://runescape.wiki/w/Hexhunter_Bow"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "85",
+          "style": "Ranged",
+          "items": [
+            {
+              "name": "Strykebow",
+              "url": "https://runescape.wiki/w/Strykebow"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "85",
+          "style": "Magic",
+          "items": [
+            {
+              "name": "Staff of Darkness",
+              "url": "https://runescape.wiki/w/Staff_of_Darkness"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "85",
+          "style": "Magic",
+          "items": [
+            {
+              "name": "Staff of Light",
+              "url": "https://runescape.wiki/w/Staff_of_Light"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "85",
+          "style": "Melee",
+          "items": [
+            {
+              "name": "Lava Whip",
+              "url": "https://runescape.wiki/w/Lava_Whip"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        },
+        {
+          "tier": "85",
+          "style": "Ranged",
+          "items": [
+            {
+              "name": "Wyvern Crossbow",
+              "url": "https://runescape.wiki/w/Wyvern_Crossbow"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": [
+            "asgarnia"
+          ]
+        },
+        {
+          "tier": "70",
+          "style": "Ranged",
+          "items": [
+            {
+              "name": "Dark Bow",
+              "url": "https://runescape.wiki/w/Dark_Bow"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": [
+            "kandarin",
+            "morytania",
+            "tirannwn"
+          ]
+        }
+      ]
+    },
+    {
+      "source": "Elite Dungeon 3 — The Shadow Reef",
+      "rows": [
+        {
+          "tier": "92",
+          "style": "Ranged",
+          "items": [
+            {
+              "name": "Eldritch Crossbow",
+              "url": "https://runescape.wiki/w/Eldritch_Crossbow"
+            }
+          ],
+          "note": "",
+          "alsoAvailableIn": []
+        }
+      ]
+    }
+  ],
+  "utilityUpgrades": [
+    {
+      "source": "Dungeoneering",
+      "rows": [
+        {
+          "type": "Utility",
+          "items": [
+            {
+              "name": "Bonecrusher",
+              "url": "https://runescape.wiki/w/Bonecrusher"
+            }
+          ],
+          "note": ""
+        },
+        {
+          "type": "Utility",
+          "items": [
+            {
+              "name": "Charming Imp",
+              "url": "https://runescape.wiki/w/Charming_Imp"
+            }
+          ],
+          "note": ""
+        },
+        {
+          "type": "Utility",
+          "items": [
+            {
+              "name": "Gem bag (upgraded)",
+              "url": "https://runescape.wiki/w/Gem_bag_(upgraded)"
+            }
+          ],
+          "note": ""
+        },
+        {
+          "type": "Utility",
+          "items": [
+            {
+              "name": "Herbicide",
+              "url": "https://runescape.wiki/w/Herbicide"
+            }
+          ],
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "abilities": [
+    {
+      "source": "Elite Dungeon 2 — Dragonkin Laboratory",
+      "rows": [
+        {
+          "level": "65",
+          "style": "Melee",
+          "items": [
+            {
+              "name": "Greater Barge",
+              "url": "https://runescape.wiki/w/Greater_Barge_ability_codex"
+            }
+          ],
+          "note": ""
+        },
+        {
+          "level": "45",
+          "style": "Utility",
+          "items": [
+            {
+              "name": "Greater Flurry",
+              "url": "https://runescape.wiki/w/Greater_Flurry_ability_codex"
+            }
+          ],
+          "note": ""
+        },
+        {
+          "level": "21",
+          "style": "Melee",
+          "items": [
+            {
+              "name": "Greater Fury",
+              "url": "https://runescape.wiki/w/Greater_Fury_ability_codex"
+            }
+          ],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "source": "Slayer",
+      "rows": [
+        {
+          "level": "6",
+          "style": "Magic",
+          "items": [
+            {
+              "name": "Greater Sonic Wave",
+              "url": "https://runescape.wiki/w/Greater_Sonic_Wave_ability_codex"
+            }
+          ],
+          "note": ""
+        }
+      ]
+    }
+  ]
+}
