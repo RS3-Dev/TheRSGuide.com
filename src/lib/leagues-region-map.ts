@@ -44,7 +44,7 @@ export const leaguesRegionGuidePaths: Readonly<Record<string, string>> = {
   asgarnia: '/leagues/map/asgarnia',
   morytania: '/leagues/map/morytania',
   wilderness: '/leagues/map/wilderness',
-  karamja: '/leagues/map/starting-regions',
+  karamja: '/leagues/map/karamja',
   'fremennik-providence': '/leagues/map/fremennik',
   kandarin: '/leagues/map/kandarin',
   tirannwn: '/leagues/map/tirannwn',
