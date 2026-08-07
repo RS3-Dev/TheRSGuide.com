@@ -163,13 +163,13 @@
                 "Lighting just one incense stick will provide max potency for 60 minutes.",
                 "Fire spirits are replaced with Blessed Fire Spirits and spawn more frequently. Blessed Fire Spirits can spawn while smithing.",
                 "When smelting ores, you always gain double the bars. There is a 3% chance to gain a bonus 50 bars.",
-                "When smelting ores, smelt bars u pto 60 times, instead of 28.",
+                "When smelting ores, smelt bars up to 60 times, instead of 28.",
                 "Completing in-progress smithing items will award the invention materials the item would've yielded if disassembled.",
                 "Always have max heat when smithing. Triple base-progress per strike when smithing.",
                 "Completing ceremonial sword plans gives 5x Smithing XP and 50 bars of the metal you were using. XP for burial sets is increased by 3x."
             ],
             "notes": [
-                "The Blessed Fire Spirits can give your Stone Spirits, Uncut gems (up to Dragonstone), Charms, Clues, Coins (10k-100) or empty Crystal/Potion Flasks."
+                "The Blessed Fire Spirits can give you Stone Spirits, Uncut gems (up to Dragonstone), Charms, Clues, Coins (10k-100) or empty Crystal/Potion Flasks."
             ],
             "skillSolves": [
                 {
