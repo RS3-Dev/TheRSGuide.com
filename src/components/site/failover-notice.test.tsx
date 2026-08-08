@@ -1,23 +1,31 @@
-import { renderToStaticMarkup } from 'react-dom/server'
+// @vitest-environment jsdom
+
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 
 import { FailoverNotice } from '@/components/site/failover-notice'
 
 describe('FailoverNotice', () => {
   it('does not render on the primary deployment', () => {
-    expect(
-      renderToStaticMarkup(<FailoverNotice deploymentRole="primary" />),
-    ).toBe('')
+    const { container } = render(<FailoverNotice deploymentRole="primary" />)
+
+    expect(container).toBeEmptyDOMElement()
   })
 
-  it('renders the approved, dismissible status message on failover', () => {
-    const markup = renderToStaticMarkup(
-      <FailoverNotice deploymentRole="failover" />,
-    )
+  it('announces the failover and lets the visitor dismiss it', async () => {
+    const user = userEvent.setup()
+    render(<FailoverNotice deploymentRole="failover" />)
 
-    expect(markup).toContain('role="status"')
-    expect(markup).toContain('higher-than-usual traffic')
-    expect(markup).toContain('redirected to our backup site')
-    expect(markup).toContain('aria-label="Dismiss traffic notice"')
+    expect(screen.getByRole('status')).toHaveTextContent(
+      'higher-than-usual traffic',
+    )
+    const dismiss = screen.getByRole('button', {
+      name: 'Dismiss traffic notice',
+    })
+
+    await user.click(dismiss)
+
+    expect(screen.queryByRole('status')).not.toBeInTheDocument()
   })
 })

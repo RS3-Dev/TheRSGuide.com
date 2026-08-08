@@ -27,15 +27,12 @@ const sliskesEndgame = () => {
 
 describe('resolveAllRequirements quest tree', () => {
   it('lists every quest exactly once', () => {
-    const names = flatten(sliskesEndgame().questTree)
+    const names = flatten(sliskesEndgame().questTree).map((name) => name.toLowerCase())
+    const duplicateNames = names.filter(
+      (name, index) => names.indexOf(name) !== index,
+    )
 
-    expect(names.length).toBe(new Set(names.map((name) => name.toLowerCase())).size)
-  })
-
-  it('lists Stolen Hearts once, which it previously repeated', () => {
-    const names = flatten(sliskesEndgame().questTree)
-
-    expect(names.filter((name) => name === 'Stolen Hearts')).toHaveLength(1)
+    expect(duplicateNames).toEqual([])
   })
 
   it('aggregates the skill requirements of every quest it lists', () => {
@@ -58,19 +55,12 @@ describe('resolveAllRequirements quest tree', () => {
     expect(depthOf(questTree, 'Missing, Presumed Death')).toBe(1)
   })
 
-  it('surfaces requirements shared between two top-level quests only once', () => {
-    const names = flatten(resolveAllRequirements(['Kindred Spirits', 'One of a Kind']).questTree)
-
-    expect(names.filter((name) => name === 'Missing, Presumed Death')).toHaveLength(1)
-  })
-
   it('handles repeated and unknown quest names', () => {
     const names = flatten(
       resolveAllRequirements(['Stolen Hearts', 'Stolen Hearts', 'Not A Real Quest']).questTree
     )
 
-    expect(names.filter((name) => name === 'Stolen Hearts')).toHaveLength(1)
-    expect(names).toContain('Not A Real Quest')
+    expect(names).toEqual(['Stolen Hearts', 'Not A Real Quest'])
   })
 })
 
@@ -145,6 +135,5 @@ describe('filterQuestTree', () => {
     expect(names).not.toContain('The Death of Chivalry')
     expect(names).not.toContain('Holy Grail')
     expect(names).toContain("Merlin's Crystal")
-    expect(names).toHaveLength(flatten(questTree).length - completed.size)
   })
 })

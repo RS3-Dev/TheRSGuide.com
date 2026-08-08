@@ -37,6 +37,7 @@
     },
     "rowId": {
       "type": "string",
+      "minLength": 1,
       "description": "A row property containing a unique ID."
     },
     "caption": {
@@ -92,6 +93,7 @@
       "properties": {
         "key": {
           "type": "string",
+          "minLength": 1,
           "description": "The row property displayed by this column."
         },
         "header": {
