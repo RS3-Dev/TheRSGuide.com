@@ -14,9 +14,9 @@
     { "id": "kril-tsutsaroth", "boss": "K'ril Tsutsaroth", "location": "God Wars Dungeon", "url": "https://runescape.wiki/w/K%27ril_Tsutsaroth", "locationUrl": "https://runescape.wiki/w/God_Wars_Dungeon" },
     { "id": "commander-zilyana", "boss": "Commander Zilyana", "location": "God Wars Dungeon", "url": "https://runescape.wiki/w/Commander_Zilyana", "locationUrl": "https://runescape.wiki/w/God_Wars_Dungeon" },
     { "id": "kreearra", "boss": "Kree'arra", "location": "God Wars Dungeon", "url": "https://runescape.wiki/w/Kree%27arra", "locationUrl": "https://runescape.wiki/w/God_Wars_Dungeon" },
-    { "id": "sanctum-guardian", "boss": "The Sanctum Guardian", "location": "Temple of Aminishi", "url": "https://runescape.wiki/w/The_Sanctum_Guardian", "locationUrl": "https://runescape.wiki/w/Temple_of_Aminishi" },
-    { "id": "masuta-the-ascended", "boss": "Masuta the Ascended", "location": "Temple of Aminishi", "url": "https://runescape.wiki/w/Masuta_the_Ascended", "locationUrl": "https://runescape.wiki/w/Temple_of_Aminishi" },
-    { "id": "seiryu", "boss": "Seiryu the Azure Serpent", "location": "Temple of Aminishi", "url": "https://runescape.wiki/w/Seiryu_the_Azure_Serpent", "locationUrl": "https://runescape.wiki/w/Temple_of_Aminishi" },
+    { "id": "sanctum-guardian", "boss": "The Sanctum Guardian", "location": "Elite Dungeon 1", "url": "https://runescape.wiki/w/The_Sanctum_Guardian", "locationUrl": "https://runescape.wiki/w/Temple_of_Aminishi" },
+    { "id": "masuta-the-ascended", "boss": "Masuta the Ascended", "location": "Elite Dungeon 1", "url": "https://runescape.wiki/w/Masuta_the_Ascended", "locationUrl": "https://runescape.wiki/w/Temple_of_Aminishi" },
+    { "id": "seiryu", "boss": "Seiryu the Azure Serpent", "location": "Elite Dungeon 1", "url": "https://runescape.wiki/w/Seiryu_the_Azure_Serpent", "locationUrl": "https://runescape.wiki/w/Temple_of_Aminishi" },
     { "id": "vorago", "boss": "Vorago", "location": "Borehole", "url": "https://runescape.wiki/w/Vorago", "locationUrl": "https://runescape.wiki/w/Borehole"},
     { "id": "queen-black-dragon", "boss": "Queen Black Dragon", "location": "Grotworm Lair", "url": "https://runescape.wiki/w/Queen_Black_Dragon", "locationUrl": "https://runescape.wiki/w/Grotworm_Lair" },
     { "id": "giant-mole", "boss": "Giant Mole", "location": "Falador Mole Lair", "url": "https://runescape.wiki/w/Giant_Mole", "locationUrl": "https://runescape.wiki/w/Falador_Mole_Lair" }
