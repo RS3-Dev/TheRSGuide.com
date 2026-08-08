@@ -25,15 +25,16 @@ table has a particular number of rows.
 
 Shared contract tests discover all MDX files. They verify that every guide can
 compile and load and that custom components used by authored MDX are registered.
-The guide-content build also validates required frontmatter, route uniqueness,
-navigation metadata, and mode-specific publication rules.
+The guide-content build also validates required titles, route uniqueness,
+navigation metadata, and mode-specific publication rules. Descriptions are
+optional and receive a title-based fallback for page previews.
 
 This replaces one smoke test per guide. Adding a new MDX file automatically
 places it under the same contract without adding another test file.
 
 Published content errors should stop a production build with the source path in
-the error. Development and unit-test workflows can still load content that is
-missing publication-only metadata, such as a description, where appropriate.
+the error. Optional metadata should use a stable fallback rather than blocking
+an otherwise valid guide.
 
 ### Structured data contracts
 

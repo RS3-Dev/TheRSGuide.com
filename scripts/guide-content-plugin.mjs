@@ -224,19 +224,6 @@ export const guideContentForMode = ({ documents, metadata }, leaguesEnabled) => 
       }
 }
 
-export const validatePublishedGuideContent = (content) => {
-  const missingDescription = content.documents.find(
-    (document) => !document.description,
-  )
-  if (missingDescription) {
-    throw new Error(
-      `${missingDescription.sourcePath} must define a non-empty frontmatter description`,
-    )
-  }
-
-  return content
-}
-
 const isGuideContentFile = (root, file) => {
   const relativeFile = path.relative(path.join(root, 'content'), file)
   const outsideContent = relativeFile === '..'
@@ -328,7 +315,6 @@ export const documentPageMetadata = (document) => {
 export function guideContentPlugin({
   siteUrl = DEFAULT_SITE_URL,
   leaguesEnabled = false,
-  validatePublishedContent = true,
 } = {}) {
   let root = process.cwd()
   let outputDirectory = path.join(root, 'dist')
@@ -337,13 +323,6 @@ export function guideContentPlugin({
   return {
     name: 'guide-content',
     enforce: 'pre',
-    async buildStart() {
-      if (!validatePublishedContent) return
-      validatePublishedGuideContent(guideContentForMode(
-        await buildGuideContent(root),
-        leaguesEnabled,
-      ))
-    },
     configResolved(config) {
       root = config.root
       outputDirectory = path.resolve(root, config.build.outDir)

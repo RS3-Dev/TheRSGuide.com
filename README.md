@@ -105,7 +105,8 @@ Guides live in the [`content`](content/) folder as `.mdx` files. MDX is mostly
 regular Markdown with the option to use a few existing components for things
 like cards and interactive tools.
 
-Every guide begins with a title and short description:
+Every guide begins with a title. A short description is optional, but it can
+provide a more useful summary in search results and page previews:
 
 ```mdx
 ---

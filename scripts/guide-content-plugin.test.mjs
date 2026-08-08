@@ -7,7 +7,6 @@ import {
   documentPageMetadata,
   guideContentForMode,
   metadataHtml,
-  validatePublishedGuideContent,
 } from './guide-content-plugin.mjs'
 
 const temporaryDirectories = []
@@ -57,14 +56,6 @@ League content.
 }
 
 describe('guide content build manifest', () => {
-  it('accepts the current published guide metadata', async () => {
-    const content = await buildGuideContent(process.cwd())
-
-    expect(() => validatePublishedGuideContent(
-      guideContentForMode(content, false),
-    )).not.toThrow()
-  })
-
   it('precomputes route behavior from frontmatter and MDX', async () => {
     const { documents, metadata } = await fixtureContent()
 
@@ -105,11 +96,10 @@ describe('guide content build manifest', () => {
     expect(html).toContain('name="twitter:card" content="summary_large_image"')
   })
 
-  it('creates page metadata from any guide document', () => {
+  it('creates fallback preview metadata when a description is omitted', () => {
     expect(documentPageMetadata({
       path: '/fixture',
       title: 'Fixture',
-      description: 'Fixture description',
       ogImage: '/fixture.png',
       ogImageAlt: 'Fixture preview',
       generatedOgImage: true,
@@ -119,6 +109,7 @@ describe('guide content build manifest', () => {
       path: '/fixture',
       title: 'Fixture | The RS Guide',
       cardTitle: 'Fixture',
+      description: 'Read Fixture on The RS Guide.',
       type: 'article',
       section: 'Fixtures',
     })
@@ -134,15 +125,4 @@ describe('guide content build manifest', () => {
     expect(leaguesContent.documents.some((document) => document.section === 'leagues')).toBe(true)
   })
 
-  it('rejects a published guide without required preview metadata', async () => {
-    const content = await fixtureContent()
-    const guide = content.documents.find((document) => document.path === '/guides')
-    guide.description = ''
-
-    expect(() => validatePublishedGuideContent(
-      guideContentForMode(content, false),
-    )).toThrow(
-      '../../content/guides/index.mdx must define a non-empty frontmatter description',
-    )
-  })
 })
