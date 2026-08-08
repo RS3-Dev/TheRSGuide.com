@@ -1,0 +1,21 @@
+{
+  "$schema": "../../../../schemas/data-table.schema.json",
+  "title": "Misaligned Weapon Tiers",
+  "titleAs": "h3",
+  "rowId": "weaponName",
+  "columns": [
+    { "key": "weaponName", "header": "Weapon Name", "width": "lg", "emphasis": true },
+    { "key": "tier", "header": "Tier", "align": "center" },
+    { "key": "damage", "header": "Damage", "align": "center" },
+    { "key": "accuracy", "header": "Accuracy", "align": "center" }
+  ],
+  "rows": [
+    { "weaponName": "Attuned Crystal Weapons", "tier": 80, "damage": "T82", "accuracy": "T82" },
+    { "weaponName": "Lannikea Spear", "tier": 82, "damage": "T90", "accuracy": "T75" },
+    { "weaponName": "Dragon Rider Lance/GWD2 Weapons", "tier": 85, "damage": "T80", "accuracy": "T90" },
+    { "weaponName": "Upgraded Bone Blowpipe", "tier": 87, "damage": "T85", "accuracy": "T90" },
+    { "weaponName": "Ruinous Weapons", "tier": 90, "damage": "T90", "accuracy": "T100" },
+    { "weaponName": "Masterwork Staff/Bow/Sword", "tier": 99, "damage": "T100", "accuracy": "T100" },
+    { "weaponName": "Any T95 weapon with a Shard of Genesis Essence added", "tier": 95, "damage": "T100", "accuracy": "T100" }
+  ]
+}
