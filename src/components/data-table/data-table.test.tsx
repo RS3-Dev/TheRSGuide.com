@@ -1,61 +1,105 @@
-import { renderToStaticMarkup } from "react-dom/server"
-import { describe, expect, it } from "vitest"
+// @vitest-environment jsdom
 
-import { DataTable, type DataTableConfig } from "@/components/data-table/data-table"
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { describe, expect, it } from 'vitest'
 
-const config: DataTableConfig = {
-  title: "Example table",
-  columns: [{ key: "name", header: "Name" }],
-  rows: [{ name: "Visible row" }],
+import { DataTable } from '@/components/data-table/data-table'
+import type { DataTableConfig } from '@/lib/data-table-config'
+
+const simpleConfig: DataTableConfig = {
+  title: 'Example table',
+  columns: [{ key: 'name', header: 'Name' }],
+  rows: [{ name: 'Visible row' }],
 }
 
-describe("DataTable collapsed configuration", () => {
-  it("starts with the accordion collapsed when collapsed is true", () => {
-    const markup = renderToStaticMarkup(
-      <DataTable config={{ ...config, collapsed: true }} />
-    )
+const interactiveConfig: DataTableConfig = {
+  title: 'Creature guide',
+  rowId: 'id',
+  search: { label: 'Search creatures' },
+  sortable: true,
+  columns: [
+    {
+      key: 'name',
+      header: 'Name',
+      link: { hrefKey: 'url', external: true },
+    },
+    { key: 'category', header: 'Category' },
+  ],
+  rows: [
+    {
+      id: 'dragon',
+      name: 'Dragon',
+      category: 'Boss',
+      url: 'https://runescape.wiki/w/Dragon',
+    },
+    {
+      id: 'abyss',
+      name: 'Abyss',
+      category: 'Area',
+      url: 'https://runescape.wiki/w/Abyss',
+    },
+  ],
+}
 
-    expect(markup).toContain('aria-expanded="false"')
-    expect(markup).toContain('aria-controls=')
-    expect(markup).toContain('aria-label="Expand Example table"')
-    expect(markup).not.toContain("Name")
-    expect(markup).not.toContain("Visible row")
-    expect(markup).toContain('data-slot="collapsible-trigger"')
-    expect(markup).toContain('data-state="closed"')
-    expect(markup).toContain("lucide-chevron-down")
+describe('DataTable', () => {
+  it('exposes and operates a collapsed table through an accessible control', async () => {
+    const user = userEvent.setup()
+    render(<DataTable config={{ ...simpleConfig, collapsed: true }} />)
+
+    const toggle = screen.getByRole('button', { name: 'Expand Example table' })
+    expect(toggle).toHaveAttribute('aria-expanded', 'false')
+    expect(screen.queryByRole('table')).not.toBeInTheDocument()
+
+    await user.click(toggle)
+
+    expect(screen.getByRole('button', { name: 'Collapse Example table' }))
+      .toHaveAttribute('aria-expanded', 'true')
+    expect(screen.getByRole('table', { name: 'Example table' })).toBeVisible()
+    expect(screen.getByRole('cell', { name: 'Visible row' })).toBeVisible()
   })
 
-  it("starts expanded but remains collapsible when collapsed is false", () => {
-    const markup = renderToStaticMarkup(
-      <DataTable config={{ ...config, collapsed: false }} />
-    )
+  it('renders ordinary tables without an unnecessary collapse control', () => {
+    render(<DataTable config={simpleConfig} />)
 
-    expect(markup).toContain('aria-expanded="true"')
-    expect(markup).toContain('aria-label="Collapse Example table"')
-    expect(markup).toContain("Visible row")
-    expect(markup).toContain('data-state="open"')
-    expect(markup).toContain("lucide-chevron-down")
+    expect(screen.queryByRole('button', { name: /Example table/ }))
+      .not.toBeInTheDocument()
+    expect(screen.getByRole('table', { name: 'Example table' })).toBeVisible()
   })
 
-  it("does not add a collapse control when collapsed is omitted", () => {
-    const markup = renderToStaticMarkup(<DataTable config={config} />)
+  it('supports search, sorting, and configured links with a small fixture', async () => {
+    const user = userEvent.setup()
+    render(<DataTable config={interactiveConfig} />)
 
-    expect(markup).not.toContain('aria-controls="')
-    expect(markup).not.toContain('data-slot="collapsible-trigger"')
-    expect(markup).toContain("Visible row")
+    const dragonLink = screen.getByRole('link', { name: /Dragon/ })
+    expect(dragonLink).toHaveAttribute('href', 'https://runescape.wiki/w/Dragon')
+    expect(dragonLink).toHaveAttribute('target', '_blank')
+
+    await user.type(screen.getByRole('searchbox', { name: 'Search creatures' }), 'dragon')
+    expect(screen.getByRole('cell', { name: /Dragon/ })).toBeVisible()
+    expect(screen.queryByRole('cell', { name: /Abyss/ })).not.toBeInTheDocument()
+
+    await user.clear(screen.getByRole('searchbox', { name: 'Search creatures' }))
+    await user.click(screen.getByRole('button', { name: 'Sort by Name' }))
+
+    const abyss = screen.getByRole('cell', { name: /Abyss/ })
+    const dragon = screen.getByRole('cell', { name: /Dragon/ })
+    expect(abyss.compareDocumentPosition(dragon) & Node.DOCUMENT_POSITION_FOLLOWING)
+      .toBeTruthy()
   })
 
-  it("fails gracefully when the data does not match the table structure", () => {
+  it('renders an alert instead of throwing for invalid runtime data', () => {
     const invalidConfig = {
-      title: "Broken table",
+      title: 'Broken table',
       columns: [],
-      rows: "not-an-array",
+      rows: 'not-an-array',
     } as unknown as DataTableConfig
-    const markup = renderToStaticMarkup(<DataTable config={invalidConfig} />)
 
-    expect(markup).toContain('role="alert"')
-    expect(markup).toContain('data-slot="data-table-error"')
-    expect(markup).toContain("This table is temporarily unavailable")
-    expect(markup).not.toContain('data-slot="data-table"')
+    render(<DataTable config={invalidConfig} />)
+
+    expect(screen.getByRole('alert')).toHaveTextContent(
+      'This table is temporarily unavailable because its data is invalid.',
+    )
+    expect(screen.queryByRole('table')).not.toBeInTheDocument()
   })
 })

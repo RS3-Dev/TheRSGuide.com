@@ -1,16 +1,18 @@
-import { renderToStaticMarkup } from "react-dom/server"
-import { describe, expect, it } from "vitest"
+// @vitest-environment jsdom
 
-import { PageLoading } from "@/components/ui/page-loading"
+import { render, screen } from '@testing-library/react'
+import { describe, expect, it } from 'vitest'
 
-describe("PageLoading", () => {
-  it("renders an accessible status label without announcing the nested icon", () => {
-    const markup = renderToStaticMarkup(
-      <PageLoading label="Loading player progression" />
-    )
+import { PageLoading } from '@/components/ui/page-loading'
 
-    expect(markup).toContain('role="status"')
-    expect(markup).toContain('aria-label="Loading player progression"')
-    expect(markup).toContain('aria-hidden="true"')
+describe('PageLoading', () => {
+  it('announces its label while hiding the decorative spinner', () => {
+    render(<PageLoading label="Loading player progression" />)
+
+    const status = screen.getByRole('status', {
+      name: 'Loading player progression',
+    })
+    expect(status).toBeVisible()
+    expect(status.querySelector('[aria-hidden="true"]')).toBeInTheDocument()
   })
 })

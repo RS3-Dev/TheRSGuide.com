@@ -1,3 +1,5 @@
+/// <reference types="vitest/config" />
+
 import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
@@ -11,6 +13,7 @@ import { handleSharesApi } from './server/shares-api.mjs'
 import { handleMediaProxy } from './server/media-proxy.mjs'
 import { handleHealth, isHealthRequest } from './server/health.mjs'
 import { guideContentPlugin } from './scripts/guide-content-plugin.mjs'
+import { dataTableValidationPlugin } from './scripts/data-table-validation.mjs'
 
 const mdxPlugin = mdx({
   providerImportSource: '@mdx-js/react',
@@ -66,7 +69,7 @@ const manualChunks = (id: string) => {
   return guidePage ? `content-${guidePage[1].replace(/\//g, '-')}` : undefined
 }
 
-export default defineConfig(({ mode }) => {
+export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   const deploymentUrl = (
     env.SITE_URL
@@ -78,13 +81,19 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [
       localApiPlugin(),
-      guideContentPlugin({ siteUrl: deploymentUrl, leaguesEnabled }),
+      dataTableValidationPlugin(),
+      guideContentPlugin({
+        siteUrl: deploymentUrl,
+        leaguesEnabled,
+        validatePublishedContent: command === 'build',
+      }),
       mdxWithoutRaw,
       react({ include: /\.(mdx|js|jsx|ts|tsx)$/ }),
       tailwindcss(),
     ],
     resolve: { alias: { '@': path.resolve(__dirname, './src') } },
     build: { rollupOptions: { output: { manualChunks } } },
+    test: { setupFiles: ['./src/test/setup.ts'] },
     server: {
       proxy: {
         '/api/shares': {

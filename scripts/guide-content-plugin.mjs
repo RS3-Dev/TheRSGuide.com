@@ -109,10 +109,12 @@ export async function buildGuideContent(root) {
     const parsed = matter(raw)
     const route = routeFromRelativeFile(relativeFile)
     const parts = route.split('/').filter(Boolean)
-    const fallback = parts.at(-1) ?? 'The RS Guide'
-    const title = typeof parsed.data.title === 'string' && parsed.data.title.trim()
+    const title = typeof parsed.data.title === 'string'
       ? parsed.data.title.trim()
-      : titleFromSlug(fallback)
+      : ''
+    if (!title) {
+      throw new Error(`${sourcePath} must define a non-empty frontmatter title`)
+    }
     const toc = tableOfContents(parsed.content)
     const tocOverride = typeof parsed.data.toc === 'boolean' ? parsed.data.toc : undefined
     const headerOverride = typeof parsed.data.header === 'boolean' ? parsed.data.header : undefined
@@ -162,9 +164,19 @@ export async function buildGuideContent(root) {
   const metadata = await Promise.all(metaFiles.map(async (absoluteFile) => {
     const relativeFile = normalizeSlashes(path.relative(root, absoluteFile))
     const parsed = JSON.parse(await fs.readFile(absoluteFile, 'utf8'))
-    const pages = Array.isArray(parsed.pages)
-      ? parsed.pages.filter((page) => typeof page === 'string')
-      : []
+    if (!parsed || typeof parsed !== 'object' || !Array.isArray(parsed.pages)) {
+      throw new Error(`${relativeFile} must define a pages array`)
+    }
+    const pages = parsed.pages
+    if (pages.some((page) => typeof page !== 'string' || !page.trim())) {
+      throw new Error(`${relativeFile} pages must contain non-empty strings`)
+    }
+    const duplicatePages = pages.filter(
+      (page, index) => pages.indexOf(page) !== index,
+    )
+    if (duplicatePages.length) {
+      throw new Error(`${relativeFile} lists duplicate page "${duplicatePages[0]}"`)
+    }
     const relativeDirectory = normalizeSlashes(
       path.relative(contentDirectory, path.dirname(absoluteFile)),
     )
@@ -202,14 +214,27 @@ const browserGuideContent = ({ documents, metadata }) => ({
 })
 
 export const guideContentForMode = ({ documents, metadata }, leaguesEnabled) => {
-  if (leaguesEnabled) return { documents, metadata }
+  return leaguesEnabled
+    ? { documents, metadata }
+    : {
+        documents: documents.filter((document) => document.section !== 'leagues'),
+        metadata: metadata.filter((entry) =>
+          !normalizeSlashes(entry.sourcePath).includes('/content/leagues/')
+        ),
+      }
+}
 
-  return {
-    documents: documents.filter((document) => document.section !== 'leagues'),
-    metadata: metadata.filter((entry) =>
-      !normalizeSlashes(entry.sourcePath).includes('/content/leagues/')
-    ),
+export const validatePublishedGuideContent = (content) => {
+  const missingDescription = content.documents.find(
+    (document) => !document.description,
+  )
+  if (missingDescription) {
+    throw new Error(
+      `${missingDescription.sourcePath} must define a non-empty frontmatter description`,
+    )
   }
+
+  return content
 }
 
 const isGuideContentFile = (root, file) => {
@@ -303,6 +328,7 @@ export const documentPageMetadata = (document) => {
 export function guideContentPlugin({
   siteUrl = DEFAULT_SITE_URL,
   leaguesEnabled = false,
+  validatePublishedContent = true,
 } = {}) {
   let root = process.cwd()
   let outputDirectory = path.join(root, 'dist')
@@ -311,6 +337,13 @@ export function guideContentPlugin({
   return {
     name: 'guide-content',
     enforce: 'pre',
+    async buildStart() {
+      if (!validatePublishedContent) return
+      validatePublishedGuideContent(guideContentForMode(
+        await buildGuideContent(root),
+        leaguesEnabled,
+      ))
+    },
     configResolved(config) {
       root = config.root
       outputDirectory = path.resolve(root, config.build.outDir)

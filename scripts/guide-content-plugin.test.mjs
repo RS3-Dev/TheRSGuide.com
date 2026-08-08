@@ -7,6 +7,7 @@ import {
   documentPageMetadata,
   guideContentForMode,
   metadataHtml,
+  validatePublishedGuideContent,
 } from './guide-content-plugin.mjs'
 
 const temporaryDirectories = []
@@ -56,16 +57,12 @@ League content.
 }
 
 describe('guide content build manifest', () => {
-  it('builds a unique, fully described guide manifest', async () => {
+  it('accepts the current published guide metadata', async () => {
     const content = await buildGuideContent(process.cwd())
-    const { documents } = guideContentForMode(content, false)
-    const routes = documents.map((document) => document.path)
-    const duplicateRoutes = routes.filter(
-      (route, index) => routes.indexOf(route) !== index,
-    )
 
-    expect(duplicateRoutes).toEqual([])
-    expect(documents.every((document) => document.description.length > 0)).toBe(true)
+    expect(() => validatePublishedGuideContent(
+      guideContentForMode(content, false),
+    )).not.toThrow()
   })
 
   it('precomputes route behavior from frontmatter and MDX', async () => {
@@ -135,5 +132,17 @@ describe('guide content build manifest', () => {
     expect(normalContent.documents.some((document) => document.section === 'leagues')).toBe(false)
     expect(normalContent.metadata.some((entry) => entry.sourcePath.includes('/leagues/'))).toBe(false)
     expect(leaguesContent.documents.some((document) => document.section === 'leagues')).toBe(true)
+  })
+
+  it('rejects a published guide without required preview metadata', async () => {
+    const content = await fixtureContent()
+    const guide = content.documents.find((document) => document.path === '/guides')
+    guide.description = ''
+
+    expect(() => validatePublishedGuideContent(
+      guideContentForMode(content, false),
+    )).toThrow(
+      '../../content/guides/index.mdx must define a non-empty frontmatter description',
+    )
   })
 })

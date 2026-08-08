@@ -10,14 +10,10 @@ import { isLeaguesMode } from './homepage-mode'
 const leaguesMode = isLeaguesMode(import.meta.env.VITE_HOMEPAGE_MODE)
 
 describe('site guide catalog', () => {
-  it('loads every current MDX route with a unique identity', () => {
-    const paths = guideCatalog.documents.map((document) => document.path)
-    const duplicatePaths = paths.filter(
-      (path, index) => paths.indexOf(path) !== index,
-    )
-
-    expect(duplicatePaths).toEqual([])
-    expect(paths.some((path) => path.startsWith('/leagues'))).toBe(leaguesMode)
+  it('resolves every visible MDX document through the catalog', () => {
+    expect(
+      guideCatalog.documents.some((document) => document.path.startsWith('/leagues')),
+    ).toBe(leaguesMode)
     for (const document of guideCatalog.documents) {
       expect(guideCatalog.get(document.path)).toBe(document)
     }
