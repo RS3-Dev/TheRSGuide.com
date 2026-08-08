@@ -11,3 +11,4 @@ vite.config.d.ts
 # Local AI agent instructions and generated design artifacts
 .agents/
 .interface-design/
+artifacts/

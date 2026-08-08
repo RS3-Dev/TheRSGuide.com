@@ -4,17 +4,32 @@ description: An introduction to RuneScape combat for Old School players joining 
 toc: true
 ---
 
+import misalignedWeaponTiers from '@/data/leagues-ii/rs-for-os-players/misaligned-weapon-tiers.json';
+
 <UnderConstruction>
 
 Combat in RS3 vs OSRS is truly night and day in most regards. We have no weapon attack speed, our prayers aren't 100% effective, special attacks are something to use adrenaline on rather than having a set special attack energy, and much more. In this guide, we will outline the basics of RS3 combat and how to best approach it using language that will be familiar to an OSRS player, while introducing concepts that are unique to RS3
 
 ## Weapon Tiers
 
+<SplitContent>
+  <SplitItem width={60}>
+
 In OSRS, you will be familiar with weapons having level equipment requirements. This is the exact same in RS3. As an OSRS player, you might have two 75 strength weapons with very different stats, such as an Abyssal Whip and an Abyssal Dagger. In RS3, weapon base strength is uniform across tiers. A Polypore Staff and a Staff of Light are both T75 magic weapons and thus have identical strength. Inside the tooltip, when you hover over it you will find its Accuracy and Ability modifiers.
+
+  </SplitItem>
+  <SplitItem width={40}>
+
+![Weapon accuracy and damage tooltip](https://media.thersguide.com/images/gui/accuracy-damage.png)
+
+  </SplitItem>
+</SplitContent>
 
 Melee and Necromancy weapons will have Damage as an innate stat. Magic weapons have no damage, with all of it coming from your spell. Ranged has partial damage from the weapon, and partial damage from ammunition. If a Range weapon supplies its own ammo such as the Crystal Bow, it behaves like a Melee and Necro weapon and applies its own Damage. You can equip damage modifying ammunition such as God Arrows for their benefits. This however does not apply to Dual Wield range weapons that supply their own ammo, similar to how the Tonalztics of Ralos don't benefit from having enchanted bolts equipped.
 
 For the most part, all equal tiered weapons will have the same accuracy and damage stats. Due to Runescape being a quirky game there are exceptions. For the sake of this guide I will refer to these as Misaligned Tiers, a full list of which can be found below. These can range from intentional design that's mentioned in partially (Dragon Rider Lance has T80 Damage and T90 Accuracy, the description only mentions the T90 Accuracy) to fully ignored (Attuned Crystal Weaponry is T80, while possessing a passive that really adds to T82).
+
+<DataTable config={misalignedWeaponTiers} />
 
 All Crafted Weapons (Elder Rune +5, Eternal Magic Longbow, etc.) generally have lower damage and accuracy values than their equipment tier. This as well varies based on weapon tier and the quality of the item. For example a +5 Elder Rune 2H is a T90 in equipping requirement with T85 stats. A +3 Elder Rune 2H will be even less strong. Frankly there are too many to list, but if it can be crafted and can’t be augmented chances are its tier is misaligned. This applies to armor too. Check the wiki for specifics, but if it doesn't have the same damage and accuracy number bonuses as an ACTUAL (T90 or whatever) weapon, it is misaligned.
 
@@ -32,11 +47,37 @@ In OSRS, you will be familiar with weapons attacking at different speeds. For ex
 
 ## Hitchance
 
-Within OSRS, you might be familiar with weapon accuracy, either hitting or not, and “Splashing” where you deliberately lower your Magic stat so you don't kill a target and just cast spells non stop. Splashing is fully removed in RS3. All attacks will never miss a target. However, accuracy is not fully removed. Instead, your accuracy depends on the weapon you have equipped, your level in the combat skill you are using and any stat boosts versus the monster's defense. This accuracy value will be shown on a monster's HP bar as a percentage from 0 to 100. Having 100% accuracy means you will deal 100% of your potential damage. Having 75% accuracy means that you will deal 75% of your potential damage and so on.
+Within OSRS, you might be familiar with weapon accuracy, either hitting or not, and “Splashing” where you deliberately lower your Magic stat so you don't kill a target and just cast spells non stop. Splashing is fully removed in RS3. All attacks will never miss a target. However, accuracy is not fully removed. Instead, your accuracy depends on the weapon you have equipped, your level in the combat skill you are using and any stat boosts versus the monster's defense.
+
+<SplitContent>
+  <SplitItem width={40}>
+
+![Accuracy percentage on a monster's HP bar](https://media.thersguide.com/images/gui/accuracy-ui.png)
+
+  </SplitItem>
+  <SplitItem width={60}>
+
+This accuracy value will be shown on a monster's HP bar as a percentage from 0 to 100. Having 100% accuracy means you will deal 100% of your potential damage. Having 75% accuracy means that you will deal 75% of your potential damage and so on.
+
+  </SplitItem>
+</SplitContent>
 
 ## Weaknesses
 
-Inside OSRS you might be familiar with using a weapon such as the Osmumtens Fang against a stab weak enemy for extra accuracy, or with Magic using Water Spells on Dragons to exploit their elemental weakness. The vast majority of PVM encounters do not have any style or weapon specific weaknesses. This will be shown on the monster HP bar, and can be hovered over with the mouse to show it if you don't recognise the icon. Against some creatures that are weak to stab/arrows/spells or whatever, this will only provide an accuracy boost, with no extra damage like elemental weaknesses.
+<SplitContent>
+  <SplitItem width={60}>
+
+Inside OSRS you might be familiar with using a weapon such as the Osmumtens Fang against a stab weak enemy for extra accuracy, or with Magic using Water Spells on Dragons to exploit their elemental weakness. The vast majority of PVM encounters do not have any style or weapon specific weaknesses.
+
+  </SplitItem>
+  <SplitItem width={40}>
+
+![Monster with no combat weakness](https://media.thersguide.com/images/gui/no-weakness.png)
+
+  </SplitItem>
+</SplitContent>
+
+This will be shown on the monster HP bar, and can be hovered over with the mouse to show it if you don't recognise the icon. Against some creatures that are weak to stab/arrows/spells or whatever, this will only provide an accuracy boost, with no extra damage like elemental weaknesses.
 
 ## Armor
 
