@@ -47,8 +47,8 @@ deeply.
 - `titleAs`: Heading hierarchy from `h1` through `h6`; defaults to `h2`.
 - `headingId`: Optional anchor override; otherwise derived from `title` (for
   example, `PVM Upgrades` becomes `#pvm-upgrades`).
-- `collapsed`: Adds an expand/collapse control. Use `true` to hide body rows
-  initially or `false` to leave them initially visible.
+- `collapsed`: Turns the table title into an accordion trigger. Use `true` to
+  hide the table initially or `false` to leave it initially visible.
 - `sortable`: Makes every column sortable. A column can override this.
 - `search`: Use `true`, or provide `label` and `placeholder` text.
 - `rowId`: The row field containing a stable unique ID.
@@ -74,11 +74,11 @@ row collapses completely. This is useful for simple one-column tables:
 }
 ```
 
-## Collapsible rows
+## Collapsible tables
 
-Add `"collapsed": true` to show the table title, controls, and column headers
-while hiding its body rows initially. Readers can expand or collapse the rows
-from the table header.
+Add `"collapsed": true` to show the table title as an accordion while hiding
+the controls, column headers, and rows initially. Readers can expand or
+collapse the complete table by selecting its title.
 
 ```json
 {
