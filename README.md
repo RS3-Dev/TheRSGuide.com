@@ -84,6 +84,21 @@ npm run build
 If you cannot run a check or do not understand an error, mention that in your
 pull request. We can help.
 
+## How testing works
+
+We do not create a separate test for every guide or every row in a table.
+Instead, a few shared checks make sure all guide files can load and that common
+data follows the expected format. Other tests cover reusable website features,
+such as search, navigation, interactive tools, and server requests.
+
+Tests should focus on what a visitor can see or do and on rules that must remain
+true. They should generally not depend on the exact number of guides, table
+rows, or data points, because those totals naturally change as the site grows.
+This means most ordinary guide and table updates are checked automatically
+without requiring a new test.
+
+Maintainers can read the more detailed [testing strategy](docs/testing.md).
+
 ## How guide content works
 
 Guides live in the [`content`](content/) folder as `.mdx` files. MDX is mostly
@@ -107,6 +122,7 @@ in the site navigation. The detailed content references are collected in
 
 ## Project structure
 
+- `docs/` - technical references for maintainers
 - `content/` — guide pages and navigation files
 - `public/` — images and other public files
 - `src/` — website components, styles, and interactive tools
