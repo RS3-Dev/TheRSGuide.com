@@ -1,0 +1,19 @@
+{
+  "title": "Ability Upgrades",
+  "titleAs": "h3",
+  "collapsed": true,
+  "sortable": true,
+  "rowId": "id",
+  "search": { "label": "Search Kandarin ability upgrades", "placeholder": "Search Kandarin ability upgrades..." },
+  "emptyMessage": "No Kandarin ability upgrades match those filters.",
+  "columns": [
+    { "key": "item", "header": "Ability", "link": { "hrefKey": "url", "external": true }, "info": true },
+    { "key": "level", "header": "Level", "filter": true, "width": "sm", "emphasis": true, "wrap": false },
+    { "key": "style", "header": "Combat style", "filter": true, "width": "md", "wrap": false },
+    { "key": "source", "header": "Source", "filter": true, "width": "md", "wrap": false }
+  ],
+  "rows": [
+    { "id": "sunshine", "item": "Sunshine", "level": "76", "style": "Magic", "source": "The World Wakes", "url": "https://runescape.wiki/w/Sunshine", "info": "Locked to Kandarin. Greater Sunshine can still be created and used without it via a Codex of lost knowledge from Zamorak, Lord of Chaos." },
+    { "id": "deaths-swiftness", "item": "Death's Swiftness", "level": "76", "style": "Range", "source": "The World Wakes", "url": "https://runescape.wiki/w/Death%27s_Swiftness", "info": "Locked to Kandarin. Greater Death's Swiftness can still be created and used without it via a Codex of lost knowledge from Zamorak, Lord of Chaos." }
+  ]
+}
