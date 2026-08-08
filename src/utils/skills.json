@@ -580,8 +580,38 @@
   "divination": [
     {
       "start": 1,
+      "end": 35,
+      "desc": "Complete activities at Memorial to Guthix",
+      "link": "https://runescape.wiki/w/Memorial_to_Guthix"
+    },
+    {
+      "start": 1,
+      "end": 10,
+      "desc": "Collect and deposit Pale energy",
+      "link": "https://runescape.wiki/w/Pale_energy"
+    },
+    {
+      "start": 10,
+      "end": 20,
+      "desc": "Collect and deposit Flickering energy",
+      "link": "https://runescape.wiki/w/Flickering_energy"
+    },
+    {
+      "start": 20,
+      "end": 30,
+      "desc": "Collect and deposit Bright energy",
+      "link": "https://runescape.wiki/w/Bright_energy"
+    },
+    {
+      "start": 30,
+      "end": 35,
+      "desc": "Collect and deposit Glowing energy",
+      "link": "https://runescape.wiki/w/Glowing_energy"
+    },
+    {
+      "start": 35,
       "end": 99,
-      "desc": "Guthixian Caches",
+      "desc": "Collect and deposit memories at the highest tier available, and enter Guthixian Caches whenever they are available",
       "link": "https://runescape.wiki/w/Ironman_Mode/Strategies/Divination#Levels_1-99"
     },
     {
