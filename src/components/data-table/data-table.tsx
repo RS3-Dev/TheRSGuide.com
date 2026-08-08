@@ -13,7 +13,6 @@ import {
   ArrowDown,
   ArrowUp,
   ChevronDown,
-  ChevronRight,
   ChevronsUpDown,
   ExternalLink,
   Info,
@@ -22,6 +21,11 @@ import {
 import { z } from "zod"
 
 import { Button } from "@/components/ui/button"
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
 import {
   Command,
   CommandEmpty,
@@ -496,249 +500,265 @@ function DataTableContent({
     0
   )
 
+  const controls = (searchConfig || filterableColumns.length) ? (
+    <div
+      data-slot="data-table-controls"
+      className="flex min-w-0 items-center gap-2 border-b p-3"
+    >
+      {searchConfig ? (
+        <Field className="min-w-0 max-w-xs flex-1 sm:w-64 sm:flex-none">
+          <FieldLabel htmlFor={`${id}-search`} className="sr-only">
+            {searchConfig.label ?? `Search ${title}`}
+          </FieldLabel>
+          <Input
+            id={`${id}-search`}
+            type="search"
+            value={globalFilter}
+            onChange={(event) => setGlobalFilter(event.target.value)}
+            placeholder={searchConfig.placeholder ?? "Search table..."}
+          />
+        </Field>
+      ) : null}
+
+      {filterableColumns.length ? (
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button
+              type="button"
+              variant="outline"
+              size="icon"
+              aria-label={
+                activeFilterCount
+                  ? `Filters, ${activeFilterCount} active`
+                  : "Filters"
+              }
+            >
+              <ListFilter aria-hidden="true" />
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent align="end">
+            <PopoverHeader>
+              <PopoverTitle>Filter {title}</PopoverTitle>
+              <PopoverDescription>
+                Select one or more values
+              </PopoverDescription>
+            </PopoverHeader>
+
+            <FieldGroup className="gap-3">
+              {filterableColumns.map((definition) => {
+                const tableColumn = table.getColumn(definition.key)
+                const selectedValues = (
+                  tableColumn?.getFilterValue() as string[] | undefined
+                ) ?? []
+
+                return (
+                  <DataTableMultiSelect
+                    key={definition.key}
+                    id={`${id}-${definition.key}-filter`}
+                    label={definition.filter?.label ?? definition.header}
+                    options={definition.filter?.options ?? []}
+                    selectedValues={selectedValues}
+                    onChange={(nextValues) => tableColumn?.setFilterValue(
+                      nextValues.length ? nextValues : undefined
+                    )}
+                  />
+                )
+              })}
+            </FieldGroup>
+
+            {activeFilterCount ? (
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="self-end"
+                onClick={() => table.resetColumnFilters()}
+              >
+                Clear filters
+              </Button>
+            ) : null}
+          </PopoverContent>
+        </Popover>
+      ) : null}
+    </div>
+  ) : null
+
+  const renderedTable = (
+    <Table aria-labelledby={headingId}>
+      {caption ? <TableCaption>{caption}</TableCaption> : null}
+      <TableHeader>
+        {table.getHeaderGroups().map((headerGroup) => (
+          <TableRow
+            key={headerGroup.id}
+            className={cn(
+              "bg-muted/60",
+              allColumnHeadersHidden && "h-0 border-0 bg-transparent"
+            )}
+          >
+            {headerGroup.headers.map((header, index) => {
+              const definition = columns[index]
+              const sorted = header.column.getIsSorted()
+
+              return (
+                <TableHead
+                  key={header.id}
+                  scope="col"
+                  aria-sort={
+                    definition.hidden
+                      ? undefined
+                      : sorted === "asc"
+                        ? "ascending"
+                        : sorted === "desc"
+                          ? "descending"
+                          : definition.sortable
+                            ? "none"
+                            : undefined
+                  }
+                  className={cn(
+                    definition.width === "sm" && "w-32",
+                    definition.width === "md" && "w-40",
+                    definition.width === "lg" && "w-64",
+                    definition.align === "center" && "text-center",
+                    definition.align === "right" && "text-right",
+                    allColumnHeadersHidden && "h-0 p-0"
+                  )}
+                >
+                  {definition.hidden ? (
+                    <span className="sr-only">
+                      {flexRender(
+                        header.column.columnDef.header,
+                        header.getContext()
+                      )}
+                    </span>
+                  ) : definition.sortable ? (
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      className="-ml-2 w-fit"
+                      onClick={header.column.getToggleSortingHandler()}
+                      aria-label={`Sort by ${definition.header}`}
+                    >
+                      {flexRender(
+                        header.column.columnDef.header,
+                        header.getContext()
+                      )}
+                      {sorted === "asc" ? (
+                        <ArrowUp data-icon="inline-end" aria-hidden="true" />
+                      ) : sorted === "desc" ? (
+                        <ArrowDown data-icon="inline-end" aria-hidden="true" />
+                      ) : (
+                        <ChevronsUpDown data-icon="inline-end" aria-hidden="true" />
+                      )}
+                    </Button>
+                  ) : (
+                    <span className="font-display font-medium text-foreground">
+                      {flexRender(
+                        header.column.columnDef.header,
+                        header.getContext()
+                      )}
+                    </span>
+                  )}
+                </TableHead>
+              )
+            })}
+          </TableRow>
+        ))}
+      </TableHeader>
+      <TableBody>
+        {table.getRowModel().rows.length ? (
+          table.getRowModel().rows.map((row) => (
+            <TableRow key={row.id}>
+              {row.getVisibleCells().map((cell, index) => {
+                const definition = columns[index]
+                return (
+                  <TableCell
+                    key={cell.id}
+                    className={cn(
+                      definition.wrap !== false && "whitespace-normal",
+                      definition.emphasis && "font-semibold",
+                      definition.align === "center" && "text-center",
+                      definition.align === "right" && "text-right"
+                    )}
+                  >
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TableCell>
+                )
+              })}
+            </TableRow>
+          ))
+        ) : (
+          <TableRow>
+            <TableCell
+              colSpan={columns.length}
+              className="h-24 text-center text-muted-foreground"
+            >
+              {emptyMessage}
+            </TableCell>
+          </TableRow>
+        )}
+      </TableBody>
+    </Table>
+  )
+
+  if (collapsible) {
+    return (
+      <Collapsible
+        asChild
+        open={!isCollapsed}
+        onOpenChange={(open) => setIsCollapsed(!open)}
+      >
+        <div
+          data-slot="data-table"
+          className={cn("overflow-hidden border bg-card", className)}
+        >
+          <Heading
+            id={headingId}
+            data-slot="data-table-title-row"
+            className="scroll-mt-[5.5rem]"
+          >
+            <CollapsibleTrigger
+              className="group flex w-full items-center justify-between gap-3 p-3 text-left font-display text-base font-semibold outline-none transition-colors hover:bg-muted/60 focus-visible:bg-muted focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-inset"
+              aria-controls={`${id}-body`}
+              aria-label={isCollapsed ? `Expand ${title}` : `Collapse ${title}`}
+            >
+              <span>{title}</span>
+              <ChevronDown
+                aria-hidden="true"
+                className={cn(
+                  "size-4 shrink-0 transition-transform duration-200",
+                  isCollapsed && "-rotate-90"
+                )}
+              />
+            </CollapsibleTrigger>
+          </Heading>
+          <CollapsibleContent
+            id={`${id}-body`}
+            className="overflow-hidden border-t motion-safe:data-[state=closed]:animate-[data-table-accordion-up_140ms_ease-in] motion-safe:data-[state=open]:animate-[data-table-accordion-down_180ms_ease-out]"
+          >
+            {controls}
+            {renderedTable}
+          </CollapsibleContent>
+        </div>
+      </Collapsible>
+    )
+  }
+
   return (
     <div
       data-slot="data-table"
       className={cn("overflow-hidden border bg-card", className)}
     >
-      <Table aria-labelledby={headingId}>
-        {caption ? <TableCaption>{caption}</TableCaption> : null}
-        <TableHeader>
-          <TableRow className="hover:bg-transparent">
-            <TableHead
-              colSpan={columns.length}
-              scope="colgroup"
-              className="h-auto whitespace-normal p-3"
-            >
-              <div className="flex flex-col gap-3">
-                <div
-                  data-slot="data-table-title-row"
-                  className="flex items-center justify-between gap-3"
-                >
-                  <Heading
-                    id={headingId}
-                    className="scroll-mt-[5.5rem] font-display text-base font-semibold"
-                  >
-                    {title}
-                  </Heading>
-
-                  {collapsible ? (
-                    <Button
-                      type="button"
-                      variant="outline"
-                      size="icon"
-                      aria-controls={`${id}-body`}
-                      aria-expanded={!isCollapsed}
-                      aria-label={isCollapsed ? `Expand ${title}` : `Collapse ${title}`}
-                      onClick={() => setIsCollapsed((current) => !current)}
-                    >
-                      {isCollapsed ? (
-                        <ChevronRight aria-hidden="true" />
-                      ) : (
-                        <ChevronDown aria-hidden="true" />
-                      )}
-                    </Button>
-                  ) : null}
-                </div>
-
-                {!isCollapsed && (searchConfig || filterableColumns.length) ? (
-                  <div
-                    data-slot="data-table-controls"
-                    className="flex min-w-0 items-center gap-2"
-                  >
-                  {searchConfig ? (
-                    <Field className="min-w-0 max-w-xs flex-1 sm:w-64 sm:flex-none">
-                      <FieldLabel htmlFor={`${id}-search`} className="sr-only">
-                        {searchConfig.label ?? `Search ${title}`}
-                      </FieldLabel>
-                      <Input
-                        id={`${id}-search`}
-                        type="search"
-                        value={globalFilter}
-                        onChange={(event) => setGlobalFilter(event.target.value)}
-                        placeholder={searchConfig.placeholder ?? "Search table..."}
-                      />
-                    </Field>
-                  ) : null}
-
-                    {filterableColumns.length ? (
-                      <Popover>
-                      <PopoverTrigger asChild>
-                        <Button
-                          type="button"
-                          variant="outline"
-                          size="icon"
-                          aria-label={
-                            activeFilterCount
-                              ? `Filters, ${activeFilterCount} active`
-                              : "Filters"
-                          }
-                        >
-                          <ListFilter aria-hidden="true" />
-                        </Button>
-                      </PopoverTrigger>
-                      <PopoverContent align="end">
-                        <PopoverHeader>
-                          <PopoverTitle>Filter {title}</PopoverTitle>
-                          <PopoverDescription>
-                            Select one or more values
-                          </PopoverDescription>
-                        </PopoverHeader>
-
-                        <FieldGroup className="gap-3">
-                          {filterableColumns.map((definition) => {
-                            const tableColumn = table.getColumn(definition.key)
-                            const selectedValues = (
-                              tableColumn?.getFilterValue() as string[] | undefined
-                            ) ?? []
-
-                            return (
-                              <DataTableMultiSelect
-                                key={definition.key}
-                                id={`${id}-${definition.key}-filter`}
-                                label={definition.filter?.label ?? definition.header}
-                                options={definition.filter?.options ?? []}
-                                selectedValues={selectedValues}
-                                onChange={(nextValues) => tableColumn?.setFilterValue(
-                                  nextValues.length ? nextValues : undefined
-                                )}
-                              />
-                            )
-                          })}
-                        </FieldGroup>
-
-                        {activeFilterCount ? (
-                          <Button
-                            type="button"
-                            variant="ghost"
-                            size="sm"
-                            className="self-end"
-                            onClick={() => table.resetColumnFilters()}
-                          >
-                            Clear filters
-                          </Button>
-                        ) : null}
-                      </PopoverContent>
-                      </Popover>
-                    ) : null}
-                </div>
-                ) : null}
-              </div>
-            </TableHead>
-          </TableRow>
-
-          {!isCollapsed && table.getHeaderGroups().map((headerGroup) => (
-            <TableRow
-              key={headerGroup.id}
-              className={cn(
-                "bg-muted/60",
-                allColumnHeadersHidden && "h-0 border-0 bg-transparent"
-              )}
-            >
-              {headerGroup.headers.map((header, index) => {
-                const definition = columns[index]
-                const sorted = header.column.getIsSorted()
-
-                return (
-                  <TableHead
-                    key={header.id}
-                    scope="col"
-                    aria-sort={
-                      definition.hidden
-                        ? undefined
-                        : sorted === "asc"
-                          ? "ascending"
-                          : sorted === "desc"
-                            ? "descending"
-                            : definition.sortable
-                              ? "none"
-                              : undefined
-                    }
-                    className={cn(
-                      definition.width === "sm" && "w-32",
-                      definition.width === "md" && "w-40",
-                      definition.width === "lg" && "w-64",
-                      definition.align === "center" && "text-center",
-                      definition.align === "right" && "text-right",
-                      allColumnHeadersHidden && "h-0 p-0"
-                    )}
-                  >
-                    {definition.hidden ? (
-                      <span className="sr-only">
-                        {flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                      </span>
-                    ) : definition.sortable ? (
-                      <Button
-                        type="button"
-                        variant="ghost"
-                        size="sm"
-                        className="-ml-2 w-fit"
-                        onClick={header.column.getToggleSortingHandler()}
-                        aria-label={`Sort by ${definition.header}`}
-                      >
-                        {flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                        {sorted === "asc" ? (
-                          <ArrowUp data-icon="inline-end" aria-hidden="true" />
-                        ) : sorted === "desc" ? (
-                          <ArrowDown data-icon="inline-end" aria-hidden="true" />
-                        ) : (
-                          <ChevronsUpDown data-icon="inline-end" aria-hidden="true" />
-                        )}
-                      </Button>
-                    ) : (
-                      <span className="font-display font-medium text-foreground">
-                        {flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                      </span>
-                    )}
-                  </TableHead>
-                )
-              })}
-            </TableRow>
-          ))}
-        </TableHeader>
-        <TableBody id={`${id}-body`}>
-          {!isCollapsed && (table.getRowModel().rows.length ? (
-            table.getRowModel().rows.map((row) => (
-              <TableRow key={row.id}>
-                {row.getVisibleCells().map((cell, index) => {
-                  const definition = columns[index]
-                  return (
-                    <TableCell
-                      key={cell.id}
-                      className={cn(
-                        definition.wrap !== false && "whitespace-normal",
-                        definition.emphasis && "font-semibold",
-                        definition.align === "center" && "text-center",
-                        definition.align === "right" && "text-right"
-                      )}
-                    >
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                    </TableCell>
-                  )
-                })}
-              </TableRow>
-            ))
-          ) : (
-            <TableRow>
-              <TableCell
-                colSpan={columns.length}
-                className="h-24 text-center text-muted-foreground"
-              >
-                {emptyMessage}
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+      <div data-slot="data-table-title-row" className="border-b p-3">
+        <Heading
+          id={headingId}
+          className="scroll-mt-[5.5rem] font-display text-base font-semibold"
+        >
+          {title}
+        </Heading>
+      </div>
+      {controls}
+      {renderedTable}
     </div>
   )
 }

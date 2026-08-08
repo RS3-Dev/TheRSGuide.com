@@ -10,16 +10,19 @@ const config: DataTableConfig = {
 }
 
 describe("DataTable collapsed configuration", () => {
-  it("starts with only headers visible when collapsed is true", () => {
+  it("starts with the accordion collapsed when collapsed is true", () => {
     const markup = renderToStaticMarkup(
       <DataTable config={{ ...config, collapsed: true }} />
     )
 
     expect(markup).toContain('aria-expanded="false"')
+    expect(markup).toContain('aria-controls=')
     expect(markup).toContain('aria-label="Expand Example table"')
     expect(markup).not.toContain("Name")
     expect(markup).not.toContain("Visible row")
-    expect(markup).toContain("lucide-chevron-right")
+    expect(markup).toContain('data-slot="collapsible-trigger"')
+    expect(markup).toContain('data-state="closed"')
+    expect(markup).toContain("lucide-chevron-down")
   })
 
   it("starts expanded but remains collapsible when collapsed is false", () => {
@@ -30,6 +33,7 @@ describe("DataTable collapsed configuration", () => {
     expect(markup).toContain('aria-expanded="true"')
     expect(markup).toContain('aria-label="Collapse Example table"')
     expect(markup).toContain("Visible row")
+    expect(markup).toContain('data-state="open"')
     expect(markup).toContain("lucide-chevron-down")
   })
 
@@ -37,6 +41,7 @@ describe("DataTable collapsed configuration", () => {
     const markup = renderToStaticMarkup(<DataTable config={config} />)
 
     expect(markup).not.toContain('aria-controls="')
+    expect(markup).not.toContain('data-slot="collapsible-trigger"')
     expect(markup).toContain("Visible row")
   })
 
