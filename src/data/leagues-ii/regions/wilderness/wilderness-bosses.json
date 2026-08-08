@@ -5,15 +5,15 @@
   "rowId": "id",
   "columns": [
     {
+      "key": "boss",
+      "header": "Boss",
+      "link": { "hrefKey": "url", "external": true }
+    },
+    {
       "key": "source",
       "header": "Source",
       "width": "lg",
       "link": { "hrefKey": "sourceUrl", "external": true }
-    },
-    {
-      "key": "boss",
-      "header": "Boss",
-      "link": { "hrefKey": "url", "external": true }
     }
   ],
   "rows": [
@@ -43,45 +43,46 @@
     },
     {
       "id": "astellarn",
-      "source": "Elite Dungeon 2",
-      "sourceUrl": "https://runescape.wiki/w/Dragonkin_Laboratory",
       "boss": "Astellarn",
-      "url": "https://runescape.wiki/w/Astellarn"
+      "url": "https://runescape.wiki/w/Astellarn",
+      "source": "Elite Dungeon 2",
+      "sourceUrl": "https://runescape.wiki/w/Dragonkin_Laboratory"
     },
     {
       "id": "verak-lith",
-      "source": "Elite Dungeon 2",
-      "sourceUrl": "https://runescape.wiki/w/Dragonkin_Laboratory",
       "boss": "Verak Lith",
-      "url": "https://runescape.wiki/w/Verak_Lith"
+      "url": "https://runescape.wiki/w/Verak_Lith",
+      "source": "Elite Dungeon 2",
+      "sourceUrl": "https://runescape.wiki/w/Dragonkin_Laboratory"
     },
     {
       "id": "black-stone-dragon",
-      "source": "Elite Dungeon 2",
-      "sourceUrl": "https://runescape.wiki/w/Dragonkin_Laboratory",
       "boss": "Black Stone Dragon",
-      "url": "https://runescape.wiki/w/Black_Stone_Dragon"
+      "url": "https://runescape.wiki/w/Black_Stone_Dragon",
+      "source": "Elite Dungeon 2",
+      "sourceUrl": "https://runescape.wiki/w/Dragonkin_Laboratory"
     },
     {
       "id": "crassian-leviathan",
-      "source": "Elite Dungeon 3",
-      "sourceUrl": "https://runescape.wiki/w/The_Shadow_Reef",
       "boss": "Crassian Leviathan",
-      "url": "https://runescape.wiki/w/Crassian_Leviathan"
+      "url": "https://runescape.wiki/w/Crassian_Leviathan",
+      "source": "Elite Dungeon 3",
+      "sourceUrl": "https://runescape.wiki/w/The_Shadow_Reef"
     },
     {
       "id": "taraket-the-necromancer",
-      "source": "Elite Dungeon 3",
-      "sourceUrl": "https://runescape.wiki/w/The_Shadow_Reef",
       "boss": "Taraket the Necromancer",
-      "url": "https://runescape.wiki/w/Taraket_the_Necromancer"
+      "url": "https://runescape.wiki/w/Taraket_the_Necromancer",
+      "source": "Elite Dungeon 3",
+      "sourceUrl": "https://runescape.wiki/w/The_Shadow_Reef"
     },
     {
       "id": "the-ambassador",
-      "source": "Elite Dungeon 3",
-      "sourceUrl": "https://runescape.wiki/w/The_Shadow_Reef",
       "boss": "The Ambassador",
-      "url": "https://runescape.wiki/w/The_Ambassador"
+      "url": "https://runescape.wiki/w/The_Ambassador",
+      "source": "Elite Dungeon 3",
+      "sourceUrl": "https://runescape.wiki/w/The_Shadow_Reef"
+
     }
   ]
 }
