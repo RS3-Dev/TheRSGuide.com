@@ -12,8 +12,11 @@ const leaguesMode = isLeaguesMode(import.meta.env.VITE_HOMEPAGE_MODE)
 describe('site guide catalog', () => {
   it('loads every current MDX route with a unique identity', () => {
     const paths = guideCatalog.documents.map((document) => document.path)
+    const duplicatePaths = paths.filter(
+      (path, index) => paths.indexOf(path) !== index,
+    )
 
-    expect(new Set(paths).size).toBe(paths.length)
+    expect(duplicatePaths).toEqual([])
     expect(paths.some((path) => path.startsWith('/leagues'))).toBe(leaguesMode)
     for (const document of guideCatalog.documents) {
       expect(guideCatalog.get(document.path)).toBe(document)

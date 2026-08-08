@@ -60,8 +60,11 @@ describe('guide content build manifest', () => {
     const content = await buildGuideContent(process.cwd())
     const { documents } = guideContentForMode(content, false)
     const routes = documents.map((document) => document.path)
+    const duplicateRoutes = routes.filter(
+      (route, index) => routes.indexOf(route) !== index,
+    )
 
-    expect(new Set(routes)).toHaveLength(routes.length)
+    expect(duplicateRoutes).toEqual([])
     expect(documents.every((document) => document.description.length > 0)).toBe(true)
   })
 

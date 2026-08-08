@@ -52,7 +52,6 @@ function PlayerDashboard() {
               recommendations={recommendations}
               onManualCompletionChange={setManualCompletion}
             />
-            {/* ProgressionAdvisor remains intentionally dormant. */}
           </>
         )}
       </div>

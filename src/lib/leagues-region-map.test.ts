@@ -1,4 +1,8 @@
+import { createElement } from 'react'
+import { renderToStaticMarkup } from 'react-dom/server'
+import { MemoryRouter } from 'react-router'
 import { describe, expect, it } from 'vitest'
+import LeaguesRegionMap from '@/components/mdx/leagues-region-map'
 import { regionMapData } from '@/data/leagues/region-map-data'
 import {
   displayRegionId,
@@ -53,10 +57,18 @@ describe('Leagues region map', () => {
     expect(regionGuidePath('unknown')).toBe('/leagues/regions')
   })
 
-  it('bundles valid production map data with the application', () => {
-    expect(regionMapData.columns).toBeGreaterThan(0)
-    expect(regionMapData.rows).toBeGreaterThan(0)
-    expect(regionMapData.pixels).toHaveLength(regionMapData.rows)
-    expect(regionMapData.regions.length).toBeGreaterThan(0)
+  it('renders production regions as guide links', () => {
+    const linkedRegion = displayRegions(regionMapData).find(
+      ({ id }) => leaguesRegionGuidePaths[id],
+    )
+    expect(linkedRegion).toBeDefined()
+
+    const markup = renderToStaticMarkup(
+      createElement(MemoryRouter, null, createElement(LeaguesRegionMap)),
+    )
+
+    expect(markup).toContain('<figure')
+    expect(markup).toContain(`href="${regionGuidePath(linkedRegion!.id)}"`)
+    expect(markup).toContain(linkedRegion!.name)
   })
 })

@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import {
   PICKS_STORAGE_KEY,
+  RELIC_TIERS,
   getRejuvenatedRelicOptions,
   getRejuvenatedRelicTier,
   loadPicksState,
@@ -51,19 +52,30 @@ describe('confirmed relic migration', () => {
 })
 
 describe('Rejuvenated relic picks', () => {
-  it('offers every relic from tiers below Rejuvenated', () => {
-    const selectedRelics = { 6: '6a' }
+  it('offers the configured relics from tiers below Rejuvenated', () => {
+    const rejuvenatedTierConfig = RELIC_TIERS.find(({ options }) =>
+      options.some(({ label }) => label === 'Rejuvenated'),
+    )
+    const rejuvenatedOption = rejuvenatedTierConfig?.options.find(
+      ({ label }) => label === 'Rejuvenated',
+    )
+    expect(rejuvenatedTierConfig).toBeDefined()
+    expect(rejuvenatedOption).toBeDefined()
 
-    expect(getRejuvenatedRelicTier(selectedRelics)).toBe(6)
-    expect(
-      getRejuvenatedRelicOptions(selectedRelics).map(({ id }) => id),
-    ).toEqual([
-      '1a', '1b', '1c',
-      '2a', '2b', '2c',
-      '3a', '3b', '3c',
-      '4a', '4b', '4c',
-      '5a', '5b', '5c',
-    ])
+    const selectedRelics = {
+      [rejuvenatedTierConfig!.tier]: rejuvenatedOption!.id,
+    }
+    const rejuvenatedTier = getRejuvenatedRelicTier(selectedRelics)
+    const options = getRejuvenatedRelicOptions(selectedRelics)
+
+    expect(rejuvenatedTier).toBe(rejuvenatedTierConfig!.tier)
+    expect(options.every(({ tier }) => tier < rejuvenatedTier!)).toBe(true)
+
+    for (const tier of RELIC_TIERS.filter(({ tier }) => tier < rejuvenatedTier!)) {
+      for (const option of tier.options) {
+        expect(options).toContainEqual({ ...option, tier: tier.tier })
+      }
+    }
   })
 
   it('accepts lower-tier bonus picks and rejects invalid or duplicate picks', () => {
