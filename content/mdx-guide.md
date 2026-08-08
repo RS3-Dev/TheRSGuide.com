@@ -43,7 +43,8 @@ You can write paragraphs, lists, and use formatting.
 The section at the top between the `---` lines is called **frontmatter**. It contains metadata about the page:
 
 - **title**: The page title that appears in the navigation and page header
-- **description**: A brief description used for SEO and page previews
+- **description**: An optional brief description used for SEO and page previews
 
-Both fields are required for every page.
+The title is required for every page. The description is optional; when it is
+omitted, the site creates a generic page-preview description from the title.
 

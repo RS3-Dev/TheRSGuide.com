@@ -69,7 +69,7 @@ const manualChunks = (id: string) => {
   return guidePage ? `content-${guidePage[1].replace(/\//g, '-')}` : undefined
 }
 
-export default defineConfig(({ command, mode }) => {
+export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   const deploymentUrl = (
     env.SITE_URL
@@ -82,11 +82,7 @@ export default defineConfig(({ command, mode }) => {
     plugins: [
       localApiPlugin(),
       dataTableValidationPlugin(),
-      guideContentPlugin({
-        siteUrl: deploymentUrl,
-        leaguesEnabled,
-        validatePublishedContent: command === 'build',
-      }),
+      guideContentPlugin({ siteUrl: deploymentUrl, leaguesEnabled }),
       mdxWithoutRaw,
       react({ include: /\.(mdx|js|jsx|ts|tsx)$/ }),
       tailwindcss(),
