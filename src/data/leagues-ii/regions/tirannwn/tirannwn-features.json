@@ -17,6 +17,6 @@
     { "id": "hefin-agility-course", "feature": "Hefin Agility Course", "url": "https://runescape.wiki/w/Hefin_Agility_Course" },
     { "id": "prifddinas-waterfall-fishing", "feature": "Prifddinas Waterfall Fishing", "url": "https://runescape.wiki/w/Prifddinas_Waterfall_Fishing" },
     { "id": "prifddinas-crystal-chest", "feature": "Prifddinas Crystal Chest", "url": "https://runescape.wiki/w/Crystal_chest_(Prifddinas)" },
-    { "id": "rush-of-blood", "feature": "Rush of Blood", "url": "https://runescape.wiki/w/Rush_of_Blood" }
+    { "id": "rush-of-blood", "feature": "Rush of Blood", "url": "https://runescape.wiki/w/Rush_of_Blood", "info":"Rush of Blood also requires Morytania as Legacy of the Seergaze is required to access this." }
   ]
 }

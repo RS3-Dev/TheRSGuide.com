@@ -35,7 +35,7 @@
     { "id": "seismic-wand", "item": "Seismic Wand", "tier": "90", "style": "Magic", "source": "Vorago", "url": "https://runescape.wiki/w/Seismic_Wand" },
     { "id": "seismic-singularity", "item": "Seismic Singularity", "tier": "90", "style": "Magic", "source": "Vorago", "url": "https://runescape.wiki/w/Seismic_Singularity" },
     { "id": "tectonic-robe-armour", "item": "Tectonic Robe Armour", "tier": "90", "style": "Magic", "source": "Vorago", "url": "https://runescape.wiki/w/Tectonic_robe_armour", "info": "Also requires a Stone of Binding from Kandarin or the Wilderness." },
-    { "id": "masutas-warspear", "item": "Masuta's Warspear", "tier": "82", "style": "Melee", "source": "Temple of Aminishi", "url": "https://runescape.wiki/w/Masuta%27s_Warspear" },
+    { "id": "masutas-warspear", "item": "Masuta's Warspear", "tier": "82", "style": "Melee", "source": "Elite Dungeon 1", "url": "https://runescape.wiki/w/Masuta%27s_Warspear" },
     { "id": "wyvern-crossbow", "item": "Wyvern Crossbow", "tier": "85", "style": "Range", "source": "Slayer", "url": "https://runescape.wiki/w/Wyvern_Crossbow", "info": "Also available in the Wilderness." },
     { "id": "royal-crossbow", "item": "Royal Crossbow", "tier": "80", "style": "Range", "source": "Queen Black Dragon", "url": "https://runescape.wiki/w/Royal_Crossbow" },
     { "id": "dragon-kiteshield", "item": "Dragon Kiteshield", "tier": "60", "style": "Melee", "source": "Queen Black Dragon", "url": "https://runescape.wiki/w/Dragon_kiteshield" },
