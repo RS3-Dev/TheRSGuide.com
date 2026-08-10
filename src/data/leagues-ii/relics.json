@@ -427,7 +427,7 @@
             "effects": [
                 "Grants you the Tome of the Icyene.",
                 "When worn: The Tome provide +50 Prayer bonus, Gain 0.2% critical strike chance and 0.2% base ability damage per 1 prayer bonus you have.",
-                "Protection prayers and Deflect curses black +50% of damage.",
+                "Protection prayers and Deflect curses block +50% of damage.",
                 "Protection prayers and Deflect curses act as Soul split being active."
             ],
             "notes": [
