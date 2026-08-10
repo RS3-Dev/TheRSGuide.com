@@ -64,6 +64,7 @@ export type GuideDocumentSource = {
 export type GuideMetadataSource = {
   sourcePath: string
   pages?: readonly string[]
+  disabledPages?: readonly string[]
 }
 
 export type GuideSectionDefinition = {
@@ -110,6 +111,7 @@ export class GuideCatalog {
 
   constructor(options: GuideCatalogOptions) {
     const orderByPath = new Map<string, number>()
+    const disabledPaths = new Set<string>()
     for (const metadata of options.metadata) {
       const directory = directoryFromMetadataSource(metadata.sourcePath)
       metadata.pages?.forEach((page, index) => {
@@ -117,21 +119,29 @@ export class GuideCatalog {
         const path = normalizeRoute(`${directory === '/' ? '' : directory}/${page}`)
         orderByPath.set(path, index)
       })
+      metadata.disabledPages?.forEach((page) => {
+        const path = page === 'index'
+          ? directory
+          : normalizeRoute(`${directory === '/' ? '' : directory}/${page}`)
+        disabledPaths.add(path)
+      })
     }
 
-    const documents = options.documents.map((source) => ({
-      path: normalizeRoute(source.path),
-      title: source.title,
-      navigationTitle: source.navigationTitle ?? source.title,
-      description: source.description,
-      section: source.section,
-      tableOfContents: source.tableOfContents,
-      hasTableOfContents: source.hasTableOfContents,
-      showPageHeader: source.showPageHeader,
-      requiresPlayerData: source.requiresPlayerData,
-      ogImage: source.ogImage,
-      Component: source.Component,
-    } satisfies Doc))
+    const documents = options.documents
+      .filter((source) => !disabledPaths.has(normalizeRoute(source.path)))
+      .map((source) => ({
+        path: normalizeRoute(source.path),
+        title: source.title,
+        navigationTitle: source.navigationTitle ?? source.title,
+        description: source.description,
+        section: source.section,
+        tableOfContents: source.tableOfContents,
+        hasTableOfContents: source.hasTableOfContents,
+        showPageHeader: source.showPageHeader,
+        requiresPlayerData: source.requiresPlayerData,
+        ogImage: source.ogImage,
+        Component: source.Component,
+      } satisfies Doc))
 
     const documentsByPath = new Map<string, Doc>()
     for (const document of documents) {

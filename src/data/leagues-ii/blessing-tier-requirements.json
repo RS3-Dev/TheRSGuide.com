@@ -1,0 +1,22 @@
+{
+  "$schema": "../../../schemas/data-table.schema.json",
+  "title": "Blessing Tier Task Requirements",
+  "titleAs": "h4",
+  "headingId": "blessing-tier-task-requirements",
+  "collapsed": true,
+  "rowId": "tier",
+  "columns": [
+    { "key": "tier", "header": "Tier", "emphasis": true },
+    { "key": "tasks", "header": "Blessing Tasks Required", "align": "right" }
+  ],
+  "rows": [
+    { "tier": "Tier 1", "tasks": "1" },
+    { "tier": "Tier 2", "tasks": "3" },
+    { "tier": "Tier 3", "tasks": "5" },
+    { "tier": "Tier 4", "tasks": "9" },
+    { "tier": "Tier 5", "tasks": "12" },
+    { "tier": "Tier 6", "tasks": "16" },
+    { "tier": "Tier 7", "tasks": "20" },
+    { "tier": "Tier 8", "tasks": "26" }
+  ]
+}

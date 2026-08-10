@@ -54,8 +54,10 @@ describe('Leagues MDX displays', () => {
     expect(markup).not.toContain('undefined')
   })
 
-  it('registers both displays through the MDX registry', () => {
+  it('registers the Leagues displays through the MDX registry', () => {
     expect(mdxComponents.RelicDisplay).toBeDefined()
     expect(mdxComponents.BlessingDisplay).toBeDefined()
+    expect(mdxComponents.StaticRelicPicks).toBeDefined()
+    expect(mdxComponents.StaticBlessingPicks).toBeDefined()
   })
 })

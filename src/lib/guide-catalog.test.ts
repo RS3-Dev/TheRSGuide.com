@@ -137,6 +137,28 @@ describe('GuideCatalog', () => {
     })
   })
 
+  it('excludes pages disabled by section metadata', () => {
+    const disabledPageCatalog = createGuideCatalog({
+      documents: [
+        document('../../content/guides/index.mdx', 'Guides'),
+        document('../../content/guides/similarities.mdx', 'Similarities'),
+        document('../../content/guides/differences.mdx', 'Differences'),
+      ],
+      metadata: [{
+        sourcePath: '../../content/guides/meta.json',
+        pages: ['index', 'differences'],
+        disabledPages: ['similarities'],
+      }],
+      sections: [{ id: 'guides', label: 'Guides' }],
+    })
+
+    expect(disabledPageCatalog.get('/guides/similarities')).toBeUndefined()
+    expect(disabledPageCatalog.section('guides')?.documents.map((item) => item.path)).toEqual([
+      '/guides',
+      '/guides/differences',
+    ])
+  })
+
   it('rejects duplicate route identities', () => {
     expect(() => createGuideCatalog({
       documents: [

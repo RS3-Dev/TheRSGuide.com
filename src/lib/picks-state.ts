@@ -27,6 +27,7 @@ export {
   deriveGodBlessing,
   getBlessingForTier,
   getResolvedBlessingCount,
+  isBlessingId,
   isBlessingTreeComplete,
   type BlessingId,
   type BlessingSelections,

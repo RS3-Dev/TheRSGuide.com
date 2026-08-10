@@ -15,7 +15,7 @@ export const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({
   const [loaded, setLoaded] = useState(() => thirdPartyMediaAllowed());
 
   return (
-    <div className="my-6 w-full">
+    <div className="mb-6 w-full">
       <div
         className="relative w-full overflow-hidden rounded-lg border border-border"
         style={{

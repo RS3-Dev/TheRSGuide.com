@@ -1,0 +1,33 @@
+{
+  "$schema": "../../../../schemas/data-table.schema.json",
+  "title": "Resource Tier Guide",
+  "titleAs": "h2",
+  "rowId": "tier",
+  "columns": [
+    { "key": "tier", "header": "Tier", "width": "sm", "emphasis": true },
+    { "key": "oreBars", "header": "Ore/Bars" },
+    { "key": "logs", "header": "Logs" },
+    { "key": "cloth", "header": "Cloth" },
+    { "key": "leather", "header": "Leather" },
+    { "key": "energy", "header": "Energy" },
+    { "key": "fish", "header": "Fish" },
+    { "key": "herb", "header": "Herb" }
+  ],
+  "rows": [
+    { "tier": "1", "oreBars": "Bronze/Tin", "logs": "Log", "cloth": "Cloth Strip", "leather": "Leather", "energy": "Pale", "fish": "Shrimp", "herb": "Guam" },
+    { "tier": "10", "oreBars": "Iron", "logs": "Oak", "cloth": "Imphide", "leather": "Hard Leather", "energy": "Flickering", "fish": "Herring", "herb": "Tarromin / Marrentil" },
+    { "tier": "20", "oreBars": "Coal/Silver", "logs": "Willow", "cloth": "Spider Silk", "leather": "-", "energy": "Bright", "fish": "Trout", "herb": "Harralander/Ranaar" },
+    { "tier": "30", "oreBars": "Mithril", "logs": "Teak", "cloth": "Batwing", "leather": "Snakeskin / Carapace", "energy": "Glowing", "fish": "Salmon", "herb": "Toadflax / Spirit Weed" },
+    { "tier": "40", "oreBars": "Adamant / Gold", "logs": "Maple", "cloth": "Splitbark", "leather": "Green Dragonhide", "energy": "Sparkling", "fish": "Lobster", "herb": "Irit/Wegali" },
+    { "tier": "50", "oreBars": "Rune", "logs": "Acadia", "cloth": "Mystic Cloth", "leather": "Blue Dragonhide", "energy": "Gleaming", "fish": "Swordfish", "herb": "Avantoe" },
+    { "tier": "55", "oreBars": "-", "logs": "Arctic Pine", "cloth": "-", "leather": "Red Dragonhide", "energy": "-", "fish": "Desert Sole", "herb": "Kwuarm" },
+    { "tier": "60", "oreBars": "Orichalcite / Drakolith", "logs": "Mahogany", "cloth": "Griffolic", "leather": "Black Dragonhide", "energy": "Vibrant", "fish": "Catfish", "herb": "Snapdragon/Bloodweed" },
+    { "tier": "65", "oreBars": "-", "logs": "-", "cloth": "-", "leather": "Royal Dragonhide", "energy": "-", "fish": "Karambwan", "herb": "Cadantine" },
+    { "tier": "70", "oreBars": "Necrite / Phasmatite", "logs": "Yew", "cloth": "-", "leather": "-", "energy": "Lusterous", "fish": "Beltfish / Green Blubber", "herb": "Dwarf Weed / Lantadyme" },
+    { "tier": "75", "oreBars": "-", "logs": "Blisterwood", "cloth": "Ganodermic", "leather": "Undead Dragonhide", "energy": "Elder", "fish": "Shark", "herb": "Torstol" },
+    { "tier": "80", "oreBars": "Banite", "logs": "Magic", "cloth": "-", "leather": "Dinosaur Leather", "energy": "Brilliant", "fish": "Manta Ray", "herb": "Arbuck" },
+    { "tier": "85", "oreBars": "-", "logs": "Bloodwood", "cloth": "-", "leather": "-", "energy": "Radiant", "fish": "Cavefish", "herb": "-" },
+    { "tier": "90", "oreBars": "Elder Rune", "logs": "Elder", "cloth": "Starbloom", "leather": "Apex Hide", "energy": "Luminous", "fish": "Rocktail / Blue Blubber", "herb": "Fellstalk" },
+    { "tier": "90+", "oreBars": "Primal Ores / Platinum", "logs": "Eternal Magic", "cloth": "-", "leather": "-", "energy": "Incandescent", "fish": "Sailfish", "herb": "-" }
+  ]
+}

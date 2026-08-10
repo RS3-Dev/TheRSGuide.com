@@ -1,0 +1,21 @@
+{
+  "$schema": "../../../schemas/data-table.schema.json",
+  "title": "Relic Tier Point Requirements",
+  "titleAs": "h4",
+  "headingId": "relic-tier-point-requirements",
+  "collapsed": true,
+  "rowId": "tier",
+  "columns": [
+    { "key": "tier", "header": "Tier", "emphasis": true },
+    { "key": "points", "header": "League Points Required", "align": "right" }
+  ],
+  "rows": [
+    { "tier": "Tier 1", "points": "10" },
+    { "tier": "Tier 2", "points": "750" },
+    { "tier": "Tier 3", "points": "1,750" },
+    { "tier": "Tier 4", "points": "3,500" },
+    { "tier": "Tier 5", "points": "6,000" },
+    { "tier": "Tier 6", "points": "12,000" },
+    { "tier": "Tier 7", "points": "20,000" }
+  ]
+}
