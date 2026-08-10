@@ -20,6 +20,8 @@ const LeaguesRegionMap = lazy(() => import('@/components/mdx/leagues-region-map'
 const RelicDisplay = lazy(() => import('@/components/mdx/relic-display').then((module) => ({ default: module.RelicDisplay })))
 const SkillingSolver = lazy(() => import('@/components/mdx/skilling-solver').then((module) => ({ default: module.SkillingSolver })))
 const BlessingDisplay = lazy(() => import('@/components/mdx/blessing-display').then((module) => ({ default: module.BlessingDisplay })))
+const StaticRelicPicks = lazy(() => import('@/components/mdx/static-relic-picks').then((module) => ({ default: module.StaticRelicPicks })))
+const StaticBlessingPicks = lazy(() => import('@/components/mdx/static-blessing-picks').then((module) => ({ default: module.StaticBlessingPicks })))
 const LeaguesPicker = lazy(() => import('@/pages/picks/picks'))
 const DataTable = lazy(() => import('@/components/data-table/data-table').then((module) => ({ default: module.DataTable })))
 
@@ -49,6 +51,8 @@ export const mdxComponents = {
   RelicDisplay,
   SkillingSolver,
   BlessingDisplay,
+  StaticRelicPicks,
+  StaticBlessingPicks,
   LeaguesPicker,
   DataTable,
 }

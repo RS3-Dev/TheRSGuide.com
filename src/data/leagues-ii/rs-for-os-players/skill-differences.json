@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../../schemas/data-table.schema.json",
+  "title": "Skill comparison between the games",
+  "titleAs": "h3",
+  "headingId": "skill-comparison-between-the-games",
+  "collapsed": true,
+  "rowId": "skill",
+  "columns": [
+    { "key": "skill", "header": "Skill", "width": "lg", "emphasis": true },
+    { "key": "levelCap", "header": "Level Cap in RS3", "width": "sm", "align": "center" },
+    { "key": "inOsrs", "header": "In OSRS?", "width": "sm", "align": "center" },
+    { "key": "notes", "header": "Notes" }
+  ],
+  "rows": [
+    { "skill": "Combat Skills", "levelCap": "120", "inOsrs": "Yes", "notes": "Magic/Ranged/Attack/Strength.\nHP/Defence capped at 99." },
+    { "skill": "Mining", "levelCap": "110", "inOsrs": "Yes", "notes": "See Resources for tier differences" },
+    { "skill": "Smithing", "levelCap": "110", "inOsrs": "Yes", "notes": "Far more useful; see Resources for tier differences." },
+    { "skill": "Woodcutting, Firemaking and Fletching", "levelCap": "110", "inOsrs": "Yes", "notes": "See Resources for tier differences" },
+    { "skill": "Agility", "levelCap": "99", "inOsrs": "Yes", "notes": "Mostly the same." },
+    { "skill": "Slayer", "levelCap": "120", "inOsrs": "Yes", "notes": "Has many new systems." },
+    { "skill": "Dungeoneering", "levelCap": "120", "inOsrs": "No", "notes": "See skill training guide and wiki." },
+    { "skill": "Archaeology", "levelCap": "120", "inOsrs": "No", "notes": "Excavate artifacts of Gielinor." },
+    { "skill": "Runecrafting", "levelCap": "110", "inOsrs": "Yes", "notes": "Mostly the same; new runes." },
+    { "skill": "Hunter", "levelCap": "110", "inOsrs": "Yes", "notes": "Has a few new systems and content." },
+    { "skill": "Farming", "levelCap": "120", "inOsrs": "Yes", "notes": "See Resources for tier differences \nand has many new systems." },
+    { "skill": "Herblore", "levelCap": "120", "inOsrs": "Yes", "notes": "See Resources for tier differences, also significantly expanded 99+." },
+    { "skill": "Thieving", "levelCap": "120", "inOsrs": "Yes", "notes": "Includes new content such as Heists." },
+    { "skill": "Necromancy", "levelCap": "120", "inOsrs": "No", "notes": "New combat style; exists outside of the combat triangle." },
+    { "skill": "Fishing & Cooking", "levelCap": "99", "inOsrs": "Yes", "notes": "See Resources for tier differences" },
+    { "skill": "Construction", "levelCap": "120", "inOsrs": "Yes", "notes": "Has many new systems." },
+    { "skill": "Invention", "levelCap": "120", "inOsrs": "No", "notes": "Power and augment items with perks. See Invention for more." },
+    { "skill": "Divination", "levelCap": "99", "inOsrs": "No", "notes": "Gather energy to power and create things." },
+    { "skill": "Summoning", "levelCap": "99", "inOsrs": "No", "notes": "Summons familiars for skill and combat bonuses." }
+  ]
+}

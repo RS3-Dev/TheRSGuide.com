@@ -177,12 +177,33 @@ export async function buildGuideContent(root) {
     if (duplicatePages.length) {
       throw new Error(`${relativeFile} lists duplicate page "${duplicatePages[0]}"`)
     }
+    const disabledPages = parsed.disabledPages ?? []
+    if (!Array.isArray(disabledPages)) {
+      throw new Error(`${relativeFile} disabledPages must be an array when defined`)
+    }
+    if (disabledPages.some((page) => typeof page !== 'string' || !page.trim())) {
+      throw new Error(`${relativeFile} disabledPages must contain non-empty strings`)
+    }
+    const duplicateDisabledPages = disabledPages.filter(
+      (page, index) => disabledPages.indexOf(page) !== index,
+    )
+    if (duplicateDisabledPages.length) {
+      throw new Error(
+        `${relativeFile} lists duplicate disabled page "${duplicateDisabledPages[0]}"`,
+      )
+    }
+    const overlappingPage = disabledPages.find((page) => pages.includes(page))
+    if (overlappingPage) {
+      throw new Error(
+        `${relativeFile} lists "${overlappingPage}" as both enabled and disabled`,
+      )
+    }
     const relativeDirectory = normalizeSlashes(
       path.relative(contentDirectory, path.dirname(absoluteFile)),
     )
     const baseRoute = normalizeRoute(`/${relativeDirectory}`)
 
-    for (const page of pages) {
+    for (const page of [...pages, ...disabledPages]) {
       const pageRoute = page === 'index'
         ? baseRoute
         : normalizeRoute(`${baseRoute}/${page}`)
@@ -196,6 +217,7 @@ export async function buildGuideContent(root) {
     return {
       sourcePath: `../../${relativeFile}`,
       pages,
+      ...(disabledPages.length ? { disabledPages } : {}),
     }
   }))
 

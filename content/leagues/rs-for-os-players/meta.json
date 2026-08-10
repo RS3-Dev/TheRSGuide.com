@@ -1,11 +1,13 @@
 {
   "pages": [
     "index",
-    "similarities",
     "differences",
     "combat",
     "bosses",
     "navigation",
     "resources"
+  ],
+  "disabledPages": [
+    "similarities"
   ]
 }

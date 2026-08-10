@@ -60,6 +60,51 @@ construction**:
 <UnderConstruction />
 ```
 
+## Static Leagues Picks
+
+Use `StaticRelicPicks` and `StaticBlessingPicks` to show a recommended build
+without allowing readers to change its selections. Each component shows only
+the selected picks in the same compact grid used by the picker share image.
+The tiles appear four across on larger screens and two across on mobile. Readers
+can select a tile to open its details, but they cannot change the build.
+
+Relic picks are keyed by tier. Relic names are recommended for readability,
+though picker IDs such as `1a` are also accepted. When a path includes
+Rejuvenated, use `rejuvenatedRelic` to specify its additional pick:
+
+```mdx
+<StaticRelicPicks
+  ariaLabel="Skilling relic path"
+  picks={{
+    1: "Endless Harvest",
+    2: "Superheated",
+    3: "Voidwalker",
+    4: "Crystal Grace",
+    5: "Devout",
+    6: "Rejuvenated",
+    7: "Infernal Fire",
+  }}
+  rejuvenatedRelic="Assassin's Insight"
+/>
+```
+
+Blessing picks are keyed by their selectable tiers. Use `Order`, `Balance`, or
+`Chaos`; God Tiers 4 and 8 are derived automatically from the preceding picks:
+
+```mdx
+<StaticBlessingPicks
+  ariaLabel="Skilling blessing path"
+  picks={{
+    1: "Order",
+    2: "Chaos",
+    3: "Balance",
+    5: "Order",
+    6: "Chaos",
+    7: "Balance",
+  }}
+/>
+```
+
 ## Need More Components?
 
 If you need to use a component that isn't documented here, or if you're unsure how to use a component:
