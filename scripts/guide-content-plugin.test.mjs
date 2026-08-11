@@ -69,6 +69,10 @@ describe('guide content build manifest', () => {
       ogImageAlt: 'Fixture Guide guide preview',
       socialSection: 'RuneScape Guides',
       searchText: expect.stringContaining('Searchable fixture prose'),
+      tableOfContents: [
+        { id: 'first-heading', text: 'First heading', level: 2 },
+        { id: 'second-heading', text: 'Second heading', level: 3 },
+      ],
     })
     expect(metadata).toEqual([
       { sourcePath: '../../content/guides/meta.json', pages: ['index'] },

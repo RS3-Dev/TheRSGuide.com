@@ -9,6 +9,7 @@ import { useLocation } from "react-router"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import type { Doc } from "@/lib/content"
 import { cn } from "@/lib/utils"
+import { createHeadingId } from "../../../shared/heading-id.js"
 
 function GuideTableOfContents({
   doc,
@@ -28,13 +29,12 @@ function GuideTableOfContents({
       const headings = Array.from(
         article?.querySelectorAll<HTMLElement>("h2, h3") ?? []
       )
-      const renderedItems = headings.map((heading, index) => {
+      const usedIds = new Set(
+        headings.map((heading) => heading.id).filter(Boolean)
+      )
+      const renderedItems = headings.map((heading) => {
         if (!heading.id) {
-          heading.id = `${
-            heading.textContent
-              ?.toLowerCase()
-              .replace(/[^a-z0-9]+/g, "-") || "section"
-          }-${index}`
+          heading.id = createHeadingId(heading.textContent || "", usedIds)
         }
         return {
           id: heading.id,

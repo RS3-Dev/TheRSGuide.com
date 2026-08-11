@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import { slugifyHeading } from '../../shared/heading-id.js'
 import { createGuideCatalog, type GuideDocumentSource } from './guide-catalog'
 
 const EmptyDocument = () => null
@@ -18,7 +19,7 @@ const document = (
   description,
   section: pathFromSource(sourcePath).split('/')[1],
   tableOfContents: [{
-    id: `${content.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-0`,
+    id: slugifyHeading(content),
     text: content,
     level: 2,
   }],
@@ -105,7 +106,7 @@ describe('GuideCatalog', () => {
 
     expect(guide.hasTableOfContents).toBe(true)
     expect(guide.tableOfContents).toEqual([{
-      id: 'melee-basic-abilities-content-0',
+      id: 'melee-basic-abilities-content',
       text: 'Melee Basic Abilities content',
       level: 2,
     }])

@@ -1,6 +1,7 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import matter from 'gray-matter'
+import { createHeadingId } from '../shared/heading-id.js'
 import {
   generateOpenGraphImage,
   OPEN_GRAPH_IMAGE_HEIGHT,
@@ -52,18 +53,16 @@ const headingText = (value) =>
     .replace(/\s+#+\s*$/, '')
     .trim()
 
-const headingId = (text, index) =>
-  `${text.toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'section'}-${index}`
-
 const tableOfContents = (body) => {
   const items = []
+  const usedIds = new Set()
   for (const line of body.split(/\r?\n/)) {
     const match = /^(##|###)\s+(.+)$/.exec(line)
     if (!match) continue
     const text = headingText(match[2])
     if (!text) continue
     items.push({
-      id: headingId(text, items.length),
+      id: createHeadingId(text, usedIds),
       text,
       level: match[1].length,
     })
