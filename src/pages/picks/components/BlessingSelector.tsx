@@ -14,6 +14,7 @@ import {
 } from '@/lib/picks-state'
 import { LEAGUE_OPTIONS } from '../../../../shared/league-options'
 import { PickProgressBar } from './PickProgressBar'
+import { PickerSpinButton, type PickerSpinAction } from './PickerSpinButton'
 import { PickerBlessingDetailsDrawer } from './PickerBlessingDetailsDrawer'
 import {
   TierOptionMatrix,
@@ -31,6 +32,7 @@ const KNOWN_BLESSINGS = new Map(
 type BlessingSelectorProps = {
   onChange: (blessings: BlessingSelections) => void
   selectedBlessings: BlessingSelections
+  spinAction?: PickerSpinAction
 }
 
 function isGodTier(tier: BlessingTier): tier is 4 | 8 {
@@ -40,6 +42,7 @@ function isGodTier(tier: BlessingTier): tier is 4 | 8 {
 export function BlessingSelector({
   onChange,
   selectedBlessings,
+  spinAction,
 }: BlessingSelectorProps) {
   const [selectedBlessingDetails, setSelectedBlessingDetails] =
     useState<BlessingItem | null>(null)
@@ -122,10 +125,15 @@ export function BlessingSelector({
   return (
     <section className="select-none">
       <div className="mb-1">
-        <div className="flex items-center justify-between gap-4">
-          <h2 className="font-display text-2xl font-semibold text-foreground">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+          <h2
+            className={`mr-auto font-display font-semibold text-foreground ${
+              spinAction ? 'text-xl sm:text-2xl' : 'text-2xl'
+            }`}
+          >
             2. Choose your blessings
           </h2>
+          {spinAction && <PickerSpinButton {...spinAction} />}
           <button
             aria-label="Reset blessing tree"
             className="flex size-10 shrink-0 items-center justify-center rounded-md border border-primary/50 text-primary transition-colors hover:bg-accent disabled:cursor-not-allowed disabled:border-border disabled:text-muted-foreground disabled:hover:bg-transparent"

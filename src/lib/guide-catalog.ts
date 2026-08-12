@@ -9,6 +9,7 @@ export type Doc = {
   tableOfContents: readonly GuideTocItem[]
   hasTableOfContents: boolean
   showPageHeader: boolean
+  unlisted?: boolean
   requiresPlayerData: boolean
   ogImage: string
   Component: ComponentType | LazyExoticComponent<ComponentType>
@@ -56,6 +57,7 @@ export type GuideDocumentSource = {
   tableOfContents: readonly GuideTocItem[]
   hasTableOfContents: boolean
   showPageHeader: boolean
+  unlisted?: boolean
   requiresPlayerData: boolean
   ogImage: string
   Component: Doc['Component']
@@ -138,6 +140,7 @@ export class GuideCatalog {
         tableOfContents: source.tableOfContents,
         hasTableOfContents: source.hasTableOfContents,
         showPageHeader: source.showPageHeader,
+        unlisted: source.unlisted ?? false,
         requiresPlayerData: source.requiresPlayerData,
         ogImage: source.ogImage,
         Component: source.Component,
@@ -176,7 +179,9 @@ export class GuideCatalog {
       const sectionDocuments = documents
         .filter((document) => document.section === definition.id)
         .sort(compareDocuments)
-      const navigationDocuments = sectionDocuments.filter((document) => document.path !== path)
+      const navigationDocuments = sectionDocuments.filter(
+        (document) => document.path !== path && !document.unlisted,
+      )
       const nodes: GuideNavNode[] = navigationDocuments.map((doc) => ({
         doc,
         label: doc.section === 'leagues' && doc.path.split('/').filter(Boolean).length === 2
@@ -246,7 +251,8 @@ export class GuideCatalog {
   }
 
   adjacent(document: Doc): GuideAdjacent {
-    const documents = this.section(document.section)?.documents ?? []
+    const documents = (this.section(document.section)?.documents ?? [])
+      .filter((candidate) => !candidate.unlisted)
     const index = documents.findIndex((candidate) => candidate.path === document.path)
     return {
       previous: index > 0 ? documents[index - 1] : null,

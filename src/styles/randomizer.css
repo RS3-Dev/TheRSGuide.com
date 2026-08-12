@@ -1,0 +1,20 @@
+.leagues-randomizer {
+  --randomizer-stage-ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+.randomizer-stage {
+  transition: opacity 300ms ease;
+}
+
+.leagues-randomizer[data-randomizing='true'] .randomizer-stage:not([data-active='true']) {
+  opacity: .38;
+}
+
+.leagues-randomizer [aria-pressed='true'] {
+  animation: randomizer-lock .26s var(--randomizer-stage-ease);
+}
+
+@keyframes randomizer-lock {
+  0% { transform: scale(.94); filter: brightness(1.35); }
+  100% { transform: scale(1); filter: brightness(1); }
+}

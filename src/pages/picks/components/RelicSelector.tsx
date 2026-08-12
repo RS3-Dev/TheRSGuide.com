@@ -10,6 +10,7 @@ import {
   getRejuvenatedRelicTier,
 } from '@/lib/picks-state'
 import { PickProgressBar } from './PickProgressBar'
+import { PickerSpinButton, type PickerSpinAction } from './PickerSpinButton'
 import { PickerRelicDetailsDrawer } from './PickerRelicDetailsDrawer'
 import {
   TierOptionMatrix,
@@ -21,6 +22,7 @@ type RelicSelectorProps = {
   onRejuvenatedRelicChange: (relicId: string) => void
   selectedRejuvenatedRelic: string
   selectedRelics: Record<number, string>
+  spinAction?: PickerSpinAction
 }
 
 const RELIC_OPTION_ROWS = ['A', 'B', 'C'] as const
@@ -39,6 +41,7 @@ export function RelicSelector({
   onRejuvenatedRelicChange,
   selectedRejuvenatedRelic,
   selectedRelics,
+  spinAction,
 }: RelicSelectorProps) {
   const [selectedRelicDetails, setSelectedRelicDetails] =
     useState<SelectedRelicDetails | null>(null)
@@ -140,10 +143,15 @@ export function RelicSelector({
   return (
     <section className="select-none">
       <div className="mb-1">
-        <div className="flex items-center justify-between gap-4">
-          <h2 className="font-display text-2xl font-semibold text-foreground">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+          <h2
+            className={`mr-auto font-display font-semibold text-foreground ${
+              spinAction ? 'text-xl sm:text-2xl' : 'text-2xl'
+            }`}
+          >
             1. Choose your relics
           </h2>
+          {spinAction && <PickerSpinButton {...spinAction} />}
           <button
             aria-label="Reset relic picks"
             className="flex size-10 shrink-0 items-center justify-center rounded-md border border-primary/50 text-primary transition-colors hover:bg-accent disabled:cursor-not-allowed disabled:border-border disabled:text-muted-foreground disabled:hover:bg-transparent"

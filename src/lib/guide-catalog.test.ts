@@ -160,6 +160,41 @@ describe('GuideCatalog', () => {
     ])
   })
 
+  it('keeps unlisted pages routable while omitting them from navigation and adjacency', () => {
+    const hiddenRandomizer = {
+      ...document('../../content/guides/randomizer.mdx', 'Randomizer'),
+      unlisted: true,
+    }
+    const unlistedCatalog = createGuideCatalog({
+      documents: [
+        document('../../content/guides/index.mdx', 'Guides'),
+        document('../../content/guides/differences.mdx', 'Differences'),
+        hiddenRandomizer,
+      ],
+      metadata: [{
+        sourcePath: '../../content/guides/meta.json',
+        pages: ['index', 'differences'],
+      }],
+      sections: [{ id: 'guides', label: 'Guides' }],
+    })
+
+    expect(unlistedCatalog.get('/guides/randomizer')).toMatchObject({
+      title: 'Randomizer',
+      unlisted: true,
+    })
+    expect(unlistedCatalog.section('guides')?.navigation.map(({ doc }) => doc.path)).toEqual([
+      '/guides/differences',
+    ])
+    expect(unlistedCatalog.adjacent(unlistedCatalog.get('/guides/differences')!)).toEqual({
+      previous: unlistedCatalog.get('/guides'),
+      next: null,
+    })
+    expect(unlistedCatalog.adjacent(unlistedCatalog.get('/guides/randomizer')!)).toEqual({
+      previous: null,
+      next: null,
+    })
+  })
+
   it('rejects duplicate route identities', () => {
     expect(() => createGuideCatalog({
       documents: [

@@ -138,6 +138,7 @@ export async function buildGuideContent(root) {
       tableOfContents: toc,
       hasTableOfContents: tocOverride ?? toc.length > 0,
       showPageHeader: headerOverride ?? true,
+      unlisted: parsed.data.unlisted === true,
       requiresPlayerData: requiresPlayerData(parsed.content, parsed.data.playerData),
       ogImage: customOgImage || openGraphImagePath(route),
       ogImageAlt: typeof parsed.data.ogImageAlt === 'string'
