@@ -30,6 +30,7 @@ title: Fixture Guide
 navigationTitle: Fixture Navigation
 description: A fixture guide used to verify manifest behavior.
 header: false
+unlisted: true
 ---
 ## First heading
 
@@ -65,6 +66,7 @@ describe('guide content build manifest', () => {
       requiresPlayerData: true,
       hasTableOfContents: true,
       showPageHeader: false,
+      unlisted: true,
       ogImage: '/og/guides.png',
       ogImageAlt: 'Fixture Guide guide preview',
       socialSection: 'RuneScape Guides',

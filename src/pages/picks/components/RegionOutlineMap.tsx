@@ -14,6 +14,7 @@ import {
 import { LEAGUE_OPTIONS } from '../../../../shared/league-options'
 import { RegionPickerHeader } from './RegionPickerHeader'
 import { SelectedRegionList } from './SelectedRegionList'
+import type { PickerSpinAction } from './PickerSpinButton'
 import {
   drawRegionPickerMap,
   getRegionIdFromCanvasPoint,
@@ -33,6 +34,7 @@ type RegionOutlineMapProps = {
   onSelectionDetailsChange?: (regions: RegionSelection[]) => void
   selectedRegionIds: string[]
   showHeader?: boolean
+  spinAction?: PickerSpinAction
 }
 
 export function RegionOutlineMap({
@@ -40,6 +42,7 @@ export function RegionOutlineMap({
   onSelectionDetailsChange,
   selectedRegionIds,
   showHeader = true,
+  spinAction,
 }: RegionOutlineMapProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const mapBoundsRef = useRef<DrawBounds | null>(null)
@@ -197,6 +200,7 @@ export function RegionOutlineMap({
           canReset={selectedRegionIds.length !== GUARANTEED_REGION_IDS.length}
           onReset={() => onSelectedRegionIdsChange([...GUARANTEED_REGION_IDS])}
           selectedCount={optionalRegionCount}
+          spinAction={spinAction}
         />
       )}
       <div className="grid lg:grid-cols-[18rem_minmax(0,1fr)]">

@@ -10,7 +10,12 @@ import { isGuideSectionEnabled } from '@/lib/homepage-mode'
 
 type MdxModule = {
   default: ComponentType
-  frontmatter?: { title?: string; navigationTitle?: string; description?: string }
+  frontmatter?: {
+    title?: string
+    navigationTitle?: string
+    description?: string
+    unlisted?: boolean
+  }
 }
 
 const modules = import.meta.glob<MdxModule>('../../content/**/*.mdx')
