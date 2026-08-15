@@ -143,6 +143,7 @@ export function useShareBuild({
           { length: REQUIRED_RELIC_COUNT },
           (_, index) => selectedRelics[index + 1] ?? '',
         ),
+        rejuvenatedRelic: selectedRejuvenatedRelic,
       },
       await createShareImage(),
     )

@@ -10,6 +10,7 @@ import path from 'node:path'
 import { handlePlayerApi } from './server/player-api.mjs'
 import { handleFeedbackApi } from './server/feedback-api.mjs'
 import { handleSharesApi } from './server/shares-api.mjs'
+import { handlePickStatsApi } from './server/pick-stats-api.mjs'
 import { handleMediaProxy } from './server/media-proxy.mjs'
 import { handleHealth, isHealthRequest } from './server/health.mjs'
 import { guideContentPlugin } from './scripts/guide-content-plugin.mjs'
@@ -48,6 +49,10 @@ const localApiPlugin = () => ({
       }
       if (req.url?.startsWith('/api/shares')) {
         void handleSharesApi(req, res)
+        return
+      }
+      if (req.url?.startsWith('/api/pick-stats')) {
+        void handlePickStatsApi(req, res)
         return
       }
       if (req.url?.startsWith('/media-proxy/')) {
@@ -93,6 +98,10 @@ export default defineConfig(({ mode }) => {
     server: {
       proxy: {
         '/api/shares': {
+          changeOrigin: true,
+          target: 'https://rs3leagues-share-worker.thejonesofjustice.workers.dev',
+        },
+        '/api/pick-stats': {
           changeOrigin: true,
           target: 'https://rs3leagues-share-worker.thejonesofjustice.workers.dev',
         },
