@@ -27,6 +27,11 @@ export const blessingSelectionsSchema = z
   .array(blessingIdSchema)
   .length(BLESSING_SELECTION_COUNT)
 
+const rejuvenatedRelicSchema = z.union([
+  z.literal(''),
+  z.string().trim().regex(/^\d[a-c]$/),
+])
+
 export const shareCodeSchema = z
   .string()
   .regex(/^[A-Za-z0-9_-]{10}$/, 'Invalid share code')
@@ -41,6 +46,7 @@ export const createShareRequestSchema = z.object({
   relics: z
     .array(z.string().trim().regex(/^\d[a-c]$/))
     .length(REQUIRED_RELIC_COUNT),
+  rejuvenatedRelic: rejuvenatedRelicSchema.optional(),
 })
 
 export const sharedBuildSchema = z.object({
@@ -49,6 +55,7 @@ export const sharedBuildSchema = z.object({
   blessings: z.array(blessingIdSchema).max(BLESSING_SELECTION_COUNT),
   regions: z.array(z.string()),
   relics: z.array(z.string()),
+  rejuvenatedRelic: rejuvenatedRelicSchema.optional(),
   imageUrl: z.string().url(),
   shareUrl: z.string().url(),
   createdAt: z.string().datetime(),

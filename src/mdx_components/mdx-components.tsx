@@ -24,6 +24,7 @@ const StaticRelicPicks = lazy(() => import('@/components/mdx/static-relic-picks'
 const StaticBlessingPicks = lazy(() => import('@/components/mdx/static-blessing-picks').then((module) => ({ default: module.StaticBlessingPicks })))
 const LeaguesPicker = lazy(() => import('@/pages/picks/picks'))
 const LeaguesRandomizer = lazy(() => import('@/pages/randomizer/randomizer'))
+const LeaguesPickStats = lazy(() => import('@/pages/pick-stats/pick-stats'))
 const DataTable = lazy(() => import('@/components/data-table/data-table').then((module) => ({ default: module.DataTable })))
 
 export const mdxComponents = {
@@ -56,5 +57,6 @@ export const mdxComponents = {
   StaticBlessingPicks,
   LeaguesPicker,
   LeaguesRandomizer,
+  LeaguesPickStats,
   DataTable,
 }

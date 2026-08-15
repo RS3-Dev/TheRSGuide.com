@@ -1,7 +1,9 @@
 import type { RegionSelection } from '@/lib/picks-state'
+import { cn } from '@/lib/utils'
 import { REQUIRED_REGION_COUNT } from '../../../../shared/share-contract'
 
 type SelectedRegionListProps = {
+  compact?: boolean
   regions: RegionSelection[]
   slots?: number
 }
@@ -17,6 +19,7 @@ function getContrastTextColor(backgroundColor: string) {
 }
 
 export function SelectedRegionList({
+  compact = false,
   regions,
   slots = REQUIRED_REGION_COUNT,
 }: SelectedRegionListProps) {
@@ -29,7 +32,10 @@ export function SelectedRegionList({
 
           return (
             <li
-              className="flex min-h-24 flex-1 items-center gap-4 border border-b-0 border-border bg-card/50 px-5 py-4 transition-colors duration-200 last:border-b lg:border-r-0 lg:border-b lg:last:border-b"
+              className={cn(
+                'flex min-h-24 flex-1 items-center gap-4 border border-b-0 border-border bg-card/50 px-5 py-4 transition-colors duration-200 last:border-b lg:border-r-0 lg:border-b lg:last:border-b',
+                compact && 'min-h-16 px-4 py-3',
+              )}
               key={`region-pick-${index}`}
               style={{
                 backgroundColor: regionColor,

@@ -236,7 +236,7 @@ export function createPicksStateFromSharedBuild(
     buildName: build.buildName.slice(0, 60),
     selectedBlessings: blessingSelectionsFromArray(build.blessings),
     selectedRejuvenatedRelic: normalizeRejuvenatedRelic(
-      selectedRejuvenatedRelic,
+      selectedRejuvenatedRelic || build.rejuvenatedRelic,
       selectedRelics,
     ),
     selectedRegionIds: [...GUARANTEED_REGION_IDS, ...optionalRegionIds],
