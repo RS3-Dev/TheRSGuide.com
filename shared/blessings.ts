@@ -50,6 +50,38 @@ export function deriveGodBlessing(
   return 'a'
 }
 
+export function canDeriveGodBlessing(
+  target: BlessingId,
+  tier: GodBlessingTier,
+  isAvailable: (
+    tier: SelectableBlessingTier,
+    blessing: BlessingId,
+  ) => boolean,
+) {
+  const precedingTiers = PRECEDING_TIER_BY_GOD_TIER[tier]
+
+  function visit(
+    index: number,
+    selections: BlessingSelections,
+  ): boolean {
+    if (index === precedingTiers.length) {
+      return deriveGodBlessing(selections, tier) === target
+    }
+
+    const precedingTier = precedingTiers[index]!
+    return BLESSING_IDS.some(
+      (blessing) =>
+        isAvailable(precedingTier, blessing) &&
+        visit(index + 1, {
+          ...selections,
+          [precedingTier]: blessing,
+        }),
+    )
+  }
+
+  return visit(0, {})
+}
+
 export function getBlessingForTier(
   selections: BlessingSelections,
   tier: BlessingTier,

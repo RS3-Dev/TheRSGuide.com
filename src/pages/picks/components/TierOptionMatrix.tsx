@@ -71,7 +71,11 @@ function MatrixCell({
   const isInteractive =
     !cell.isBlocked && !cell.readOnly && Boolean(cell.onSelect)
   const optionAriaLabel = `${cell.ariaLabel}${
-    cell.isBlocked ? ', blocked from randomizer' : ''
+    cell.isBlocked
+      ? cell.onBlockToggle
+        ? ', blocked from randomizer'
+        : ', unavailable'
+      : ''
   }`
   const cellStyle = isBlessing
     ? { backgroundColor: cell.backgroundColor }

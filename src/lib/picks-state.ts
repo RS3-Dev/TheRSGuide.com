@@ -24,6 +24,7 @@ export {
   GOD_BLESSING_TIERS,
   SELECTABLE_BLESSING_TIERS,
   blessingSelectionsToArray,
+  canDeriveGodBlessing,
   deriveGodBlessing,
   getBlessingForTier,
   getResolvedBlessingCount,

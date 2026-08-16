@@ -5,6 +5,7 @@ import type { BlessingItem } from '@/components/mdx/blessing-display'
 import blessingData from '@/data/leagues-ii/blessings.json'
 import {
   BLESSING_TIERS,
+  canDeriveGodBlessing,
   getBlessingForTier,
   getResolvedBlessingCount,
   type BlessingId,
@@ -85,15 +86,27 @@ export function BlessingSelector({
       if (godTier) {
         const precedingTiers = tier === 4 ? 'Tiers 1–3' : 'Tiers 5–7'
         const label = knownBlessing?.name ?? `${path.path} God Blessing`
+        const isUnavailable = Boolean(
+          blockedBlessingKeys &&
+            !canDeriveGodBlessing(
+              path.id as BlessingId,
+              tier,
+              (precedingTier, blessingId) =>
+                !blockedBlessingKeys.has(`${precedingTier}-${blessingId}`),
+            ),
+        )
         return {
           ariaLabel: `Tier ${tier}, ${label}${isSelected ? ', unlocked' : ''}`,
           backgroundColor,
-          description: isSelected
-            ? (knownBlessing?.tagline ?? `Derived from ${precedingTiers}.`)
-            : `Choose all Blessings in ${precedingTiers} to reveal the derived God Tier.`,
+          description: isUnavailable
+            ? `${label} cannot be derived from the unblocked choices in ${precedingTiers}.`
+            : isSelected
+              ? (knownBlessing?.tagline ?? `Derived from ${precedingTiers}.`)
+              : `Choose all Blessings in ${precedingTiers} to reveal the derived God Tier.`,
           fallback: path.shortLabel,
           id: `${tier}-${path.id}`,
           image: knownBlessing?.image,
+          isBlocked: isUnavailable,
           isSelected,
           label: `Tier ${tier} · ${label}`,
           onViewDetails: knownBlessing
