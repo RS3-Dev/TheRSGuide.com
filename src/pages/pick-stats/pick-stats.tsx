@@ -22,9 +22,6 @@ const relicNames = new Map(
     options.map(({ id, label }) => [id, label] as const),
   ),
 )
-const rejuvenatedRelicId = LEAGUE_OPTIONS.relicTiers
-  .flatMap(({ options }) => options)
-  .find(({ label }) => label === 'Rejuvenated')?.id
 const blessingPaths = new Map(
   LEAGUE_OPTIONS.blessings.map(({ id, path }) => [id, path] as const),
 )
@@ -81,16 +78,6 @@ function popularPicks(stats: PickStatsResponse) {
     [...mostPopularByTier(stats.blessings.filter(({ derived }) => !derived))]
       .map(([tier, pick]) => [tier, pick.id]),
   ) as Partial<Record<number, string>>
-  const rejuvenatedRelic = Object.values(relicPicks)
-    .includes(rejuvenatedRelicId ?? '')
-    ? [...stats.rejuvenated.relics]
-        .filter(({ count }) => count > 0)
-        .sort((left, right) =>
-          right.count - left.count
-          || left.tier - right.tier
-          || left.id.localeCompare(right.id)
-        )[0]?.id
-    : undefined
   const regionPicks = selectableRegionStats(stats)
     .sort((left, right) =>
       right.count - left.count || left.id.localeCompare(right.id)
@@ -105,14 +92,10 @@ function popularPicks(stats: PickStatsResponse) {
       }
     })
 
-  return { blessingPicks, regionPicks, rejuvenatedRelic, relicPicks }
+  return { blessingPicks, regionPicks, relicPicks }
 }
 
 function tableConfigs(stats: PickStatsResponse) {
-  const rejuvenatedCaption = stats.rejuvenated.recordedBuilds
-    ? `Based on ${stats.rejuvenated.recordedBuilds.toLocaleString()} shared builds that recorded a Rejuvenated bonus relic. Historical choices from before the bonus was stored are not included.`
-    : 'No shared builds have recorded a Rejuvenated bonus relic yet. Historical choices from before the bonus was stored cannot be recovered.'
-
   return {
     relics: {
       title: 'Relics',
@@ -127,34 +110,6 @@ function tableConfigs(stats: PickStatsResponse) {
         count: stat.count,
         percentage: stat.percentage,
       })),
-    },
-    rejuvenated: {
-      title: 'Rejuvenated bonus relics',
-      titleAs: 'h3',
-      sortable: true,
-      rowId: 'id',
-      caption: rejuvenatedCaption,
-      columns: [
-        { key: 'rank', header: 'Rank', width: 'sm', align: 'center' },
-        { key: 'tier', header: 'Tier', width: 'sm', align: 'center' },
-        { key: 'name', header: 'Bonus relic', emphasis: true },
-        { key: 'count', header: 'Builds', align: 'right' },
-        { key: 'percentage', header: 'Recorded picks (%)', align: 'right' },
-      ],
-      rows: [...stats.rejuvenated.relics]
-        .sort((left, right) =>
-          right.count - left.count
-          || left.tier - right.tier
-          || left.id.localeCompare(right.id)
-        )
-        .map((stat, index) => ({
-          id: stat.id,
-          rank: index + 1,
-          tier: stat.tier,
-          name: relicNames.get(stat.id) ?? stat.id,
-          count: stat.count,
-          percentage: stat.percentage,
-        })),
     },
     blessings: {
       title: 'Blessings',
@@ -275,7 +230,6 @@ export default function PickStatsPage() {
             <StaticRelicPicks
               ariaLabel="Most popular relic path"
               picks={popular.relicPicks}
-              rejuvenatedRelic={popular.rejuvenatedRelic}
             />
           </div>
 
@@ -315,7 +269,6 @@ export default function PickStatsPage() {
 
         <div className="flex flex-col gap-6">
           <DataTable config={tables.relics} />
-          <DataTable config={tables.rejuvenated} />
           <DataTable config={tables.blessings} />
           <DataTable config={tables.regions} />
         </div>
