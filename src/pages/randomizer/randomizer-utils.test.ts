@@ -7,6 +7,7 @@ import {
   REJUVENATED_RELIC_NAME,
   SELECTABLE_BLESSING_TIERS,
 } from '@/lib/picks-state'
+import { LEAGUE_OPTIONS } from '../../../shared/league-options'
 import {
   createRandomizedBlessingForTier,
   createRandomizedBlessings,
@@ -16,8 +17,12 @@ import {
   createRandomizedRegions,
   createRandomizedRelics,
   createUniformRandomIndex,
+  getBlessingBlockKey,
   getNextBlessingTier,
   getNextRelicTier,
+  hasAvailableBlessingForTier,
+  hasAvailableNextRegion,
+  hasAvailableRelicForTier,
   resolveRandomizedRejuvenatedRelic,
 } from './randomizer-utils'
 
@@ -49,6 +54,67 @@ describe('Leagues randomizer', () => {
     expect(new Set(secondSpin).size).toBe(secondSpin.length)
   })
 
+  it('excludes blocked relics, blessings, and regions from spins', () => {
+    const relicTier = RELIC_TIERS.find(({ tier }) => tier === 4)!
+    const blockedRelicId = relicTier.options[0]!.id
+    const relicId = createRandomizedRelicForTier(
+      relicTier.tier,
+      undefined,
+      firstIndex,
+      new Set([blockedRelicId]),
+    )
+
+    const blessingTier = 5
+    const blockedBlessingId = LEAGUE_OPTIONS.blessings[0]!.id
+    const blessingId = createRandomizedBlessingForTier(
+      blessingTier,
+      undefined,
+      firstIndex,
+      new Set([getBlessingBlockKey(blessingTier, blockedBlessingId)]),
+    )
+
+    const optionalRegions = LEAGUE_OPTIONS.regions.filter(
+      ({ id }) => !GUARANTEED_REGION_IDS.includes(id),
+    )
+    const regionIds = createRandomizedNextRegion(
+      GUARANTEED_REGION_IDS,
+      firstIndex,
+      new Set([optionalRegions[0]!.id]),
+    )
+
+    expect(relicId).toBe(relicTier.options[1]!.id)
+    expect(blessingId).toBe(LEAGUE_OPTIONS.blessings[1]!.id)
+    expect(regionIds.at(-1)).toBe(optionalRegions[1]!.id)
+  })
+
+  it('reports when blocking leaves no option for the next spin', () => {
+    const relicTier = RELIC_TIERS[0]!
+    const blessingTier = SELECTABLE_BLESSING_TIERS[0]!
+    const optionalRegionIds = LEAGUE_OPTIONS.regions
+      .map(({ id }) => id)
+      .filter((id) => !GUARANTEED_REGION_IDS.includes(id))
+
+    expect(
+      hasAvailableRelicForTier(
+        relicTier.tier,
+        new Set(relicTier.options.map(({ id }) => id)),
+      ),
+    ).toBe(false)
+    expect(
+      hasAvailableBlessingForTier(
+        blessingTier,
+        new Set(
+          LEAGUE_OPTIONS.blessings.map(({ id }) =>
+            getBlessingBlockKey(blessingTier, id),
+          ),
+        ),
+      ),
+    ).toBe(false)
+    expect(
+      hasAvailableNextRegion(GUARANTEED_REGION_IDS, new Set(optionalRegionIds)),
+    ).toBe(false)
+  })
+
   it('keeps an existing Rejuvenated pick locked during later tier spins', () => {
     const rejuvenatedTier = RELIC_TIERS.find(({ options }) =>
       options.some(({ label }) => label === REJUVENATED_RELIC_NAME),
@@ -67,8 +133,16 @@ describe('Leagues randomizer', () => {
       undefined,
       firstIndex,
     )
+    const pickWithInitialBlocked = createRandomizedRejuvenatedRelic(
+      relics,
+      undefined,
+      firstIndex,
+      new Set([initialPick]),
+    )
 
     expect(initialPick).toBeTruthy()
+    expect(pickWithInitialBlocked).toBeTruthy()
+    expect(pickWithInitialBlocked).not.toBe(initialPick)
     expect(
       createRandomizedRejuvenatedRelic(relics, initialPick, firstIndex),
     ).not.toBe(initialPick)

@@ -1,6 +1,13 @@
-import { Check, Crown } from 'lucide-react'
+import { Ban, Check, CircleCheck, Crown } from 'lucide-react'
 import { Fragment, useState, type ReactElement } from 'react'
 
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuGroup,
+  ContextMenuItem,
+  ContextMenuTrigger,
+} from '@/components/ui/context-menu'
 import {
   Tooltip,
   TooltipContent,
@@ -24,9 +31,11 @@ export type TierOptionMatrixCell = {
   fallback: string
   id: string
   image?: string
+  isBlocked?: boolean
   isSelected: boolean
   label: string
   onViewDetails?: () => void
+  onBlockToggle?: () => void
   onSelect?: () => void
   readOnly?: boolean
   relicState?: 'rejuvenated-available' | 'rejuvenated-selected'
@@ -59,7 +68,11 @@ function MatrixCell({
 }) {
   const [isTooltipOpen, setIsTooltipOpen] = useState(false)
   const isBlessing = variant === 'blessing'
-  const isInteractive = !cell.readOnly && Boolean(cell.onSelect)
+  const isInteractive =
+    !cell.isBlocked && !cell.readOnly && Boolean(cell.onSelect)
+  const optionAriaLabel = `${cell.ariaLabel}${
+    cell.isBlocked ? ', blocked from randomizer' : ''
+  }`
   const cellStyle = isBlessing
     ? { backgroundColor: cell.backgroundColor }
     : undefined
@@ -69,9 +82,6 @@ function MatrixCell({
       ? 'min-h-28 flex-1 justify-end gap-0.5 px-2 pt-2 pb-1'
       : 'h-full min-h-36 justify-center gap-2 px-2 py-3',
     isBlessing && 'text-white',
-    isBlessing &&
-      isInteractive &&
-      'transition-[filter,outline-color] duration-150 hover:brightness-125',
     isBlessing &&
       !isInteractive &&
       'focus-visible:z-20 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary',
@@ -83,13 +93,15 @@ function MatrixCell({
     !isBlessing &&
       !cell.relicState &&
       (cell.isSelected
-        ? 'bg-primary text-primary-foreground'
-        : 'bg-card/60 text-muted-foreground hover:bg-accent hover:text-accent-foreground active:bg-accent active:text-accent-foreground'),
+        ? 'bg-transparent text-primary-foreground'
+        : 'bg-transparent text-muted-foreground group-hover/tile:text-accent-foreground! group-focus-within/tile:text-accent-foreground! group-active/tile:text-accent-foreground!'),
     !isBlessing && cell.relicState && 'bg-transparent text-current',
+    cell.isBlocked && 'cursor-not-allowed',
   )
-  const contentOpacityClassName =
-    isBlessing && !cell.isSelected
-      ? 'opacity-25 group-hover:opacity-60'
+  const contentOpacityClassName = cell.isBlocked
+    ? 'opacity-30'
+    : isBlessing && !cell.isSelected
+      ? 'opacity-25 group-hover/tile:opacity-60! group-focus-within/tile:opacity-60!'
       : 'opacity-100'
 
   const content = (
@@ -103,12 +115,13 @@ function MatrixCell({
           )}
         />
       )}
-      <span
-        className={cn(
-          'flex w-full items-center justify-center',
-          'h-20',
-        )}
-      >
+      {cell.isBlocked && (
+        <Ban
+          aria-hidden
+          className="absolute top-2 right-2 size-4 text-foreground"
+        />
+      )}
+      <span className={cn('flex w-full items-center justify-center', 'h-20')}>
         {cell.image ? (
           <img
             alt=""
@@ -116,10 +129,11 @@ function MatrixCell({
             className={cn(
               'w-auto max-w-full object-contain transition-opacity',
               'h-20',
-              !cell.isSelected && !cell.relicState &&
+              !cell.isSelected &&
+                !cell.relicState &&
                 (isBlessing
-                  ? 'opacity-40 group-hover:opacity-75'
-                  : 'opacity-65 group-hover:opacity-100 group-active:opacity-100'),
+                  ? 'opacity-40 group-hover/tile:opacity-75! group-focus-within/tile:opacity-75!'
+                  : 'opacity-65 group-hover/tile:opacity-100! group-focus-within/tile:opacity-100! group-active/tile:opacity-100!'),
             )}
             draggable={false}
             height={100}
@@ -148,14 +162,12 @@ function MatrixCell({
             ? contentOpacityClassName
             : cell.relicState
               ? 'text-current/75'
-            : cell.isSelected
-              ? 'text-primary-foreground/70'
-              : 'text-muted-foreground group-hover:text-accent-foreground/70 group-active:text-accent-foreground/70',
+              : cell.isSelected
+                ? 'text-primary-foreground/70'
+                : 'text-muted-foreground group-hover/tile:text-accent-foreground/70! group-focus-within/tile:text-accent-foreground/70! group-active/tile:text-accent-foreground/70!',
         )}
       >
-        <span className="line-clamp-2">
-          {cell.statusLabel ?? cell.label}
-        </span>
+        <span className="line-clamp-2">{cell.statusLabel ?? cell.label}</span>
       </span>
     </>
   )
@@ -164,11 +176,11 @@ function MatrixCell({
   if (isInteractive) {
     trigger = (
       <button
-        aria-label={cell.ariaLabel}
+        aria-label={optionAriaLabel}
+        aria-disabled={cell.isBlocked || undefined}
         aria-pressed={cell.isSelected}
         className={cellClassName}
         onClick={cell.onSelect}
-        style={cellStyle}
         type="button"
       >
         {content}
@@ -177,9 +189,9 @@ function MatrixCell({
   } else {
     trigger = (
       <div
-        aria-label={cell.ariaLabel}
+        aria-label={optionAriaLabel}
+        aria-disabled={cell.isBlocked || undefined}
         className={cellClassName}
-        style={cellStyle}
         tabIndex={0}
       >
         {content}
@@ -187,15 +199,21 @@ function MatrixCell({
     )
   }
 
-  return (
+  const tile = (
     <div
       className={cn(
-        'relative flex flex-col border-r border-b border-border',
+        'group/tile relative flex flex-col border-r border-b border-border transition-[background-color,filter,color] duration-150',
+        cell.isBlocked && 'randomizer-option-blocked',
         isSpecial && 'border-x-2 border-x-primary/70',
+        isBlessing &&
+          isInteractive &&
+          'hover:brightness-125! focus-within:brightness-125!',
+        !isBlessing && !cell.relicState && cell.isSelected && 'bg-primary',
         !isBlessing &&
           !cell.relicState &&
-          cell.isSelected &&
-          'bg-primary',
+          !cell.isSelected &&
+          !cell.isBlocked &&
+          'bg-card/60 hover:bg-accent! focus-within:bg-accent! active:bg-accent!',
         cell.relicState === 'rejuvenated-available' &&
           'relic-rejuvenated-available',
         cell.relicState === 'rejuvenated-selected' &&
@@ -241,8 +259,15 @@ function MatrixCell({
       </Tooltip>
       {cell.onViewDetails && (
         <button
-          aria-label={cell.detailsAriaLabel ?? `View details for ${cell.statusLabel ?? cell.label}`}
-          className="mx-2 mb-2 flex h-9 items-center justify-center rounded-md border border-primary/70 bg-card/80 px-3 text-[10px] font-bold uppercase leading-none tracking-[0.1em] text-card-foreground shadow-sm transition-colors hover:border-primary hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 focus-visible:ring-offset-transparent"
+          aria-label={
+            cell.detailsAriaLabel ??
+            `View details for ${cell.statusLabel ?? cell.label}`
+          }
+          className={cn(
+            'mx-2 mb-2 flex h-9 items-center justify-center rounded-md border border-primary/70 bg-card/80 px-3 text-[10px] font-bold uppercase leading-none tracking-[0.1em] text-card-foreground shadow-sm transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 focus-visible:ring-offset-transparent',
+            !cell.isBlocked &&
+              'group-hover/tile:bg-transparent! group-hover/tile:text-current! group-focus-within/tile:bg-transparent! group-focus-within/tile:text-current!',
+          )}
           onClick={(event) => {
             event.currentTarget.blur()
             cell.onViewDetails?.()
@@ -253,6 +278,26 @@ function MatrixCell({
         </button>
       )}
     </div>
+  )
+
+  if (!cell.onBlockToggle) return tile
+
+  return (
+    <ContextMenu
+      onOpenChange={(open) => {
+        if (open) setIsTooltipOpen(false)
+      }}
+    >
+      <ContextMenuTrigger asChild>{tile}</ContextMenuTrigger>
+      <ContextMenuContent>
+        <ContextMenuGroup>
+          <ContextMenuItem onSelect={cell.onBlockToggle}>
+            {cell.isBlocked ? <CircleCheck /> : <Ban />}
+            {cell.isBlocked ? 'Allow in randomizer' : 'Block from randomizer'}
+          </ContextMenuItem>
+        </ContextMenuGroup>
+      </ContextMenuContent>
+    </ContextMenu>
   )
 }
 
@@ -271,9 +316,7 @@ function TierHeader({
     <div
       className={cn(
         'relative flex min-h-16 flex-col items-center justify-center border-r border-b border-border pt-2 pb-1 text-muted-foreground',
-        variant === 'relic' &&
-          isSelected &&
-          'bg-primary/[0.08] text-primary',
+        variant === 'relic' && isSelected && 'bg-primary/[0.08] text-primary',
         isSpecial && 'bg-primary/[0.08] text-primary',
         isSpecial && frameSpecial && 'border-x-2 border-x-primary/70',
       )}
@@ -328,15 +371,17 @@ export function TierOptionMatrix({
             />
             {rows.flatMap((row) => {
               const cell = row.cells[tierIndex]
-              return cell ? [
-                <MatrixCell
-                  cell={cell}
-                  isLastRow={false}
-                  isSpecial={false}
-                  key={row.id}
-                  variant={variant}
-                />,
-              ] : []
+              return cell
+                ? [
+                    <MatrixCell
+                      cell={cell}
+                      isLastRow={false}
+                      isSpecial={false}
+                      key={row.id}
+                      variant={variant}
+                    />,
+                  ]
+                : []
             })}
           </section>
         ))}
@@ -349,11 +394,7 @@ export function TierOptionMatrix({
         }}
       >
         {tiers.map((tier) => (
-          <TierHeader
-            key={tier.tier}
-            tier={tier}
-            variant={variant}
-          />
+          <TierHeader key={tier.tier} tier={tier} variant={variant} />
         ))}
 
         {rows.map((row, rowIndex) => (

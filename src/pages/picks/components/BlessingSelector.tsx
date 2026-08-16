@@ -16,10 +16,7 @@ import { LEAGUE_OPTIONS } from '../../../../shared/league-options'
 import { PickProgressBar } from './PickProgressBar'
 import { PickerSpinButton, type PickerSpinAction } from './PickerSpinButton'
 import { PickerBlessingDetailsDrawer } from './PickerBlessingDetailsDrawer'
-import {
-  TierOptionMatrix,
-  type TierOptionMatrixRow,
-} from './TierOptionMatrix'
+import { TierOptionMatrix, type TierOptionMatrixRow } from './TierOptionMatrix'
 
 const BLESSING_PATHS = LEAGUE_OPTIONS.blessings
 const KNOWN_BLESSINGS = new Map(
@@ -30,7 +27,12 @@ const KNOWN_BLESSINGS = new Map(
 )
 
 type BlessingSelectorProps = {
+  blockedBlessingKeys?: ReadonlySet<string>
   onChange: (blessings: BlessingSelections) => void
+  onBlockedBlessingToggle?: (
+    tier: SelectableBlessingTier,
+    blessingId: BlessingId,
+  ) => void
   selectedBlessings: BlessingSelections
   spinAction?: PickerSpinAction
 }
@@ -40,7 +42,9 @@ function isGodTier(tier: BlessingTier): tier is 4 | 8 {
 }
 
 export function BlessingSelector({
+  blockedBlessingKeys,
   onChange,
+  onBlockedBlessingToggle,
   selectedBlessings,
   spinAction,
 }: BlessingSelectorProps) {
@@ -76,6 +80,7 @@ export function BlessingSelector({
       const resolvedBlessing = getBlessingForTier(selectedBlessings, tier)
       const isSelected = resolvedBlessing === path.id
       const backgroundColor = isSelected ? path.color : path.darkColor
+      const optionKey = `${tier}-${path.id}`
 
       if (godTier) {
         const precedingTiers = tier === 4 ? 'Tiers 1–3' : 'Tiers 5–7'
@@ -110,6 +115,7 @@ export function BlessingSelector({
         fallback: path.shortLabel,
         id: `${tier}-${path.id}`,
         image: knownBlessing?.image,
+        isBlocked: blockedBlessingKeys?.has(optionKey),
         isSelected,
         label: `Tier ${tier} · ${label}`,
         onViewDetails: knownBlessing
@@ -117,6 +123,13 @@ export function BlessingSelector({
           : undefined,
         onSelect: () =>
           toggleBlessing(tier as SelectableBlessingTier, path.id as BlessingId),
+        onBlockToggle: onBlockedBlessingToggle
+          ? () =>
+              onBlockedBlessingToggle(
+                tier as SelectableBlessingTier,
+                path.id as BlessingId,
+              )
+          : undefined,
         statusLabel: label,
       }
     }),

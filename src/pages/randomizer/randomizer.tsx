@@ -3,7 +3,11 @@ import { useEffect, useRef, useState } from 'react'
 import {
   GUARANTEED_REGION_IDS,
   OPTIONAL_REGION_PICK_COUNT,
+  RELIC_TIERS,
+  REJUVENATED_RELIC_NAME,
+  type BlessingId,
   type BlessingSelections,
+  type SelectableBlessingTier,
 } from '@/lib/picks-state'
 import { BlessingSelector } from '@/pages/picks/components/BlessingSelector'
 import { RegionOutlineMap } from '@/pages/picks/components/RegionOutlineMap'
@@ -13,8 +17,12 @@ import {
   createRandomizedNextRegion,
   createRandomizedRejuvenatedRelic,
   createRandomizedRelicForTier,
+  getBlessingBlockKey,
   getNextBlessingTier,
   getNextRelicTier,
+  hasAvailableBlessingForTier,
+  hasAvailableNextRegion,
+  hasAvailableRelicForTier,
   resolveRandomizedRejuvenatedRelic,
 } from './randomizer-utils'
 import '@/styles/picker.css'
@@ -32,10 +40,31 @@ const delay = (duration: number) =>
 const prefersReducedMotion = () =>
   window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
+function toggledSet(current: ReadonlySet<string>, value: string) {
+  const next = new Set(current)
+  if (next.has(value)) {
+    next.delete(value)
+  } else {
+    next.add(value)
+  }
+  return next
+}
+
 export default function RandomizerPage() {
   const runTokenRef = useRef(0)
   const [stage, setStage] = useState<RandomizerStage>('idle')
-  const [selectedRelics, setSelectedRelics] = useState<Record<number, string>>({})
+  const [blockedRelicIds, setBlockedRelicIds] = useState<Set<string>>(
+    () => new Set(),
+  )
+  const [blockedBlessingKeys, setBlockedBlessingKeys] = useState<Set<string>>(
+    () => new Set(),
+  )
+  const [blockedRegionIds, setBlockedRegionIds] = useState<Set<string>>(
+    () => new Set(),
+  )
+  const [selectedRelics, setSelectedRelics] = useState<Record<number, string>>(
+    {},
+  )
   const [selectedRejuvenatedRelic, setSelectedRejuvenatedRelic] = useState('')
   const [selectedBlessings, setSelectedBlessings] =
     useState<BlessingSelections>({})
@@ -43,9 +72,12 @@ export default function RandomizerPage() {
     ...GUARANTEED_REGION_IDS,
   ])
 
-  useEffect(() => () => {
-    runTokenRef.current += 1
-  }, [])
+  useEffect(
+    () => () => {
+      runTokenRef.current += 1
+    },
+    [],
+  )
 
   const nextRelicTier = getNextRelicTier(selectedRelics)
   const nextBlessingTier = getNextBlessingTier(selectedBlessings)
@@ -54,14 +86,31 @@ export default function RandomizerPage() {
   ).length
   const nextRegionNumber = selectedOptionalRegionCount + 1
   const isRolling = stage !== 'idle'
+  const canSpinNextRelic = Boolean(
+    nextRelicTier !== undefined &&
+      hasAvailableRelicForTier(nextRelicTier, blockedRelicIds),
+  )
+  const canSpinNextBlessing = Boolean(
+    nextBlessingTier !== undefined &&
+      hasAvailableBlessingForTier(nextBlessingTier, blockedBlessingKeys),
+  )
+  const canSpinNextRegion = hasAvailableNextRegion(
+    selectedRegionIds,
+    blockedRegionIds,
+  )
 
   async function spinNextRelic() {
-    if (!nextRelicTier || isRolling) return
+    if (!nextRelicTier || !canSpinNextRelic || isRolling) return
 
     const token = runTokenRef.current + 1
     runTokenRef.current = token
     setStage('relics')
-    const targetId = createRandomizedRelicForTier(nextRelicTier)
+    const targetId = createRandomizedRelicForTier(
+      nextRelicTier,
+      undefined,
+      undefined,
+      blockedRelicIds,
+    )
 
     if (!prefersReducedMotion()) {
       let previousId: string | undefined
@@ -70,15 +119,15 @@ export default function RandomizerPage() {
         const rollingId = createRandomizedRelicForTier(
           nextRelicTier,
           previousId,
+          undefined,
+          blockedRelicIds,
         )
         previousId = rollingId
         setSelectedRelics((current) => ({
           ...current,
           [nextRelicTier]: rollingId,
         }))
-        await delay(
-          ROLL_FRAME_BASE_DURATION + frame * ROLL_FRAME_SLOWDOWN,
-        )
+        await delay(ROLL_FRAME_BASE_DURATION + frame * ROLL_FRAME_SLOWDOWN)
       }
     }
 
@@ -87,6 +136,8 @@ export default function RandomizerPage() {
     const targetRejuvenatedRelic = resolveRandomizedRejuvenatedRelic(
       finalRelics,
       selectedRejuvenatedRelic,
+      undefined,
+      blockedRelicIds,
     )
     setSelectedRelics(finalRelics)
 
@@ -101,12 +152,12 @@ export default function RandomizerPage() {
         const rollingId = createRandomizedRejuvenatedRelic(
           finalRelics,
           previousId,
+          undefined,
+          blockedRelicIds,
         )
         previousId = rollingId
         setSelectedRejuvenatedRelic(rollingId)
-        await delay(
-          ROLL_FRAME_BASE_DURATION + frame * ROLL_FRAME_SLOWDOWN,
-        )
+        await delay(ROLL_FRAME_BASE_DURATION + frame * ROLL_FRAME_SLOWDOWN)
       }
     }
 
@@ -116,12 +167,17 @@ export default function RandomizerPage() {
   }
 
   async function spinNextBlessing() {
-    if (!nextBlessingTier || isRolling) return
+    if (!nextBlessingTier || !canSpinNextBlessing || isRolling) return
 
     const token = runTokenRef.current + 1
     runTokenRef.current = token
     setStage('blessings')
-    const targetId = createRandomizedBlessingForTier(nextBlessingTier)
+    const targetId = createRandomizedBlessingForTier(
+      nextBlessingTier,
+      undefined,
+      undefined,
+      blockedBlessingKeys,
+    )
 
     if (!prefersReducedMotion()) {
       let previousId: BlessingSelections[typeof nextBlessingTier]
@@ -130,15 +186,15 @@ export default function RandomizerPage() {
         const rollingId = createRandomizedBlessingForTier(
           nextBlessingTier,
           previousId,
+          undefined,
+          blockedBlessingKeys,
         )
         previousId = rollingId
         setSelectedBlessings((current) => ({
           ...current,
           [nextBlessingTier]: rollingId,
         }))
-        await delay(
-          ROLL_FRAME_BASE_DURATION + frame * ROLL_FRAME_SLOWDOWN,
-        )
+        await delay(ROLL_FRAME_BASE_DURATION + frame * ROLL_FRAME_SLOWDOWN)
       }
     }
 
@@ -153,21 +209,31 @@ export default function RandomizerPage() {
   async function spinNextRegion() {
     if (
       selectedOptionalRegionCount >= OPTIONAL_REGION_PICK_COUNT ||
+      !canSpinNextRegion ||
       isRolling
-    ) return
+    )
+      return
 
     const token = runTokenRef.current + 1
     runTokenRef.current = token
     setStage('regions')
-    const targetRegionIds = createRandomizedNextRegion(selectedRegionIds)
+    const targetRegionIds = createRandomizedNextRegion(
+      selectedRegionIds,
+      undefined,
+      blockedRegionIds,
+    )
 
     if (!prefersReducedMotion()) {
       for (let frame = 0; frame < ROLL_FRAME_COUNT; frame += 1) {
         if (runTokenRef.current !== token) return
-        setSelectedRegionIds(createRandomizedNextRegion(selectedRegionIds))
-        await delay(
-          ROLL_FRAME_BASE_DURATION + frame * ROLL_FRAME_SLOWDOWN,
+        setSelectedRegionIds(
+          createRandomizedNextRegion(
+            selectedRegionIds,
+            undefined,
+            blockedRegionIds,
+          ),
         )
+        await delay(ROLL_FRAME_BASE_DURATION + frame * ROLL_FRAME_SLOWDOWN)
       }
     }
 
@@ -176,12 +242,67 @@ export default function RandomizerPage() {
     setStage('idle')
   }
 
+  function toggleBlockedRelic(tier: number, relicId: string) {
+    const isBlocking = !blockedRelicIds.has(relicId)
+    setBlockedRelicIds((current) => toggledSet(current, relicId))
+    if (!isBlocking) return
+
+    const isSelectedRejuvenatedRelic = RELIC_TIERS.find(
+      (entry) => entry.tier === tier,
+    )?.options.some(
+      ({ id, label }) =>
+        id === relicId &&
+        label === REJUVENATED_RELIC_NAME &&
+        selectedRelics[tier] === relicId,
+    )
+    setSelectedRelics((current) => {
+      if (current[tier] !== relicId) return current
+      const next = { ...current }
+      delete next[tier]
+      return next
+    })
+    setSelectedRejuvenatedRelic((current) =>
+      current === relicId || isSelectedRejuvenatedRelic ? '' : current,
+    )
+  }
+
+  function toggleBlockedBlessing(
+    tier: SelectableBlessingTier,
+    blessingId: BlessingId,
+  ) {
+    const key = getBlessingBlockKey(tier, blessingId)
+    const isBlocking = !blockedBlessingKeys.has(key)
+    setBlockedBlessingKeys((current) => toggledSet(current, key))
+    if (!isBlocking) return
+
+    setSelectedBlessings((current) => {
+      if (current[tier] !== blessingId) return current
+      const next = { ...current }
+      delete next[tier]
+      return next
+    })
+  }
+
+  function toggleBlockedRegion(regionId: string) {
+    const isBlocking = !blockedRegionIds.has(regionId)
+    setBlockedRegionIds((current) => toggledSet(current, regionId))
+    if (isBlocking) {
+      setSelectedRegionIds((current) =>
+        current.filter((selectedId) => selectedId !== regionId),
+      )
+    }
+  }
+
   return (
     <div
       className="leagues-picker leagues-randomizer"
       data-randomizing={isRolling ? 'true' : 'false'}
     >
       <div className="mx-auto flex max-w-[78rem] flex-col gap-16 py-4 sm:py-6">
+        <p className="-mb-10 text-sm text-muted-foreground">
+          Right-click any relic, blessing, or optional region to block it from
+          randomizer spins. Right-click it again to allow it.
+        </p>
         <section
           aria-busy={stage === 'relics'}
           className="randomizer-stage"
@@ -189,14 +310,20 @@ export default function RandomizerPage() {
         >
           <div inert={isRolling ? true : undefined}>
             <RelicSelector
+              blockedRelicIds={blockedRelicIds}
               onChange={setSelectedRelics}
+              onBlockedRelicToggle={toggleBlockedRelic}
               onRejuvenatedRelicChange={setSelectedRejuvenatedRelic}
               selectedRejuvenatedRelic={selectedRejuvenatedRelic}
               selectedRelics={selectedRelics}
               spinAction={{
-                disabled: isRolling || nextRelicTier === undefined,
+                disabled: isRolling || !canSpinNextRelic,
                 isSpinning: stage === 'relics',
-                label: nextRelicTier ? `Spin Tier ${nextRelicTier}` : 'All spun',
+                label: nextRelicTier
+                  ? canSpinNextRelic
+                    ? `Spin Tier ${nextRelicTier}`
+                    : 'No eligible relics'
+                  : 'All spun',
                 onSpin: () => void spinNextRelic(),
               }}
             />
@@ -210,13 +337,17 @@ export default function RandomizerPage() {
         >
           <div inert={isRolling ? true : undefined}>
             <BlessingSelector
+              blockedBlessingKeys={blockedBlessingKeys}
               onChange={setSelectedBlessings}
+              onBlockedBlessingToggle={toggleBlockedBlessing}
               selectedBlessings={selectedBlessings}
               spinAction={{
-                disabled: isRolling || nextBlessingTier === undefined,
+                disabled: isRolling || !canSpinNextBlessing,
                 isSpinning: stage === 'blessings',
                 label: nextBlessingTier
-                  ? `Spin Tier ${nextBlessingTier}`
+                  ? canSpinNextBlessing
+                    ? `Spin Tier ${nextBlessingTier}`
+                    : 'No eligible blessings'
                   : 'All spun',
                 onSpin: () => void spinNextBlessing(),
               }}
@@ -231,16 +362,18 @@ export default function RandomizerPage() {
         >
           <div inert={isRolling ? true : undefined}>
             <RegionOutlineMap
+              blockedRegionIds={blockedRegionIds}
+              onBlockedRegionToggle={toggleBlockedRegion}
               onSelectedRegionIdsChange={setSelectedRegionIds}
               selectedRegionIds={selectedRegionIds}
               spinAction={{
-                disabled:
-                  isRolling ||
-                  selectedOptionalRegionCount >= OPTIONAL_REGION_PICK_COUNT,
+                disabled: isRolling || !canSpinNextRegion,
                 isSpinning: stage === 'regions',
                 label:
                   selectedOptionalRegionCount < OPTIONAL_REGION_PICK_COUNT
-                    ? `Spin Region ${nextRegionNumber}`
+                    ? canSpinNextRegion
+                      ? `Spin Region ${nextRegionNumber}`
+                      : 'No eligible regions'
                     : 'All spun',
                 onSpin: () => void spinNextRegion(),
               }}

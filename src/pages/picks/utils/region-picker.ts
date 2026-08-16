@@ -63,7 +63,14 @@ function drawRegionOutlines(options: {
   mapData: RegionMapData
   strokeStyle: string
 }) {
-  const { bounds, context, highlightedRegionIds, lineWidth, mapData, strokeStyle } = options
+  const {
+    bounds,
+    context,
+    highlightedRegionIds,
+    lineWidth,
+    mapData,
+    strokeStyle,
+  } = options
   const cellWidth = bounds.width / mapData.columns
   const cellHeight = bounds.height / mapData.rows
   context.strokeStyle = strokeStyle
@@ -74,7 +81,11 @@ function drawRegionOutlines(options: {
   for (let rowIndex = 0; rowIndex < mapData.rows; rowIndex += 1) {
     for (let columnIndex = 0; columnIndex < mapData.columns; columnIndex += 1) {
       const regionId = mapData.pixels[rowIndex]?.[columnIndex]
-      if (!regionId || (highlightedRegionIds && !highlightedRegionIds.has(regionId))) continue
+      if (
+        !regionId ||
+        (highlightedRegionIds && !highlightedRegionIds.has(regionId))
+      )
+        continue
 
       const x = bounds.x + columnIndex * cellWidth
       const y = bounds.y + rowIndex * cellHeight
@@ -111,13 +122,22 @@ function drawRegionOutlines(options: {
 
 export function drawRegionPickerMap(options: {
   activeRegionIds: Set<string>
+  blockedRegionIds?: Set<string>
   canvas: HTMLCanvasElement
   canvasSize: CanvasSize
   displayRegionById: Map<string, DisplayRegion>
   hoveredRegionId: string | null
   mapData: RegionMapData
 }) {
-  const { activeRegionIds, canvas, canvasSize, displayRegionById, hoveredRegionId, mapData } = options
+  const {
+    activeRegionIds,
+    blockedRegionIds = new Set<string>(),
+    canvas,
+    canvasSize,
+    displayRegionById,
+    hoveredRegionId,
+    mapData,
+  } = options
   const context = canvas.getContext('2d')
   if (!context) return null
 
@@ -136,10 +156,18 @@ export function drawRegionPickerMap(options: {
   context.fillStyle = cardColor
   context.fillRect(0, 0, canvasSize.width, canvasSize.height)
 
-  const bounds = getDrawBounds(canvasSize.width, canvasSize.height, mapData.columns, mapData.rows)
+  const bounds = getDrawBounds(
+    canvasSize.width,
+    canvasSize.height,
+    mapData.columns,
+    mapData.rows,
+  )
   const cellWidth = bounds.width / mapData.columns
   const cellHeight = bounds.height / mapData.rows
-  const regionById = new Map(mapData.regions.map((region) => [region.id, region]))
+  const baseLineWidth = canvasSize.width < 700 ? 1 : 1.5
+  const regionById = new Map(
+    mapData.regions.map((region) => [region.id, region]),
+  )
 
   for (let rowIndex = 0; rowIndex < mapData.rows; rowIndex += 1) {
     for (let columnIndex = 0; columnIndex < mapData.columns; columnIndex += 1) {
@@ -155,7 +183,38 @@ export function drawRegionPickerMap(options: {
     }
   }
 
-  const baseLineWidth = canvasSize.width < 700 ? 1 : 1.5
+  if (blockedRegionIds.size) {
+    context.save()
+    context.globalAlpha = 0.22
+    context.fillStyle = foregroundColor
+    context.strokeStyle = foregroundColor
+    context.lineWidth = Math.max(1, baseLineWidth)
+    for (let rowIndex = 0; rowIndex < mapData.rows; rowIndex += 1) {
+      for (
+        let columnIndex = 0;
+        columnIndex < mapData.columns;
+        columnIndex += 1
+      ) {
+        const regionId = mapData.pixels[rowIndex]?.[columnIndex]
+        if (!regionId || !blockedRegionIds.has(regionId)) continue
+
+        const x = bounds.x + columnIndex * cellWidth
+        const y = bounds.y + rowIndex * cellHeight
+        context.fillRect(
+          Math.floor(x),
+          Math.floor(y),
+          Math.ceil(cellWidth) + 1,
+          Math.ceil(cellHeight) + 1,
+        )
+        context.beginPath()
+        context.moveTo(x, y + cellHeight)
+        context.lineTo(x + cellWidth, y)
+        context.stroke()
+      }
+    }
+    context.restore()
+  }
+
   drawRegionOutlines({
     bounds,
     context,
@@ -167,11 +226,26 @@ export function drawRegionPickerMap(options: {
     drawRegionOutlines({
       bounds,
       context,
-      highlightedRegionIds: new Set(displayRegionById.get(hoveredRegionId)?.regionIds ?? [hoveredRegionId]),
+      highlightedRegionIds: new Set(
+        displayRegionById.get(hoveredRegionId)?.regionIds ?? [hoveredRegionId],
+      ),
       lineWidth: baseLineWidth + 0.5,
       mapData,
       strokeStyle: primaryColor,
     })
+  }
+  if (blockedRegionIds.size) {
+    context.save()
+    context.globalAlpha = 0.65
+    drawRegionOutlines({
+      bounds,
+      context,
+      highlightedRegionIds: blockedRegionIds,
+      lineWidth: baseLineWidth + 0.5,
+      mapData,
+      strokeStyle: foregroundColor,
+    })
+    context.restore()
   }
 
   const fontSize = Math.max(9, Math.min(13, cellWidth * 1.65))
@@ -186,13 +260,28 @@ export function drawRegionPickerMap(options: {
     const lineHeight = fontSize * 1.3
     const totalHeight = words.length * lineHeight
     const padding = 6
-    const boxWidth = words.reduce((width, word) => Math.max(width, context.measureText(word).width), 0) + padding * 2
+    const boxWidth =
+      words.reduce(
+        (width, word) => Math.max(width, context.measureText(word).width),
+        0,
+      ) +
+      padding * 2
     const boxHeight = totalHeight + padding * 2
     context.fillStyle = cardColor
-    context.fillRect(labelX - boxWidth / 2, labelY - boxHeight / 2, boxWidth, boxHeight)
+    context.fillRect(
+      labelX - boxWidth / 2,
+      labelY - boxHeight / 2,
+      boxWidth,
+      boxHeight,
+    )
     context.strokeStyle = primaryColor
     context.lineWidth = 1
-    context.strokeRect(labelX - boxWidth / 2, labelY - boxHeight / 2, boxWidth, boxHeight)
+    context.strokeRect(
+      labelX - boxWidth / 2,
+      labelY - boxHeight / 2,
+      boxWidth,
+      boxHeight,
+    )
     const startY = labelY - totalHeight / 2 + lineHeight / 2
     words.forEach((word, index) => {
       context.fillStyle = foregroundColor
@@ -201,4 +290,3 @@ export function drawRegionPickerMap(options: {
   }
   return bounds
 }
-

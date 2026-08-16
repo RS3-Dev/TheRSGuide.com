@@ -1,5 +1,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { Ban, CircleCheck, Lock } from 'lucide-react'
 
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuGroup,
+  ContextMenuItem,
+  ContextMenuTrigger,
+} from '@/components/ui/context-menu'
 import { regionMapData } from '@/data/leagues/region-map-data'
 import {
   type DisplayRegion,
@@ -7,10 +15,7 @@ import {
   type RegionMapData,
   getDisplayRegions,
 } from '@/pages/map/utils/map'
-import {
-  GUARANTEED_REGION_IDS,
-  type RegionSelection,
-} from '@/lib/picks-state'
+import { GUARANTEED_REGION_IDS, type RegionSelection } from '@/lib/picks-state'
 import { LEAGUE_OPTIONS } from '../../../../shared/league-options'
 import { RegionPickerHeader } from './RegionPickerHeader'
 import { SelectedRegionList } from './SelectedRegionList'
@@ -29,7 +34,10 @@ type CanvasSize = {
 }
 
 const GUARANTEED_REGION_ID_SET = new Set<string>(GUARANTEED_REGION_IDS)
+const NO_BLOCKED_REGIONS = new Set<string>()
 type RegionOutlineMapProps = {
+  blockedRegionIds?: ReadonlySet<string>
+  onBlockedRegionToggle?: (regionId: string) => void
   onSelectedRegionIdsChange: (regionIds: string[]) => void
   onSelectionDetailsChange?: (regions: RegionSelection[]) => void
   selectedRegionIds: string[]
@@ -38,6 +46,8 @@ type RegionOutlineMapProps = {
 }
 
 export function RegionOutlineMap({
+  blockedRegionIds = NO_BLOCKED_REGIONS,
+  onBlockedRegionToggle,
   onSelectedRegionIdsChange,
   onSelectionDetailsChange,
   selectedRegionIds,
@@ -51,6 +61,7 @@ export function RegionOutlineMap({
     width: 1,
   })
   const [hoveredRegionId, setHoveredRegionId] = useState<string | null>(null)
+  const [contextRegionId, setContextRegionId] = useState<string | null>(null)
 
   const pickerMapData = useMemo<RegionMapData>(() => {
     return {
@@ -81,19 +92,31 @@ export function RegionOutlineMap({
         const leagueRegion = LEAGUE_OPTIONS.regions.find(
           (region) => region.id === regionId,
         )
-        return displayRegionById.get(regionId) ?? {
-          color: leagueRegion?.color,
-          id: regionId,
-          name: leagueRegion?.label ?? regionId,
-          regionIds: leagueRegion?.regionIds ?? [regionId],
-        }
+        return (
+          displayRegionById.get(regionId) ?? {
+            color: leagueRegion?.color,
+            id: regionId,
+            name: leagueRegion?.label ?? regionId,
+            regionIds: leagueRegion?.regionIds ?? [regionId],
+          }
+        )
       }),
     [displayRegionById, selectedRegionIds],
+  )
+  const blockedSourceRegionIds = useMemo(
+    () =>
+      new Set(
+        Array.from(blockedRegionIds).flatMap(
+          (displayId) =>
+            displayRegionById.get(displayId)?.regionIds ?? [displayId],
+        ),
+      ),
+    [blockedRegionIds, displayRegionById],
   )
   const activeRegionIds = useMemo(() => {
     const activeDisplayIds = new Set(selectedRegionIds)
 
-    if (hoveredRegionId) {
+    if (hoveredRegionId && !blockedRegionIds.has(hoveredRegionId)) {
       activeDisplayIds.add(hoveredRegionId)
     }
 
@@ -103,7 +126,7 @@ export function RegionOutlineMap({
           displayRegionById.get(displayId)?.regionIds ?? [displayId],
       ),
     )
-  }, [displayRegionById, hoveredRegionId, selectedRegionIds])
+  }, [blockedRegionIds, displayRegionById, hoveredRegionId, selectedRegionIds])
 
   useEffect(() => {
     if (!onSelectionDetailsChange) return
@@ -139,6 +162,7 @@ export function RegionOutlineMap({
 
     mapBoundsRef.current = drawRegionPickerMap({
       activeRegionIds,
+      blockedRegionIds: blockedSourceRegionIds,
       canvas,
       canvasSize,
       displayRegionById,
@@ -147,6 +171,7 @@ export function RegionOutlineMap({
     })
   }, [
     activeRegionIds,
+    blockedSourceRegionIds,
     canvasSize,
     displayRegionById,
     hoveredRegionId,
@@ -176,7 +201,7 @@ export function RegionOutlineMap({
     (clientX: number, clientY: number) => {
       const clickedRegionId = getRegionIdFromPoint(clientX, clientY)
 
-      if (!clickedRegionId) return
+      if (!clickedRegionId || blockedRegionIds.has(clickedRegionId)) return
       onSelectedRegionIdsChange(
         toggleOptionalRegionSelection({
           clickedRegionId,
@@ -185,12 +210,53 @@ export function RegionOutlineMap({
         }),
       )
     },
-    [getRegionIdFromPoint, onSelectedRegionIdsChange, selectedRegionIds],
+    [
+      blockedRegionIds,
+      getRegionIdFromPoint,
+      onSelectedRegionIdsChange,
+      selectedRegionIds,
+    ],
   )
 
   const optionalRegionCount = Math.max(
     0,
     selectedRegionIds.length - GUARANTEED_REGION_IDS.length,
+  )
+  const isHoveredRegionBlocked = Boolean(
+    hoveredRegionId && blockedRegionIds.has(hoveredRegionId),
+  )
+  const contextRegionName = contextRegionId
+    ? (displayRegionById.get(contextRegionId)?.name ?? contextRegionId)
+    : ''
+  const isContextRegionGuaranteed = Boolean(
+    contextRegionId && GUARANTEED_REGION_ID_SET.has(contextRegionId),
+  )
+
+  const mapCanvas = (
+    <canvas
+      aria-label="Region outline picker map"
+      className={`block h-[34rem] w-full sm:h-[38rem] ${
+        isHoveredRegionBlocked
+          ? 'cursor-not-allowed'
+          : hoveredRegionId
+            ? 'cursor-pointer'
+            : ''
+      }`}
+      onClick={(event) => handleRegionClick(event.clientX, event.clientY)}
+      onContextMenu={(event) => {
+        const regionId = getRegionIdFromPoint(event.clientX, event.clientY)
+        if (!regionId) {
+          event.preventDefault()
+          return
+        }
+        setContextRegionId(regionId)
+      }}
+      onPointerLeave={() => setHoveredRegionId(null)}
+      onPointerMove={(event) =>
+        setHoveredRegionId(getRegionIdFromPoint(event.clientX, event.clientY))
+      }
+      ref={canvasRef}
+    />
   )
 
   return (
@@ -208,20 +274,46 @@ export function RegionOutlineMap({
 
         <div className="relative min-w-0 overflow-hidden border border-border bg-card/30">
           <p className="pointer-events-none absolute left-3 top-3 z-10 rounded-sm border border-border bg-card/90 px-3 py-2 text-xs text-muted-foreground shadow-sm backdrop-blur-sm">
-            Click the map to add or remove a region
+            {onBlockedRegionToggle
+              ? 'Click to select · Right-click to block'
+              : 'Click the map to add or remove a region'}
           </p>
-          <canvas
-            aria-label="Region outline picker map"
-            className={`block h-[34rem] w-full sm:h-[38rem] ${
-              hoveredRegionId ? 'cursor-pointer' : ''
-            }`}
-            onClick={(event) => handleRegionClick(event.clientX, event.clientY)}
-            onPointerLeave={() => setHoveredRegionId(null)}
-            onPointerMove={(event) =>
-              setHoveredRegionId(getRegionIdFromPoint(event.clientX, event.clientY))
-            }
-            ref={canvasRef}
-          />
+          {onBlockedRegionToggle ? (
+            <ContextMenu
+              onOpenChange={(open) => {
+                if (!open) setContextRegionId(null)
+              }}
+            >
+              <ContextMenuTrigger asChild>{mapCanvas}</ContextMenuTrigger>
+              <ContextMenuContent>
+                <ContextMenuGroup>
+                  <ContextMenuItem
+                    disabled={isContextRegionGuaranteed}
+                    onSelect={() => {
+                      if (contextRegionId && !isContextRegionGuaranteed) {
+                        onBlockedRegionToggle(contextRegionId)
+                      }
+                    }}
+                  >
+                    {isContextRegionGuaranteed ? (
+                      <Lock />
+                    ) : blockedRegionIds.has(contextRegionId ?? '') ? (
+                      <CircleCheck />
+                    ) : (
+                      <Ban />
+                    )}
+                    {isContextRegionGuaranteed
+                      ? `${contextRegionName} is always included`
+                      : blockedRegionIds.has(contextRegionId ?? '')
+                        ? `Allow ${contextRegionName}`
+                        : `Block ${contextRegionName}`}
+                  </ContextMenuItem>
+                </ContextMenuGroup>
+              </ContextMenuContent>
+            </ContextMenu>
+          ) : (
+            mapCanvas
+          )}
         </div>
       </div>
     </section>

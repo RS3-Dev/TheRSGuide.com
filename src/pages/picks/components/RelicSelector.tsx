@@ -12,13 +12,12 @@ import {
 import { PickProgressBar } from './PickProgressBar'
 import { PickerSpinButton, type PickerSpinAction } from './PickerSpinButton'
 import { PickerRelicDetailsDrawer } from './PickerRelicDetailsDrawer'
-import {
-  TierOptionMatrix,
-  type TierOptionMatrixRow,
-} from './TierOptionMatrix'
+import { TierOptionMatrix, type TierOptionMatrixRow } from './TierOptionMatrix'
 
 type RelicSelectorProps = {
+  blockedRelicIds?: ReadonlySet<string>
   onChange: (relics: Record<number, string>) => void
+  onBlockedRelicToggle?: (tier: number, relicId: string) => void
   onRejuvenatedRelicChange: (relicId: string) => void
   selectedRejuvenatedRelic: string
   selectedRelics: Record<number, string>
@@ -37,7 +36,9 @@ type SelectedRelicDetails = {
 }
 
 export function RelicSelector({
+  blockedRelicIds,
   onChange,
+  onBlockedRelicToggle,
   onRejuvenatedRelicChange,
   selectedRejuvenatedRelic,
   selectedRelics,
@@ -74,7 +75,7 @@ export function RelicSelector({
       delete nextSelection[rejuvenatedTier]
       onChange(nextSelection)
       onRejuvenatedRelicChange('')
-      return;
+      return
     }
 
     if (nextSelection[tier] === relicName) {
@@ -83,10 +84,7 @@ export function RelicSelector({
       nextSelection[tier] = relicName
     }
     onChange(nextSelection)
-    if (
-      isRejuvenated ||
-      !getRejuvenatedRelicTier(nextSelection)
-    ) {
+    if (isRejuvenated || !getRejuvenatedRelicTier(nextSelection)) {
       onRejuvenatedRelicChange('')
     }
   }
@@ -107,33 +105,37 @@ export function RelicSelector({
         const isRejuvenatedMatch = selectedRejuvenatedRelic === option.id
         const isRejuvenatedCandidate = Boolean(
           isChoosingRejuvenatedRelic &&
-          rejuvenatedTier &&
-          tier.tier < rejuvenatedTier &&
-          !isMainSelection,
+            rejuvenatedTier &&
+            tier.tier < rejuvenatedTier &&
+            !isMainSelection,
         )
         const knownRelic = KNOWN_RELICS.get(option.label)
         return {
           ariaLabel: `Tier ${tier.tier}, option ${optionLetter}, ${option.label}${isRejuvenatedCandidate ? ', available as the Rejuvenated pick' : ''}${isRejuvenatedMatch ? ', paired with Rejuvenated' : ''}${option.description ? `: ${option.description}` : ''}`,
-          description:
-            option.description ?? 'Relic description coming soon',
+          description: option.description ?? 'Relic description coming soon',
           fallback: optionLetter,
           id: option.id,
           image: option.icon,
+          isBlocked: blockedRelicIds?.has(option.id),
           isSelected: isMainSelection || isRejuvenatedMatch,
           label: option.label,
           detailsAriaLabel: knownRelic
             ? `View details for ${knownRelic.name}`
             : undefined,
           onSelect: () => toggleRelic(tier.tier, option.id),
+          onBlockToggle: onBlockedRelicToggle
+            ? () => onBlockedRelicToggle(tier.tier, option.id)
+            : undefined,
           onViewDetails: knownRelic
-            ? () => setSelectedRelicDetails({ relic: knownRelic, tier: tier.tier })
+            ? () =>
+                setSelectedRelicDetails({ relic: knownRelic, tier: tier.tier })
             : undefined,
           readOnly: false,
           relicState:
             isRejuvenated || isRejuvenatedMatch
-              ? 'rejuvenated-selected' as const
+              ? ('rejuvenated-selected' as const)
               : isRejuvenatedCandidate
-                ? 'rejuvenated-available' as const
+                ? ('rejuvenated-available' as const)
                 : undefined,
         }
       }),
