@@ -39,11 +39,11 @@ function selectableRegionStats(stats: PickStatsResponse) {
   return stats.regions.filter(({ id }) => regions.get(id)?.voteEligible)
 }
 
-const commonColumns = [
-  { key: 'tier', header: 'Tier', width: 'sm', align: 'center' },
-  { key: 'name', header: 'Pick', emphasis: true },
-  { key: 'count', header: 'Builds', align: 'right' },
-  { key: 'percentage', header: 'Pick rate (%)', align: 'right' },
+const tierComparisonColumns = [
+  { key: 'tier', header: 'Tier', width: 'sm', align: 'center', sortable: true },
+  { key: 'pick1', header: 'Pick 1' },
+  { key: 'pick2', header: 'Pick 2' },
+  { key: 'pick3', header: 'Pick 3' },
 ] as const
 
 type TierPick = {
@@ -68,6 +68,34 @@ function mostPopularByTier<T extends TierPick>(picks: readonly T[]) {
   })
 
   return popular
+}
+
+function tierComparisonRows<T extends TierPick>(
+  picks: readonly T[],
+  nameFor: (pick: T) => string,
+) {
+  const picksByTier = new Map<number, T[]>()
+
+  picks.forEach((pick) => {
+    const tierPicks = picksByTier.get(pick.tier) ?? []
+    tierPicks.push(pick)
+    picksByTier.set(pick.tier, tierPicks)
+  })
+
+  return [...picksByTier]
+    .sort(([leftTier], [rightTier]) => leftTier - rightTier)
+    .map(([tier, tierPicks]) => {
+      const formattedPicks = tierPicks
+        .sort((left, right) => left.id.localeCompare(right.id))
+        .map((pick) => `${nameFor(pick)} (${pick.percentage}%)`)
+
+      return {
+        tier: `Tier ${tier}`,
+        pick1: formattedPicks[0] ?? null,
+        pick2: formattedPicks[1] ?? null,
+        pick3: formattedPicks[2] ?? null,
+      }
+    })
 }
 
 function popularPicks(stats: PickStatsResponse) {
@@ -100,39 +128,22 @@ function tableConfigs(stats: PickStatsResponse) {
     relics: {
       title: 'Relics',
       titleAs: 'h3',
-      sortable: true,
-      rowId: 'id',
-      columns: commonColumns,
-      rows: stats.relics.map((stat) => ({
-        id: stat.id,
-        tier: stat.tier,
-        name: relicNames.get(stat.id) ?? stat.id,
-        count: stat.count,
-        percentage: stat.percentage,
-      })),
+      rowId: 'tier',
+      columns: tierComparisonColumns,
+      rows: tierComparisonRows(
+        stats.relics.filter(({ id }) => id !== '6c'),
+        ({ id }) => relicNames.get(id) ?? id,
+      ),
     },
     blessings: {
       title: 'Blessings',
       titleAs: 'h3',
-      sortable: true,
-      rowId: 'key',
-      columns: [
-        ...commonColumns,
-        { key: 'path', header: 'Path' },
-        { key: 'selection', header: 'Selection' },
-      ],
-      rows: stats.blessings.map((stat) => {
-        const path = blessingPaths.get(stat.id) ?? stat.id
-        return {
-          key: `${stat.tier}:${stat.id}`,
-          tier: stat.tier,
-          name: blessingNames.get(`${stat.tier}:${path.toLowerCase()}`)
-            ?? `${path} Tier ${stat.tier}`,
-          count: stat.count,
-          percentage: stat.percentage,
-          path,
-          selection: stat.derived ? 'Derived' : 'Selected',
-        }
+      rowId: 'tier',
+      columns: tierComparisonColumns,
+      rows: tierComparisonRows(stats.blessings, ({ id, tier }) => {
+        const path = blessingPaths.get(id) ?? id
+        return blessingNames.get(`${tier}:${path.toLowerCase()}`)
+          ?? `${path} Tier ${tier}`
       }),
     },
     regions: {
@@ -263,7 +274,7 @@ export default function PickStatsPage() {
             Detailed pick rates
           </h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            Sort any column to compare the complete distributions.
+            Compare the complete distributions for each tier and region.
           </p>
         </div>
 
