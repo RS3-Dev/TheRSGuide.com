@@ -19,8 +19,16 @@ export type RandomizedRelicSelection = {
 export type RandomIndex = (length: number) => number
 
 const UINT32_RANGE = 0x1_0000_0000
+const NO_BLOCKED_OPTIONS = new Set<string>()
 
-export function createUniformRandomIndex(readUint32: () => number): RandomIndex {
+export const getBlessingBlockKey = (
+  tier: SelectableBlessingTier,
+  blessingId: string,
+) => `${tier}-${blessingId}`
+
+export function createUniformRandomIndex(
+  readUint32: () => number,
+): RandomIndex {
   return (length) => {
     if (!Number.isSafeInteger(length) || length < 1 || length > UINT32_RANGE) {
       throw new Error(`Invalid random choice length: ${length}`)
@@ -58,7 +66,10 @@ function chooseDifferent<T extends { id: string }>(
   randomIndex: RandomIndex,
 ) {
   const differentOptions = options.filter(({ id }) => id !== currentId)
-  return choose(differentOptions.length ? differentOptions : options, randomIndex)
+  return choose(
+    differentOptions.length ? differentOptions : options,
+    randomIndex,
+  )
 }
 
 export function getNextRelicTier(
@@ -71,16 +82,31 @@ export function createRandomizedRelicForTier(
   tier: number,
   currentId?: string,
   randomIndex: RandomIndex = secureRandomIndex,
+  blockedRelicIds: ReadonlySet<string> = NO_BLOCKED_OPTIONS,
 ) {
-  const options = RELIC_TIERS.find((entry) => entry.tier === tier)?.options
+  const options = RELIC_TIERS.find(
+    (entry) => entry.tier === tier,
+  )?.options.filter(({ id }) => !blockedRelicIds.has(id))
   if (!options) throw new Error(`Unknown relic tier: ${tier}`)
   return chooseDifferent(options, currentId, randomIndex).id
+}
+
+export function hasAvailableRelicForTier(
+  tier: number,
+  blockedRelicIds: ReadonlySet<string>,
+) {
+  return Boolean(
+    RELIC_TIERS.find((entry) => entry.tier === tier)?.options.some(
+      ({ id }) => !blockedRelicIds.has(id),
+    ),
+  )
 }
 
 export function createRandomizedRejuvenatedRelic(
   selectedRelics: Readonly<Record<number, string>>,
   currentId?: string,
   randomIndex: RandomIndex = secureRandomIndex,
+  blockedRelicIds: ReadonlySet<string> = NO_BLOCKED_OPTIONS,
 ) {
   const rejuvenatedTier = RELIC_TIERS.find(({ options, tier }) =>
     options.some(
@@ -92,11 +118,13 @@ export function createRandomizedRejuvenatedRelic(
   if (!rejuvenatedTier) return ''
 
   const selectedIds = Object.values(selectedRelics)
-  const candidates = RELIC_TIERS
-    .filter(({ tier }) => tier < rejuvenatedTier)
-    .flatMap(({ options }) =>
-      options.filter(({ id }) => !selectedIds.includes(id)),
-    )
+  const candidates = RELIC_TIERS.filter(
+    ({ tier }) => tier < rejuvenatedTier,
+  ).flatMap(({ options }) =>
+    options.filter(
+      ({ id }) => !selectedIds.includes(id) && !blockedRelicIds.has(id),
+    ),
+  )
 
   return candidates.length
     ? chooseDifferent(candidates, currentId, randomIndex).id
@@ -107,11 +135,17 @@ export function resolveRandomizedRejuvenatedRelic(
   selectedRelics: Readonly<Record<number, string>>,
   currentRejuvenatedRelic: string,
   randomIndex: RandomIndex = secureRandomIndex,
+  blockedRelicIds: ReadonlySet<string> = NO_BLOCKED_OPTIONS,
 ) {
   if (getRejuvenatedRelicTier(selectedRelics) === undefined) return ''
   return (
     currentRejuvenatedRelic ||
-    createRandomizedRejuvenatedRelic(selectedRelics, undefined, randomIndex)
+    createRandomizedRejuvenatedRelic(
+      selectedRelics,
+      undefined,
+      randomIndex,
+      blockedRelicIds,
+    )
   )
 }
 
@@ -125,20 +159,33 @@ export function createRandomizedBlessingForTier(
   tier: SelectableBlessingTier,
   currentId?: BlessingId,
   randomIndex: RandomIndex = secureRandomIndex,
+  blockedBlessingKeys: ReadonlySet<string> = NO_BLOCKED_OPTIONS,
 ) {
   if (!SELECTABLE_BLESSING_TIERS.includes(tier)) {
     throw new Error(`Unknown selectable blessing tier: ${tier}`)
   }
   return chooseDifferent(
-    LEAGUE_OPTIONS.blessings,
+    LEAGUE_OPTIONS.blessings.filter(
+      ({ id }) => !blockedBlessingKeys.has(getBlessingBlockKey(tier, id)),
+    ),
     currentId,
     randomIndex,
   ).id as BlessingId
 }
 
+export function hasAvailableBlessingForTier(
+  tier: SelectableBlessingTier,
+  blockedBlessingKeys: ReadonlySet<string>,
+) {
+  return LEAGUE_OPTIONS.blessings.some(
+    ({ id }) => !blockedBlessingKeys.has(getBlessingBlockKey(tier, id)),
+  )
+}
+
 export function createRandomizedNextRegion(
   currentRegionIds: readonly string[],
   randomIndex: RandomIndex = secureRandomIndex,
+  blockedRegionIds: ReadonlySet<string> = NO_BLOCKED_OPTIONS,
 ) {
   const optionalRegionIds = currentRegionIds
     .filter((regionId) => !GUARANTEED_REGION_IDS.includes(regionId))
@@ -151,7 +198,8 @@ export function createRandomizedNextRegion(
   const candidates = LEAGUE_OPTIONS.regions.filter(
     ({ id }) =>
       !GUARANTEED_REGION_IDS.includes(id) &&
-      !optionalRegionIds.includes(id),
+      !optionalRegionIds.includes(id) &&
+      !blockedRegionIds.has(id),
   )
 
   return [
@@ -159,6 +207,23 @@ export function createRandomizedNextRegion(
     ...optionalRegionIds,
     choose(candidates, randomIndex).id,
   ]
+}
+
+export function hasAvailableNextRegion(
+  currentRegionIds: readonly string[],
+  blockedRegionIds: ReadonlySet<string>,
+) {
+  const optionalRegionIds = currentRegionIds.filter(
+    (regionId) => !GUARANTEED_REGION_IDS.includes(regionId),
+  )
+  if (optionalRegionIds.length >= OPTIONAL_REGION_PICK_COUNT) return false
+
+  return LEAGUE_OPTIONS.regions.some(
+    ({ id }) =>
+      !GUARANTEED_REGION_IDS.includes(id) &&
+      !optionalRegionIds.includes(id) &&
+      !blockedRegionIds.has(id),
+  )
 }
 
 export function createRandomizedRelics(
@@ -180,11 +245,10 @@ export function createRandomizedRelics(
   )?.tier
 
   const rejuvenatedCandidates = rejuvenatedTier
-    ? RELIC_TIERS
-        .filter(({ tier }) => tier < rejuvenatedTier)
-        .flatMap(({ options }) =>
+    ? RELIC_TIERS.filter(({ tier }) => tier < rejuvenatedTier).flatMap(
+        ({ options }) =>
           options.filter(({ id }) => !Object.values(relics).includes(id)),
-        )
+      )
     : []
 
   return {
