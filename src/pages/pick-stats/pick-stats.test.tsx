@@ -24,10 +24,13 @@ const stats = {
     { id: '5a', tier: 5, count: 75, percentage: 75 },
     { id: '6a', tier: 6, count: 75, percentage: 75 },
     { id: '6b', tier: 6, count: 25, percentage: 25 },
+    { id: '6c', tier: 6, count: 0, percentage: 0 },
     { id: '7a', tier: 7, count: 75, percentage: 75 },
   ],
   blessings: [
     { id: 'a' as const, tier: 1, derived: false, count: 80, percentage: 80 },
+    { id: 'b' as const, tier: 1, derived: false, count: 15, percentage: 15 },
+    { id: 'c' as const, tier: 1, derived: false, count: 5, percentage: 5 },
     { id: 'b' as const, tier: 4, derived: true, count: 20, percentage: 20 },
   ],
   regions: [
@@ -62,12 +65,36 @@ describe('PickStatsPage', () => {
     expect(relicSlots).toHaveLength(7)
     expect(within(relicPath).queryByText(/Bonus:/)).not.toBeInTheDocument()
     expect(within(relicPath).getByText('Golden Touch')).toBeInTheDocument()
-    expect(screen.getAllByText('Endless Harvest').length).toBeGreaterThan(0)
+    expect(screen.getAllByText(/Endless Harvest/).length).toBeGreaterThan(0)
     expect(screen.getAllByText(/Teragard.+Aegis/).length).toBeGreaterThan(0)
     expect(screen.getAllByText(/Anachronia/).length).toBeGreaterThan(0)
     expect(screen.queryByText(/Karamja/)).not.toBeInTheDocument()
     expect(screen.queryByText(/Misthalin/)).not.toBeInTheDocument()
     expect(screen.getByText(/Based on 100 shared builds/)).toBeInTheDocument()
+
+    const relicTable = screen.getByRole('table', { name: 'Relics' })
+    expect(within(relicTable).getAllByRole('row')).toHaveLength(8)
+    expect(within(relicTable).getByText('Tier 1')).toBeInTheDocument()
+    expect(within(relicTable).getByText('Endless Harvest (25%)'))
+      .toBeInTheDocument()
+    expect(within(relicTable).getByText('Golden Touch (75%)'))
+      .toBeInTheDocument()
+    expect(within(relicTable).queryByText('6c (0%)')).not.toBeInTheDocument()
+    expect(within(relicTable).queryByRole('columnheader', { name: 'Builds' }))
+      .not.toBeInTheDocument()
+
+    const blessingTable = screen.getByRole('table', { name: 'Blessings' })
+    expect(within(blessingTable).getByText("Teragard's Aegis (80%)"))
+      .toBeInTheDocument()
+    expect(within(blessingTable).getByText('Big Boned (15%)'))
+      .toBeInTheDocument()
+    expect(within(blessingTable).getByText('Adrenaline Junkie (5%)'))
+      .toBeInTheDocument()
+    expect(within(blessingTable).queryByRole('columnheader', { name: 'Path' }))
+      .not.toBeInTheDocument()
+    expect(
+      within(blessingTable).queryByRole('columnheader', { name: 'Selection' }),
+    ).not.toBeInTheDocument()
   })
 
   it('shows a contained error state when the snapshot cannot be loaded', async () => {
