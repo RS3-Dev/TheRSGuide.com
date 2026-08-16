@@ -18,6 +18,13 @@ const stats = {
   relics: [
     { id: '1a', tier: 1, count: 25, percentage: 25 },
     { id: '1b', tier: 1, count: 75, percentage: 75 },
+    { id: '2a', tier: 2, count: 75, percentage: 75 },
+    { id: '3a', tier: 3, count: 75, percentage: 75 },
+    { id: '4a', tier: 4, count: 75, percentage: 75 },
+    { id: '5a', tier: 5, count: 75, percentage: 75 },
+    { id: '6a', tier: 6, count: 75, percentage: 75 },
+    { id: '6b', tier: 6, count: 25, percentage: 25 },
+    { id: '7a', tier: 7, count: 75, percentage: 75 },
   ],
   rejuvenated: {
     recordedBuilds: 10,
@@ -58,7 +65,9 @@ describe('PickStatsPage', () => {
     const relicPath = screen.getByRole('list', {
       name: 'Most popular relic path picks',
     })
-    expect(within(relicPath).getAllByRole('listitem')).toHaveLength(1)
+    const relicSlots = within(relicPath).getAllByRole('listitem')
+    expect(relicSlots).toHaveLength(8)
+    expect(within(relicSlots[7]!).getByText(/Bonus:/)).toBeInTheDocument()
     expect(within(relicPath).getByText('Golden Touch')).toBeInTheDocument()
     expect(screen.getAllByText('Endless Harvest').length).toBeGreaterThan(0)
     expect(screen.getByText("Assassin's Insight")).toBeInTheDocument()
@@ -70,6 +79,25 @@ describe('PickStatsPage', () => {
     expect(
       screen.getByText(/Based on 10 shared builds that recorded a Rejuvenated bonus relic/),
     ).toBeInTheDocument()
+  })
+
+  it('only adds the eighth relic slot when Rejuvenated is selected', async () => {
+    vi.mocked(getPickStats).mockResolvedValue({
+      ...stats,
+      relics: stats.relics.map((relic) => {
+        if (relic.id === '6a') return { ...relic, count: 25, percentage: 25 }
+        if (relic.id === '6b') return { ...relic, count: 75, percentage: 75 }
+        return relic
+      }),
+    })
+
+    render(<PickStatsPage />)
+
+    const relicPath = await screen.findByRole('list', {
+      name: 'Most popular relic path picks',
+    })
+    expect(within(relicPath).getAllByRole('listitem')).toHaveLength(7)
+    expect(within(relicPath).queryByText(/Bonus:/)).not.toBeInTheDocument()
   })
 
   it('shows a contained error state when the snapshot cannot be loaded', async () => {

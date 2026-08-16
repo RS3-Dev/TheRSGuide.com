@@ -22,6 +22,9 @@ const relicNames = new Map(
     options.map(({ id, label }) => [id, label] as const),
   ),
 )
+const rejuvenatedRelicId = LEAGUE_OPTIONS.relicTiers
+  .flatMap(({ options }) => options)
+  .find(({ label }) => label === 'Rejuvenated')?.id
 const blessingPaths = new Map(
   LEAGUE_OPTIONS.blessings.map(({ id, path }) => [id, path] as const),
 )
@@ -78,13 +81,16 @@ function popularPicks(stats: PickStatsResponse) {
     [...mostPopularByTier(stats.blessings.filter(({ derived }) => !derived))]
       .map(([tier, pick]) => [tier, pick.id]),
   ) as Partial<Record<number, string>>
-  const rejuvenatedRelic = [...stats.rejuvenated.relics]
-    .filter(({ count }) => count > 0)
-    .sort((left, right) =>
-      right.count - left.count
-      || left.tier - right.tier
-      || left.id.localeCompare(right.id)
-    )[0]?.id
+  const rejuvenatedRelic = Object.values(relicPicks)
+    .includes(rejuvenatedRelicId ?? '')
+    ? [...stats.rejuvenated.relics]
+        .filter(({ count }) => count > 0)
+        .sort((left, right) =>
+          right.count - left.count
+          || left.tier - right.tier
+          || left.id.localeCompare(right.id)
+        )[0]?.id
+    : undefined
   const regionPicks = selectableRegionStats(stats)
     .sort((left, right) =>
       right.count - left.count || left.id.localeCompare(right.id)
