@@ -17,6 +17,7 @@ const FUNCTIONAL_STORAGE_KEYS = new Set([
   'rs-guide-efficiency-guide-ignore-player',
   'rs-guide-quest-requirements-only-missing',
   'rs-guide-recurring-activities',
+  'rs3-leagues-randomizer-state-v1',
   'rs3_player_search',
   'theme',
 ])
