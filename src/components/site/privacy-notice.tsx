@@ -64,9 +64,9 @@ function PrivacyNotice() {
         <h2>Saved progress and preferences</h2>
         <p>
           If enabled, localStorage remembers player searches, manually checked
-          progression, guide checklists, theme, sidebar state, and background
-          media choices. This information stays in your browser and can be
-          removed by disabling optional storage.
+          progression, guide checklists, Leagues randomizer choices, theme,
+          sidebar state, and background media choices. This information stays
+          in your browser and can be removed by disabling optional storage.
         </p>
 
         <h2>Retention and sharing</h2>

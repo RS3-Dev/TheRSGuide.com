@@ -25,6 +25,10 @@ import {
   hasAvailableRelicForTier,
   resolveRandomizedRejuvenatedRelic,
 } from './randomizer-utils'
+import {
+  loadRandomizerState,
+  saveRandomizerState,
+} from './randomizer-state'
 import '@/styles/picker.css'
 import '@/styles/randomizer.css'
 
@@ -52,25 +56,28 @@ function toggledSet(current: ReadonlySet<string>, value: string) {
 
 export default function RandomizerPage() {
   const runTokenRef = useRef(0)
+  const [initialState] = useState(loadRandomizerState)
   const [stage, setStage] = useState<RandomizerStage>('idle')
   const [blockedRelicIds, setBlockedRelicIds] = useState<Set<string>>(
-    () => new Set(),
+    initialState.blockedRelicIds,
   )
   const [blockedBlessingKeys, setBlockedBlessingKeys] = useState<Set<string>>(
-    () => new Set(),
+    initialState.blockedBlessingKeys,
   )
   const [blockedRegionIds, setBlockedRegionIds] = useState<Set<string>>(
-    () => new Set(),
+    initialState.blockedRegionIds,
   )
   const [selectedRelics, setSelectedRelics] = useState<Record<number, string>>(
-    {},
+    initialState.selectedRelics,
   )
-  const [selectedRejuvenatedRelic, setSelectedRejuvenatedRelic] = useState('')
+  const [selectedRejuvenatedRelic, setSelectedRejuvenatedRelic] = useState(
+    initialState.selectedRejuvenatedRelic,
+  )
   const [selectedBlessings, setSelectedBlessings] =
-    useState<BlessingSelections>({})
-  const [selectedRegionIds, setSelectedRegionIds] = useState<string[]>([
-    ...GUARANTEED_REGION_IDS,
-  ])
+    useState<BlessingSelections>(initialState.selectedBlessings)
+  const [selectedRegionIds, setSelectedRegionIds] = useState<string[]>(
+    initialState.selectedRegionIds,
+  )
 
   useEffect(
     () => () => {
@@ -78,6 +85,28 @@ export default function RandomizerPage() {
     },
     [],
   )
+
+  useEffect(() => {
+    if (stage !== 'idle') return
+    saveRandomizerState({
+      blockedBlessingKeys,
+      blockedRegionIds,
+      blockedRelicIds,
+      selectedBlessings,
+      selectedRegionIds,
+      selectedRejuvenatedRelic,
+      selectedRelics,
+    })
+  }, [
+    blockedBlessingKeys,
+    blockedRegionIds,
+    blockedRelicIds,
+    selectedBlessings,
+    selectedRegionIds,
+    selectedRejuvenatedRelic,
+    selectedRelics,
+    stage,
+  ])
 
   const nextRelicTier = getNextRelicTier(selectedRelics)
   const nextBlessingTier = getNextBlessingTier(selectedBlessings)
