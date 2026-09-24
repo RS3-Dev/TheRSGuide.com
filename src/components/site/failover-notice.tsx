@@ -33,8 +33,9 @@ function FailoverNotice({
           <strong className="font-bold">
             We’re experiencing higher-than-usual traffic.
           </strong>{' '}
-          You’ve been redirected to our backup site while we restore normal
-          service. Thanks for your patience.
+          Or maybe Josh&apos;s Doorbell is on the fritz again. You’ve been
+          redirected to our backup site while we restore normal service. Thanks
+          for your patience.
         </p>
         <Button
           type="button"
