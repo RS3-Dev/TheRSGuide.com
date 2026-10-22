@@ -92,7 +92,7 @@ export default defineConfig(({ mode }) => {
       react({ include: /\.(mdx|js|jsx|ts|tsx)$/ }),
       tailwindcss(),
     ],
-    resolve: { alias: { '@': path.resolve(__dirname, './src') } },
+    resolve: { alias: { '@': path.resolve(import.meta.dirname, './src') } },
     build: { rollupOptions: { output: { manualChunks } } },
     test: { setupFiles: ['./src/test/setup.ts'] },
     server: {

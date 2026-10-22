@@ -1,6 +1,7 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
-import matter from 'gray-matter'
+import { VFile } from 'vfile'
+import { matter } from 'vfile-matter'
 import { createHeadingId } from '../shared/heading-id.js'
 import {
   generateOpenGraphImage,
@@ -105,7 +106,9 @@ export async function buildGuideContent(root) {
     const relativeFile = normalizeSlashes(path.relative(contentDirectory, absoluteFile))
     const sourcePath = `../../content/${relativeFile}`
     const raw = await fs.readFile(absoluteFile, 'utf8')
-    const parsed = matter(raw)
+    const file = new VFile(raw)
+    matter(file, { strip: true })
+    const parsed = { data: file.data.matter, content: String(file) }
     const route = routeFromRelativeFile(relativeFile)
     const parts = route.split('/').filter(Boolean)
     const title = typeof parsed.data.title === 'string'

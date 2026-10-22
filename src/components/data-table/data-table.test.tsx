@@ -2,10 +2,21 @@
 
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { DataTable } from '@/components/data-table/data-table'
 import type { DataTableConfig } from '@/lib/data-table-config'
+
+const scrollIntoViewDescriptor = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'scrollIntoView')
+
+afterEach(() => {
+  vi.unstubAllGlobals()
+  if (scrollIntoViewDescriptor) {
+    Object.defineProperty(HTMLElement.prototype, 'scrollIntoView', scrollIntoViewDescriptor)
+  } else {
+    Reflect.deleteProperty(HTMLElement.prototype, 'scrollIntoView')
+  }
+})
 
 const simpleConfig: DataTableConfig = {
   title: 'Example table',
@@ -86,6 +97,41 @@ describe('DataTable', () => {
     const dragon = screen.getByRole('cell', { name: /Dragon/ })
     expect(abyss.compareDocumentPosition(dragon) & Node.DOCUMENT_POSITION_FOLLOWING)
       .toBeTruthy()
+  })
+
+  it('updates visible rows and filter counts when selecting and clearing a column filter', async () => {
+    // jsdom does not implement the layout APIs used by the command menu.
+    Object.defineProperty(HTMLElement.prototype, 'scrollIntoView', {
+      configurable: true,
+      value: vi.fn(),
+    })
+    vi.stubGlobal('ResizeObserver', class {
+      observe() {}
+      unobserve() {}
+      disconnect() {}
+    })
+    const user = userEvent.setup()
+    render(<DataTable config={{
+      ...interactiveConfig,
+      columns: interactiveConfig.columns.map((column) => ({
+        ...column,
+        filter: column.key === 'category',
+      })),
+    }} />)
+
+    await user.click(screen.getByRole('button', { name: 'Filters' }))
+    await user.click(screen.getByRole('combobox', { name: 'Filter by Category' }))
+    await user.click(screen.getByRole('option', { name: 'Boss' }))
+
+    expect(screen.getByRole('cell', { name: /Dragon/ })).toBeVisible()
+    expect(screen.queryByRole('cell', { name: /Abyss/ })).not.toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Filters, 1 active' })).toBeVisible()
+
+    await user.keyboard('{Escape}')
+    await user.click(screen.getByRole('button', { name: 'Clear filters' }))
+
+    expect(screen.getByRole('cell', { name: /Abyss/ })).toBeVisible()
+    expect(screen.getByRole('button', { name: 'Filters' })).toBeVisible()
   })
 
   it('renders an alert instead of throwing for invalid runtime data', () => {

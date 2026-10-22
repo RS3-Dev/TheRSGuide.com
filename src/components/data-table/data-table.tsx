@@ -1,10 +1,17 @@
 import { useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react"
 import {
   flexRender,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getSortedRowModel,
-  useReactTable,
+  columnFilteringFeature,
+  columnVisibilityFeature,
+  createFilteredRowModel,
+  createSortedRowModel,
+  globalFilteringFeature,
+  rowSortingFeature,
+  sortFn_alphanumeric,
+  sortFn_basic,
+  sortFn_text,
+  tableFeatures,
+  useTable,
   type ColumnDef,
   type FilterFn,
   type SortingState,
@@ -66,6 +73,20 @@ import {
   type DataTableRow,
 } from "@/lib/data-table-config"
 
+const features = tableFeatures({
+  columnFilteringFeature,
+  columnVisibilityFeature,
+  globalFilteringFeature,
+  rowSortingFeature,
+  filteredRowModel: createFilteredRowModel(),
+  sortedRowModel: createSortedRowModel(),
+  sortFns: {
+    alphanumeric: sortFn_alphanumeric,
+    basic: sortFn_basic,
+    text: sortFn_text,
+  },
+})
+
 type DataTableProps = {
   config: DataTableConfig
   className?: string
@@ -86,11 +107,6 @@ const headingTags = new Set<DataTableHeadingTag>([
   "h5",
   "h6",
 ])
-
-const resolveHeadingTag = (value?: string): DataTableHeadingTag =>
-  headingTags.has(value as DataTableHeadingTag)
-    ? value as DataTableHeadingTag
-    : "h2"
 
 const humanizeKey = (key: string): string =>
   key
@@ -279,21 +295,23 @@ function DataTableContent({
     search,
     sortable = false,
   } = config
-  const Heading = resolveHeadingTag(config.titleAs)
+  const Heading = config.titleAs && headingTags.has(config.titleAs)
+    ? config.titleAs
+    : "h2"
   const id = useId()
   const headingId = config.headingId ?? slugifyHeading(title)
   const collapsible = typeof config.collapsed === "boolean"
   const [isCollapsed, setIsCollapsed] = useState(config.collapsed ?? false)
   const [sorting, setSorting] = useState<SortingState>([])
   const [globalFilter, setGlobalFilter] = useState("")
-  const textFilterFn = useMemo<FilterFn<DataTableRow>>(
+  const textFilterFn = useMemo<FilterFn<typeof features, DataTableRow>>(
     () => (row, columnId, filterValue) =>
       searchableValue(row.getValue(columnId))
         .toLocaleLowerCase()
         .includes(String(filterValue).toLocaleLowerCase()),
     []
   )
-  const optionFilterFn = useMemo<FilterFn<DataTableRow>>(
+  const optionFilterFn = useMemo<FilterFn<typeof features, DataTableRow>>(
     () => (row, columnId, filterValue) => {
       const selectedValues = filterValue as string[] | undefined
       return !selectedValues?.length
@@ -333,7 +351,7 @@ function DataTableContent({
       : undefined
   const allColumnHeadersHidden = columns.every((column) => column.hidden)
 
-  const tableColumns = useMemo<ColumnDef<DataTableRow, unknown>[]>(
+  const tableColumns = useMemo<ColumnDef<typeof features, DataTableRow, unknown>[]>(
     () => columns.map((column) => ({
       id: column.key,
       accessorFn: (row) => row[column.key],
@@ -380,24 +398,19 @@ function DataTableContent({
     [columns, optionFilterFn, textFilterFn]
   )
 
-  // TanStack Table intentionally exposes a mutable table instance that the
-  // React compiler cannot memoize safely.
-  // eslint-disable-next-line react-hooks/incompatible-library
-  const table = useReactTable({
+  const table = useTable({
+    features,
     columns: tableColumns,
     data: tableData,
     state: { globalFilter, sorting },
     onGlobalFilterChange: setGlobalFilter,
     onSortingChange: setSorting,
     globalFilterFn: textFilterFn,
-    getCoreRowModel: getCoreRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    getSortedRowModel: getSortedRowModel(),
     getRowId: rowId ? (row) => String(row[rowId]) : undefined,
   })
 
   const filterableColumns = columns.filter((column) => column.filter)
-  const activeFilterCount = table.getState().columnFilters.reduce(
+  const activeFilterCount = table.state.columnFilters.reduce(
     (total, columnFilter) =>
       total + (Array.isArray(columnFilter.value) ? columnFilter.value.length : 0),
     0
