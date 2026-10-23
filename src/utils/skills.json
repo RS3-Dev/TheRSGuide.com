@@ -58,85 +58,91 @@
   "archaeology": [
     {
       "start": 1,
-      "end": 4,
+      "end": 5,
       "desc": "Campus - Centurion Remains",
       "link": "https://runescape.wiki/w/Centurion_remains"
     },
     {
       "start": 5,
-      "end": 16,
+      "end": 17,
       "desc": "Kharid-et - Venator Remains",
       "link": "https://runescape.wiki/w/Venator_remains"
     },
     {
       "start": 17,
-      "end": 19,
+      "end": 20,
       "desc": "Kharid-et - Castra Debris",
       "link": "https://runescape.wiki/w/Castra_debris"
     },
     {
       "start": 20,
-      "end": 41,
+      "end": 42,
       "desc": "Infernal Source - Lodge Bar Storage",
       "link": "https://runescape.wiki/w/Lodge_bar_storage"
     },
     {
       "start": 42,
-      "end": 44,
+      "end": 45,
       "desc": "Everlight - Prodromoi Remains",
       "link": "https://runescape.wiki/w/Prodromoi_remains"
     },
     {
       "start": 45,
-      "end": 46,
+      "end": 47,
       "desc": "Infernal Source - Dis dungeon debris",
       "link": "https://runescape.wiki/w/Dis_dungeon_debris"
     },
     {
       "start": 47,
-      "end": 47,
+      "end": 48,
       "desc": "Kharid-et - Praesidio Remains",
       "link": "https://runescape.wiki/w/Praesidio_remains"
     },
     {
       "start": 48,
-      "end": 55,
+      "end": 56,
       "desc": "Everlight - Monoceros Remains",
       "link": "https://runescape.wiki/w/Monoceros_remains"
     },
     {
+      "start": 52,
+      "end": 90,
+      "desc": "Excavate at the Moonrise Dig Site. This can be a good simple option for players who are looking for a decent place to train at many different level brackets. Unlike other dig sites, Moonrise always provides the correct restoration materials, which can be very useful, especially for ironman accounts.",
+      "link": "https://runescape.wiki/w/Moonrise_Dig_Site#Excavation_hotspots"
+    },
+    {
       "start": 56,
-      "end": 60,
+      "end": 61,
       "desc": "Everlight - Ceramic Studio Debris",
       "link": "https://runescape.wiki/w/Ceramic_studio_debris"
     },
     {
       "start": 61,
-      "end": 67,
+      "end": 68,
       "desc": "Everlight - Stadio Debris",
       "link": "https://runescape.wiki/w/Stadio_debris"
     },
     {
       "start": 68,
-      "end": 68,
+      "end": 69,
       "desc": "Infernal Source - Shakroth Remains",
       "link": "https://runescape.wiki/w/Shakroth_remains"
     },
     {
       "start": 69,
-      "end": 69,
+      "end": 70,
       "desc": "Everlight - Dominion Games Podium",
       "link": "https://runescape.wiki/w/Dominion_games_podium"
     },
     {
       "start": 70,
-      "end": 80,
+      "end": 81,
       "desc": "Stormguard Citadel - Ikovian Memorial",
       "link": "https://runescape.wiki/w/Ikovian_memorial"
     },
     {
       "start": 81,
-      "end": 84,
+      "end": 85,
       "desc": "Warforge - Crucible Stands Debris",
       "link": "https://runescape.wiki/w/Crucible_stands_debris"
     },
@@ -148,31 +154,31 @@
     },
     {
       "start": 85,
-      "end": 85,
+      "end": 86,
       "desc": "Stormguard Citadel - Weapons Research Debris",
       "link": "https://runescape.wiki/w/Weapons_research_debris"
     },
     {
       "start": 86,
-      "end": 88,
-      "desc": "Kharid-et - Orcus Alter",
-      "link": "https://runescape.wiki/w/Orcus_alter"
+      "end": 89,
+      "desc": "Kharid-et - Orcus Altar",
+      "link": "https://runescape.wiki/w/Orcus_altar"
     },
     {
       "start": 89,
-      "end": 89,
+      "end": 90,
       "desc": "Warforge - Big High War God Shrine",
       "link": "https://runescape.wiki/w/Big_high_war_god_shrine"
     },
     {
       "start": 90,
-      "end": 92,
-      "desc": "Orthen - Varanasaur Remains",
-      "link": "https://runescape.wiki/w/Varanasaur_remains"
+      "end": 93,
+      "desc": "Orthen - Varanusaur Remains",
+      "link": "https://runescape.wiki/w/Varanusaur_remains"
     },
     {
       "start": 93,
-      "end": 94,
+      "end": 95,
       "desc": "Kharid-et - Armarium Debris",
       "link": "https://runescape.wiki/w/Armarium_debris"
     },
@@ -184,128 +190,116 @@
     },
     {
       "start": 95,
-      "end": 95,
+      "end": 96,
       "desc": "Stormguard Citadel - Keshik Tower Debris",
       "link": "https://runescape.wiki/w/Keshik_tower_debris"
     },
     {
       "start": 96,
-      "end": 97,
+      "end": 99,
       "desc": "Orthen - Dragonkin Reliquary",
       "link": "https://runescape.wiki/w/Dragonkin_reliquary"
     },
     {
-      "start": 98,
-      "end": 98,
+      "start": 99,
+      "end": 100,
       "desc": "Orthen - Dragonkin Coffin",
       "link": "https://runescape.wiki/w/Dragonkin_coffin"
     },
     {
-      "start": 99,
-      "end": 99,
-      "desc": "Everlight - Icyene Weapon Rack",
-      "link": "https://runescape.wiki/w/Icyene_weapon_rack"
-    },
-    {
       "start": 100,
-      "end": 100,
-      "desc": "Kharid-et - Culinarum Debris, Warforge - Kyzaj Champion's Boudoir",
+      "end": 101,
+      "desc": "Kharid-et - Culinarum Debris, Warforge - Kyzaj Champion's Boudoir, Everlight - Icyene Weapon Rack",
       "link": "https://runescape.wiki/w/Culinarum_debris"
     },
     {
       "start": 101,
-      "end": 101,
+      "end": 102,
       "desc": "Orthen - Autopsy Table",
       "link": "https://runescape.wiki/w/Autopsy_table"
     },
     {
       "start": 102,
-      "end": 104,
+      "end": 105,
       "desc": "Orthen - Experiment Workbench",
       "link": "https://runescape.wiki/w/Experiment_workbench"
     },
     {
       "start": 105,
-      "end": 105,
+      "end": 106,
       "desc": "Everlight - Stockpiled Art",
       "link": "https://runescape.wiki/w/Stockpiled_art"
     },
     {
       "start": 106,
-      "end": 106,
+      "end": 107,
       "desc": "Orthen - Aughra Remains",
       "link": "https://runescape.wiki/w/Aughra_remains"
     },
     {
       "start": 107,
-      "end": 107,
+      "end": 108,
       "desc": "Kharid-et - Ancient Magick Munitions",
       "link": "https://runescape.wiki/w/Ancient_magick_munitions"
     },
     {
       "start": 108,
-      "end": 108,
+      "end": 109,
       "desc": "Orthen - Moksha Device",
       "link": "https://runescape.wiki/w/Moksha_device"
     },
     {
       "start": 109,
-      "end": 109,
-      "desc": "Everlight - Bibliothek Debris",
+      "end": 110,
+      "desc": "Everlight - Bibliotheke Debris",
       "link": "https://runescape.wiki/w/Bibliotheke_debris"
     },
     {
       "start": 110,
-      "end": 110,
+      "end": 111,
       "desc": "Warforge - Warforge Weapon Rack",
       "link": "https://runescape.wiki/w/Warforge_weapon_rack"
     },
     {
       "start": 111,
-      "end": 111,
+      "end": 112,
       "desc": "Stormguard Citadel - Flight Research Debris",
       "link": "https://runescape.wiki/w/Flight_research_debris"
     },
     {
       "start": 112,
-      "end": 112,
+      "end": 113,
       "desc": "Stormguard Citadel - Aetherium Forge",
       "link": "https://runescape.wiki/w/Aetherium_forge"
     },
     {
       "start": 113,
-      "end": 113,
+      "end": 114,
       "desc": "Orthen - Xolo Mine",
       "link": "https://runescape.wiki/w/Xolo_mine"
     },
     {
       "start": 114,
-      "end": 115,
+      "end": 116,
       "desc": "Kharid-et - Praetorian Remains",
       "link": "https://runescape.wiki/w/Praetorian_remains"
     },
     {
       "start": 116,
-      "end": 116,
-      "desc": "Infernal Source - Tsutsaroth Debris",
-      "link": "https://runescape.wiki/w/Tsutsaroth_debris"
+      "end": 117,
+      "desc": "Infernal Source - Tsutsaroth Remains",
+      "link": "https://runescape.wiki/w/Tsutsaroth_remains"
     },
     {
       "start": 117,
-      "end": 117,
+      "end": 119,
       "desc": "Everlight - Optimatoi Remains",
       "link": "https://runescape.wiki/w/Optimatoi_remains"
     },
     {
-      "start": 118,
-      "end": 118,
-      "desc": "Warforge - Makeshift Pie Oven",
-      "link": "https://runescape.wiki/w/Makeshift_pie_oven"
-    },
-    {
       "start": 119,
-      "end": 119,
-      "desc": "Orthen - Xolo Remains",
+      "end": 120,
+      "desc": "Orthen - Xolo Remains, Warforge - Makeshift Pie Oven",
       "link": "https://runescape.wiki/w/Xolo_remains"
     },
     {
@@ -356,7 +350,13 @@
       "start": 60,
       "end": 90,
       "desc": "Kill Flesh-Hatcher Mhekarnahz. This entry-level boss provides 50% more experience for your damage dealt compared to other options, which makes it a strong active training method. If your hit chance is below 100%, consider using a slash weapon and the Dragon Scimitar special attack for improved damage.",
-      "link": ""
+      "link": "https://runescape.wiki/w/Flesh-hatcher_Mhekarnahz"
+    },
+    {
+      "start": 60,
+      "end": 120,
+      "desc": "Kill Bogolins in Fenmoor with a Havensilver halberd +2. This grants 50% extra damage against Bogolins and a huge accuracy boost, resulting in 50-100% more experience per hour than training at the Abyss. This method may be slightly more active because Bogolins deal a decent amount of damage, although some of it can be mitigated by using Antisanguine potions.",
+      "link": "https://runescape.wiki/w/Bogolin"
     },
     {
       "start": 70,
@@ -394,134 +394,140 @@
     {
       "start": 1,
       "end": 40,
-      "desc": "Fort Building - Workshop T1 and Wall as part of the New Foundations Quest",
+      "desc": "Build Workshop T1 and Wall in Fort Forinthry as part of the New Foundations Quest.",
       "link": "https://runescape.wiki/w/New_Foundations/Quick_guide"
     },
     {
       "start": 40,
       "end": 45,
-      "desc": "Fort Building - Guardhouse T1",
+      "desc": "Build Guardhouse T1 in Fort Forinthry.",
       "link": "https://runescape.wiki/w/Construction_training#Fortress_buildings"
     },
     {
       "start": 45,
       "end": 50,
-      "desc": "Fort Building - Townhall T2",
+      "desc": "Build Townhall T2 in Fort Forinthry.",
       "link": "https://runescape.wiki/w/Construction_training#Fortress_buildings"
     },
     {
       "start": 50,
       "end": 50,
-      "desc": "Fort Building - Grove T1",
+      "desc": "Build Grove T1 in Fort Forinthry.",
       "link": "https://runescape.wiki/w/Construction_training#Fortress_buildings"
     },
     {
       "start": 50,
       "end": 50,
-      "desc": "Fort Building - Grove T2",
+      "desc": "Build Grove T2 in Fort Forinthry.",
       "link": "https://runescape.wiki/w/Construction_training#Fortress_buildings"
     },
     {
       "start": 50,
       "end": 50,
-      "desc": "Fort Building - Ranger's Workroom T1",
+      "desc": "Build Ranger's Workroom T1 in Fort Forinthry.",
       "link": "https://runescape.wiki/w/Construction_training#Fortress_buildings"
     },
     {
       "start": 50,
       "end": 54,
-      "desc": "Fort Building - Kitchen T2",
+      "desc": "Build Kitchen T2 in Fort Forinthry.",
       "link": "https://runescape.wiki/w/Construction_training#Fortress_buildings"
     },
     {
       "start": 54,
       "end": 55,
-      "desc": "Fort Building - Botanist's Workbench T1",
+      "desc": "Build Botanist's Workbench T1 in Fort Forinthry.",
       "link": "https://runescape.wiki/w/Construction_training#Fortress_buildings"
     },
     {
       "start": 55,
       "end": 60,
-      "desc": "Fort Building - Chapel T2",
+      "desc": "Build Chapel T2 in Fort Forinthry.",
       "link": "https://runescape.wiki/w/Construction_training#Fortress_buildings"
     },
     {
       "start": 60,
       "end": 65,
-      "desc": "Fort Building - Grove T3",
+      "desc": "Build Grove T3 in Fort Forinthry.",
       "link": "https://runescape.wiki/w/Construction_training#Fortress_buildings"
     },
     {
       "start": 65,
       "end": 70,
-      "desc": "Fort Building - Ranger's Workroom T2",
+      "desc": "Build Ranger's Workroom T2 in Fort Forinthry.",
       "link": "https://runescape.wiki/w/Construction_training#Fortress_buildings"
     },
     {
       "start": 65,
       "end": 70,
-      "desc": "Fort Building - Guardhouse T2",
+      "desc": "Build Guardhouse T2 in Fort Forinthry.",
       "link": "https://runescape.wiki/w/Construction_training#Fortress_buildings"
     },
     {
       "start": 70,
       "end": 75,
-      "desc": "Fort Building - Command Centre T2",
+      "desc": "Build Command Centre T2 in Fort Forinthry.",
       "link": "https://runescape.wiki/w/Construction_training#Fortress_buildings"
     },
     {
       "start": 75,
       "end": 78,
-      "desc": "Fort Building - Workshop T3",
+      "desc": "Build Workshop T3 in Fort Forinthry.",
       "link": "https://runescape.wiki/w/Construction_training#Fortress_buildings"
     },
     {
       "start": 78,
       "end": 80,
-      "desc": "Fort Building - Botanist's Workbench T2",
+      "desc": "Build Botanist's Workbench T2 in Fort Forinthry.",
       "link": "https://runescape.wiki/w/Construction_training#Fortress_buildings"
     },
     {
       "start": 80,
       "end": 85,
-      "desc": "Fort Building - Townhall T3",
+      "desc": "Build Townhall T3 in Fort Forinthry.",
       "link": "https://runescape.wiki/w/Construction_training#Fortress_buildings"
     },
     {
       "start": 80,
       "end": 85,
-      "desc": "Fort Building - Ranger's Workroom T3",
+      "desc": "Build Ranger's Workroom T3 in Fort Forinthry.",
       "link": "https://runescape.wiki/w/Construction_training#Fortress_buildings"
     },
     {
       "start": 85,
       "end": 90,
-      "desc": "Fort Building - Kitchen T3",
+      "desc": "Build Kitchen T3 in Fort Forinthry.",
       "link": "https://runescape.wiki/w/Construction_training#Fortress_buildings"
     },
     {
       "start": 90,
       "end": 92,
-      "desc": "Fort Building - Chapel T3",
+      "desc": "Build Chapel T3 in Fort Forinthry.",
       "link": "https://runescape.wiki/w/Construction_training#Fortress_buildings"
     },
     {
       "start": 92,
       "end": 95,
-      "desc": "Fort Building - Botanist's Workbench T3",
+      "desc": "Build Botanist's Workbench T3 in Fort Forinthry.",
       "link": "https://runescape.wiki/w/Construction_training#Fortress_buildings"
     },
     {
       "start": 95,
       "end": 99,
-      "desc": "Fort Building - Guardhouse T3",
+      "desc": "Build Guardhouse T3 in Fort Forinthry.",
       "link": "https://runescape.wiki/w/Construction_training#Fortress_buildings"
     },
     {
       "start": 99,
-      "end": 120,
-      "desc": "Fort Building - Command Centre T3",
+      "end": 105,
+      "desc": "Build Command Centre T3 in Fort Forinthry.",
       "link": "https://runescape.wiki/w/Construction_training#Fortress_buildings"
+    },
+    {
+      "start": 105,
+      "end": 120,
+      "desc": "Build Eternal Reinforcements in Fort Forinthry.",
+      "link": "https://runescape.wiki/w/Eternal_reinforcement"
     }
   ],
   "cooking": [
@@ -551,9 +557,9 @@
     },
     {
       "start": 52,
-      "end": 80,
-      "desc": "Cook Desert Sole, Catfish, and Beltfish",
-      "link": ""
+      "end": 99,
+      "desc": "Cook Desert Sole, Catfish, Beltfish, or Ghostly Soles with the Bait and Switch Relic. Optionally, use the Fury Shark Outfit to destroy caught fish, for extremely AFK fishing and cooking experience.",
+      "link": "https://runescape.wiki/w/Bait_and_Switch"
     },
     {
       "start": 80,
@@ -566,25 +572,37 @@
     {
       "start": 1,
       "end": 20,
-      "desc": "Cut gems from Common Gem Rocks in Burthorpe, or Spin Flax from Burthorpe, Or make Leather Armour from Cows in Burthorpe or Lumbridge.",
+      "desc": "Cut gems from Common Gem Rocks in Burthorpe, or Spin Flax in Burthorpe or Havenhythe, or make Leather Armour from Cows in Burthorpe or Lumbridge.",
       "link": "https://runescape.wiki/w/Common_gem_rock"
     },
     {
       "start": 20,
       "end": 75,
-      "desc": "Cutting uncommon gems",
-      "link": "https://runescape.wiki/w/Ironman_Mode/Strategies/Crafting#Levels_20-75:_Cutting_uncommon_gems"
+      "desc": "Cut Gems mined from Uncommon Gem Rocks in Al Kharid.",
+      "link": "https://runescape.wiki/w/Uncommon_gem_rock"
+    },
+    {
+      "start": 60,
+      "end": 110,
+      "desc": "Craft at the Gate of Elidinis, start the encounter, build the barrier and then AFK on the moonstone shards. This is a safe death.",
+      "link": "https://runescape.wiki/w/The_Gate_of_Elidinis"
     },
     {
       "start": 75,
       "end": 110,
-      "desc": "Gate of Elidinis Crafting, Harps in Prifddinas, Cutting Gems, or Making Dragon Leather products.",
-      "link": "https://runescape.wiki/w/Pay-to-play_Crafting_training#Gate_of_Elidinis_(skilling_boss)"
+      "desc": "Play Harps in the Ithell District in Prifddinas. This also grants Harmonic Dust, which can be used to upgrade a number of tools.",
+      "link": "https://runescape.wiki/w/Harp"
+    },
+    {
+      "start": 75,
+      "end": 110,
+      "desc": "Cutting Gems, or Making Dragon Leather products received from PvM drops.",
+      "link": ""
     },
     {
       "start": 100,
       "end": 110,
-      "desc": "Crafting Starbloom Equipment",
+      "desc": "Crafting Starbloom Equipment or Apex Hide Armour.",
       "link": "https://runescape.wiki/w/Starbloom_equipment#Creation_and_upgrading"
     }
   ],
@@ -596,12 +614,6 @@
     }
   ],
   "divination": [
-    {
-      "start": 1,
-      "end": 35,
-      "desc": "Complete activities at Memorial to Guthix",
-      "link": "https://runescape.wiki/w/Memorial_to_Guthix"
-    },
     {
       "start": 1,
       "end": 10,
@@ -629,12 +641,12 @@
     {
       "start": 35,
       "end": 99,
-      "desc": "Collect and deposit memories at the highest tier available, and enter Guthixian Caches whenever they are available",
+      "desc": "Collect and deposit memories at the highest tier rift available, and enter Guthixian Caches whenever they are available. This method is extremely slow, but is low activity.",
       "link": "https://runescape.wiki/w/Ironman_Mode/Strategies/Divination#Levels_1-99"
     },
     {
-      "start": 70,
-      "end": 99,
+      "start": 50,
+      "end": 77,
       "desc": "Dungeoneering Divination",
       "link": "https://runescape.wiki/w/Divination_training#Dungeoneering_Divination"
     },
@@ -645,29 +657,29 @@
       "link": "https://runescape.wiki/w/Hall_of_Memories"
     },
     {
-      "start": 85,
-      "end": 90,
-      "desc": "Radiant Wisps on world 79 (for group divination bonuses). Better with a Memory Dowser, or Divine Conversion Archaeology Relic.",
-      "link": ""
+      "start": 77,
+      "end": 99,
+      "desc": "Colossi Divination on Havenhythe. This is the fastest divination training method in the game, offering the best experience rates at all levels it's available. This method also provides a good amount of Agility experience.",
+      "link": "https://runescape.wiki/w/Colossi_Divination"
     },
     {
       "start": 90,
       "end": 95,
-      "desc": "Luminescent Wisps on world 79 (for group divination bonuses). Better with a Memory Dowser, or Divine Conversion Archaeology Relic.",
-      "link": ""
+      "desc": "Luminous Wisps on world 79 (for group divination bonuses). Better with a Memory Dowser, or Divine Conversion Archaeology Relic.",
+      "link": "https://runescape.wiki/w/Luminous_wisp"
     },
     {
       "start": 95,
       "end": 99,
       "desc": "Incandescent Wisps on world 79 (for group divination bonuses). Better with a Memory Dowser, or Divine Conversion Archaeology Relic.",
-      "link": ""
+      "link": "https://runescape.wiki/w/Incandescent_wisp"
     }
   ],
   "dungeoneering": [
     {
       "start": 1,
       "end": 120,
-      "desc": "Complete your highest available floor, in size Small, Medium, or Large depending on your floor times.\nThe general rule for selecting a floor size is as follows: If your Medium floors take less than twice as long as your Small floors, Mediums are better than Smalls. If your Large floors are less than twice as long as your your Medium floors, and less than four times as long as your Small floors, Larges are your best bet. In general, if you're a beginner, Small floors will be best, where an experienced player will likely get the best experience rates doing Large floors, especially after completing the Elite Daemonheim achievements for access to a second gatestone.",
+      "desc": "Complete your highest available floor, in size Small, Medium, or Large depending on your floor times.\nThe general rule for selecting a floor size is as follows: If your Medium floors take less than twice as long as your Small floors, Mediums are better than Smalls. If your Large floors are less than twice as long as your Medium floors, and less than four times as long as your Small floors, Larges are your best bet. In general, if you're a beginner, Small floors will be best, where an experienced player will likely get the best experience rates doing Large floors, especially after completing the Elite Daemonheim achievements for access to a second gatestone.",
       "link": "https://runescape.wiki/w/Pay-to-play_Dungeoneering_training#Optimising_floors"
     },
     {
@@ -680,50 +692,44 @@
       "start": 80,
       "end": 120,
       "desc": "Complete the Dragonkin V archaeology collection log (Archaeology level 77+) for Dungeoneering Token Boxes that can be exchanged for experience. This method is extremely slow but is a way to passively train Dungeoneering while training Archaeology.",
-      "link": "https://runescape.wiki/w/Daemonheim_Rewards"
+      "link": "https://runescape.wiki/w/Dragonkin_V"
     }
   ],
   "farming": [
     {
       "start": 1,
       "end": 15,
-      "desc": "Shovelling manure or Violet is Blue Quest",
+      "desc": "Shoveling manure at the Manor Farm.",
       "link": "https://runescape.wiki/w/Manure_mound"
     },
     {
       "start": 15,
       "end": 35,
       "desc": "Low level herb and tree runs. Oak at Level 15, Apple at Level 27, Willow at level 30. Low level seeds can be obtained by pickpocketing farmers and master farmers.",
-      "link": ""
-    },
-    {
-      "start": 30,
-      "end": 35,
-      "desc": "Cultivate Roses at Het's Oasis (active method)",
-      "link": ""
+      "link": "https://runescape.wiki/w/Master_Farmer"
     },
     {
       "start": 35,
       "end": 54,
-      "desc": "Woad Leaf Beehives",
-      "link": ""
+      "desc": "Place woad leaves into beehives at the Manor Farm. This is a daily activity that provides moderate experience at this level bracket.",
+      "link": "https://runescape.wiki/w/Farming_training#Beehives"
     },
     {
       "start": 35,
       "end": 54,
-      "desc": "Player-owned farm beginning with Sheep at level 35, Frogs at 42, and Cows at level 49",
+      "desc": "Low Level Player-Owned Farms: Sheep (Level 35), Frogs (Level 42), and Cows (Level 49)",
       "link": "https://runescape.wiki/w/Player-owned_farm"
     },
     {
       "start": 45,
       "end": 120,
-      "desc": "Optionally you train farming by doing Tree Runs and Fruit Tree runs if those are preferred to Player Owned Farms.",
+      "desc": "Tree and Fruit Tree Runs. These are less efficient than Player-Owned Farms, but do not require as much initial time investment to get the right animals, and provide good experience.",
       "link": "https://runescape.wiki/w/Farming_training#Trees"
     },
     {
       "start": 54,
       "end": 120,
-      "desc": "Player-owned farm, beginning with Chinchompas at level 54, Spiders at level 64, and Dragons at Level 92, and Dinosaurs at the Ranch Out of Time at level 98.",
+      "desc": "High Level Player-Owned Farms: Chinchompas (Level 54), Spiders (Level 64), Dragons (Level 92), Dinosaurs (Level 98).",
       "link": "https://runescape.wiki/w/Player-owned_farm"
     }
   ],
@@ -774,13 +780,19 @@
       "start": 87,
       "end": 95,
       "desc": "Collecting and burning Sharp Shell Shards. Collecting these requires the Extinction Quest, burning them does not.",
-      "link": ""
+      "link": "https://runescape.wiki/w/Sharp_shell_shard"
     },
     {
       "start": 95,
       "end": 110,
       "desc": "Eggsperimentation Activity on Anachronia after the Extinction Quest.",
-      "link": ""
+      "link": "https://runescape.wiki/w/'Accidental'_Fletching_and_Firemaking"
+    },
+    {
+      "start": 100,
+      "end": 110,
+      "desc": "Burn eternal magic logs",
+      "link": "https://runescape.wiki/w/Eternal_magic_logs"
     }
   ],
   "fishing": [
@@ -877,10 +889,22 @@
       "link": "https://runescape.wiki/w/Broad_arrowheads#Shop_locations"
     },
     {
+      "start": 65,
+      "end": 85,
+      "desc": "Play the Fenmoor Totems activity, carving Toad Totems from Petrified Roots. This is more active, but provides rewards including the Bogolin Sogtorch, and grants competitive woodcutting experience for the level bracket at the same time.",
+      "link": "https://runescape.wiki/w/Fenmoor_Totems"
+    },
+    {
       "start": 82,
       "end": 99,
-      "desc": "Zygomyte Carestyling on Anachronia - These are part of the process of creating Elder God Arrows",
+      "desc": "Zygomite Carestyling on Anachronia - These are part of the process of creating Elder God Arrows",
       "link": "https://runescape.wiki/w/'Accidental'_Fletching_and_Firemaking#Zygomite_Carestyling"
+    },
+    {
+      "start": 85,
+      "end": 105,
+      "desc": "Play the Fenmoor Totems activity, carving Mollusc Totems from Petrified Bark. This is more active, but provides rewards including the Bogolin Sogtorch, and grants competitive woodcutting experience for the level bracket at the same time.",
+      "link": "https://runescape.wiki/w/Fenmoor_Totems"
     },
     {
       "start": 100,
@@ -893,6 +917,12 @@
       "end": 110,
       "desc": "Martial fletch primal crossbows",
       "link": "https://runescape.wiki/w/Pay-to-play_Fletching_training"
+    },
+    {
+      "start": 105,
+      "end": 110,
+      "desc": "Play the Fenmoor Totems activity, carving Elemental Totems from Petrified Wood. This is more active, but provides rewards including the Bogolin Sogtorch, and grants competitive woodcutting experience for the level bracket at the same time.",
+      "link": "https://runescape.wiki/w/Fenmoor_Totems"
     }
   ],
   "herblore": [
@@ -928,19 +958,25 @@
     },
     {
       "start": 55,
-      "end": 63,
+      "end": 88,
       "desc": "Make Super Strength Potions. (Kwuarm Potions and Limpwurt Roots)",
       "link": "https://runescape.wiki/w/Super_strength#(4)"
     },
     {
+      "start": 55,
+      "end": 88,
+      "desc": "Make Super Antisanguine Potions. (Kwuarm Potions and Exalted Essence) Requires partial completion of Heralds of Crimson.",
+      "link": "https://runescape.wiki/w/Super_antisanguine#(4)"
+    },
+    {
       "start": 63,
-      "end": 72,
+      "end": 88,
       "desc": "Make Super Restore Potions. (Snapdragon Potions and Red Spiders' Eggs)",
       "link": "https://runescape.wiki/w/Super_restore#(4)"
     },
     {
       "start": 72,
-      "end": 81,
+      "end": 88,
       "desc": "Make Super Ranging Potions. (Dwarf Weed Potions and Wine of Zamorak)",
       "link": "https://runescape.wiki/w/Super_ranging_potion#(4)"
     },
@@ -979,74 +1015,62 @@
     {
       "start": 1,
       "end": 9,
-      "desc": "Catch Crimson Swifts in Burthorpe or complete the Natural history quiz in the Varrock museum.",
-      "link": ""
+      "desc": "Catch Crimson Swifts in Burthorpe, or complete the Natural history quiz in Varrock.",
+      "link": "https://runescape.wiki/w/Crimson_swift"
     },
     {
       "start": 9,
       "end": 11,
       "desc": "Catch Copper Longtails at Eagle's Peak - You can teleport there with Memory Strands",
-      "link": ""
+      "link": "https://runescape.wiki/w/Copper_longtail"
     },
     {
       "start": 11,
       "end": 19,
       "desc": "Catch Cerulean Twitches in the Fremennik Hunter Area",
-      "link": ""
+      "link": "https://runescape.wiki/w/Cerulean_twitch"
     },
     {
       "start": 19,
       "end": 27,
       "desc": "Catch Tropical Wagtails in the Feldip Hills",
-      "link": ""
+      "link": "https://runescape.wiki/w/Tropical_wagtail"
     },
     {
       "start": 27,
-      "end": 46,
-      "desc": "Box trap Cobalt Skillchompas north of the Grand Tree.",
-      "link": ""
-    },
-    {
-      "start": 29,
-      "end": 46,
-      "desc": "Catch Green Salamanders in Canifis.",
-      "link": ""
+      "end": 32,
+      "desc": "Trap Cobalt Skillchompas north of the Grand Tree.",
+      "link": "https://runescape.wiki/w/Cobalt_skillchompa"
     },
     {
       "start": 32,
       "end": 67,
-      "desc": "Rabbit snare Jackalopes on Havenhythe. Optional: Jackalopes can be infused into Jackalope pouches to assist with early game Archaeology training.",
-      "link": ""
+      "desc": "Catch Jackalopes on Havenhythe.",
+      "link": "https://runescape.wiki/w/Jackalope"
     },
     {
-      "start": 46,
-      "end": 63,
-      "desc": "Box trap Viridian Skillchompas north of the Port Phasmatys Hunter Area.",
-      "link": ""
+      "start": 51,
+      "end": 61,
+      "desc": "Acadia Birdhouse Runs. These do not provide the best experience, but once you have unlocked the T3 Woodcutters' Grove (Fort Forinthry) they are the fastest way to receive Imcando Hatchet Fragments.",
+      "link": "https://runescape.wiki/w/Birdhouses"
     },
     {
-      "start": 63,
-      "end": 75,
-      "desc": "Box trap Carnivorous Chinchompas in the Feldip Hunter Area.",
-      "link": ""
+      "start": 61,
+      "end": 67,
+      "desc": "Mahogany Birdhouse Runs. These do not provide the best experience, but once you have unlocked the T3 Woodcutters' Grove (Fort Forinthry) they are the fastest way to receive Imcando Hatchet Fragments.",
+      "link": "https://runescape.wiki/w/Birdhouses"
     },
     {
       "start": 67,
       "end": 75,
       "desc": "Catch Black Salamanders in the Wilderness.",
-      "link": ""
-    },
-    {
-      "start": 68,
-      "end": 75,
-      "desc": "Box trap Azure Skillchompas in the Fremennik Hunter Area.",
-      "link": ""
+      "link": "https://runescape.wiki/w/Black_salamander"
     },
     {
       "start": 72,
       "end": 75,
       "desc": "Capture Charm Sprites for the Enhanced Yaktwee Stick.",
-      "link": ""
+      "link": "https://runescape.wiki/w/Charm_sprite"
     },
     {
       "start": 75,
@@ -1058,19 +1082,19 @@
       "start": 88,
       "end": 99,
       "desc": "Catch Fungal Spores from Decaying Guards on the Croesus front (Semi-Afk), Trap Carrion Jadinkos on Anachronia.",
-      "link": ""
+      "link": "https://runescape.wiki/w/Fungal_spore"
     },
     {
       "start": 96,
       "end": 98,
       "desc": "Havenhythe Big Game Hunter (Chinchompa)",
-      "link": ""
+      "link": "https://runescape.wiki/w/Havenhythe_Big_Game_Hunter"
     },
     {
       "start": 98,
       "end": 110,
       "desc": "Havenhythe Big Game Hunter (Kebbit)",
-      "link": ""
+      "link": "https://runescape.wiki/w/Havenhythe_Big_Game_Hunter"
     }
   ],
   "invention": [
@@ -1193,6 +1217,12 @@
       "link": "https://runescape.wiki/w/Orichalcite_ore#Mine_locations"
     },
     {
+      "start": 65,
+      "end": 85,
+      "desc": "Mine Exalted Essence Lumps in the Exalted Quarry. This also provides significant crafting experience, and Exalted essence can be used to train Runecrafting from level 65 and above.",
+      "link": "https://runescape.wiki/w/Exalted_Quarry"
+    },
+    {
       "start": 70,
       "end": 80,
       "desc": "Mine phasmatite or necrite",
@@ -1203,6 +1233,12 @@
       "end": 110,
       "desc": "Mine banite ore - This can be made more efficient and AFK by combining a perfect juju mining potion (or perfect plus), with the Explosive perk and the use of Stone Spirits to constantly reset the stamina bar to full.",
       "link": "https://runescape.wiki/w/Banite_ore#Mine_locations"
+    },
+    {
+      "start": 85,
+      "end": 105,
+      "desc": "Mine Exalted Essence Chunks in the Exalted Quarry. This also provides significant crafting experience, and Exalted essence can be used to train Runecrafting from level 65 and above.",
+      "link": "https://runescape.wiki/w/Exalted_Quarry"
     },
     {
       "start": 89,
@@ -1221,6 +1257,12 @@
       "end": 110,
       "desc": "Mine primal ores on Daemonheim - This can be made more efficient and AFK by combining a perfect juju mining potion (or perfect plus), with the Explosive perk and the use of Stone Spirits to constantly reset the stamina bar to full.",
       "link": "https://runescape.wiki/w/Ores#Primal_ores"
+    },
+    {
+      "start": 105,
+      "end": 110,
+      "desc": "Mine Exalted Essence Slabs in the Exalted Quarry. This also provides significant crafting experience, and Exalted essence can be used to train Runecrafting from level 65 and above.",
+      "link": "https://runescape.wiki/w/Exalted_Quarry"
     }
   ],
   "necromancy": [
@@ -1388,9 +1430,15 @@
     },
     {
       "start": 65,
-      "end": 110,
-      "desc": "Runecrafting at your highest level altar via the Abyss.",
-      "link": ""
+      "end": 77,
+      "desc": "Use Exalted Essence at the Death Altar, via the Abyss. This uses essence gradually, resulting in a less active runecrafting training method compared to traditional abyss running, but each essence grants 3x the usual experience and 4x the usual rune output.",
+      "link": "https://runescape.wiki/w/Exalted_essence"
+    },
+    {
+      "start": 77,
+      "end": 100,
+      "desc": "Use Exalted Essence at the Blood Altar, via the Abyss. This uses essence gradually, resulting in a less active runecrafting training method compared to traditional abyss running, but each essence grants 3x the usual experience and 4x the usual rune output.",
+      "link": "https://runescape.wiki/w/Exalted_essence"
     },
     {
       "start": 80,
@@ -1403,6 +1451,12 @@
       "end": 110,
       "desc": "Craft Soul Runes via the Abyss - This yields the highest experience per Pure Essence, which makes it a very good option for Essence-starved players.",
       "link": "https://runescape.wiki/w/Pay-to-play_Runecrafting_training#Runecrafting_at_the_soul_altar"
+    },
+    {
+      "start": 100,
+      "end": 110,
+      "desc": "Use Exalted Essence at the Time Altar on Anachronia. This uses essence gradually, resulting in a less active runecrafting training method compared to traditional abyss running, but each essence grants 3x the usual experience and 4x the usual rune output.",
+      "link": "https://runescape.wiki/w/Exalted_essence"
     },
     {
       "start": 104,
@@ -1552,7 +1606,13 @@
       "start": 60,
       "end": 90,
       "desc": "Kill Flesh-Hatcher Mhekarnahz. This entry-level boss provides 50% more experience for your damage dealt compared to other options, which makes it a strong active training method. If your hit chance is below 100%, consider using a slash weapon and the Dragon Scimitar special attack for improved damage.",
-      "link": ""
+      "link": "https://runescape.wiki/w/Flesh-hatcher_Mhekarnahz"
+    },
+    {
+      "start": 60,
+      "end": 120,
+      "desc": "Kill Bogolins in Fenmoor with a Havensilver halberd +2. This grants 50% extra damage against Bogolins and a huge accuracy boost, resulting in 50-100% more experience per hour than training at the Abyss. This method may be slightly more active because Bogolins deal a decent amount of damage, although some of it can be mitigated by using Antisanguine potions.",
+      "link": "https://runescape.wiki/w/Bogolin"
     },
     {
       "start": 70,
@@ -1645,14 +1705,14 @@
     {
       "start": 1,
       "end": 5,
-      "desc": "Pickpocket men and woman in Lumbridge, or Pompous Merchants in Burthorpe",
-      "link": "https://runescape.wiki/w/Thieving_training"
+      "desc": "Pickpocket men and women in Lumbridge, or Pompous Merchants in Burthorpe",
+      "link": "https://runescape.wiki/w/Man"
     },
     {
       "start": 5,
       "end": 15,
       "desc": "Steal from bakery stalls - This is a good source of early game food.",
-      "link": "https://runescape.wiki/w/Thieving_training"
+      "link": "https://runescape.wiki/w/Bakery_Stall"
     },
     {
       "start": 15,
@@ -1664,42 +1724,42 @@
       "start": 38,
       "end": 46,
       "desc": "Pickpocket Master farmers",
-      "link": ""
+      "link": "https://runescape.wiki/w/Master_Farmer"
     },
     {
       "start": 46,
       "end": 55,
-      "desc": "Pickpocket Menaphos marketeers",
-      "link": ""
+      "desc": "Pickpocket Menaphite marketeers",
+      "link": "https://runescape.wiki/w/Menaphite_marketeer"
     },
     {
       "start": 55,
       "end": 64,
       "desc": "Pickpocket Ardougne knights",
-      "link": ""
+      "link": "https://runescape.wiki/w/Knight_of_Ardougne"
     },
     {
       "start": 64,
       "end": 78,
-      "desc": "Pickpocket Wizard's tower mages",
-      "link": ""
+      "desc": "Pickpocket Wizards' Tower mages",
+      "link": "https://runescape.wiki/w/Wizards%27_Tower_mage"
     },
     {
       "start": 78,
       "end": 83,
       "desc": "Pickpocket Archaeologists",
-      "link": ""
+      "link": "https://runescape.wiki/w/Archaeologist"
     },
     {
       "start": 83,
       "end": 95,
       "desc": "Pickpocket Crux knights",
-      "link": ""
+      "link": "https://runescape.wiki/w/Crux_Eqal_Knight"
     },
     {
       "start": 90,
       "end": 99,
-      "desc": "Pickpocket Dwarf traders with Sticky Fingers Relic and Pickpocketing Bag",
+      "desc": "Pickpocket Dwarf traders",
       "link": "https://runescape.wiki/w/Trader"
     },
     {
@@ -1712,63 +1772,57 @@
       "start": 95,
       "end": 108,
       "desc": "Vault of Hereditas Heist - You may want to wait until level 98 to boost to level 102 with an Abyssal Lurker Scroll, so you can loot the safes. 72 Agility is also recommended for this but is not needed.",
-      "link": ""
+      "link": "https://runescape.wiki/w/Vault_of_Hereditas"
     },
     {
       "start": 104,
       "end": 108,
       "desc": "Pickpocket Menaphos market guard",
-      "link": ""
+      "link": "https://runescape.wiki/w/Menaphos_market_guard"
     },
     {
       "start": 108,
       "end": 120,
-      "desc": "The Arsuran Arsenal Heist - You may want to wait until level 110 to boost to level 114 with an Abyssal Lurker Scroll, so you can loot the safes. This is a dangerous activity, and is not a safe death.",
-      "link": ""
+      "desc": "The Asuran Arsenal Heist - You may want to wait until level 110 to boost to level 114 with an Abyssal Lurker Scroll, so you can loot the safes. This is a dangerous activity, and is not a safe death.",
+      "link": "https://runescape.wiki/w/Asuran_Arsenal"
     },
     {
       "start": 111,
       "end": 113,
       "desc": "Pickpocket TzHaar-Hur traders",
-      "link": ""
+      "link": "https://runescape.wiki/w/TzHaar-Hur_trader"
     },
     {
       "start": 113,
       "end": 118,
       "desc": "Pickpocket Fairy traders",
-      "link": ""
+      "link": "https://runescape.wiki/w/Fairy_trader"
     },
     {
       "start": 118,
       "end": 120,
-      "desc": "Pickpocket Vyre consumers",
-      "link": ""
+      "desc": "Pickpocket Vyrelord consumers",
+      "link": "https://runescape.wiki/w/Vyrelord_consumer"
     }
   ],
   "woodcutting": [
     {
       "start": 1,
       "end": 10,
-      "desc": "Cut Regular Trees in Lumbridge or Burthorpe",
+      "desc": "Chop Regular Trees in Lumbridge or Burthorpe",
       "link": "https://runescape.wiki/w/Pay-to-play_Woodcutting_training"
     },
     {
       "start": 10,
       "end": 20,
-      "desc": "Cut Oak Trees",
+      "desc": "Chop Oak Trees",
       "link": "https://runescape.wiki/w/Oak#Locations"
     },
     {
       "start": 20,
       "end": 40,
-      "desc": "Cut Willow Trees in Draynor Village, or Seers' Village",
+      "desc": "Chop Willow Trees in Draynor Village, or Seers' Village",
       "link": "https://runescape.wiki/w/Willow#Locations"
-    },
-    {
-      "start": 40,
-      "end": 50,
-      "desc": "Cut Maple Trees in Seers' Village",
-      "link": "https://runescape.wiki/w/Maple_Tree#Locations"
     },
     {
       "start": 35,
@@ -1777,34 +1831,64 @@
       "link": ""
     },
     {
+      "start": 40,
+      "end": 50,
+      "desc": "Chop Maple Trees in Seers' Village",
+      "link": "https://runescape.wiki/w/Maple_Tree#Locations"
+    },
+    {
       "start": 50,
       "end": 68,
-      "desc": "Cut Acadia Trees in Menaphos",
+      "desc": "Chop Acadia Trees in Menaphos",
       "link": "https://runescape.wiki/w/Acadia_tree#Locations"
+    },
+    {
+      "start": 65,
+      "end": 85,
+      "desc": "Play the Fenmoor Totems activity, chopping Petrified Roots. This is more active, but provides rewards including the Bogolin Sogtorch, and grants competitive fletching experience for the level bracket at the same time.",
+      "link": "https://runescape.wiki/w/Fenmoor_Totems"
     },
     {
       "start": 68,
       "end": 94,
-      "desc": "Cut Ivy. You may choose to chop other trees if you need logs or wood box upgrades.",
+      "desc": "Chop Ivy. You may choose to chop other trees if you need logs or wood box upgrades.",
       "link": "https://runescape.wiki/w/Pay-to-play_Woodcutting_training"
+    },
+    {
+      "start": 85,
+      "end": 105,
+      "desc": "Play the Fenmoor Totems activity, chopping Petrified Bark. This is more active, but provides rewards including the Bogolin Sogtorch, and grants competitive fletching experience for the level bracket at the same time.",
+      "link": "https://runescape.wiki/w/Fenmoor_Totems"
     },
     {
       "start": 94,
       "end": 96,
-      "desc": "Cut Crystal Trees",
+      "desc": "Chop Crystal Trees",
       "link": ""
     },
     {
       "start": 96,
       "end": 110,
-      "desc": "Cut Golden Bamboo on the arc",
+      "desc": "Chop Golden Bamboo on the arc",
       "link": "https://runescape.wiki/w/Golden_Bamboo_(tree)"
     },
     {
       "start": 100,
       "end": 110,
-      "desc": "Cut eternal magic trees",
+      "desc": "Chop eternal magic trees",
       "link": "https://runescape.wiki/w/Eternal_magic_tree#Locations"
+    },
+    {
+      "start": 103,
+      "end": 110,
+      "desc": "Chop Fenn ivy in Fenmoor. This is extremely low-input, but does not grant any resources.",
+      "link": "https://runescape.wiki/w/Fenn_ivy"
+    },
+    {
+      "start": 105,
+      "end": 110,
+      "desc": "Play the Fenmoor Totems activity, chopping Petrified Wood. This is more active, but provides rewards including the Bogolin Sogtorch, and grants competitive fletching experience for the level bracket at the same time.",
+      "link": "https://runescape.wiki/w/Fenmoor_Totems"
     }
   ]
 }
