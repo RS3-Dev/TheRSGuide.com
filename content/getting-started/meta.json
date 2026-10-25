@@ -3,9 +3,9 @@
     "index",
     "combat-styles",
     "combat-triangle",
+    "damage",
     "prayers-curses",
     "tick-system",
-    "damage",
     "keybinds",
     "combat-settings"
   ]
