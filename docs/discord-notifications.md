@@ -35,5 +35,5 @@ changelog can also be repeated when rerun.
 Run the notification tests locally without sending Discord messages:
 
 ```bash
-node --test .github/scripts/notify-discord.test.mjs
+npx vitest run .github/scripts/notify-discord.test.mjs
 ```

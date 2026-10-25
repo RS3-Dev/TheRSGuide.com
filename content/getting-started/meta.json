@@ -1,15 +1,12 @@
 {
   "pages": [
     "index",
-    "combat-basics",
+    "keybinds",
     "damage",
     "tick-system",
-    "necromancy",
-    "magic",
-    "melee",
-    "ranged",
+    "combat-styles",
     "combat-triangle",
     "prayers-curses",
-    "combat-options"
+    "combat-settings"
   ]
 }
