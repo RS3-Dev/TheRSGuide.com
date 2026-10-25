@@ -1,12 +1,12 @@
 {
   "pages": [
     "index",
-    "keybinds",
-    "damage",
-    "tick-system",
     "combat-styles",
     "combat-triangle",
     "prayers-curses",
+    "tick-system",
+    "damage",
+    "keybinds",
     "combat-settings"
   ]
 }
