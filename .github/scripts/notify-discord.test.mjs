@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import test from 'node:test'
+import { test } from 'vitest'
 import { execFileSync } from 'node:child_process'
 import { buildMessages, notify } from './notify-discord.mjs'
 

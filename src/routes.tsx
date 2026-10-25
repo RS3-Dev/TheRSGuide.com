@@ -14,6 +14,33 @@ const PlayerPage = lazy(() =>
   })),
 )
 
+const gettingStartedRedirects = [
+  { from: '/getting-started/combat-basics', to: '/getting-started' },
+  ...['necromancy', 'magic', 'melee', 'ranged'].map((style) => ({
+    from: `/getting-started/${style}`,
+    to: '/getting-started/combat-styles',
+    section: style,
+  })),
+  { from: '/getting-started/combat-options', to: '/getting-started/combat-settings' },
+]
+
+function LegacyGettingStartedRedirect({
+  from, to, section,
+}: { from: string; to: string; section?: string }) {
+  const { hash, pathname, search } = useLocation()
+
+  return (
+    <Navigate
+      replace
+      to={{
+        pathname: pathname.replace(from, to),
+        hash: hash || (section ? `#${section}` : ''),
+        search,
+      }}
+    />
+  )
+}
+
 function LegacyLeaguesMapRedirect() {
   const { hash, pathname, search } = useLocation()
 
@@ -58,6 +85,13 @@ function AppRoutes() {
         }
       />
       <Route path="/leagues/map/*" element={<LegacyLeaguesMapRedirect />} />
+      {gettingStartedRedirects.map((redirect) => (
+        <Route
+          key={redirect.from}
+          path={`${redirect.from}/*`}
+          element={<LegacyGettingStartedRedirect {...redirect} />}
+        />
+      ))}
       <Route
         path="/leagues/leagues-ii/picker"
         element={<LegacyLeaguesIIRedirect page="picker" />}
