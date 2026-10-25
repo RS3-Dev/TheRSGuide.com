@@ -99,6 +99,12 @@ without requiring a new test.
 
 Maintainers can read the more detailed [testing strategy](docs/testing.md).
 
+## Discord update notifications
+
+The repository includes a workflow that posts a commit changelog to Discord on
+every push to `main`. See [setup and troubleshooting](docs/discord-notifications.md)
+to configure the `DISCORD_WEBHOOK_URL` Actions secret.
+
 ## How guide content works
 
 Guides live in the [`content`](content/) folder as `.mdx` files. MDX is mostly
