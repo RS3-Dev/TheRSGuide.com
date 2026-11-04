@@ -13,11 +13,11 @@ import {
 import { PlayerController } from "@/lib/player-controller"
 import { playerQuestCompleted, playerSkillLevel } from "@/lib/player-profile"
 import { browserPlayerStorage } from "@/lib/player-storage"
-import { runemetricsPlayerAdapter } from "@/lib/runemetrics-player-adapter"
+import { platformPlayerAdapter } from "@/lib/platform-player-adapter"
 
 function PlayerDataProvider({ children }: { children: ReactNode }) {
   const controller = useMemo(
-    () => new PlayerController(runemetricsPlayerAdapter, browserPlayerStorage),
+    () => new PlayerController(platformPlayerAdapter, browserPlayerStorage),
     []
   )
   const state = useSyncExternalStore(

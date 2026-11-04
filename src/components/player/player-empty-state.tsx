@@ -32,7 +32,7 @@ function PlayerEmptyState({
         </EmptyTitle>
         <EmptyDescription className="max-w-[44rem] text-[1.02rem] leading-[1.65]">
           {error
-            ? `${error}. Check the spelling and make sure the RuneMetrics profile is public.`
+            ? `${error}. Check the spelling and whether the player appears in RuneScape Hiscores.`
             : "Enter a RuneScape username to compare its levels and completed quests against every early, mid, and late game recommendation in the guide."}
         </EmptyDescription>
       </EmptyHeader>

@@ -36,7 +36,7 @@ function RecommendationRow({
     recommendation.status === "completed"
       ? isManuallyTrackable
         ? "Confirmed by you"
-        : "Confirmed by RuneMetrics"
+        : "Confirmed by RuneScape"
       : recommendation.status === "locked"
         ? `Needs ${recommendation.missing.slice(0, 2).join(" Â· ")}${
             recommendation.missing.length > 2

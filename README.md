@@ -146,8 +146,17 @@ npm start
 ```
 
 `npm start` serves the compiled site, supports direct links to guide pages, and
-exposes `/api/player/:username` for RuneMetrics requests. Set `PORT` to change
+exposes `/api/player/:username` for RuneScape Platform API lookups. Set `PORT` to change
 the default port of `4173`.
+
+Player lookups combine [Hiscores Index Lite](https://developer.runescape.com/platform/modules/hiscores/index-lite.html)
+for skills with [Adventurer's Log Player Quests](https://developer.runescape.com/platform/modules/adventurers-log/player-quests.html)
+for quest completion. No API key is required. Successful responses are cached on
+the server for one minute, and simultaneous lookups for the same player share an
+upstream request. Quest updates can take up to ten minutes to appear upstream.
+Players must appear in the main RuneScape Hiscores to load skills; when quest
+data is unavailable for a non-member or hidden player, skills still load and
+quest completion remains unknown. These lookups cover the main game, not Leagues.
 
 The following environment variables are used by production deployments:
 
