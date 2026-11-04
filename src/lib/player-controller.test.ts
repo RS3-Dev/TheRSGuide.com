@@ -22,6 +22,31 @@ const memoryPlayerStorage = (lastSearch = ''): PlayerStorage => {
 }
 
 describe('PlayerController', () => {
+  it('loads an explicit player instead of the saved search on start', async () => {
+    const loaded: string[] = []
+    const controller = new PlayerController({
+      load: async (username) => { loaded.push(username); return profile(username) },
+    }, memoryPlayerStorage("I'm Josh J"))
+
+    controller.start('GIM Chronic')
+    await Promise.resolve()
+
+    expect(loaded).toEqual(['GIM Chronic'])
+    expect(controller.getSnapshot().playerData?.username).toBe('GIM Chronic')
+  })
+
+  it('clears previous player data while a new player is loading', async () => {
+    const controller = new PlayerController({
+      load: async (username) => profile(username),
+    }, memoryPlayerStorage())
+    await controller.search("I'm Josh J")
+
+    const next = controller.search('GIM Chronic')
+    expect(controller.getSnapshot()).toMatchObject({ playerData: null, loading: true })
+    await next
+    expect(controller.getSnapshot().playerData?.username).toBe('GIM Chronic')
+  })
+
   it('keeps only the latest lookup result even when an adapter resolves out of order', async () => {
     const pending = new Map<string, (value: PlayerProfile) => void>()
     const adapter: PlayerProfileAdapter = {

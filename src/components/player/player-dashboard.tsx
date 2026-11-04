@@ -45,7 +45,7 @@ function PlayerDashboard() {
           <>
             <PlayerProfile username={visiblePlayerData.username} />
             <p className="mt-4 mb-7 max-w-3xl text-[.78rem] leading-[1.5] text-muted-foreground">
-              Quest completion comes from RuneMetrics. Check off other unlocks
+              Quest completion comes from RuneScape. Check off other unlocks
               yourself.
             </p>
             <PlayerProgressionGrid

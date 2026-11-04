@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { useSearchParams } from "react-router"
 
 import { usePlayerData } from "@/components/player/player-data-context"
@@ -23,8 +23,7 @@ type PlayerDashboardState = {
 function usePlayerDashboard(): PlayerDashboardState {
   const [searchParams] = useSearchParams()
   const requestedUsername = searchParams.get("username")?.trim() ?? ""
-  const { playerData, loading, error, searchPlayer } = usePlayerData()
-  const requestedRef = useRef("")
+  const { playerData, loading, error } = usePlayerData()
   const visiblePlayerData =
     playerData &&
     (!requestedUsername ||
@@ -42,17 +41,6 @@ function usePlayerDashboard(): PlayerDashboardState {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [visiblePlayerData])
-
-  useEffect(() => {
-    if (!requestedUsername || visiblePlayerData) return
-    if (
-      requestedRef.current.toLowerCase() === requestedUsername.toLowerCase()
-    ) {
-      return
-    }
-    requestedRef.current = requestedUsername
-    void searchPlayer(requestedUsername)
-  }, [requestedUsername, searchPlayer, visiblePlayerData])
 
   useEffect(() => {
     if (!visiblePlayerData) return

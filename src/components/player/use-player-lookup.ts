@@ -43,10 +43,11 @@ function usePlayerLookup({
   useEffect(() => {
     if (previousExplicitValueRef.current === explicitValue) return
     previousExplicitValueRef.current = explicitValue
+    clearPendingLookup()
     if (!explicitValue) return
     userEditedRef.current = false
     setValue(explicitValue)
-  }, [explicitValue])
+  }, [clearPendingLookup, explicitValue])
 
   useEffect(() => {
     if (!lastSearch || value || userEditedRef.current) return

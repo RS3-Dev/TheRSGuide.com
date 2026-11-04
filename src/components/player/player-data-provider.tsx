@@ -5,6 +5,7 @@ import {
   useSyncExternalStore,
   type ReactNode,
 } from "react"
+import { useSearchParams } from "react-router"
 
 import {
   PlayerDataContext,
@@ -13,11 +14,13 @@ import {
 import { PlayerController } from "@/lib/player-controller"
 import { playerQuestCompleted, playerSkillLevel } from "@/lib/player-profile"
 import { browserPlayerStorage } from "@/lib/player-storage"
-import { runemetricsPlayerAdapter } from "@/lib/runemetrics-player-adapter"
+import { platformPlayerAdapter } from "@/lib/platform-player-adapter"
 
 function PlayerDataProvider({ children }: { children: ReactNode }) {
+  const [searchParams] = useSearchParams()
+  const requestedUsername = searchParams.get("username")?.trim() ?? ""
   const controller = useMemo(
-    () => new PlayerController(runemetricsPlayerAdapter, browserPlayerStorage),
+    () => new PlayerController(platformPlayerAdapter, browserPlayerStorage),
     []
   )
   const state = useSyncExternalStore(
@@ -27,9 +30,9 @@ function PlayerDataProvider({ children }: { children: ReactNode }) {
   )
 
   useEffect(() => {
-    controller.start()
+    controller.start(requestedUsername)
     return controller.stop
-  }, [controller])
+  }, [controller, requestedUsername])
 
   const searchPlayer = useCallback(
     async (username: string) => {
