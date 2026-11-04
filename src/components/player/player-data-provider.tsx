@@ -5,6 +5,7 @@ import {
   useSyncExternalStore,
   type ReactNode,
 } from "react"
+import { useSearchParams } from "react-router"
 
 import {
   PlayerDataContext,
@@ -16,6 +17,8 @@ import { browserPlayerStorage } from "@/lib/player-storage"
 import { platformPlayerAdapter } from "@/lib/platform-player-adapter"
 
 function PlayerDataProvider({ children }: { children: ReactNode }) {
+  const [searchParams] = useSearchParams()
+  const requestedUsername = searchParams.get("username")?.trim() ?? ""
   const controller = useMemo(
     () => new PlayerController(platformPlayerAdapter, browserPlayerStorage),
     []
@@ -27,9 +30,9 @@ function PlayerDataProvider({ children }: { children: ReactNode }) {
   )
 
   useEffect(() => {
-    controller.start()
+    controller.start(requestedUsername)
     return controller.stop
-  }, [controller])
+  }, [controller, requestedUsername])
 
   const searchPlayer = useCallback(
     async (username: string) => {

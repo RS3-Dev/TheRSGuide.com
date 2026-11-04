@@ -43,14 +43,15 @@ export class PlayerController {
     return () => this.#listeners.delete(listener)
   }
 
-  start = () => {
+  start = (requestedUsername = '') => {
     if (this.#active) return
     this.#active = true
     const lastSearch = this.#storage.loadLastSearch()
     if (lastSearch !== this.#state.lastSearch) {
       this.#update({ lastSearch })
     }
-    if (lastSearch) void this.search(lastSearch)
+    const username = normalizeUsername(requestedUsername) || lastSearch
+    if (username) void this.search(username)
   }
 
   stop = () => {
@@ -69,7 +70,7 @@ export class PlayerController {
     this.#abortController?.abort()
     const abortController = new AbortController()
     this.#abortController = abortController
-    this.#update({ loading: true, error: null })
+    this.#update({ playerData: null, loading: true, error: null })
 
     try {
       const playerData = await this.#adapter.load(normalizedUsername, abortController.signal)
