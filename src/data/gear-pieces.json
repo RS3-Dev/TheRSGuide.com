@@ -1,0 +1,2469 @@
+{
+  "weapons": {
+    "Reeses' Swords": {
+      "main": {
+        "name": "Reese's sword",
+        "config": "LUMBCAT_SWORD"
+      },
+      "offhand": {
+        "name": "Reese's off-hand sword",
+        "config": "LUMBCAT_SWORD_O"
+      }
+    },
+    "Mithril Halberd": {
+      "main": {
+        "name": "Mithril halberd",
+        "config": "MITHRIL_HALBERD",
+        "requires": {
+          "attack": 30
+        }
+      }
+    },
+    "Adamant Halberd": {
+      "main": {
+        "name": "Adamant halberd",
+        "config": "ADAMANT_HALBERD",
+        "requires": {
+          "attack": 40
+        }
+      }
+    },
+    "Rune Halberd": {
+      "main": {
+        "name": "Rune halberd",
+        "config": "RUNE_HALBERD",
+        "requires": {
+          "attack": 50
+        }
+      }
+    },
+    "Dragon Halberd": {
+      "main": {
+        "name": "Dragon halberd",
+        "config": "DRAGON_HALBERD",
+        "requires": {
+          "attack": 60
+        }
+      }
+    },
+    "Crystal Halberd": {
+      "main": {
+        "name": "Crystal halberd",
+        "config": "ELFCITY_CRYSTAL_HALBERD_100",
+        "requires": {
+          "attack": 70,
+          "agility": 50
+        }
+      }
+    },
+    "Laniakea's Spear": {
+      "main": {
+        "name": "Laniakea's spear",
+        "config": "DINO_SLAYER_LANIAKEA_SPEAR",
+        "requires": {
+          "attack": 82
+        }
+      }
+    },
+    "Dragon Rider Lance": {
+      "main": {
+        "name": "Dragon Rider lance",
+        "config": "GWD2_DRAGON_RIDER_LANCE_100",
+        "requires": {
+          "attack": 85
+        }
+      }
+    },
+    "Noxious Scythe": {
+      "main": {
+        "name": "Noxious scythe",
+        "config": "SB_MELEE_WEAPON_NEW",
+        "requires": {
+          "attack": 90
+        }
+      }
+    },
+    "Tumeken's Light": {
+      "main": {
+        "name": "Tumeken's Light",
+        "config": "MELEE_DEVOURER_HALBERD_T95",
+        "requires": {
+          "attack": 95
+        }
+      }
+    },
+    "Mithril Swords": {
+      "main": {
+        "name": "Mithril sword",
+        "config": "MITHRIL_SWORD",
+        "requires": {
+          "attack": 30
+        }
+      },
+      "offhand": {
+        "name": "Mithril off hand sword",
+        "config": "MITHRIL_SWORD_O",
+        "requires": {
+          "attack": 30
+        }
+      }
+    },
+    "Adamant Swords": {
+      "main": {
+        "name": "Adamant sword",
+        "config": "ADAMANT_SWORD",
+        "requires": {
+          "attack": 40
+        }
+      },
+      "offhand": {
+        "name": "Adamant off hand sword",
+        "config": "ADAMANT_SWORD_O",
+        "requires": {
+          "attack": 40
+        }
+      }
+    },
+    "Rune Swords": {
+      "main": {
+        "name": "Rune sword",
+        "config": "RUNE_SWORD",
+        "requires": {
+          "attack": 50
+        }
+      },
+      "offhand": {
+        "name": "Rune off hand sword",
+        "config": "RUNE_SWORD_O",
+        "requires": {
+          "attack": 50
+        }
+      }
+    },
+    "Dragon Scimitars": {
+      "main": {
+        "name": "Dragon scimitar",
+        "config": "DRAGON_SCIMITAR",
+        "requires": {
+          "attack": 60
+        }
+      },
+      "offhand": {
+        "name": "Off-hand dragon scimitar",
+        "config": "DRAGON_SCIMITAR_O",
+        "requires": {
+          "attack": 60
+        }
+      }
+    },
+    "Necronium Battleaxe +4": {
+      "main": {
+        "name": "Necronium battleaxe + 4",
+        "config": "NECRONIUM_BATTLEAXE_UPGRADE_4",
+        "requires": {
+          "attack": 70
+        },
+        "oneHanded": true
+      }
+    },
+    "Vanquish@melee": {
+      "main": {
+        "name": "Vanquish (melee)",
+        "config": "QPS_REWARD_WEAPON_MELEE",
+        "requires": {
+          "attack": 75
+        }
+      }
+    },
+    "Vanquish@ranged": {
+      "main": {
+        "name": "Vanquish (ranged)",
+        "config": "QPS_REWARD_WEAPON_RANGED",
+        "requires": {
+          "ranged": 75
+        }
+      }
+    },
+    "Vanquish@magic": {
+      "main": {
+        "name": "Vanquish (magic)",
+        "config": "QPS_REWARD_WEAPON_MAGIC",
+        "requires": {
+          "magic": 75
+        }
+      }
+    },
+    "Sunspear@melee": {
+      "main": {
+        "name": "Sunspear (melee)",
+        "config": "MYQ7_SUNSPEAR_MELEE",
+        "requires": {
+          "attack": 78
+        }
+      }
+    },
+    "Sunspear@ranged": {
+      "main": {
+        "name": "Sunspear (ranged)",
+        "config": "MYQ7_SUNSPEAR_RANGED",
+        "requires": {
+          "ranged": 78
+        }
+      }
+    },
+    "Sunspear@magic": {
+      "main": {
+        "name": "Sunspear (magic)",
+        "config": "MYQ7_SUNSPEAR_MAGIC",
+        "requires": {
+          "magic": 78
+        }
+      }
+    },
+    "Bane Longswords +4": {
+      "main": {
+        "name": "Bane longsword + 4",
+        "config": "BANE_LONGSWORD_UPGRADE_4",
+        "requires": {
+          "attack": 80
+        }
+      },
+      "offhand": {
+        "name": "Bane off hand longsword + 4",
+        "config": "BANE_LONGSWORD_O_UPGRADE_4",
+        "requires": {
+          "attack": 80
+        }
+      }
+    },
+    "Chaotic Longswords": {
+      "main": {
+        "name": "Chaotic longsword",
+        "config": "RAND_LONGSWORD_80_REWARD",
+        "requires": {
+          "attack": 80
+        }
+      },
+      "offhand": {
+        "name": "Off-hand chaotic longsword",
+        "config": "RAND_LONGSWORD_80_REWARD_O",
+        "requires": {
+          "attack": 80
+        }
+      }
+    },
+    "Dark Ice Shard and Sliver": {
+      "main": {
+        "name": "Dark ice shard",
+        "config": "EGWD_WEN_BOSS_MELEE_WEAPON_NEW",
+        "requires": {
+          "attack": 85
+        }
+      },
+      "offhand": {
+        "name": "Dark ice sliver",
+        "config": "EGWD_WEN_BOSS_MELEE_WEAPON_O_NEW",
+        "requires": {
+          "attack": 85
+        }
+      }
+    },
+    "Ruinous Rapier + Off-hand Ruinous Rapier": {
+      "main": {
+        "name": "Ruinous rapier",
+        "config": "RAND_RAPIER_90_REWARD",
+        "requires": {
+          "attack": 90
+        }
+      },
+      "offhand": {
+        "name": "Off-hand ruinous rapier",
+        "config": "RAND_RAPIER_90_REWARD_O",
+        "requires": {
+          "attack": 90
+        }
+      }
+    },
+    "Drygore Longswords": {
+      "main": {
+        "name": "Drygore longsword",
+        "config": "KK_LONGSWORD_100",
+        "requires": {
+          "attack": 90
+        }
+      },
+      "offhand": {
+        "name": "Off-hand drygore longsword",
+        "config": "KK_LONGSWORD_O_100",
+        "requires": {
+          "attack": 90
+        }
+      }
+    },
+    "Masterwork Spear of Annihilation": {
+      "main": {
+        "name": "Masterwork Spear of Annihilation",
+        "config": "ARCH_WARFORGE_SPEAR_UPGRADED_NEW",
+        "requires": {
+          "attack": 92
+        }
+      }
+    },
+    "Scourge of the Abyss": {
+      "main": {
+        "name": "Abyssal scourge",
+        "config": "ABYSSALS_ABYSSAL_WHIP_NEW",
+        "requires": {
+          "attack": 92
+        },
+        "oneHanded": true
+      }
+    },
+    "Dark Shard and Sliver of Leng": {
+      "main": {
+        "name": "Dark Shard of Leng",
+        "config": "EGWD_WEN_BOSS_MELEE_WEAPON_HM_NEW",
+        "requires": {
+          "attack": 95
+        }
+      },
+      "offhand": {
+        "name": "Dark Sliver of Leng",
+        "config": "EGWD_WEN_BOSS_MELEE_WEAPON_HM_O_NEW",
+        "requires": {
+          "attack": 95
+        }
+      }
+    },
+    "Ek-Zekkil": {
+      "main": {
+        "name": "Ek-ZekKil",
+        "config": "EGWD_FUL_BOSS_MELEE_WEAPON_NEW",
+        "requires": {
+          "strength": 95
+        }
+      }
+    },
+    "Kayle's Chargebow": {
+      "main": {
+        "name": "Kayle's chargebow",
+        "config": "LUMBCAT_BOW"
+      }
+    },
+    "Maple Shortbow": {
+      "main": {
+        "name": "Maple shortbow",
+        "config": "MAPLE_SHORTBOW",
+        "requires": {
+          "ranged": 40
+        }
+      }
+    },
+    "Grey Chinchompa + Offhand Adamant Crossbow": {
+      "main": {
+        "name": "Chinchompa",
+        "config": "CHINCHOMPA_CAPTURED",
+        "requires": {
+          "ranged": 45
+        }
+      },
+      "offhand": {
+        "name": "Off-hand adamant crossbow",
+        "config": "XBOWS_CROSSBOW_ADAMANTITE_O",
+        "requires": {
+          "ranged": 40
+        }
+      }
+    },
+    "Red Chinchompa + Offhand Rune Crossbow": {
+      "main": {
+        "name": "Red chinchompa",
+        "config": "CHINCHOMPA_BIG_CAPTURED",
+        "requires": {
+          "ranged": 55
+        }
+      },
+      "offhand": {
+        "name": "Off-hand rune crossbow",
+        "config": "XBOWS_CROSSBOW_RUNITE_O",
+        "requires": {
+          "ranged": 50
+        }
+      }
+    },
+    "Mechanized Chinchompas + Offhand Armadyl Crossbow": {
+      "main": {
+        "name": "Mechanised chinchompa",
+        "config": "INVENT_MECHANISED_CHINCHOMPA",
+        "requires": {
+          "ranged": 75
+        }
+      },
+      "offhand": {
+        "name": "Off-hand Armadyl crossbow",
+        "config": "GODWARS_ARMADYL_CROSSBOW_O",
+        "requires": {
+          "ranged": 75
+        }
+      }
+    },
+    "Mechanized Chinchompas + Offhand Ruinous Crossbow": {
+      "main": {
+        "name": "Mechanised chinchompa",
+        "config": "INVENT_MECHANISED_CHINCHOMPA",
+        "requires": {
+          "ranged": 75
+        }
+      },
+      "offhand": {
+        "name": "Off-hand ruinous crossbow",
+        "config": "RAND_XBOW_90_REWARD_O",
+        "requires": {
+          "ranged": 90
+        }
+      }
+    },
+    "Mechanized Chinchompas + Offhand Blightbound Crossbow": {
+      "main": {
+        "name": "Mechanised chinchompa",
+        "config": "INVENT_MECHANISED_CHINCHOMPA",
+        "requires": {
+          "ranged": 75
+        }
+      },
+      "offhand": {
+        "name": "Off-hand Blightbound crossbow",
+        "config": "NATURE_BOSS_CROSSBOW_OFFHAND_NEW",
+        "requires": {
+          "ranged": 92
+        }
+      }
+    },
+    "Rune Crossbows": {
+      "main": {
+        "name": "Rune crossbow",
+        "config": "XBOWS_CROSSBOW_RUNITE",
+        "requires": {
+          "ranged": 50
+        }
+      },
+      "offhand": {
+        "name": "Off-hand rune crossbow",
+        "config": "XBOWS_CROSSBOW_RUNITE_O",
+        "requires": {
+          "ranged": 50
+        }
+      }
+    },
+    "Red Salamander": {
+      "main": {
+        "name": "Red salamander",
+        "config": "RED_SALAMANDER",
+        "requires": {
+          "ranged": 60
+        }
+      }
+    },
+    "Black Salamander": {
+      "main": {
+        "name": "Black salamander",
+        "config": "BLACK_SALAMANDER",
+        "requires": {
+          "ranged": 70
+        }
+      }
+    },
+    "Crystal Bow": {
+      "main": {
+        "name": "Crystal bow",
+        "config": "ELFCITY_CRYSTAL_BOW_100",
+        "requires": {
+          "ranged": 70,
+          "agility": 50
+        }
+      }
+    },
+    "Royal Crossbow": {
+      "main": {
+        "name": "Royal crossbow",
+        "config": "QBD2_CROSSBOW_FORGED",
+        "requires": {
+          "ranged": 80
+        }
+      }
+    },
+    "Attuned Crystal Bow": {
+      "main": {
+        "name": "Attuned crystal bow",
+        "config": "ELFCITY_CRYSTAL_BOW_ATTUNED_100",
+        "requires": {
+          "ranged": 80,
+          "agility": 50
+        }
+      }
+    },
+    "Wyvern Crossbow": {
+      "main": {
+        "name": "Wyvern crossbow",
+        "config": "HLM_WYVERN_CROSSBOW",
+        "requires": {
+          "ranged": 85
+        }
+      }
+    },
+    "Decimation Bow": {
+      "main": {
+        "name": "Decimation",
+        "config": "DMBH_WEAPON_RANGED_NEW",
+        "requires": {
+          "ranged": 87
+        }
+      }
+    },
+    "Noxious Longbow": {
+      "main": {
+        "name": "Noxious longbow",
+        "config": "SB_RANGED_WEAPON_NEW",
+        "requires": {
+          "ranged": 90
+        }
+      }
+    },
+    "Ruinous Crossbow + Off-hand Ruinous Crossbow": {
+      "main": {
+        "name": "Ruinous crossbow",
+        "config": "RAND_XBOW_90_REWARD",
+        "requires": {
+          "ranged": 90
+        }
+      },
+      "offhand": {
+        "name": "Off-hand ruinous crossbow",
+        "config": "RAND_XBOW_90_REWARD_O",
+        "requires": {
+          "ranged": 90
+        }
+      }
+    },
+    "Gloomfire Bow": {
+      "main": {
+        "name": "Gloomfire bow",
+        "config": "RANGED_DARKBOW_T90",
+        "requires": {
+          "ranged": 90
+        }
+      }
+    },
+    "Seren Godbow": {
+      "main": {
+        "name": "Seren godbow",
+        "config": "GWD2_SOLO_RANGED_WEAPON_NEW",
+        "requires": {
+          "ranged": 92
+        }
+      }
+    },
+    "Bow of the Last Guardian": {
+      "main": {
+        "name": "Bow of the Last Guardian",
+        "config": "EGWD_ZAMORAK_BOSS_RANGED_WEAPON_NEW",
+        "requires": {
+          "ranged": 95
+        }
+      }
+    },
+    "Caitlyn's Staff": {
+      "main": {
+        "name": "Caitlin's staff",
+        "config": "LUMBCAT_STAFF"
+      }
+    },
+    "Batwing Wand + Batwing Book": {
+      "main": {
+        "name": "Batwing wand",
+        "config": "BAT_WAND",
+        "requires": {
+          "magic": 30
+        }
+      },
+      "offhand": {
+        "name": "Batwing book",
+        "config": "BAT_SPELLBOOK",
+        "requires": {
+          "magic": 30
+        }
+      }
+    },
+    "Mystic Wand + Mystic Orb": {
+      "main": {
+        "name": "Mystic wand",
+        "config": "MYSTIC_WAND",
+        "requires": {
+          "magic": 50
+        }
+      },
+      "offhand": {
+        "name": "Mystic orb",
+        "config": "MYSTIC_ORB",
+        "requires": {
+          "magic": 50
+        }
+      }
+    },
+    "Guthix Staff": {
+      "main": {
+        "name": "Guthix staff",
+        "config": "GUTHIX_STAFF",
+        "requires": {
+          "magic": 60
+        }
+      }
+    },
+    "Abyssal Wand + Abyssal Orb": {
+      "main": {
+        "name": "Abyssal wand",
+        "config": "DT14_ABYSSAL_WAND",
+        "requires": {
+          "magic": 75
+        }
+      },
+      "offhand": {
+        "name": "Abyssal orb",
+        "config": "DT14_ABYSSAL_ORB",
+        "requires": {
+          "magic": 75
+        }
+      }
+    },
+    "Chaotic Staff": {
+      "main": {
+        "name": "Chaotic staff",
+        "config": "RAND_STAFF_80_REWARD",
+        "requires": {
+          "magic": 80
+        }
+      }
+    },
+    "Virtus Wand + Virtus Book": {
+      "main": {
+        "name": "Virtus wand",
+        "config": "GODWARS2_WAND",
+        "requires": {
+          "magic": 80
+        }
+      },
+      "offhand": {
+        "name": "Virtus book",
+        "config": "GODWARS2_MAGIC_BOOK",
+        "requires": {
+          "magic": 80
+        }
+      }
+    },
+    "Wand of the Cywir Elders + Orb of the Cywir Elders": {
+      "main": {
+        "name": "Wand of the Cywir elders",
+        "config": "GWD2_ANTLER_WAND_100",
+        "requires": {
+          "magic": 85
+        }
+      },
+      "offhand": {
+        "name": "Orb of the Cywir elders",
+        "config": "GWD2_ANTLER_ORB_100",
+        "requires": {
+          "magic": 85
+        }
+      }
+    },
+    "Obliteration Staff": {
+      "main": {
+        "name": "Obliteration",
+        "config": "DMBH_WEAPON_MAGIC_NEW",
+        "requires": {
+          "magic": 87
+        }
+      }
+    },
+    "Seismic Wand + Seismic Singularity": {
+      "main": {
+        "name": "Seismic wand",
+        "config": "LRC2_MAGIC_WAND_NEW",
+        "requires": {
+          "magic": 90
+        }
+      },
+      "offhand": {
+        "name": "Seismic singularity",
+        "config": "LRC2_MAGIC_OFFHAND_NEW",
+        "requires": {
+          "magic": 90
+        }
+      }
+    },
+    "Noxious Staff": {
+      "main": {
+        "name": "Noxious staff",
+        "config": "SB_MAGIC_WEAPON_NEW",
+        "requires": {
+          "magic": 90
+        }
+      }
+    },
+    "Ruinous Staff": {
+      "main": {
+        "name": "Ruinous staff",
+        "config": "RAND_STAFF_90_REWARD",
+        "requires": {
+          "magic": 90
+        }
+      }
+    },
+    "Legatus Emberstaff": {
+      "main": {
+        "name": "Legatus's Emberstaff",
+        "config": "MAGIC_ZAMORAK_STAFF_T90",
+        "requires": {
+          "magic": 90
+        }
+      }
+    },
+    "Roar of Awakening + Ode to Deceit": {
+      "main": {
+        "name": "Roar of Awakening",
+        "config": "MAGIC_DEVOURER_WAND_T95",
+        "requires": {
+          "magic": 95
+        }
+      },
+      "offhand": {
+        "name": "Ode to Deceit",
+        "config": "MAGIC_DEVOURER_ORB_T95",
+        "requires": {
+          "magic": 95
+        }
+      }
+    },
+    "Fractured Staff of Armadyl": {
+      "main": {
+        "name": "Fractured Staff of Armadyl",
+        "config": "EGWD_JAS_BOSS_MAGIC_WEAPON_NEW",
+        "requires": {
+          "magic": 95
+        }
+      }
+    },
+    "Ruinous Guard + Ruinous Lantern": {
+      "main": {
+        "name": "Ruinous guard",
+        "config": "RAND_ARMGUARD_90_REWARD",
+        "requires": {
+          "necromancy": 90
+        }
+      },
+      "offhand": {
+        "name": "Ruinous lantern",
+        "config": "RAND_LANTERN_90_REWARD",
+        "requires": {
+          "necromancy": 90
+        }
+      }
+    },
+    "Omni Guard + Soulbound Lantern": {
+      "main": {
+        "name": "Omni guard",
+        "config": "NECRO_RASIAL_ARMGUARD_T95",
+        "requires": {
+          "necromancy": 95
+        }
+      },
+      "offhand": {
+        "name": "Soulbound lantern",
+        "config": "NECRO_RASIAL_LANTERN_T95",
+        "requires": {
+          "necromancy": 95
+        }
+      }
+    },
+    "Death Guard + Skull Lantern@T1": {
+      "main": {
+        "name": "Death guard",
+        "config": "NECRO_UNDERWORLD_ARMGUARD_T1"
+      },
+      "offhand": {
+        "name": "Skull lantern",
+        "config": "NECRO_UNDERWORLD_LANTERN_T1"
+      }
+    },
+    "Death Guard + Skull Lantern@T20": {
+      "main": {
+        "name": "Death guard",
+        "config": "NECRO_UNDERWORLD_ARMGUARD_T20",
+        "requires": {
+          "necromancy": 20
+        }
+      },
+      "offhand": {
+        "name": "Skull lantern",
+        "config": "NECRO_UNDERWORLD_LANTERN_T20",
+        "requires": {
+          "necromancy": 20
+        }
+      }
+    },
+    "Death Guard + Skull Lantern@T40": {
+      "main": {
+        "name": "Death guard",
+        "config": "NECRO_UNDERWORLD_ARMGUARD_T40",
+        "requires": {
+          "necromancy": 40
+        }
+      },
+      "offhand": {
+        "name": "Skull lantern",
+        "config": "NECRO_UNDERWORLD_LANTERN_T40",
+        "requires": {
+          "necromancy": 40
+        }
+      }
+    },
+    "Death Guard + Skull Lantern@T60": {
+      "main": {
+        "name": "Death guard",
+        "config": "NECRO_UNDERWORLD_ARMGUARD_T60",
+        "requires": {
+          "necromancy": 60
+        }
+      },
+      "offhand": {
+        "name": "Skull lantern",
+        "config": "NECRO_UNDERWORLD_LANTERN_T60",
+        "requires": {
+          "necromancy": 60
+        }
+      }
+    },
+    "Death Guard + Skull Lantern@T70": {
+      "main": {
+        "name": "Death guard",
+        "config": "NECRO_UNDERWORLD_ARMGUARD_T70",
+        "requires": {
+          "necromancy": 70
+        }
+      },
+      "offhand": {
+        "name": "Skull lantern",
+        "config": "NECRO_UNDERWORLD_LANTERN_T70",
+        "requires": {
+          "necromancy": 70
+        }
+      }
+    },
+    "Death Guard + Skull Lantern@T80": {
+      "main": {
+        "name": "Death guard",
+        "config": "NECRO_UNDERWORLD_ARMGUARD_T80",
+        "requires": {
+          "necromancy": 80
+        }
+      },
+      "offhand": {
+        "name": "Skull lantern",
+        "config": "NECRO_UNDERWORLD_LANTERN_T80",
+        "requires": {
+          "necromancy": 80
+        }
+      }
+    },
+    "Death Guard + Skull Lantern@T90": {
+      "main": {
+        "name": "Death guard",
+        "config": "NECRO_UNDERWORLD_ARMGUARD_T90",
+        "requires": {
+          "necromancy": 90
+        }
+      },
+      "offhand": {
+        "name": "Skull lantern",
+        "config": "NECRO_UNDERWORLD_LANTERN_T90",
+        "requires": {
+          "necromancy": 90
+        }
+      }
+    }
+  },
+  "armour": {
+    "Bronze Armour": {
+      "head": {
+        "name": "Bronze full helm",
+        "config": "BRONZE_FULL_HELM"
+      },
+      "body": {
+        "name": "Bronze platebody",
+        "config": "BRONZE_PLATEBODY"
+      },
+      "legs": {
+        "name": "Bronze platelegs",
+        "config": "BRONZE_PLATELEGS"
+      },
+      "hands": {
+        "name": "Bronze gauntlets",
+        "config": "BRONZE_HANDGUARDS"
+      },
+      "feet": {
+        "name": "Bronze armoured boots",
+        "config": "BRONZE_ARMOURED_BOOTS"
+      }
+    },
+    "Mithril Armour": {
+      "head": {
+        "name": "Mithril full helm",
+        "config": "MITHRIL_FULL_HELM",
+        "requires": {
+          "defence": 30
+        }
+      },
+      "body": {
+        "name": "Mithril platebody",
+        "config": "MITHRIL_PLATEBODY",
+        "requires": {
+          "defence": 30
+        }
+      },
+      "legs": {
+        "name": "Mithril platelegs",
+        "config": "MITHRIL_PLATELEGS",
+        "requires": {
+          "defence": 30
+        }
+      },
+      "hands": {
+        "name": "Mithril gauntlets",
+        "config": "MITHRIL_HANDGUARDS",
+        "requires": {
+          "defence": 30
+        }
+      },
+      "feet": {
+        "name": "Mithril armoured boots",
+        "config": "MITHRIL_ARMOURED_BOOTS",
+        "requires": {
+          "defence": 30
+        }
+      }
+    },
+    "Rune Armour": {
+      "head": {
+        "name": "Rune full helm",
+        "config": "RUNE_FULL_HELM",
+        "requires": {
+          "defence": 50
+        }
+      },
+      "body": {
+        "name": "Rune platebody",
+        "config": "RUNE_PLATEBODY",
+        "requires": {
+          "defence": 50
+        }
+      },
+      "legs": {
+        "name": "Rune platelegs",
+        "config": "RUNE_PLATELEGS",
+        "requires": {
+          "defence": 50
+        }
+      },
+      "hands": {
+        "name": "Rune gauntlets",
+        "config": "RUNE_HANDGUARDS",
+        "requires": {
+          "defence": 50
+        }
+      },
+      "feet": {
+        "name": "Rune armoured boots",
+        "config": "RUNE_ARMOURED_BOOTS",
+        "requires": {
+          "defence": 50
+        }
+      }
+    },
+    "Bandos Armour": {
+      "head": {
+        "name": "Bandos helmet",
+        "config": "GODWARS_BANDOS_HELM",
+        "requires": {
+          "defence": 70
+        }
+      },
+      "body": {
+        "name": "Bandos chestplate",
+        "config": "GODWARS_ARMOR_BANDOS_CHESTPLATE",
+        "requires": {
+          "defence": 70
+        }
+      },
+      "legs": {
+        "name": "Bandos tassets",
+        "config": "GODWARS_ARMOR_BANDOS_ARMORED_SKIRT",
+        "requires": {
+          "defence": 70
+        }
+      },
+      "hands": {
+        "name": "Bandos gloves",
+        "config": "GODWARS_BANDOS_GLOVES",
+        "requires": {
+          "defence": 70
+        }
+      },
+      "feet": {
+        "name": "Bandos boots",
+        "config": "GODWARS_ARMOR_BANDOS_ARMORED_BOOTS",
+        "requires": {
+          "defence": 70
+        }
+      }
+    },
+    "Barrows Armour": {
+      "head": {
+        "name": "Dharok's helm",
+        "config": "BARROWS_DHAROK_HEAD",
+        "requires": {
+          "defence": 70
+        }
+      },
+      "body": {
+        "name": "Dharok's platebody",
+        "config": "BARROWS_DHAROK_BODY",
+        "requires": {
+          "defence": 70
+        }
+      },
+      "legs": {
+        "name": "Dharok's platelegs",
+        "config": "BARROWS_DHAROK_LEGS",
+        "requires": {
+          "defence": 70
+        }
+      }
+    },
+    "Banite Armour +4": {
+      "head": {
+        "name": "Bane full helm + 4",
+        "config": "BANE_FULL_HELM_UPGRADE_4",
+        "requires": {
+          "defence": 80
+        }
+      },
+      "body": {
+        "name": "Bane platebody + 4",
+        "config": "BANE_PLATEBODY_UPGRADE_4",
+        "requires": {
+          "defence": 80
+        }
+      },
+      "legs": {
+        "name": "Bane platelegs + 4",
+        "config": "BANE_PLATELEGS_UPGRADE_4",
+        "requires": {
+          "defence": 80
+        }
+      },
+      "hands": {
+        "name": "Bane gauntlets + 4",
+        "config": "BANE_HANDGUARDS_UPGRADE_4",
+        "requires": {
+          "defence": 80
+        }
+      },
+      "feet": {
+        "name": "Bane armoured boots + 4",
+        "config": "BANE_ARMOURED_BOOTS_UPGRADE_4",
+        "requires": {
+          "defence": 80
+        }
+      }
+    },
+    "Torva Armour": {
+      "head": {
+        "name": "Torva full helm",
+        "config": "GODWARS2_HELM_MELEE_100",
+        "requires": {
+          "defence": 80,
+          "constitution": 80
+        }
+      },
+      "body": {
+        "name": "Torva platebody",
+        "config": "GODWARS2_BODY_MELEE_100",
+        "requires": {
+          "defence": 80,
+          "constitution": 80
+        }
+      },
+      "legs": {
+        "name": "Torva platelegs",
+        "config": "GODWARS2_LEGS_MELEE_100",
+        "requires": {
+          "defence": 80,
+          "constitution": 80
+        }
+      },
+      "hands": {
+        "name": "Torva gloves",
+        "config": "GODWARS2_GLOVES_MELEE_100_NEW",
+        "requires": {
+          "defence": 80,
+          "constitution": 80
+        }
+      },
+      "feet": {
+        "name": "Torva boots",
+        "config": "GODWARS2_BOOTS_MELEE_100_NEW",
+        "requires": {
+          "defence": 80,
+          "constitution": 80
+        }
+      }
+    },
+    "Masterwork Melee Armour": {
+      "head": {
+        "name": "Masterwork melee helm",
+        "config": "MASTERWORK_HELM",
+        "requires": {
+          "defence": 90
+        }
+      },
+      "body": {
+        "name": "Masterwork melee platebody",
+        "config": "MASTERWORK_PLATEBODY",
+        "requires": {
+          "defence": 90
+        }
+      },
+      "legs": {
+        "name": "Masterwork melee platelegs",
+        "config": "MASTERWORK_PLATELEGS",
+        "requires": {
+          "defence": 90
+        }
+      },
+      "hands": {
+        "name": "Masterwork melee gloves",
+        "config": "MASTERWORK_GLOVES",
+        "requires": {
+          "defence": 90
+        }
+      },
+      "feet": {
+        "name": "Masterwork melee boots",
+        "config": "MASTERWORK_BOOTS",
+        "requires": {
+          "defence": 90
+        }
+      }
+    },
+    "Malevolent Armour": {
+      "head": {
+        "name": "Malevolent helm",
+        "config": "BARROWS2_HELM_NEW",
+        "requires": {
+          "defence": 90
+        }
+      },
+      "body": {
+        "name": "Malevolent cuirass",
+        "config": "BARROWS2_BODY_NEW",
+        "requires": {
+          "defence": 90
+        }
+      },
+      "legs": {
+        "name": "Malevolent greaves",
+        "config": "BARROWS2_LEGS_NEW",
+        "requires": {
+          "defence": 90
+        }
+      }
+    },
+    "Vestments of Havoc": {
+      "head": {
+        "name": "Vestments of havoc hood",
+        "config": "EGWD_ZAMORAK_BOSS_MELEE_SET_HELM",
+        "requires": {
+          "defence": 95
+        }
+      },
+      "body": {
+        "name": "Vestments of havoc robe top",
+        "config": "EGWD_ZAMORAK_BOSS_MELEE_SET_TOP",
+        "requires": {
+          "defence": 95
+        }
+      },
+      "legs": {
+        "name": "Vestments of havoc robe bottom",
+        "config": "EGWD_ZAMORAK_BOSS_MELEE_SET_BOTTOM",
+        "requires": {
+          "defence": 95
+        }
+      },
+      "feet": {
+        "name": "Vestments of havoc boots",
+        "config": "EGWD_ZAMORAK_BOSS_MELEE_SET_BOOTS",
+        "requires": {
+          "defence": 95
+        }
+      }
+    },
+    "Leather Armour": {
+      "head": {
+        "name": "Leather cowl",
+        "config": "LEATHER_COWL"
+      },
+      "body": {
+        "name": "Leather body",
+        "config": "LEATHER_ARMOUR"
+      },
+      "legs": {
+        "name": "Leather chaps",
+        "config": "LEATHER_CHAPS"
+      },
+      "hands": {
+        "name": "Leather vambraces",
+        "config": "LEATHER_VAMBRACES"
+      },
+      "feet": {
+        "name": "Leather boots",
+        "config": "LEATHER_BOOTS"
+      }
+    },
+    "Carapace Armour": {
+      "head": {
+        "name": "Carapace helm",
+        "config": "COCKROACH_HEAD",
+        "requires": {
+          "defence": 30
+        }
+      },
+      "body": {
+        "name": "Carapace torso",
+        "config": "COCKROACH_TORSO",
+        "requires": {
+          "defence": 30
+        }
+      },
+      "legs": {
+        "name": "Carapace legs",
+        "config": "COCKROACH_LEGS",
+        "requires": {
+          "defence": 30
+        }
+      },
+      "hands": {
+        "name": "Carapace gloves",
+        "config": "COCKROACH_GLOVES",
+        "requires": {
+          "defence": 30
+        }
+      },
+      "feet": {
+        "name": "Carapace boots",
+        "config": "COCKROACH_BOOTS",
+        "requires": {
+          "defence": 30
+        }
+      }
+    },
+    "Blue Dragonhide Armour": {
+      "head": {
+        "name": "Blue dragonhide coif",
+        "config": "HVH_BLUE_DHIDE_COIF_100",
+        "requires": {
+          "defence": 50
+        }
+      },
+      "body": {
+        "name": "Blue dragonhide body",
+        "config": "BLUE_DRAGONHIDE_BODY",
+        "requires": {
+          "defence": 50
+        }
+      },
+      "legs": {
+        "name": "Blue dragonhide chaps",
+        "config": "BLUE_DRAGONHIDE_CHAPS",
+        "requires": {
+          "defence": 50
+        }
+      },
+      "hands": {
+        "name": "Blue dragonhide vambraces",
+        "config": "BLUE_DRAGON_VAMBRACES",
+        "requires": {
+          "defence": 50
+        }
+      },
+      "feet": {
+        "name": "Blue dragonhide boots",
+        "config": "BLUE_DRAGON_BOOTS",
+        "requires": {
+          "defence": 50
+        }
+      }
+    },
+    "Black Dragonhide Armour": {
+      "head": {
+        "name": "Black dragonhide coif",
+        "config": "HVH_BLACK_DHIDE_COIF_100",
+        "requires": {
+          "defence": 60
+        }
+      },
+      "body": {
+        "name": "Black dragonhide body",
+        "config": "BLACK_DRAGONHIDE_BODY",
+        "requires": {
+          "defence": 60
+        }
+      },
+      "legs": {
+        "name": "Black dragonhide chaps",
+        "config": "BLACK_DRAGONHIDE_CHAPS",
+        "requires": {
+          "defence": 60
+        }
+      },
+      "hands": {
+        "name": "Black dragonhide vambraces",
+        "config": "BLACK_DRAGON_VAMBRACES",
+        "requires": {
+          "defence": 60
+        }
+      },
+      "feet": {
+        "name": "Black dragonhide boots",
+        "config": "BLACK_DRAGON_BOOTS",
+        "requires": {
+          "defence": 60
+        }
+      }
+    },
+    "Royal Dragonhide": {
+      "head": {
+        "name": "Royal dragonhide coif",
+        "config": "HVH_ROYAL_DHIDE_COIF_100",
+        "requires": {
+          "defence": 65
+        }
+      },
+      "body": {
+        "name": "Royal dragonhide body",
+        "config": "ROYAL_DRAGONHIDE_BODY",
+        "requires": {
+          "defence": 65
+        }
+      },
+      "legs": {
+        "name": "Royal dragonhide chaps",
+        "config": "ROYAL_DRAGONHIDE_CHAPS",
+        "requires": {
+          "defence": 65
+        }
+      },
+      "hands": {
+        "name": "Royal dragonhide vambraces",
+        "config": "ROYAL_DRAGON_VAMBRACES",
+        "requires": {
+          "defence": 65
+        }
+      },
+      "feet": {
+        "name": "Royal dragonhide boots",
+        "config": "ROYAL_DRAGON_BOOTS",
+        "requires": {
+          "defence": 65
+        }
+      }
+    },
+    "Armadyl Armour": {
+      "head": {
+        "name": "Armadyl helmet",
+        "config": "GODWARS_ARMOR_ARMADYL_HELMET",
+        "requires": {
+          "defence": 70
+        }
+      },
+      "body": {
+        "name": "Armadyl chestplate",
+        "config": "GODWARS_ARMOR_ARMADYL_CHESTPLATE",
+        "requires": {
+          "defence": 70
+        }
+      },
+      "legs": {
+        "name": "Armadyl chainskirt",
+        "config": "GODWARS_ARMOR_ARMADYL_ARMORED_SKIRT",
+        "requires": {
+          "defence": 70
+        }
+      },
+      "hands": {
+        "name": "Armadyl gloves",
+        "config": "GODWARS_ARMADYL_GLOVES",
+        "requires": {
+          "defence": 70
+        }
+      },
+      "feet": {
+        "name": "Armadyl boots",
+        "config": "GODWARS_ARMADYL_BOOTS",
+        "requires": {
+          "defence": 70
+        }
+      }
+    },
+    "Undead Dragonhide Armour": {
+      "head": {
+        "name": "Undead dragonhide coif",
+        "config": "VORKATH_TIER75_HEAD",
+        "requires": {
+          "defence": 75
+        }
+      },
+      "body": {
+        "name": "Undead dragonhide body",
+        "config": "VORKATH_TIER75_BODY",
+        "requires": {
+          "defence": 75
+        }
+      },
+      "legs": {
+        "name": "Undead dragonhide chaps",
+        "config": "VORKATH_TIER75_LEGS",
+        "requires": {
+          "defence": 75
+        }
+      },
+      "hands": {
+        "name": "Undead dragonhide vambraces",
+        "config": "VORKATH_TIER75_GLOVES",
+        "requires": {
+          "defence": 75
+        }
+      },
+      "feet": {
+        "name": "Undead dragonhide boots",
+        "config": "VORKATH_TIER75_BOOTS",
+        "requires": {
+          "defence": 75
+        }
+      }
+    },
+    "Pernix Armour": {
+      "head": {
+        "name": "Pernix cowl",
+        "config": "GODWARS2_HELM_RANGE_100",
+        "requires": {
+          "defence": 80,
+          "constitution": 80
+        }
+      },
+      "body": {
+        "name": "Pernix body",
+        "config": "GODWARS2_BODY_RANGE_100",
+        "requires": {
+          "defence": 80,
+          "constitution": 80
+        }
+      },
+      "legs": {
+        "name": "Pernix chaps",
+        "config": "GODWARS2_LEGS_RANGE_100",
+        "requires": {
+          "defence": 80,
+          "constitution": 80
+        }
+      },
+      "hands": {
+        "name": "Pernix gloves",
+        "config": "GODWARS2_GLOVES_RANGE_100_NEW",
+        "requires": {
+          "defence": 80,
+          "constitution": 80
+        }
+      },
+      "feet": {
+        "name": "Pernix boots",
+        "config": "GODWARS2_BOOTS_RANGE_100_NEW",
+        "requires": {
+          "defence": 80,
+          "constitution": 80
+        }
+      }
+    },
+    "Sirenic Armour": {
+      "head": {
+        "name": "Sirenic mask",
+        "config": "T90_RANGED_HELM_NEW",
+        "requires": {
+          "defence": 90
+        }
+      },
+      "body": {
+        "name": "Sirenic hauberk",
+        "config": "T90_RANGED_BODY_NEW",
+        "requires": {
+          "defence": 90
+        }
+      },
+      "legs": {
+        "name": "Sirenic chaps",
+        "config": "T90_RANGED_LEGS_NEW",
+        "requires": {
+          "defence": 90
+        }
+      }
+    },
+    "Dracolich Armour": {
+      "head": {
+        "name": "Dracolich coif",
+        "config": "VORKATH_TIER90_HEAD_NEW",
+        "requires": {
+          "defence": 90
+        }
+      },
+      "body": {
+        "name": "Dracolich hauberk",
+        "config": "VORKATH_TIER90_BODY_NEW",
+        "requires": {
+          "defence": 90
+        }
+      },
+      "legs": {
+        "name": "Dracolich chaps",
+        "config": "VORKATH_TIER90_LEGS_NEW",
+        "requires": {
+          "defence": 90
+        }
+      },
+      "hands": {
+        "name": "Dracolich vambraces",
+        "config": "VORKATH_TIER90_GLOVES_NEW",
+        "requires": {
+          "defence": 90
+        }
+      },
+      "feet": {
+        "name": "Dracolich boots",
+        "config": "VORKATH_TIER90_BOOTS_NEW",
+        "requires": {
+          "defence": 90
+        }
+      }
+    },
+    "Elite Dracolich": {
+      "head": {
+        "name": "Elite Dracolich coif",
+        "config": "VORKATH_TIER92_HEAD_NEW",
+        "requires": {
+          "defence": 92
+        }
+      },
+      "body": {
+        "name": "Elite Dracolich hauberk",
+        "config": "VORKATH_TIER92_BODY_NEW",
+        "requires": {
+          "defence": 92
+        }
+      },
+      "legs": {
+        "name": "Elite Dracolich chaps",
+        "config": "VORKATH_TIER92_LEGS_NEW",
+        "requires": {
+          "defence": 92
+        }
+      },
+      "hands": {
+        "name": "Elite Dracolich vambraces",
+        "config": "VORKATH_TIER92_GLOVES_NEW",
+        "requires": {
+          "defence": 92
+        }
+      },
+      "feet": {
+        "name": "Elite Dracolich boots",
+        "config": "VORKATH_TIER92_BOOTS_NEW",
+        "requires": {
+          "defence": 92
+        }
+      }
+    },
+    "Wizard Robes": {
+      "head": {
+        "name": "Wizard hat",
+        "config": "BLUEWIZHAT"
+      },
+      "body": {
+        "name": "Wizard robe top",
+        "config": "WIZARDS_ROBE"
+      },
+      "legs": {
+        "name": "Wizard robe skirt",
+        "config": "BLUE_SKIRT"
+      },
+      "hands": {
+        "name": "Wizard gloves",
+        "config": "WIZARD_GLOVES"
+      },
+      "feet": {
+        "name": "Wizard boots",
+        "config": "WIZARD_BOOTS"
+      }
+    },
+    "Batwing Armour": {
+      "head": {
+        "name": "Batwing hood",
+        "config": "BATWING_HOOD",
+        "requires": {
+          "defence": 30
+        }
+      },
+      "body": {
+        "name": "Batwing torso",
+        "config": "BATWING_TORSO",
+        "requires": {
+          "defence": 30
+        }
+      },
+      "legs": {
+        "name": "Batwing legs",
+        "config": "BATWING_LEGS",
+        "requires": {
+          "defence": 30
+        }
+      },
+      "hands": {
+        "name": "Batwing gloves",
+        "config": "BATWING_GLOVES",
+        "requires": {
+          "defence": 30
+        }
+      },
+      "feet": {
+        "name": "Batwing boots",
+        "config": "BATWING_FEET",
+        "requires": {
+          "defence": 30
+        }
+      }
+    },
+    "Mystic Robes": {
+      "head": {
+        "name": "Mystic hat",
+        "config": "MYSTIC_HAT",
+        "requires": {
+          "defence": 50
+        }
+      },
+      "body": {
+        "name": "Mystic robe top",
+        "config": "MYSTIC_ROBE_TOP",
+        "requires": {
+          "defence": 50
+        }
+      },
+      "legs": {
+        "name": "Mystic robe bottom",
+        "config": "MYSTIC_ROBE_BOTTOM",
+        "requires": {
+          "defence": 50
+        }
+      },
+      "hands": {
+        "name": "Mystic gloves",
+        "config": "MYSTIC_GLOVES",
+        "requires": {
+          "defence": 50
+        }
+      },
+      "feet": {
+        "name": "Mystic boots",
+        "config": "MYSTIC_BOOTS",
+        "requires": {
+          "defence": 50
+        }
+      }
+    },
+    "Lunar Armour": {
+      "head": {
+        "name": "Lunar helm",
+        "config": "LUNAR_HELMET",
+        "requires": {
+          "defence": 40,
+          "magic": 60
+        }
+      },
+      "body": {
+        "name": "Lunar torso",
+        "config": "LUNAR_TORSO",
+        "requires": {
+          "defence": 40,
+          "magic": 60
+        }
+      },
+      "legs": {
+        "name": "Lunar legs",
+        "config": "LUNAR_LEGS",
+        "requires": {
+          "defence": 40,
+          "magic": 60
+        }
+      },
+      "hands": {
+        "name": "Lunar gloves",
+        "config": "LUNAR_GLOVES",
+        "requires": {
+          "defence": 40,
+          "magic": 60
+        }
+      },
+      "feet": {
+        "name": "Lunar boots",
+        "config": "LUNAR_BOOTS",
+        "requires": {
+          "defence": 40,
+          "magic": 60
+        }
+      }
+    },
+    "Subjugation Armour": {
+      "head": {
+        "name": "Hood of subjugation",
+        "config": "GODWARS_ZAMORAK_ROBE_HEAD",
+        "requires": {
+          "defence": 70
+        }
+      },
+      "body": {
+        "name": "Garb of subjugation",
+        "config": "GODWARS_ZAMORAK_ROBE_BODY",
+        "requires": {
+          "defence": 70
+        }
+      },
+      "legs": {
+        "name": "Gown of subjugation",
+        "config": "GODWARS_ZAMORAK_ROBE_LEGS",
+        "requires": {
+          "defence": 70
+        }
+      },
+      "hands": {
+        "name": "Gloves of subjugation",
+        "config": "GODWARS_ZAMORAK_ROBE_GLOVES",
+        "requires": {
+          "defence": 70
+        }
+      },
+      "feet": {
+        "name": "Boots of subjugation",
+        "config": "GODWARS_ZAMORAK_ROBE_BOOTS",
+        "requires": {
+          "defence": 70
+        }
+      }
+    },
+    "Ganodermic Armour": {
+      "head": {
+        "name": "Ganodermic visor",
+        "config": "GANODERMIC_VISOR",
+        "requires": {
+          "defence": 75
+        }
+      },
+      "body": {
+        "name": "Ganodermic poncho",
+        "config": "GANODERMIC_PONCHO",
+        "requires": {
+          "defence": 75
+        }
+      },
+      "legs": {
+        "name": "Ganodermic leggings",
+        "config": "GANODERMIC_LEGGINGS",
+        "requires": {
+          "defence": 75
+        }
+      },
+      "hands": {
+        "name": "Ganodermic gloves",
+        "config": "GANODERMIC_GLOVES",
+        "requires": {
+          "defence": 75
+        }
+      },
+      "feet": {
+        "name": "Ganodermic boots",
+        "config": "GANODERMIC_BOOTS",
+        "requires": {
+          "defence": 75
+        }
+      }
+    },
+    "Virtus Armour": {
+      "head": {
+        "name": "Virtus mask",
+        "config": "GODWARS2_HELM_MAGIC_100",
+        "requires": {
+          "defence": 80,
+          "constitution": 80
+        }
+      },
+      "body": {
+        "name": "Virtus robe top",
+        "config": "GODWARS2_BODY_MAGIC_100",
+        "requires": {
+          "defence": 80,
+          "constitution": 80
+        }
+      },
+      "legs": {
+        "name": "Virtus robe legs",
+        "config": "GODWARS2_LEGS_MAGIC_100",
+        "requires": {
+          "defence": 80,
+          "constitution": 80
+        }
+      },
+      "hands": {
+        "name": "Virtus gloves",
+        "config": "GODWARS2_GLOVES_MAGIC_100_NEW",
+        "requires": {
+          "defence": 80,
+          "constitution": 80
+        }
+      },
+      "feet": {
+        "name": "Virtus boots",
+        "config": "GODWARS2_BOOTS_MAGIC_100_NEW",
+        "requires": {
+          "defence": 80,
+          "constitution": 80
+        }
+      }
+    },
+    "Tectonic Armour": {
+      "head": {
+        "name": "Tectonic mask",
+        "config": "LRC2_MAGIC_HELM_NEW",
+        "requires": {
+          "defence": 90
+        }
+      },
+      "body": {
+        "name": "Tectonic robe top",
+        "config": "LRC2_MAGIC_BODY_NEW",
+        "requires": {
+          "defence": 90
+        }
+      },
+      "legs": {
+        "name": "Tectonic robe bottom",
+        "config": "LRC2_MAGIC_LEGS_NEW",
+        "requires": {
+          "defence": 90
+        }
+      }
+    },
+    "Cryptbloom Armour": {
+      "head": {
+        "name": "Cryptbloom helm",
+        "config": "EGWD_BIK_MAGIC_HELM_NEW",
+        "requires": {
+          "defence": 90
+        }
+      },
+      "body": {
+        "name": "Cryptbloom top",
+        "config": "EGWD_BIK_MAGIC_BODY_NEW",
+        "requires": {
+          "defence": 90
+        }
+      },
+      "legs": {
+        "name": "Cryptbloom bottoms",
+        "config": "EGWD_BIK_MAGIC_LEGS_NEW",
+        "requires": {
+          "defence": 90
+        }
+      },
+      "hands": {
+        "name": "Cryptbloom gloves",
+        "config": "EGWD_BIK_MAGIC_GLOVES_NEW",
+        "requires": {
+          "defence": 90
+        }
+      },
+      "feet": {
+        "name": "Cryptbloom boots",
+        "config": "EGWD_BIK_MAGIC_BOOTS_NEW",
+        "requires": {
+          "defence": 90
+        }
+      }
+    },
+    "Elite Tectonic Armour": {
+      "head": {
+        "name": "Elite tectonic mask",
+        "config": "T92_MAGIC_HELM_NEW",
+        "requires": {
+          "defence": 92
+        }
+      },
+      "body": {
+        "name": "Elite tectonic robe top",
+        "config": "T92_MAGIC_BODY_NEW",
+        "requires": {
+          "defence": 92
+        }
+      },
+      "legs": {
+        "name": "Elite tectonic robe bottom",
+        "config": "T92_MAGIC_LEGS_NEW",
+        "requires": {
+          "defence": 92
+        }
+      }
+    },
+    "Tumeken's Resplendence": {
+      "head": {
+        "name": "Mask of Tumeken's resplendence",
+        "config": "MAGIC_DEVOURER_HEAD_T95",
+        "requires": {
+          "defence": 95,
+          "magic": 95
+        }
+      },
+      "body": {
+        "name": "Robe top of Tumeken's resplendence",
+        "config": "MAGIC_DEVOURER_BODY_T95",
+        "requires": {
+          "defence": 95,
+          "magic": 95
+        }
+      },
+      "legs": {
+        "name": "Robe bottom of Tumeken's resplendence",
+        "config": "MAGIC_DEVOURER_LEGS_T95",
+        "requires": {
+          "defence": 95,
+          "magic": 95
+        }
+      },
+      "hands": {
+        "name": "Gloves of Tumeken's resplendence",
+        "config": "MAGIC_DEVOURER_HANDS_T95",
+        "requires": {
+          "defence": 95,
+          "magic": 95
+        }
+      },
+      "feet": {
+        "name": "Boots of Tumeken's resplendence",
+        "config": "MAGIC_DEVOURER_FEET_T95",
+        "requires": {
+          "defence": 95,
+          "magic": 95
+        }
+      }
+    },
+    "Masterwork Magic Armour": {
+      "head": {
+        "name": "Masterwork magic hat",
+        "config": "MASTERWORK_MAGIC_HAT",
+        "requires": {
+          "defence": 99
+        }
+      },
+      "body": {
+        "name": "Masterwork magic robe top",
+        "config": "MASTERWORK_MAGIC_ROBE_TOP",
+        "requires": {
+          "defence": 99
+        }
+      },
+      "legs": {
+        "name": "Masterwork magic robe bottom",
+        "config": "MASTERWORK_MAGIC_ROBE_BOTTOM",
+        "requires": {
+          "defence": 99
+        }
+      },
+      "hands": {
+        "name": "Masterwork magic gloves",
+        "config": "MASTERWORK_MAGIC_GLOVES",
+        "requires": {
+          "defence": 99
+        }
+      },
+      "feet": {
+        "name": "Masterwork magic boots",
+        "config": "MASTERWORK_MAGIC_BOOTS",
+        "requires": {
+          "defence": 99
+        }
+      }
+    },
+    "First Necromancer Set": {
+      "head": {
+        "name": "Crown of the First Necromancer",
+        "config": "NECRO_RASIAL_HEAD_T95",
+        "requires": {
+          "defence": 95,
+          "necromancy": 95
+        }
+      },
+      "body": {
+        "name": "Robe top of the First Necromancer",
+        "config": "NECRO_RASIAL_BODY_T95",
+        "requires": {
+          "defence": 95,
+          "necromancy": 95
+        }
+      },
+      "legs": {
+        "name": "Robe bottom of the First Necromancer",
+        "config": "NECRO_RASIAL_LEGS_T95",
+        "requires": {
+          "defence": 95,
+          "necromancy": 95
+        }
+      },
+      "hands": {
+        "name": "Hand wrap of the First Necromancer",
+        "config": "NECRO_RASIAL_HANDS_T95",
+        "requires": {
+          "defence": 95,
+          "necromancy": 95
+        }
+      },
+      "feet": {
+        "name": "Foot wraps of the First Necromancer",
+        "config": "NECRO_RASIAL_FEET_T95",
+        "requires": {
+          "defence": 95,
+          "necromancy": 95
+        }
+      }
+    },
+    "Deathwarden Armour@T1": {
+      "head": {
+        "name": "Deathwarden hood",
+        "config": "NECRO_UNDERWORLD_HEAD_T1"
+      },
+      "body": {
+        "name": "Deathwarden robe top",
+        "config": "NECRO_UNDERWORLD_BODY_T1"
+      },
+      "legs": {
+        "name": "Deathwarden robe bottom",
+        "config": "NECRO_UNDERWORLD_LEGS_T1"
+      },
+      "hands": {
+        "name": "Deathwarden gloves",
+        "config": "NECRO_UNDERWORLD_HANDS_T1"
+      },
+      "feet": {
+        "name": "Deathwarden boots",
+        "config": "NECRO_UNDERWORLD_FEET_T1"
+      }
+    },
+    "Deathwarden Armour@T20": {
+      "head": {
+        "name": "Deathwarden hood",
+        "config": "NECRO_UNDERWORLD_HEAD_T20",
+        "requires": {
+          "defence": 20
+        }
+      },
+      "body": {
+        "name": "Deathwarden robe top",
+        "config": "NECRO_UNDERWORLD_BODY_T20",
+        "requires": {
+          "defence": 20
+        }
+      },
+      "legs": {
+        "name": "Deathwarden robe bottom",
+        "config": "NECRO_UNDERWORLD_LEGS_T20",
+        "requires": {
+          "defence": 20
+        }
+      },
+      "hands": {
+        "name": "Deathwarden gloves",
+        "config": "NECRO_UNDERWORLD_HANDS_T20",
+        "requires": {
+          "defence": 20
+        }
+      },
+      "feet": {
+        "name": "Deathwarden boots",
+        "config": "NECRO_UNDERWORLD_FEET_T20",
+        "requires": {
+          "defence": 20
+        }
+      }
+    },
+    "Deathwarden Armour@T40": {
+      "head": {
+        "name": "Deathwarden hood",
+        "config": "NECRO_UNDERWORLD_HEAD_T40",
+        "requires": {
+          "defence": 40
+        }
+      },
+      "body": {
+        "name": "Deathwarden robe top",
+        "config": "NECRO_UNDERWORLD_BODY_T40",
+        "requires": {
+          "defence": 40
+        }
+      },
+      "legs": {
+        "name": "Deathwarden robe bottom",
+        "config": "NECRO_UNDERWORLD_LEGS_T40",
+        "requires": {
+          "defence": 40
+        }
+      },
+      "hands": {
+        "name": "Deathwarden gloves",
+        "config": "NECRO_UNDERWORLD_HANDS_T40",
+        "requires": {
+          "defence": 40
+        }
+      },
+      "feet": {
+        "name": "Deathwarden boots",
+        "config": "NECRO_UNDERWORLD_FEET_T40",
+        "requires": {
+          "defence": 40
+        }
+      }
+    },
+    "Deathwarden Armour@T60": {
+      "head": {
+        "name": "Deathwarden hood",
+        "config": "NECRO_UNDERWORLD_HEAD_T60",
+        "requires": {
+          "defence": 60
+        }
+      },
+      "body": {
+        "name": "Deathwarden robe top",
+        "config": "NECRO_UNDERWORLD_BODY_T60",
+        "requires": {
+          "defence": 60
+        }
+      },
+      "legs": {
+        "name": "Deathwarden robe bottom",
+        "config": "NECRO_UNDERWORLD_LEGS_T60",
+        "requires": {
+          "defence": 60
+        }
+      },
+      "hands": {
+        "name": "Deathwarden gloves",
+        "config": "NECRO_UNDERWORLD_HANDS_T60",
+        "requires": {
+          "defence": 60
+        }
+      },
+      "feet": {
+        "name": "Deathwarden boots",
+        "config": "NECRO_UNDERWORLD_FEET_T60",
+        "requires": {
+          "defence": 60
+        }
+      }
+    },
+    "Deathwarden Armour@T70": {
+      "head": {
+        "name": "Deathwarden hood",
+        "config": "NECRO_UNDERWORLD_HEAD_T70",
+        "requires": {
+          "defence": 70
+        }
+      },
+      "body": {
+        "name": "Deathwarden robe top",
+        "config": "NECRO_UNDERWORLD_BODY_T70",
+        "requires": {
+          "defence": 70
+        }
+      },
+      "legs": {
+        "name": "Deathwarden robe bottom",
+        "config": "NECRO_UNDERWORLD_LEGS_T70",
+        "requires": {
+          "defence": 70
+        }
+      },
+      "hands": {
+        "name": "Deathwarden gloves",
+        "config": "NECRO_UNDERWORLD_HANDS_T70",
+        "requires": {
+          "defence": 70
+        }
+      },
+      "feet": {
+        "name": "Deathwarden boots",
+        "config": "NECRO_UNDERWORLD_FEET_T70",
+        "requires": {
+          "defence": 70
+        }
+      }
+    },
+    "Deathwarden Armour@T80": {
+      "head": {
+        "name": "Deathwarden hood",
+        "config": "NECRO_UNDERWORLD_HEAD_T80",
+        "requires": {
+          "defence": 80
+        }
+      },
+      "body": {
+        "name": "Deathwarden robe top",
+        "config": "NECRO_UNDERWORLD_BODY_T80",
+        "requires": {
+          "defence": 80
+        }
+      },
+      "legs": {
+        "name": "Deathwarden robe bottom",
+        "config": "NECRO_UNDERWORLD_LEGS_T80",
+        "requires": {
+          "defence": 80
+        }
+      },
+      "hands": {
+        "name": "Deathwarden gloves",
+        "config": "NECRO_UNDERWORLD_HANDS_T80",
+        "requires": {
+          "defence": 80
+        }
+      },
+      "feet": {
+        "name": "Deathwarden boots",
+        "config": "NECRO_UNDERWORLD_FEET_T80",
+        "requires": {
+          "defence": 80
+        }
+      }
+    },
+    "Deathwarden Armour@T90": {
+      "head": {
+        "name": "Deathwarden hood",
+        "config": "NECRO_UNDERWORLD_HEAD_T90",
+        "requires": {
+          "defence": 90
+        }
+      },
+      "body": {
+        "name": "Deathwarden robe top",
+        "config": "NECRO_UNDERWORLD_BODY_T90",
+        "requires": {
+          "defence": 90
+        }
+      },
+      "legs": {
+        "name": "Deathwarden robe bottom",
+        "config": "NECRO_UNDERWORLD_LEGS_T90",
+        "requires": {
+          "defence": 90
+        }
+      },
+      "hands": {
+        "name": "Deathwarden gloves",
+        "config": "NECRO_UNDERWORLD_HANDS_T90",
+        "requires": {
+          "defence": 90
+        }
+      },
+      "feet": {
+        "name": "Deathwarden boots",
+        "config": "NECRO_UNDERWORLD_FEET_T90",
+        "requires": {
+          "defence": 90
+        }
+      }
+    },
+    "Deathdealer Armour@T70": {
+      "head": {
+        "name": "Deathdealer hood",
+        "config": "NECRO_UNDERWORLD_POWER_HEAD_T70",
+        "requires": {
+          "defence": 70,
+          "necromancy": 70
+        }
+      },
+      "body": {
+        "name": "Deathdealer robe top",
+        "config": "NECRO_UNDERWORLD_POWER_BODY_T70",
+        "requires": {
+          "defence": 70,
+          "necromancy": 70
+        }
+      },
+      "legs": {
+        "name": "Deathdealer robe bottom",
+        "config": "NECRO_UNDERWORLD_POWER_LEGS_T70",
+        "requires": {
+          "defence": 70,
+          "necromancy": 70
+        }
+      },
+      "hands": {
+        "name": "Deathdealer gloves",
+        "config": "NECRO_UNDERWORLD_POWER_HANDS_T70",
+        "requires": {
+          "defence": 70,
+          "necromancy": 70
+        }
+      },
+      "feet": {
+        "name": "Deathdealer boots",
+        "config": "NECRO_UNDERWORLD_POWER_FEET_T70",
+        "requires": {
+          "defence": 70,
+          "necromancy": 70
+        }
+      }
+    },
+    "Deathdealer Armour@T80": {
+      "head": {
+        "name": "Deathdealer hood",
+        "config": "NECRO_UNDERWORLD_POWER_HEAD_T80",
+        "requires": {
+          "defence": 80,
+          "necromancy": 80
+        }
+      },
+      "body": {
+        "name": "Deathdealer robe top",
+        "config": "NECRO_UNDERWORLD_POWER_BODY_T80",
+        "requires": {
+          "defence": 80,
+          "necromancy": 80
+        }
+      },
+      "legs": {
+        "name": "Deathdealer robe bottom",
+        "config": "NECRO_UNDERWORLD_POWER_LEGS_T80",
+        "requires": {
+          "defence": 80,
+          "necromancy": 80
+        }
+      },
+      "hands": {
+        "name": "Deathdealer gloves",
+        "config": "NECRO_UNDERWORLD_POWER_HANDS_T80",
+        "requires": {
+          "defence": 80,
+          "necromancy": 80
+        }
+      },
+      "feet": {
+        "name": "Deathdealer boots",
+        "config": "NECRO_UNDERWORLD_POWER_FEET_T80",
+        "requires": {
+          "defence": 80,
+          "necromancy": 80
+        }
+      }
+    },
+    "Deathdealer Armour@T90": {
+      "head": {
+        "name": "Deathdealer hood",
+        "config": "NECRO_UNDERWORLD_POWER_HEAD_T90",
+        "requires": {
+          "defence": 90,
+          "necromancy": 90
+        }
+      },
+      "body": {
+        "name": "Deathdealer robe top",
+        "config": "NECRO_UNDERWORLD_POWER_BODY_T90",
+        "requires": {
+          "defence": 90,
+          "necromancy": 90
+        }
+      },
+      "legs": {
+        "name": "Deathdealer robe bottom",
+        "config": "NECRO_UNDERWORLD_POWER_LEGS_T90",
+        "requires": {
+          "defence": 90,
+          "necromancy": 90
+        }
+      },
+      "hands": {
+        "name": "Deathdealer gloves",
+        "config": "NECRO_UNDERWORLD_POWER_HANDS_T90",
+        "requires": {
+          "defence": 90,
+          "necromancy": 90
+        }
+      },
+      "feet": {
+        "name": "Deathdealer boots",
+        "config": "NECRO_UNDERWORLD_POWER_FEET_T90",
+        "requires": {
+          "defence": 90,
+          "necromancy": 90
+        }
+      }
+    },
+    "Visage of the First Necromancer": {
+      "head": {
+        "name": "Visage of the First Necromancer",
+        "config": "NECRO_RASIAL_HEAD_T95_UPGRADED",
+        "requires": {
+          "defence": 95,
+          "necromancy": 95
+        }
+      }
+    },
+    "Cinderbane Gloves": {
+      "hands": {
+        "name": "Cinderbane gloves",
+        "config": "NATURE_BEINGS_GLOVES",
+        "requires": {
+          "defence": 85
+        },
+        "dependsOn": {
+          "name": "Visage of the First Necromancer",
+          "reason": "It counts as 2 set pieces, so you keep the 5-piece set effect without the hand wrap."
+        }
+      }
+    },
+    "Deathtouch Bracelet": {
+      "hands": {
+        "name": "Deathtouch bracelet",
+        "config": "ENCHANTED_HYDRIX_BRACELET_NEW",
+        "dependsOn": {
+          "name": "Visage of the First Necromancer",
+          "reason": "Optional swap. It counts as 2 set pieces, so you keep the 5-piece set effect without the hand wrap."
+        }
+      }
+    }
+  },
+  "exampleSets": {
+    "Barrows Armour": "Dharok's"
+  }
+}

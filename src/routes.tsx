@@ -5,6 +5,8 @@ import { PageLoading } from '@/components/ui/page-loading'
 import { guideCatalog } from '@/lib/content'
 import { GuidePage } from '@/pages/guide-page'
 import { HomePage } from '@/pages/home-page'
+import { GettingStartedPage } from '@/pages/getting-started-page'
+import { playerPaths } from '@/lib/player-paths'
 import { NotFoundPage } from '@/pages/not-found-page'
 import { PrivacyPage } from '@/pages/privacy-page'
 
@@ -75,6 +77,10 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/start" element={<GettingStartedPage />} />
+      {playerPaths.map((player) => (
+        <Route key={player.id} path={`/start/${player.id}`} element={<GettingStartedPage playerType={player.id} />} />
+      ))}
       <Route path="/privacy" element={<PrivacyPage />} />
       <Route
         path="/extras/player"

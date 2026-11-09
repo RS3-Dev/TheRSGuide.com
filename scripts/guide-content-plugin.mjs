@@ -21,6 +21,7 @@ const PLAYER_DATA_COMPONENTS = [
   'QuestRequirements',
   'SkillTrainingLookup',
   'EfficiencyGuideTool',
+  'GearRecommendations',
 ]
 
 const normalizeSlashes = (value) => value.replaceAll('\\', '/')
@@ -33,6 +34,7 @@ const socialSection = (parts) => {
   if (parts[0] === 'setup') return 'Setup Guide'
   if (parts[0] === 'leagues') return 'Leagues'
   if (parts[0] === 'extras') return 'Extras'
+  if (parts[0] === 'guides' && parts[1] === 'gear-recommendations') return 'Gear Progression'
   if (parts[0] === 'guides' && parts[1]) return titleFromSlug(parts[1])
   return 'RuneScape Guides'
 }
@@ -414,6 +416,18 @@ export const guideMetadata = ${JSON.stringify(browserContent.guideMetadata)}`
             tags: ['RuneScape', 'RuneScape 3', 'Guides'],
           },
           ...documents.map(documentPageMetadata),
+          ...[
+            { path: '/start', title: 'Getting Started', description: 'New to RuneScape, returning to Gielinor, or coming from OSRS? Find your starting point.' },
+            { path: '/start/new-player', title: 'New Player Guides', description: 'Your first steps in RuneScape. Get set up, learn the basics, and find your first goals.' },
+            { path: '/start/returning-player', title: 'Returning Player Guides', description: 'Back in Gielinor? Refresh your setup, get comfortable with combat, and pick up your progression.' },
+            { path: '/start/osrs-player', title: 'OSRS Player Guides', description: 'Know Old School? Get familiar with RuneScape’s interface, abilities, and skill training.' },
+          ].map((page) => ({
+            ...page,
+            title: `${page.title} | The RS Guide`,
+            ogImage: openGraphImagePath('/'),
+            ogImageAlt: 'The RS Guide homepage preview',
+            type: 'website',
+          })),
           {
             path: '/extras/player',
             title: 'Player Progression | The RS Guide',

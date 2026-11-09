@@ -1,6 +1,7 @@
 {
   "pages": [
     "index",
+    "necromancy",
     "magic",
     "melee",
     "ranged"

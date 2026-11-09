@@ -28,6 +28,12 @@ describe('homepage mode', () => {
 
     expect(links.some((link) => link.to === '/leagues')).toBe(false)
     expect(links.filter((link) => link.highlighted).map((link) => link.to)).toEqual(['/guides'])
+    expect(links.map(({ label, to }) => ({ label, to }))).toEqual([
+      { label: 'Getting Started', to: '/start' },
+      { label: 'Skill Training', to: '/guides/skill-training' },
+      { label: 'Gear Progression', to: '/guides/gear-recommendations' },
+      { label: 'Guides', to: '/guides' },
+    ])
   })
 
   it('inserts and highlights Leagues in leagues mode', () => {

@@ -33,9 +33,16 @@ const numberValue = (value: unknown, fallback = 0) => {
   return Number.isFinite(number) ? number : fallback
 }
 
+// The Platform API still uses these older names for two skills.
+const platformSkillAliases: Record<string, string> = {
+  hitpoints: 'constitution',
+  runecraft: 'runecrafting',
+}
+
 const mapSkill = (value: unknown): PlayerSkill | null => {
   if (!isObject(value) || typeof value.name !== 'string') return null
-  const skillName = value.name.toLowerCase()
+  const platformName = value.name.toLowerCase()
+  const skillName = platformSkillAliases[platformName] ?? platformName
   const name = RUNESCAPE_SKILLS.find((name) => name.toLowerCase() === skillName)
   // Hiscores uses -1 for unavailable levels. Leave these requirements unknown.
   if (!name || typeof value.level !== 'number' || !Number.isFinite(value.level) || value.level < 0) return null

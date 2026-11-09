@@ -22,10 +22,10 @@ export function SiteHeader({
 
   return (
     <header className="sticky top-0 z-20 h-16 border-b bg-background/88 backdrop-blur-[18px]">
-      <div className="mx-auto flex h-full max-w-[96rem] items-center gap-8 px-5 max-[521px]:px-[.8rem]">
+      <div className="mx-auto flex h-full max-w-[96rem] items-center gap-8 px-5 max-[900px]:gap-4 max-[521px]:px-[.8rem]">
         <SiteLogo />
         <nav
-          className="flex h-full items-stretch gap-6 max-[768px]:hidden"
+          className="flex h-full items-stretch gap-6 max-[900px]:gap-4 max-[768px]:hidden"
           aria-label="Primary navigation"
         >
           {primaryNavigation.map((link) => (
@@ -34,8 +34,8 @@ export function SiteHeader({
               to={link.path}
               className={({ isActive }) =>
                 cn(
-                  "relative grid place-items-center text-sm font-bold hover:text-foreground",
-                  isActive
+                  "relative grid place-items-center text-sm font-bold whitespace-nowrap hover:text-foreground",
+                  isActive || pathname.startsWith(`${link.sectionPath}/`) || pathname === link.sectionPath
                     ? "text-foreground after:absolute after:inset-x-0 after:-bottom-px after:h-0.5 after:bg-primary"
                     : "text-muted-foreground"
                 )

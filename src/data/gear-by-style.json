@@ -26,8 +26,7 @@
         {
           "name": "Banite Armour +4",
           "tier": 79,
-          "ironman": true,
-          "note": "Level 80 req"
+          "ironman": true
         },
         { "name": "Torva Armour", "tier": 80, "ironman": false },
         { "name": "Masterwork Melee Armour", "tier": 90, "ironman": true },
@@ -49,23 +48,20 @@
         {
           "name": "Necronium Battleaxe +4",
           "tier": 74,
-          "ironman": true,
-          "note": "Level 70 req"
+          "ironman": true
         },
         { "name": "Vanquish", "tier": 75, "ironman": true },
         { "name": "Sunspear", "tier": 78, "ironman": true },
         {
           "name": "Bane Longswords +4",
           "tier": 79,
-          "ironman": true,
-          "note": "Level 80 req"
+          "ironman": true
         },
         { "name": "Chaotic Longswords", "tier": 80, "ironman": true },
         {
           "name": "Dark Ice Shard and Sliver",
           "tier": 88,
-          "ironman": false,
-          "note": "Level 85 req"
+          "ironman": false
         },
         {
           "name": "Ruinous Rapier + Off-hand Ruinous Rapier",
@@ -95,8 +91,7 @@
         {
           "name": "Banite Armour +4",
           "tier": 79,
-          "ironman": true,
-          "note": "Level 80 req"
+          "ironman": true
         },
         { "name": "Torva Armour", "tier": 80, "ironman": false },
         { "name": "Masterwork Melee Armour", "tier": 90, "ironman": true },
@@ -347,7 +342,22 @@
         { "name": "Deathdealer Armour", "tier": 80, "ironman": false },
         { "name": "Deathwarden Armour", "tier": 90, "ironman": true },
         { "name": "Deathdealer Armour", "tier": 90, "ironman": false },
-        { "name": "First Necromancer Set", "tier": 95, "ironman": true }
+        { "name": "First Necromancer Set", "tier": 95, "ironman": true },
+        {
+          "name": "Visage of the First Necromancer",
+          "tier": 95,
+          "order": 1,
+          "ironman": true,
+          "note": "Crown + Misalionar's Death Mask"
+        },
+        { "name": "Cinderbane Gloves", "tier": 95, "order": 2, "ironman": true },
+        {
+          "name": "Deathtouch Bracelet",
+          "tier": 95,
+          "order": 2,
+          "ironman": true,
+          "note": "Optional"
+        }
       ]
     },
     "pvm": {
@@ -376,7 +386,22 @@
         { "name": "Deathdealer Armour", "tier": 80, "ironman": false },
         { "name": "Deathwarden Armour", "tier": 90, "ironman": true },
         { "name": "Deathdealer Armour", "tier": 90, "ironman": false },
-        { "name": "First Necromancer Set", "tier": 95, "ironman": true }
+        { "name": "First Necromancer Set", "tier": 95, "ironman": true },
+        {
+          "name": "Visage of the First Necromancer",
+          "tier": 95,
+          "order": 1,
+          "ironman": true,
+          "note": "Crown + Misalionar's Death Mask"
+        },
+        { "name": "Cinderbane Gloves", "tier": 95, "order": 2, "ironman": true },
+        {
+          "name": "Deathtouch Bracelet",
+          "tier": 95,
+          "order": 2,
+          "ironman": true,
+          "note": "Optional"
+        }
       ]
     }
   }

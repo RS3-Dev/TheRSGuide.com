@@ -72,6 +72,7 @@ export type PrimaryNavigationLink = {
   id: string
   label: string
   path: string
+  sectionPath: string
 }
 
 export const guideSections = guideCatalog.sections
@@ -80,7 +81,8 @@ export const primaryNavigation: readonly PrimaryNavigationLink[] = guideCatalog.
   .map((section) => ({
     id: section.id,
     label: section.label,
-    path: section.path,
+    path: section.id === 'getting-started' ? '/start' : section.path,
+    sectionPath: section.path,
   }))
 
 export const guideSearch = createGuideSearchIndex(guideCatalog)

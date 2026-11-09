@@ -18,20 +18,16 @@ export const isGuideSectionEnabled = (section: string, value?: string) =>
 export const homepagePrimaryLinks = (
   value?: string,
 ): readonly HomepagePrimaryLink[] => {
+  const links: HomepagePrimaryLink[] = [
+    { label: 'Getting Started', to: '/start' },
+    { label: 'Skill Training', to: '/guides/skill-training' },
+    { label: 'Gear Progression', to: '/guides/gear-recommendations' },
+    { label: 'Guides', to: '/guides', highlighted: !isLeaguesMode(value) },
+  ]
+
   if (isLeaguesMode(value)) {
-    return [
-      { label: 'Guides', to: '/guides' },
-      { label: 'Getting Started', to: '/getting-started' },
-      { label: 'Leagues', to: '/leagues', highlighted: true },
-      { label: 'Setup Guide', to: '/setup' },
-      { label: 'Extras', to: '/extras' },
-    ]
+    links.push({ label: 'Leagues', to: '/leagues', highlighted: true })
   }
 
-  return [
-    { label: 'Guides', to: '/guides', highlighted: true },
-    { label: 'Getting Started', to: '/getting-started' },
-    { label: 'Setup Guide', to: '/setup' },
-    { label: 'Extras', to: '/extras' },
-  ]
+  return links
 }

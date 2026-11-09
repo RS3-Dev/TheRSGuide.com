@@ -80,8 +80,13 @@ type GuideCatalogOptions = {
   sections: readonly GuideSectionDefinition[]
 }
 
+// Keeps the established URL when a guide group's name changes.
+const slugLabels: Record<string, string> = {
+  'gear-recommendations': 'Gear Progression',
+}
+
 const titleFromSlug = (value: string) =>
-  value.replace(/-/g, ' ').replace(/\b(?:m{0,3}(cm|cd|d?c{0,3})(xc|xl|l?x{0,3})(ix|iv|v?i{0,3}))\b/gi, (match) => match.toUpperCase()).replace(/\b\w/g, (letter) => letter.toUpperCase())
+  slugLabels[value] ?? value.replace(/-/g, ' ').replace(/\b(?:m{0,3}(cm|cd|d?c{0,3})(xc|xl|l?x{0,3})(ix|iv|v?i{0,3}))\b/gi, (match) => match.toUpperCase()).replace(/\b\w/g, (letter) => letter.toUpperCase())
 
 const normalizeRoute = (path: string) => {
   if (path === '/') return path

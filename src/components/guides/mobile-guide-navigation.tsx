@@ -151,6 +151,13 @@ function MobileGuideNavigation({ close }: { close?: () => void }) {
       className="flex flex-col gap-[1.8rem] py-4 pr-2 pb-8"
       aria-label="Guide navigation"
     >
+      <NavLink
+        to="/start"
+        onClick={close}
+        className="px-3 font-display text-[.78rem] font-bold tracking-[.08em] text-sidebar-primary uppercase hover:text-sidebar-foreground"
+      >
+        Start here
+      </NavLink>
       {navigation.sections.map((section) =>
         section.flattened ? (
           <div

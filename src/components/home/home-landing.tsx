@@ -1,5 +1,4 @@
 import {
-  Fragment,
   lazy,
   type ReactNode,
   Suspense,
@@ -27,8 +26,6 @@ type LandingLink = {
 type HomeLandingProps = {
   title: ReactNode
   primaryLinks: readonly LandingLink[]
-  secondaryLabel?: string
-  secondaryLinks?: readonly LandingLink[]
   spotlight?: ReactNode
 }
 
@@ -49,8 +46,6 @@ function HomeBackground({ children }: { children: ReactNode }) {
 function HomeLanding({
   title,
   primaryLinks,
-  secondaryLabel,
-  secondaryLinks = [],
   spotlight,
 }: HomeLandingProps) {
   useEffect(() => {
@@ -99,19 +94,6 @@ function HomeLanding({
               </Button>
             ))}
           </nav>
-          {secondaryLinks.length > 0 && (
-            <nav
-              className="mt-[1.65rem] flex items-center justify-center gap-[1.15rem] text-[.96rem] font-bold text-primary max-[521px]:flex-wrap max-[521px]:gap-x-4 max-[521px]:gap-y-[.65rem] [&_a:hover]:text-foreground [&>span]:text-border"
-              aria-label={secondaryLabel}
-            >
-              {secondaryLinks.map((link, index) => (
-                <Fragment key={link.to}>
-                  {index > 0 && <span aria-hidden="true">/</span>}
-                  <Link to={link.to}>{link.label}</Link>
-                </Fragment>
-              ))}
-            </nav>
-          )}
         </section>
         <SiteSettingsButton
           className="fixed top-6 right-6 z-20 bg-[rgb(10_9_8_/_28%)] text-[color-mix(in_srgb,var(--foreground)_76%,transparent)] backdrop-blur-[8px] hover:bg-[rgb(10_9_8_/_72%)] hover:text-foreground focus-visible:bg-[rgb(10_9_8_/_72%)] focus-visible:text-foreground max-[521px]:top-4 max-[521px]:right-4"

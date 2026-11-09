@@ -56,6 +56,15 @@ describe('Platform API player profiles', () => {
     expect(playerQuestCompleted(profile, 'Extinction')).toBeNull()
   })
 
+  it('maps the older Platform API names for Constitution and Runecrafting', () => {
+    const profile = normalizePlatformProfile({ skills: [
+      { name: 'Hitpoints', level: 85 },
+      { name: 'Runecraft', level: 60 },
+    ] }, 'Player')
+    expect(playerSkillLevel(profile, 'constitution')).toBe(85)
+    expect(playerSkillLevel(profile, 'Runecrafting')).toBe(60)
+  })
+
   it.each([null, {}, { skills: [] }, { skills, quests: [] }])('rejects malformed data: %j', (payload) => {
     expect(() => normalizePlatformProfile(payload, 'Player')).toThrowError(expect.objectContaining({ code: 'invalid-response' }))
   })

@@ -1,0 +1,15 @@
+.player-path, .player-path-photo { border-color: color-mix(in srgb, var(--primary) 75%, transparent); }
+.player-path { transition: border-color 180ms ease, box-shadow 180ms ease; }
+.player-path:hover, .player-path:focus-visible { border-color: var(--primary); box-shadow: 0 0 0 1px var(--primary); }
+.player-path-image { transition: filter 200ms ease, transform 350ms ease; }
+.dark .player-path-image, .dark .player-path-photo { filter: brightness(.8) saturate(.92); }
+.player-path:hover .player-path-image, .player-path:focus-visible .player-path-image { filter: none; transform: scale(1.03); }
+.player-path-label { transition: color 180ms ease; }
+.player-path:hover .player-path-label, .player-path:focus-visible .player-path-label { color: var(--primary); }
+.player-guide-arrow { transition: color 180ms ease, transform 180ms ease; }
+.player-guide:hover .player-guide-arrow, .player-guide:focus-visible .player-guide-arrow { color: var(--primary); transform: translateX(3px); }
+@media (prefers-reduced-motion: reduce) {
+  .player-path, .player-path-image, .player-path-label, .player-guide-arrow { transition: none; }
+  .player-path:hover .player-path-image, .player-path:focus-visible .player-path-image,
+  .player-guide:hover .player-guide-arrow, .player-guide:focus-visible .player-guide-arrow { transform: none; }
+}
